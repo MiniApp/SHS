@@ -1,0 +1,292 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SHS</groupId>
+	<artifactId>SHS</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name/>
+	<description/>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.1.0.BUILD-SNAPSHOT</spring.version>  
+		<hibernate.version>4.3.5.Final</hibernate.version>  
+		<mybatis.version>3.2.7</mybatis.version>
+		<fastjson.version>1.1.40</fastjson.version>
+		<slf4j.version>1.7.7</slf4j.version>  
+		<log4j.version>1.2.17</log4j.version>  
+		<cglib.version>3.0</cglib.version>  
+		<jackson.version>1.9.13</jackson.version>
+		<shiro.version>1.2.3</shiro.version> 
+		<freemarker.version>2.3.20</freemarker.version>
+	</properties>
+	<dependencies>
+		<!-- Spring jars -->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-core</artifactId>  
+            <version>${spring.version}</version>  
+            <exclusions>  
+                <exclusion>  
+                    <groupId>commons-logging</groupId>  
+                    <artifactId>commons-logging</artifactId>  
+                </exclusion>  
+            </exclusions>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-beans</artifactId>  
+            <version>${spring.version}</version>  
+            <exclusions>  
+                <exclusion>  
+                    <groupId>commons-logging</groupId>  
+                    <artifactId>commons-logging</artifactId>  
+                </exclusion>  
+            </exclusions>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context</artifactId>  
+            <version>${spring.version}</version>  
+            <exclusions>  
+                <exclusion>  
+                    <groupId>commons-logging</groupId>  
+                    <artifactId>commons-logging</artifactId>  
+                </exclusion>  
+            </exclusions>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-web</artifactId>  
+            <version>${spring.version}</version>  
+            <exclusions>  
+                <exclusion>  
+                    <groupId>commons-logging</groupId>  
+                    <artifactId>commons-logging</artifactId>  
+                </exclusion>  
+            </exclusions>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-aop</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>
+	        <groupId>org.springframework.data</groupId>
+	        <artifactId>spring-data-jpa</artifactId>
+	        <version>1.6.0.BUILD-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-core</artifactId>
+	        <version>4.0.0.CI-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-web</artifactId>
+	        <version>4.0.0.CI-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework.security</groupId>
+	        <artifactId>spring-security-config</artifactId>
+	        <version>4.0.0.CI-SNAPSHOT</version>
+	    </dependency>
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context-support</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-orm</artifactId>  
+            <version>${spring.version}</version>  
+            <type>jar</type>  
+            <scope>compile</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-jdbc</artifactId>  
+            <version>${spring.version}</version>  
+            <type>jar</type>  
+            <scope>runtime</scope>  
+        </dependency>
+        <dependency>  
+            <groupId>commons-io</groupId>  
+            <artifactId>commons-io</artifactId>  
+            <version>2.1</version>  
+        </dependency>  
+        <!-- end of Spring jars -->  
+  
+        <!-- Shiro security -->  
+        <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-core</artifactId>  
+            <version>${shiro.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-web</artifactId>  
+            <version>${shiro.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-cas</artifactId>  
+            <version>${shiro.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.shiro</groupId>  
+            <artifactId>shiro-spring</artifactId>  
+            <version>${shiro.version}</version>  
+        </dependency>  
+        <!-- end of Shiro security -->  
+  
+        <!-- Hibernate4 -->  
+        <dependency>  
+            <groupId>org.hibernate</groupId>  
+            <artifactId>hibernate-core</artifactId>  
+            <version>${hibernate.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.hibernate</groupId>  
+            <artifactId>hibernate-entitymanager</artifactId>  
+            <version>${hibernate.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>commons-dbcp</groupId>  
+            <artifactId>commons-dbcp</artifactId>  
+            <version>1.4</version>  
+            <!--<scope>provided</scope> -->  
+        </dependency>  
+        <!-- end of Hibernate4 -->  
+  
+        <!-- logging -->  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-api</artifactId>  
+            <version>${slf4j.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>jcl-over-slf4j</artifactId>  
+            <version>${slf4j.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-log4j12</artifactId>  
+            <version>${slf4j.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+            <version>${log4j.version}</version>  
+            <!--<scope>provided</scope> -->  
+        </dependency>  
+        <!-- end of logging -->  
+        <!-- provided -->
+        <dependency>  
+            <groupId>cglib</groupId>  
+            <artifactId>cglib</artifactId>  
+            <version>${cglib.version}</version>  
+        </dependency>
+        <!-- end of provided -->  
+  
+        <!-- Database -->  
+        <dependency>  
+            <groupId>com.mchange</groupId>  
+            <artifactId>c3p0</artifactId>  
+            <version>0.9.5-pre3</version>
+        </dependency>  
+        <dependency>  
+            <groupId>mysql</groupId>  
+            <artifactId>mysql-connector-java</artifactId>  
+            <version>5.1.21</version>
+        </dependency>  
+        <!-- end of Database -->  
+  		<!-- fastjosn -->
+  		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>${fastjson.version}</version>
+		</dependency>
+        <!-- fileUpload -->  
+        <dependency>  
+            <groupId>commons-fileupload</groupId>  
+            <artifactId>commons-fileupload</artifactId>  
+            <version>1.3.1</version>  
+        </dependency>  
+        <!--io -->  
+        <dependency>  
+            <groupId>commons-io</groupId>  
+            <artifactId>commons-io</artifactId>  
+            <version>2.4</version>  
+        </dependency>
+        <!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.freemarker</groupId>
+		    <artifactId>freemarker</artifactId>
+		    <version>${freemarker.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<repositories>
+		<repository>
+	        <id>spring-snapshots</id>
+	        <name>Spring Snapshots</name>
+	        <url>http://repo.spring.io/snapshot/</url>
+	        <snapshots>
+	            <enabled>true</enabled>
+	        </snapshots>
+	    </repository>
+	    <repository>
+	        <id>maven-snapshots</id>
+	        <name>Maven Snapshots</name>
+	        <url>http://repo1.maven.org/maven2/</url>
+	        <!-- <url>http://mvnrepository.com</url> -->
+	        <snapshots>
+	            <enabled>true</enabled>
+	        </snapshots>
+	    </repository> 
+	</repositories>
+	<build>
+	  <sourceDirectory>${basedir}/src</sourceDirectory>
+	  <outputDirectory>${basedir}/WebRoot/WEB-INF/classes</outputDirectory>
+	  <resources>
+	    <resource>
+	      <directory>${basedir}/src</directory>
+	      <excludes>
+	        <exclude>**/*.java</exclude>
+	      </excludes>
+	    </resource>
+	  </resources>
+	  <plugins>
+	    <plugin>
+	      <artifactId>maven-war-plugin</artifactId>
+	      <configuration>
+	        <webappDirectory>${basedir}/WebRoot</webappDirectory>
+	        <warSourceDirectory>${basedir}/WebRoot</warSourceDirectory>
+	      </configuration>
+	    </plugin>
+	    <plugin>
+	      <artifactId>maven-compiler-plugin</artifactId>
+	      <configuration>
+	        <source>1.7</source>
+	        <target>1.7</target>
+	      </configuration>
+	    </plugin>
+	  </plugins>
+	</build>
+</project>

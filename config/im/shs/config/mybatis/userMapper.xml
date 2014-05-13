@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+    <select id="getListTest" resultType="im.shs.bean.UserBean">
+    	select * from User as u
+    </select>
+    <select id="getUserList" resultType="im.shs.bean.UserBean">
+    	select 
+    			u.id	as 	id,
+    			u.name	as	name,
+    			u.age	as	age
+    	from
+    			user	as	u
+    </select>
+    <select id="getUserList_COUNT" resultType="Integer">
+    	select 
+    			COUNT(u.id)
+    	from
+    			user	as	u
+    </select>
+    <insert id="add">
+    	insert into user(name,age) values(#{name},#{age})
+    </insert>
+    
+    <insert id="insertUser" parameterType="im.shs.model.User">
+        insert into user(name,age) values(#{name},#{age})
+    </insert>
+
+</mapper>

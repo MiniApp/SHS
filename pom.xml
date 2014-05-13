@@ -14,10 +14,17 @@
 
 	<!-- 属性 -->
 	<properties>
-		<spring.version>3.2.4.RELEASE</spring.version>
-		<hibernate.version>3.6.10.Final</hibernate.version>
-		<shiro.version>1.2.2</shiro.version>
+		<spring.version>4.1.0.BUILD-SNAPSHOT</spring.version>  
+		<!-- <spring.version>3.2.4.RELEASE</spring.version> -->
+		<hibernate.version>4.3.5.Final</hibernate.version>  
+		<mybatis.version>3.2.7</mybatis.version>
+		<fastjson.version>1.1.40</fastjson.version>
+		<slf4j.version>1.7.7</slf4j.version>  
+		<log4j.version>1.2.17</log4j.version>  
+		<cglib.version>3.0</cglib.version>  
 		<jackson.version>2.2.3</jackson.version>
+		<shiro.version>1.2.3</shiro.version> 
+		<freemarker.version>2.3.20</freemarker.version>
 		<cxf.version>2.7.7</cxf.version>
 	</properties>
 
@@ -263,7 +270,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${log4j.version}</version>
 		</dependency>
 
 		<!-- ImageMagick -->
@@ -389,5 +396,24 @@
 		</dependency>
 
 	</dependencies>
-
+	
+	<repositories>
+		<repository>
+	        <id>spring-snapshots</id>
+	        <name>Spring Snapshots</name>
+	        <url>http://repo.spring.io/snapshot/</url>
+	        <snapshots>
+	            <enabled>true</enabled>
+	        </snapshots>
+	    </repository>
+	    <repository>
+	        <id>maven-snapshots</id>
+	        <name>Maven Snapshots</name>
+	        <url>http://repo1.maven.org/maven2/</url>
+	        <!-- <url>http://mvnrepository.com</url> -->
+	        <snapshots>
+	            <enabled>true</enabled>
+	        </snapshots>
+	    </repository> 
+	</repositories>
 </project>

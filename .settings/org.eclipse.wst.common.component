@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="SHS2">
         <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebRoot/WEB-INF/web.xml"/>
@@ -5,5 +6,20 @@
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <property name="context-root" value="SHS"/>
         <property name="java-output-path" value="/SHS2/target/classes"/>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SHS">
+        <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebRoot/WEB-INF/web.xml"/>
+        <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebRoot/WEB-INF/web.xml"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/base"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/service"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/template"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <property name="java-output-path" value="/SHS/src/main/webapp/base"/>
+        <property name="context-root" value="/SHS"/>
+>>>>>>> 7ad4702e6dc0d142f95cff8434f3a1239e3948e2
     </wb-module>
 </project-modules>

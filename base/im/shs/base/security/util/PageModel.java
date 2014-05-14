@@ -63,12 +63,12 @@ public class PageModel<T> {
 		this.pageNo = pageNo;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public List getDatas() {
 		return datas;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void setDatas(List datas) {
 		this.datas = datas;
 	}

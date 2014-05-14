@@ -2,6 +2,7 @@ package im.shs.base.security.util;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
@@ -77,14 +78,16 @@ public class QueryParse<T> {
         return criterions;
     }
 
-    public QueryParse add(ConditionType condition) {
+    @SuppressWarnings("rawtypes")
+	public QueryParse add(ConditionType condition) {
         this.conditions.add(condition);
         return this;
     }
 
     private OrderObj order;
 
-    public QueryParse addOrder(OrderObj order) {
+    @SuppressWarnings("rawtypes")
+	public QueryParse addOrder(OrderObj order) {
         this.order = order;
         return this;
     }
@@ -107,7 +110,7 @@ public class QueryParse<T> {
         this.pageModel = pageModel;
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public QueryParse addFetch(int pageNo, int pageSize) {
         this.pageModel = new PageModel(pageNo, pageSize);
         return this;

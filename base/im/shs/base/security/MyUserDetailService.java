@@ -9,7 +9,6 @@ package im.shs.base.security;
 
 import im.shs.base.security.dao.IUsersDao;
 import im.shs.base.security.po.Resources;
-import im.shs.base.security.po.Roles;
 import im.shs.base.security.po.Users;
 
 import java.util.ArrayList;

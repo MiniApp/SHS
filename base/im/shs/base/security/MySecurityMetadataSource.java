@@ -65,7 +65,8 @@ public class MySecurityMetadataSource {
     }
 
     //加载所有资源与权限的关系  
-    private void loadResourceDefine() {
+    @SuppressWarnings("unused")
+	private void loadResourceDefine() {
         if (resourceMap == null) {
             resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
             List<Resources> resources = this.resourcesDao.findAll();

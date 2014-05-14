@@ -22,14 +22,16 @@ public class UsersDao extends BaseDao implements IUsersDao
 {  
     private static final long serialVersionUID = 1063153442423626296L;  
  
-    @Override 
+    @SuppressWarnings("rawtypes")
+	@Override 
     @Transactional("transactionManager")
     public List<Users> findAll() {  
         List list = getSessionFactory().getCurrentSession().createQuery("from Users").list();  
         return list;  
     }  
       
-    @Override 
+    @SuppressWarnings("rawtypes")
+	@Override 
     public Users findByName(String name) {  
         List list = null;  
         list = getSessionFactory().getCurrentSession().createQuery("from Users where account=?").setParameter(0, name).list();  

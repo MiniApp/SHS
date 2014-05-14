@@ -22,14 +22,16 @@ public class ResourcesDao extends BaseDao implements IResourcesDao
 {     
     private static final long serialVersionUID = 6148885672512644854L;  
  
-    @Override 
+    @SuppressWarnings("rawtypes")
+	@Override 
     @Transactional("transactionManager")
     public List<Resources> findAll() {  
         List list = getSessionFactory().getCurrentSession().createQuery("from Resources").list(); 
         return list;  
     }  
       
-    @Override 
+    @SuppressWarnings("rawtypes")
+	@Override 
     public Resources findByUrl(String url) {  
         List list = null;  
         list = getSessionFactory().getCurrentSession().createQuery("from Resources where url=?").setParameter(0, url).list();  

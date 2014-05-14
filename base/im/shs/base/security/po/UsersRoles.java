@@ -3,13 +3,16 @@ package im.shs.base.security.po;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  * UsersRoles entity. @author MyEclipse Persistence Tools
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "users_roles", catalog = "webims")
 public class UsersRoles implements java.io.Serializable {

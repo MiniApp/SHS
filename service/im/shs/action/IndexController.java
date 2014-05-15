@@ -14,6 +14,7 @@ public class IndexController {
     public String showMessage(  
             HttpServletRequest request, HttpServletResponse response) {  
         // TODO 处理请求  
+    	System.out.println("hello world");
         return "/index"; // 设置返回页面，这里对应 /WEB-INF/view 目录下的 message.ftl 文件  
     }
 }  

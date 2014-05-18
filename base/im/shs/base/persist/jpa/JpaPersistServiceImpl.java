@@ -312,7 +312,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * 
 	 * @return 查询结果总数
 	 */
-	@SuppressWarnings({ "serial" })
+	@SuppressWarnings({ "serial", "null" })
 	@Override
 	public int countByField(final Class<?> entityClass, final String field,
 			final Object value) {
@@ -554,6 +554,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 *            查询条件字段-值MAP
 	 * @return 统计结果
 	 */
+	@SuppressWarnings("null")
 	@Override
 	public int countByFields(final Class<?> entityClass,
 			final Map<String, ?> params) {

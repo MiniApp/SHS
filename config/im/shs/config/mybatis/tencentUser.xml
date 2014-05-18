@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tencent">
-    <select id="getUserList" resultType="im.shs.bean.TUserLoginBean">
+    <!-- <select id="getUserList" resultType="im.shs.bean.TUserLoginBean">
     	select 
 				u.access_token		as		accessToken,
 				u.openid			as		openid
  		from 
  				tb_user_login_info	as		u
-    </select>
+    </select> -->
     
 </mapper>

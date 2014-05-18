@@ -41,6 +41,28 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-shade-plugin</artifactId>
+		        <executions>
+		            <execution>
+		                <phase>package</phase>
+		                <goals>
+		                    <goal>shade</goal>
+		                </goals>
+		                <configuration>
+		                    <transformers>
+		                        <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+		                            <resource>META-INF/spring.handlers</resource>
+		                        </transformer>
+		                        <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+		                            <resource>META-INF/spring.schemas</resource>
+		                        </transformer>
+		                    </transformers>
+		                </configuration>
+		            </execution>
+		        </executions>
+		    </plugin>
 			<!-- 编译插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -93,6 +115,13 @@
 		    <version>3.1.0</version>
 		</dependency>
 		
+		<dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        
 		<!-- spring 4 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -162,7 +191,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${org.springframework.version}</version>
+        </dependency><dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+            <scope>test</scope>
         </dependency>
+        
         <!--<dependency>-->
         <!--<groupId>org.springframework</groupId>-->
         <!--<artifactId>spring-jms</artifactId>-->
@@ -234,6 +269,11 @@
             <version>1.0.0.GA</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>persistence-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
 
         <!--enable hibernate to use its proxy model-->
         <dependency>
@@ -285,6 +325,11 @@
 			<artifactId>shiro-ehcache</artifactId>
 			<version>${shiro.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
 
 		<!-- Freemarker -->
 		<dependency>
@@ -292,6 +337,12 @@
 			<artifactId>freemarker</artifactId>
 			<version>2.3.20</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>0.2.23</version>
+        </dependency>
 
 		<!-- c3p0 -->
 		<dependency>

@@ -8,6 +8,8 @@ import im.shs.shiro.service.PermissionService;
 import im.shs.shiro.service.RoleService;
 import im.shs.shiro.service.UserService;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
 import junit.framework.Assert;
@@ -26,7 +28,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 
 @SuppressWarnings("deprecation")
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:im/shs/config/spring/applicationContext-beans.xml", "classpath:im/shs/config/spring/test-shiro.xml"})
+@ContextConfiguration(locations = {"classpath:im/shs/config/spring/test-beans.xml", "classpath:im/shs/config/spring/test-shiro.xml"})
 @TransactionConfiguration(defaultRollback = false)
 public class ShiroTest {
 
@@ -36,6 +38,8 @@ public class ShiroTest {
     protected RoleService roleService;
     @Autowired
     protected UserService userService;
+    @PersistenceContext
+	private EntityManager em;
 
     @Autowired
     private UserRealm userRealm;
@@ -62,11 +66,11 @@ public class ShiroTest {
     
     @Before
     public void setUp() {
-        jdbcTemplate.update("delete from sys_users");
-        jdbcTemplate.update("delete from sys_roles");
-        jdbcTemplate.update("delete from sys_permissions");
-        jdbcTemplate.update("delete from sys_users_roles");
-        jdbcTemplate.update("delete from sys_roles_permissions");
+    	em.remove("delete from sys_users");
+    	em.remove("delete from sys_roles");
+    	em.remove("delete from sys_permissions");
+    	em.remove("delete from sys_users_roles");
+    	em.remove("delete from sys_roles_permissions");
 
 
         //1、新增权限

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+           http://www.springframework.org/schema/aop  
+           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+           http://www.springframework.org/schema/tx   
+           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+           http://www.springframework.org/schema/data/jpa
+           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+           http://www.springframework.org/schema/task  
+		   http://www.springframework.org/schema/task/spring-task-4.0.xsd  ">
+	<!-- 用注解方式注入bean -->
+	<context:annotation-config />
+	<context:component-scan base-package="im.shs.*" />
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>  
+	<bean id="mappings" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:im/shs/config/shs.properties"></property>
+	</bean> 
+	
+     <!-- 数据库连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    
+    <!-- 配置mybitasSqlSessionFactoryBean -->
+	<bean name="paginationInterceptor" class="im.shs.base.interceptor.PaginationInterceptor"></bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="im.shs.bean" />
+		<property name="plugins">
+			<list>
+				<ref bean="paginationInterceptor" />
+			</list>
+		</property>
+		<property name="configLocation"
+			value="classpath:im/shs/config/mybatis/sql-map-config.xml"></property>
+	</bean>
+
+	<!-- 配置SqlSessionTemplate -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+    
+    <!-- 定义实体管理器工厂 -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="jpaWeb" />
+		<property name="dataSource" ref="dataSource" />  
+    	<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />  
+    	<property name="jpaProperties">  
+	        <props>  
+	            <prop key="hibernate.format_sql">true</prop>  
+	            <prop key="hibernate.connection.driver_class">${jdbc.driver}</prop>  
+	            <prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="transaction.auto_close_session">true</prop>
+				<prop key="connection.autocommit">true</prop> 
+				<prop key="hibernate.current_session_context_class">jta</prop>
+	        </props>  
+    	</property> 
+		<!-- <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"></property> -->
+	</bean>
+	<bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="databasePlatform">
+			<value>${jdbc.databasePlatform}</value>
+		</property>
+		<property name="showSql">
+			<value>true</value>
+		</property>
+		<property name="generateDdl">
+			<value>true</value>
+		</property>
+	</bean> 
+
+</beans>

@@ -1,6 +1,6 @@
 package im.shs.shiro.service;
 
-import im.shs.shiro.dao.UserDao;
+import im.shs.base.AbstractService;
 import im.shs.shiro.entity.User;
 
 import java.util.Set;
@@ -10,13 +10,7 @@ import java.util.Set;
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
-public class UserServiceImpl implements UserService {
-
-    private UserDao userDao;
-
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
+public class UserServiceImpl extends AbstractService implements UserService {
 
     private PasswordHelper passwordHelper;
 
@@ -31,7 +25,9 @@ public class UserServiceImpl implements UserService {
     public User createUser(User user) {
         //加密密码
         passwordHelper.encryptPassword(user);
-        return userDao.createUser(user);
+        this.getPersist().persist(user);
+        user = this.getPersist().find(User.class, user.getId());
+        return user;
     }
 
     /**
@@ -40,10 +36,10 @@ public class UserServiceImpl implements UserService {
      * @param newPassword
      */
     public void changePassword(Long userId, String newPassword) {
-        User user =userDao.findOne(userId);
+        User user = this.getPersist().find(User.class, userId);
         user.setPassword(newPassword);
         passwordHelper.encryptPassword(user);
-        userDao.updateUser(user);
+        this.getPersist().merge(user);
     }
 
     /**
@@ -52,7 +48,7 @@ public class UserServiceImpl implements UserService {
      * @param roleIds
      */
     public void correlationRoles(Long userId, Long... roleIds) {
-        userDao.correlationRoles(userId, roleIds);
+        //userDao.correlationRoles(userId, roleIds);
     }
 
 
@@ -62,7 +58,7 @@ public class UserServiceImpl implements UserService {
      * @param roleIds
      */
     public void uncorrelationRoles(Long userId, Long... roleIds) {
-        userDao.uncorrelationRoles(userId, roleIds);
+        //userDao.uncorrelationRoles(userId, roleIds);
     }
 
     /**
@@ -71,7 +67,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public User findByUsername(String username) {
-        return userDao.findByUsername(username);
+        return null;//userDao.findByUsername(username);
     }
 
     /**
@@ -80,7 +76,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public Set<String> findRoles(String username) {
-        return userDao.findRoles(username);
+        return null;//userDao.findRoles(username);
     }
 
     /**
@@ -89,7 +85,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public Set<String> findPermissions(String username) {
-        return userDao.findPermissions(username);
+        return null;//userDao.findPermissions(username);
     }
 
 }

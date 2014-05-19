@@ -1,6 +1,6 @@
 package im.shs.shiro.service;
 
-import im.shs.shiro.dao.PermissionDao;
+import im.shs.base.AbstractService;
 import im.shs.shiro.entity.Permission;
 
 /**
@@ -8,19 +8,16 @@ import im.shs.shiro.entity.Permission;
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
-public class PermissionServiceImpl implements PermissionService {
-
-    private PermissionDao permissionDao;
-
-    public void setPermissionDao(PermissionDao permissionDao) {
-        this.permissionDao = permissionDao;
-    }
+public class PermissionServiceImpl extends AbstractService implements PermissionService {
 
     public Permission createPermission(Permission permission) {
-        return permissionDao.createPermission(permission);
+    	this.getPersist().persist(permission);
+    	permission= this.getPersist().find(Permission.class, permission.getId());
+        return permission;
     }
 
     public void deletePermission(Long permissionId) {
-        permissionDao.deletePermission(permissionId);
+    	Permission po = this.getPersist().find(Permission.class, permissionId);
+    	this.getPersist().remove(po);
     }
 }

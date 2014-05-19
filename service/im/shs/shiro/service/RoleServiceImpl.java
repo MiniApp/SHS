@@ -1,6 +1,8 @@
 package im.shs.shiro.service;
 
+import im.shs.base.AbstractService;
 import im.shs.shiro.dao.RoleDao;
+import im.shs.shiro.entity.Permission;
 import im.shs.shiro.entity.Role;
 
 /**
@@ -8,7 +10,7 @@ import im.shs.shiro.entity.Role;
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
-public class RoleServiceImpl implements RoleService {
+public class RoleServiceImpl  extends AbstractService implements RoleService {
 
     private RoleDao roleDao;
 
@@ -21,11 +23,14 @@ public class RoleServiceImpl implements RoleService {
     }
 
     public Role createRole(Role role) {
-        return roleDao.createRole(role);
+    	this.getPersist().persist(role);
+    	role = this.getPersist().find(Role.class, role.getId());
+        return role;
     }
 
     public void deleteRole(Long roleId) {
-        roleDao.deleteRole(roleId);
+    	Role po = this.getPersist().find(Role.class, roleId);
+    	this.getPersist().remove(po);
     }
 
     /**
@@ -34,7 +39,9 @@ public class RoleServiceImpl implements RoleService {
      * @param permissionIds
      */
     public void correlationPermissions(Long roleId, Long... permissionIds) {
-        roleDao.correlationPermissions(roleId, permissionIds);
+    	for (Long id : permissionIds) {
+    		this.getPersist().persist(id);
+    	}
     }
 
     /**

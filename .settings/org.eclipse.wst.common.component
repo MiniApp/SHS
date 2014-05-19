@@ -5,8 +5,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/service"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/template"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
-        <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <property name="context-root" value="SHS"/>
         <property name="java-output-path" value="/SHS2/target/classes"/>
     </wb-module>

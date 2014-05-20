@@ -66,11 +66,11 @@ public class ShiroTest {
     
     @Before
     public void setUp() {
-    	em.remove("delete from sys_users");
+    	/*em.remove("delete from sys_users");
     	em.remove("delete from sys_roles");
     	em.remove("delete from sys_permissions");
     	em.remove("delete from sys_users_roles");
-    	em.remove("delete from sys_roles_permissions");
+    	em.remove("delete from sys_roles_permissions");*/
 
 
         //1、新增权限

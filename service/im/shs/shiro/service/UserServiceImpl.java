@@ -5,11 +5,14 @@ import im.shs.shiro.entity.User;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 /**
  * <p>User: Zhang Kaitao
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
+@Service("userService")
 public class UserServiceImpl extends AbstractService implements UserService {
 
     private PasswordHelper passwordHelper;

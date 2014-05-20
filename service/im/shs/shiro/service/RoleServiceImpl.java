@@ -3,6 +3,8 @@ package im.shs.shiro.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import im.shs.base.AbstractService;
 import im.shs.shiro.entity.Role;
 import im.shs.shiro.entity.RolePermssion;
@@ -12,6 +14,7 @@ import im.shs.shiro.entity.RolePermssion;
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
+@Service("roleService")
 public class RoleServiceImpl  extends AbstractService implements RoleService {
 
     public Role createRole(Role role) {

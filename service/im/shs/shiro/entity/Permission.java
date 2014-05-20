@@ -2,11 +2,21 @@ package im.shs.shiro.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * <p>User: Zhang Kaitao
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "sys_permissions")
 public class Permission implements Serializable {
     private Long id;
     private String permission; //权限标识 程序中判断使用,如"user:create"
@@ -22,6 +32,9 @@ public class Permission implements Serializable {
         this.available = available;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     public Long getId() {
         return id;
     }

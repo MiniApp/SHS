@@ -96,6 +96,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /index.jsp = anon
+                /index = anon
                 /unauthorized.jsp = anon
                 /login.jsp = authc
                 /logout = logout

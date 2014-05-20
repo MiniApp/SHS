@@ -79,19 +79,6 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- DAO -->
-    <bean id="permissionDao" class="im.shs.shiro.dao.PermissionDaoImpl" parent="baseDao"/>
-    <bean id="roleDao" class="im.shs.shiro.dao.RoleDaoImpl" parent="baseDao"/>
-    <bean id="userDao" class="im.shs.shiro.dao.UserDaoImpl" parent="baseDao"/>
-
-    <!-- Service -->
-    <bean id="permissionService" class="im.shs.shiro.service.PermissionServiceImpl">
-        <property name="permissionDao" ref="permissionDao"/>
-    </bean>
-
-    <bean id="roleService" class="im.shs.shiro.service.RoleServiceImpl">
-        <property name="roleDao" ref="roleDao"/>
-    </bean>
 
     <bean id="passwordHelper" class="im.shs.shiro.service.PasswordHelper">
         <property name="algorithmName" value="md5"/>
@@ -99,7 +86,6 @@
     </bean>
 
     <bean id="userService" class="im.shs.shiro.service.UserServiceImpl">
-        <property name="userDao" ref="userDao"/>
         <property name="passwordHelper" ref="passwordHelper"/>
     </bean>
 	

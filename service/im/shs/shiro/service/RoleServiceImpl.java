@@ -1,9 +1,11 @@
 package im.shs.shiro.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import im.shs.base.AbstractService;
-import im.shs.shiro.dao.RoleDao;
-import im.shs.shiro.entity.Permission;
 import im.shs.shiro.entity.Role;
+import im.shs.shiro.entity.RolePermssion;
 
 /**
  * <p>User: Zhang Kaitao
@@ -11,16 +13,6 @@ import im.shs.shiro.entity.Role;
  * <p>Version: 1.0
  */
 public class RoleServiceImpl  extends AbstractService implements RoleService {
-
-    private RoleDao roleDao;
-
-    public RoleDao getRoleDao() {
-        return roleDao;
-    }
-
-    public void setRoleDao(RoleDao roleDao) {
-        this.roleDao = roleDao;
-    }
 
     public Role createRole(Role role) {
     	this.getPersist().persist(role);
@@ -39,8 +31,11 @@ public class RoleServiceImpl  extends AbstractService implements RoleService {
      * @param permissionIds
      */
     public void correlationPermissions(Long roleId, Long... permissionIds) {
-    	for (Long id : permissionIds) {
-    		this.getPersist().persist(id);
+    	for (Long permissionId : permissionIds) {
+    		RolePermssion rp = new RolePermssion();
+    		rp.setRoleId(roleId);
+    		rp.setPermissionId(permissionId);
+    		this.getPersist().persist(rp);
     	}
     }
 
@@ -50,7 +45,13 @@ public class RoleServiceImpl  extends AbstractService implements RoleService {
      * @param permissionIds
      */
     public void uncorrelationPermissions(Long roleId, Long... permissionIds) {
-        roleDao.uncorrelationPermissions(roleId, permissionIds);
+    	for (Long permissionId : permissionIds) {
+    		Map<String, Object> map = new HashMap<String, Object>();
+    		map.put("role_id", roleId);
+    		map.put("permission_id", permissionId);
+    		RolePermssion rp = this.getPersist().findObjectByFields(RolePermssion.class, map);
+    		this.getPersist().remove(rp);
+    	}
     }
 
 }

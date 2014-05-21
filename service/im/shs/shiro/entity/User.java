@@ -2,16 +2,23 @@ package im.shs.shiro.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * <p>User: Zhang Kaitao
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
+@Entity
 public class User implements Serializable {
     private Long id;
     private String username;
     private String password;
     private String salt;
+    private String credentialsSalt;
 
     private Boolean locked = Boolean.FALSE;
 
@@ -23,6 +30,8 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -57,6 +66,10 @@ public class User implements Serializable {
 
     public String getCredentialsSalt() {
         return username + salt;
+    }
+    
+    public void setCredentialsSalt(String username) {
+        this.credentialsSalt =  username;
     }
 
     public Boolean getLocked() {

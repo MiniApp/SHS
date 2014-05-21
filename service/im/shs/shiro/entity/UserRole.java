@@ -2,17 +2,25 @@ package im.shs.shiro.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 用户角色关系
  * <p>User: Zhang Kaitao
  * <p>Date: 14-1-28
  * <p>Version: 1.0
  */
+@Entity
 public class UserRole implements Serializable {
 
     private Long userId;
     private Long roleId;
 
+    @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     public Long getUserId() {
         return userId;
     }

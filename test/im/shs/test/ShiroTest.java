@@ -1,8 +1,10 @@
 package im.shs.test;
 
+import im.shs.base.AbstractService;
 import im.shs.shiro.entity.Permission;
 import im.shs.shiro.entity.Role;
 import im.shs.shiro.entity.User;
+import im.shs.shiro.entity.UserRole;
 import im.shs.shiro.realm.UserRealm;
 import im.shs.shiro.service.PermissionService;
 import im.shs.shiro.service.RoleService;
@@ -30,7 +32,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:im/shs/config/spring/test-beans.xml", "classpath:im/shs/config/spring/test-shiro.xml"})
 @TransactionConfiguration(defaultRollback = false)
-public class ShiroTest {
+public class ShiroTest extends AbstractService {
 
     @Autowired
     protected PermissionService permissionService;
@@ -38,19 +40,11 @@ public class ShiroTest {
     protected RoleService roleService;
     @Autowired
     protected UserService userService;
-    @PersistenceContext
-	private EntityManager em;
 
     @Autowired
     private UserRealm userRealm;
 
     
-    protected JdbcTemplate jdbcTemplate;
-    @Autowired
-    private void setDataSource(DataSource ds) {
-        jdbcTemplate = new JdbcTemplate(ds);    
-    }
-
 
     protected String password = "123";
 
@@ -113,6 +107,10 @@ public class ShiroTest {
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(u1.getUsername(), password);
         subject.login(token);
+        
+        UserRole u = new UserRole();
+    	u.setRoleId(new Long(2));
+    	this.getPersist().persist(u);
 
         Assert.assertTrue(subject.isAuthenticated());
         subject.checkRole("admin");

@@ -21,7 +21,6 @@
 
     <!-- Realm实现 -->
     <bean id="userRealm" class="im.shs.shiro.realm.UserRealm">
-        <property name="userService" ref="userService"/>
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
         <property name="cachingEnabled" value="true"/>
         <property name="authenticationCachingEnabled" value="true"/>

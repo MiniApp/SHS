@@ -74,19 +74,10 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 
-    <!-- Base DAO -->
-    <bean id="baseDao" abstract="true">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
 
     <bean id="passwordHelper" class="im.shs.shiro.service.PasswordHelper">
         <property name="algorithmName" value="md5"/>
         <property name="hashIterations" value="2"/>
-    </bean>
-
-    <bean id="userService" class="im.shs.shiro.service.UserServiceImpl">
-        <property name="passwordHelper" ref="passwordHelper"/>
     </bean>
 	
 	<!-- 定义实体管理器工厂 -->
@@ -148,7 +139,7 @@
 	</tx:advice>
 	
 	<!-- 事物配置 -->
-	<!-- <bean id="transactionManagerHi"
+	<bean id="transactionManagerHi"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -166,9 +157,9 @@
 		<aop:pointcut expression="execution(public * im.shs.service..*.*(..))"
 			id="myPointcut" />
 		<aop:advisor advice-ref="txAdviceHi" pointcut-ref="myPointcut" />
-	</aop:config> -->
+	</aop:config>
 
 	<!-- 配置Spring Data JPA扫描目录 -->
-	<jpa:repositories base-package="*" />
+	<jpa:repositories base-package="im.shs.*" />
 	
 </beans>

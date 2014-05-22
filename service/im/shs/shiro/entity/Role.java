@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * <p>User: Zhang Kaitao
@@ -13,7 +14,14 @@ import javax.persistence.Id;
  * <p>Version: 1.0
  */
 @Entity
+@Table(name = "role")
 public class Role implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String role; //角色标识 程序中判断使用,如"admin"
     private String description; //角色描述,UI界面显示使用
@@ -28,8 +36,6 @@ public class Role implements Serializable {
         this.available = available;
     }
 
-    @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

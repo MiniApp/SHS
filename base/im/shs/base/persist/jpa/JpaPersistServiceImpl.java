@@ -26,6 +26,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -58,6 +60,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> T find(Class<T> entityClass, final Object id) {
 		return em.find(entityClass, id);
 	}
@@ -75,6 +78,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> T merge(final T entity) throws DataAccessException {
 		return em.merge(entity);
 	}
@@ -92,8 +96,11 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
+	//@Transactional
 	public void persist(Object objectToSave) throws DataAccessException {
+		em.getTransaction().begin();
 		em.persist(objectToSave);
+		em.getTransaction().commit();
 	}
 
 	/**
@@ -109,6 +116,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void remove(Object objectToRemove) throws DataAccessException {
 		em.remove(objectToRemove);
 	}
@@ -126,6 +134,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void batchPersist(final List<?> objectsToSave)
 			throws DataAccessException {
 		if (CollectionUtils.isEmpty(objectsToSave)) {
@@ -153,6 +162,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void batchMerge(final List<?> objectsToMerge)
 			throws DataAccessException {
 		if (CollectionUtils.isEmpty(objectsToMerge)) {
@@ -188,6 +198,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 *             当删除数据库中相应记录发生异常时抛出
 	 */
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void batchRemove(final List<?> objectsToRemove)
 			throws DataAccessException {
 		if (CollectionUtils.isEmpty(objectsToRemove)) {
@@ -219,6 +230,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> List<T> findListByField(final Class<T> entityClass,
 			final String field, final Object value) {
 		String queryString = buildQueryString(entityClass, field).toString();
@@ -246,6 +258,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> List<T> findListByField(final Class<T> entityClass,
 			final String field, final Object value, final int start,
 			final int maxRows) {
@@ -283,6 +296,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@SuppressWarnings("unused")
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> PaginationSupport<T> findPaginatedByField(Class<T> entityClass,
 			String field, Object value, final int start, final int maxRows) {
 		int tmpMaxRows = maxRows >= 0 ? maxRows : 0;
@@ -314,6 +328,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@SuppressWarnings({ "serial", "null" })
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public int countByField(final Class<?> entityClass, final String field,
 			final Object value) {
 		String queryString = "select count(*) "
@@ -380,6 +395,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> T findObjectByField(final Class<T> entityClass,
 			final String field, final Object value) {
 		String queryString = buildQueryString(entityClass, field).toString();
@@ -421,6 +437,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public <T> T findObjectByFields(final Class<T> entityClass,
 			final Map<String, ?> params) {
 		String queryString = buildQueryStringWithNamedParams(entityClass,

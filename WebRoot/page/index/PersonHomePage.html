@@ -1,0 +1,191 @@
+<div id="{homePageDivId}">
+	 <div id="{reminderAndArrangementDiv}">
+	 	<div id="{reminderAndArrangeContentDiv}" >
+	 		<table style="width: 98%; margin:10px;" >
+	 			<tr>
+	 				<td style="text-align: right;width: 10%;">通知公告&nbsp;:&nbsp;</td>
+	 				<td style="text-align: left;width: 40%;vertical-align:baseline;">
+		 				<marquee id="{marqueeDiv}"  style="width: 100%" class="1" direction="left" height="20" 
+							scrollamount="2" scrolldelay="50" onmouseover="this.stop();" onmouseout="this.start()">
+						</marquee>
+	 				</td>
+	 				<td style="text-align: right;width: 10%;">日程安排&nbsp;:&nbsp;</td>
+	 				<td style="text-align: left;width: 40%;vertical-align:baseline;">
+		 				<marquee id="{riChengAnPaiDiv}"  style="width:100%" class="1" direction="left" height="20" 
+							scrollamount="2" scrolldelay="50" onmouseover="this.stop();" onmouseout="this.start()">
+		 				</marquee>
+	 				</td>
+	 			</tr>
+	 		</table>
+		</div>
+	</div>
+	
+	 <div id="{tixing}" style="display: none">
+	 	<div id="{tixingshixiang}">
+		 		<table class="SearchTable" id="{bestTiXing}" style="display: none">
+		 			<tr>
+		 				<td style="text-align: right;">账户大额变动提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="color: red;cursor: hand;" id="alink1"><span id="{awoke1}" name="awoke1"></span></a></b></td>
+		 				<td style="text-align: right;">客户大额变动提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink2"><span id="{awoke2}" name="awoke2"></span></a></b></td>
+		 				<td style="text-align: right;">客户转移提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink3"><span id="{awoke3}" name="awoke3"></span></a></b></td>
+		 				<td style="text-align: right;">客户等级变化提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink4"><span id="{awoke4}" name="awoke4"></span></a></b></td>
+		 			</tr>
+		 			<tr>
+		 				<td style="text-align: right;">重要日期提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink5"><span id="{awoke5}" name="awoke5"></span></a></b></td>
+		 				<td style="text-align: right;">产品到期提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink6"><span id="{awoke6}" name="awoke6"></span></a></b></td>
+		 				<td style="text-align: right;">营销提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink7"><span id="{awoke7}" name="awoke7"></span></a></b></td>
+		 				<td style="text-align: right;">风险提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red" id="alink8"><span id="{awoke8}" name="awoke8"></span></a></b></td>
+		 				<td style="text-align: right;">待办事项提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="color: red;cursor: hand;" id="alink0"><span id="{awoke0}" name="awoke0"></span></a></b></td>
+		 			</tr>
+		 		</table>
+		 		<table id="{hanventTiXin}" style="width: 98%;height:30px;display: none">
+		 			<tr>
+		 				<td style="text-align: right;width: 10%;">未完成任务提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red;width: 40%;" id="alink9"><u><span id="{awoke9}" name="awoke9"></span></u></a></b></td>
+		 				<td style="text-align: right;width: 10%;">待办事项提醒&nbsp;:&nbsp;</td>
+		 				<td><b><a style="cursor: hand;color: red;width: 40%;" id="alink10"><u><span id="{awoke10}" name="awoke10"></span></u></a></b></td>
+		 			</tr>
+		 		</table>
+		 	</div>
+		</div>
+	 		
+	 	<div id="{resultOfTheWorkDiv}" style="display: none">
+	 		<div id="{resultOfTheWorkContentDiv}">
+	 			<table class="table-panel" cellpadding="0" cellspacing="1">
+	 				<tr>
+	 					<th></th>
+	 					<th>新增存款</th>
+	 					<th>新增贷款</th>
+	 					<th>理财余额</th>
+	 					<th>新增理财销售量</th>
+	 				</tr>
+	 				<tr id="{tomornerWorks}">
+	 					<td style="	font-weight: bold;">昨日</td>	
+	 					<td style="text-align: right"><span id="{increaseddeposit}" name="increaseddeposit"></span></td>
+	 					<td style="text-align: right"><span id="{increasedloan}" name="increasedloan"></span></td>
+	 					<td style="text-align: right"><span id="{financeamountall}" name="financeamountall"></span></td>
+	 					<td style="text-align: right"><span id="{financenum}" name="financenum"></span></td>
+	 				</tr>
+	 				<tr id="{shangyizhouWorks}">
+	 					<td style="	font-weight: bold;">上周</td>
+						<td style="text-align: right"><span id="{increaseddeposit}" name="increaseddeposit"></span></td>
+	 					<td style="text-align: right"><span id="{increasedloan}" name="increasedloan"></span></td>
+	 					<td style="text-align: right"><span id="{financeamountall}" name="financeamountall"></span></td>
+	 					<td style="text-align: right"><span id="{financenum}" name="financenums"></span></td>
+	 				</tr>
+	 			</table>
+	 	</div>
+	</div>
+	
+	<div id="{customerInfo}" style="display: none">
+            <div id="{customerInfoContentDiv}">
+                <table class="table-panel" cellpadding="0" cellspacing="1">
+                    <tr>
+                        <th></th>
+                        <th>客户数量</th>
+                        <th>存款余额</th>
+                        <th>贷款余额</th>
+                        <th>理财余额</th>
+                        <th>AUM</th>
+                        <th>时点AUM</th>
+                    </tr>
+                    <tr id="{generalCustomerInfo}">
+                        <td style=" font-weight: bold;">普通级</td> 
+                        <td style="text-align: right"><span id="{generalCount}" name="generalCount"></span></td>
+                        <td style="text-align: right"><span id="{generalDeposit}" name="generalDeposit"></span></td>
+                        <td style="text-align: right"><span id="{generalLoan}" name="generalLoan"></span></td>
+                        <td style="text-align: right"><span id="{generalFinances}" name="generalFinances"></span></td>
+                        <td style="text-align: right"><span id="{generalAUM}" name="generalAUM"></span></td>
+                        <td style="text-align: right"><span id="{generalNowAUM}" name="generalNowAUM"></span></td>
+                    </tr>
+                    <tr id="{goldCustomerInfo}">
+                        <td style=" font-weight: bold;">黄金级</td>
+                        <td style="text-align: right"><span id="{goldCount}" name="goldCount"></span></td>
+                        <td style="text-align: right"><span id="{goldDeposit}" name="goldDeposit"></span></td>
+                        <td style="text-align: right"><span id="{goldLoan}" name="goldLoan"></span></td>
+                        <td style="text-align: right"><span id="{goldFinances}" name="goldFinances"></span></td>
+                        <td style="text-align: right"><span id="{goldAUM}" name="goldAUM"></span></td>
+                        <td style="text-align: right"><span id="{goldNowAUM}" name="goldNowAUM"></span></td>
+                    </tr>
+                    <tr id="{platinumCustomerInfo}">
+                        <td style=" font-weight: bold;">白金级</td>
+                       <td style="text-align: right"><span id="{platinumCount}" name="platinumCount"></span></td>
+                        <td style="text-align: right"><span id="{platinumDeposit}" name="platinumDeposit"></span></td>
+                        <td style="text-align: right"><span id="{platinumLoan}" name="platinumLoan"></span></td>
+                        <td style="text-align: right"><span id="{platinumFinances}" name="platinumFinances"></span></td>
+                        <td style="text-align: right"><span id="{platinumAUM}" name="platinumAUM"></span></td>
+                        <td style="text-align: right"><span id="{platinumNowAUM}" name="platinumNowAUM"></span></td>
+                    </tr>
+                    <tr id="{diamondCustomerInfo}">
+                        <td style=" font-weight: bold;">钻石级</td>
+                        <td style="text-align: right"><span id="{diamondCount}" name="diamondCount"></span></td>
+                        <td style="text-align: right"><span id="{diamondDeposit}" name="diamondDeposit"></span></td>
+                        <td style="text-align: right"><span id="{diamondLoan}" name="diamondLoan"></span></td>
+                        <td style="text-align: right"><span id="{diamondFinances}" name="diamondFinances"></span></td>
+                        <td style="text-align: right"><span id="{diamondAUM}" name="diamondAUM"></span></td>
+                        <td style="text-align: right"><span id="{diamondNowAUM}" name="diamondNowAUM"></span></td>
+                    </tr>
+                     <tr id="{totalCustomerInfo}">
+                        <td style=" font-weight: bold;">汇总</td>
+                        <td style="text-align: right"><span id="{totalCount}" name="totalCount"></span></td>
+                        <td style="text-align: right"><span id="{totalDeposit}" name="totalDeposit"></span></td>
+                        <td style="text-align: right"><span id="{totalLoan}" name="totalLoan"></span></td>
+                        <td style="text-align: right"><span id="{totalFinances}" name="totalFinances"></span></td>
+                        <td style="text-align: right"><span id="{totalAUM}" name="totalAUM"></span></td>
+                        <td style="text-align: right"><span id="{totalNowAUM}" name="totalNowAUM"></span></td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+	
+	
+	<div id="{chartDiv}">
+	 	 <table>
+		 	<tr style="background-color: #FFFFFF;">
+			 	<td>
+			 		<!-- 存款图表展示 -->
+				 	<div id="{chartDepositReportDiv}">
+				 		<div id="{chartDepositReportContentDiv}">
+				 			<div id="{depositChart}"></div>
+				 		</div>
+				 	</div>
+				 </td>
+				<td> 
+				<!-- 贷款图表展示 -->
+			 	<div id="{chartCreditReportDiv}">
+			 	
+			 		<div id="{chartCreditReportContentDiv}">
+			 			<div id="{creditChart}"></div>
+			 		</div>
+			 	</div>
+			 	</td>
+	 		 </tr>
+	 		 <tr style="background-color: #FFFFFF;">
+			 	<td>
+			 		<!-- 存款图表展示 -->
+				 	<div id="{chartDepReportDiv}">
+				 		<div id="{chartDepReportContentDiv}">
+				 			<div id="{deposChart}"></div>
+				 		</div>
+				 	</div>
+				 </td>
+				<td> 
+				<!-- 贷款图表展示 -->
+			 	<div id="{chartCredReportDiv}">
+			 		<div id="{chartCredReportContentDiv}">
+			 			<div id="{credChart}"></div>
+			 		</div>
+			 	</div>
+			 	</td>
+	 		 </tr>
+		 </table>
+	 </div>
+ </div>

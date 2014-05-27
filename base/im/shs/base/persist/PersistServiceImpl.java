@@ -139,6 +139,11 @@ public class PersistServiceImpl implements PersistService {
 		return jpaPersistence.findPaginatedByFields(entityClass, params, start,
 				maxRows);
 	}
+	
+	public List<?> findByNativeQueryAndNamedParams(final String queryString,
+			final Map<String, ?> params) {
+		return jpaPersistence.findByNativeQueryAndNamedParams(queryString, params);
+	}
 
 	/**
 	 * 强制提交刷新缓存 同步数据库 非特殊情况不建议使用此方法

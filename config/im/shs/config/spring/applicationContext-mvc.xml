@@ -12,7 +12,10 @@
     http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	<!-- 把标记了@Controller注解的类转换为bean -->
-	<context:component-scan base-package="*" />
+	<context:component-scan base-package="im.shs">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan> 
 	<!--注解说明   使Spring关注Annotation -->
 	<!--  <context:annotation-config /> -->
 	<!--开启AOP自动代理 -->
@@ -21,7 +24,10 @@
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 请求映射 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-
+	
+	<mvc:resources location="/page/" mapping="/resource/page/**" />
+	<mvc:resources location="/resource/js/" mapping="/resource/js/**" />
+	
 	<!-- freemarker的配置 -->
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

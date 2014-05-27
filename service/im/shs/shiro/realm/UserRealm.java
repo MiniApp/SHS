@@ -9,6 +9,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>User: Zhang Kaitao
@@ -17,6 +18,7 @@ import org.apache.shiro.util.ByteSource;
  */
 public class UserRealm extends AuthorizingRealm {
 
+	@Autowired
     private UserService userService;
 
     public void setUserService(UserService userService) {
@@ -53,7 +55,7 @@ public class UserRealm extends AuthorizingRealm {
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 user.getUsername(), //用户名
                 user.getPassword(), //密码
-                ByteSource.Util.bytes(user.getCredentialsSalt()),//salt=username+salt
+                ByteSource.Util.bytes(user.getUsername() + user.getSalt()),//salt=username+salt
                 getName()  //realm name
         );
         return authenticationInfo;

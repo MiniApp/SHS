@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AnnotationController {
 
-    @RequestMapping("/hello1")
+    /*@RequestMapping("/hello1")
     public String hello1() {
         SecurityUtils.getSubject().checkRole("admin");
         return "success";
@@ -23,5 +23,5 @@ public class AnnotationController {
     @RequestMapping("/hello2")
     public String hello2() {
         return "success";
-    }
+    }*/
 }

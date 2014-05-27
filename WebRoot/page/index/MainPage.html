@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="description" content="ocrmweb" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache" />
+<meta http-equiv="Expires" CONTENT="0" />
+<meta http-equiv="cache-control" content="no-cache,no-store" />
+<title>SHS管理系统主页</title>
+<style type="text/css">
+a:link,a:visited {
+	text-decoration: none;
+}
+</style>
+<script type="text/javascript" src="/SHS/resource/js/jsloader/jsloader.js"></script>
+<script type="text/javascript" src="/SHS/resource/js/jsloader/base.js">	</script>
+<script type="text/javascript" src="/SHS/resource/js/jsloader/ext.js">	</script>
+<script type="text/javascript" src="/SHS/resource/js/jsloader/util.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+		var page = Ext.create("crm.page.index.MainPage", {
+			id : 'MainPage'
+		});
+		page.render();
+	})
+</script>
+</head>
+<body>
+</body>
+</html>

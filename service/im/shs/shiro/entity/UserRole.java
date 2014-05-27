@@ -18,11 +18,20 @@ import javax.persistence.Table;
 @Table(name = "user_role")
 public class UserRole implements Serializable {
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
     private Long userId;
     private Long roleId;
 
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+    
     public Long getUserId() {
         return userId;
     }

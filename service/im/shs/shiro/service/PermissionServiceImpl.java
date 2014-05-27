@@ -15,8 +15,8 @@ public class PermissionServiceImpl extends AbstractService implements Permission
 
     public Permission createPermission(Permission permission) {
     	this.getPersist().persist(permission);
-//    	permission= this.getPersist().find(Permission.class, permission.getId());
-        return null;
+    	permission= this.getPersist().find(Permission.class, permission.getId());
+        return permission;
     }
 
     public void deletePermission(Long permissionId) {

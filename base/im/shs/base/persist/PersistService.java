@@ -355,4 +355,19 @@ public interface PersistService {
 	 *             如果有任一个缓存中的SQL语句执行失败时抛出异常。
 	 */
 	public abstract int batchExecuteBySqlMap(BatchExecuteCallback callback);
+	
+	
+	/**
+	 * 
+	 * 根据传入的Native SQL语句进行查询
+	 * <p/>
+	 * [注]:该方法是抽象的,并不特指某一OR工具的Native Query
+	 * 
+	 * @param queryString
+	 *            SQL语句串
+	 * @param params
+	 *            查询语句中的参数值集合
+	 */
+	public List<?> findByNativeQueryAndNamedParams(final String queryString,
+			final Map<String, ?> params);
 }

@@ -6,7 +6,7 @@ Ext.Loader.setPath({
 			"base" : CONTEXT_PATH + '/js/framework/base',
 			"component" : CONTEXT_PATH + '/js/framework/component',
 			"ux" : CONTEXT_PATH + '/js/framework/ux',
-			"businessBase" : CONTEXT_PATH + '/js/business',
+			"businessBase" : CONTEXT_PATH + '/js/business'
 			//"business" : CONTEXT_PATH + '/pages/ocrm/common/component',
 			//"kbs" : CONTEXT_PATH + '/pages/kbs',
 			//'Ext.ux.desktop' : CONTEXT_PATH +  '/js/common/thirdpart/desktop/core',

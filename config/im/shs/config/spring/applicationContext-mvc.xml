@@ -25,7 +25,7 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 	
-	<mvc:resources location="/page/" mapping="/resource/page/**" />
+	<mvc:resources location="/pages/" mapping="/resource/pages/**" />
 	<mvc:resources location="/resource/js/" mapping="/resource/js/**" />
 	
 	<!-- freemarker的配置 -->

@@ -94,8 +94,8 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
-            	/page/** = anon
-            	/resource/page/** = anon
+            	/pages/** = anon
+            	/resource/pages/** = anon
             	/resource/js/** = anon
                 /index.jsp = anon
                 /index = anon

@@ -1,0 +1,80 @@
+<div id="{productIdentifyCreatePanelDiv}">
+	<div id="{productIdentifyCreateContentDiv}">
+			<input type="hidden" name="productidentityky" id="{productidentityky}" />
+			<table class="DisplayTable" width=300>
+				<tr>
+					<td align="right">
+						产品编号：
+					</td>
+					<td nowrap="nowrap">
+						<input type="text" name="product_ID" id="{product_ID}" class='required maxLength-15' title="产品编号"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品名称：
+					</td>
+					<td nowrap="nowrap">
+						<input type="text" name="productName" id="{productName}" class='required maxLength-30'  title="产品名称"/><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						产品类型：
+					</td>
+					<td class="empt" nowrap="nowrap">
+						<select name="productTypeEnum" disabled="disabled" id="{productTypeEnum}" class="required" title="产品类型">
+							<option>
+							</option>
+						</select>
+						<span class="inputSelect">*</span>
+					</td>	
+					<td align="right">
+						产品分类：
+					</td>
+					<td class="empt" nowrap="nowrap">
+						<input type="hidden" name="productType" id="{productType}" class="required" title="产品分类"/>
+						<input type="text" id="{productTypeTree}" /><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>	
+					<td align="right">
+						产品管理部门：
+					</td>
+					<td class="empt" nowrap="nowrap">
+						<input type="text" name="productMngDeptStr" id="{productMngDeptStr}" class="maxLength-50 required" title="产品运营部门" />
+						<span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						营运管理部门：
+					</td>
+					<td nowrap="nowrap">
+						<input type="text" name="productRunDeptStr" id="{productRunDeptStr}" class="maxLength-50 required" title="产品运营部门" />
+						<span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						营销管理部门：
+					</td>
+					<td class="empt" nowrap="nowrap">
+						<input type="text" name="productSalDeptStr" id="{productSalDeptStr}" class="maxLength-50 required" title="产品运营部门" />
+						<span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品所属科目：
+					</td>
+					<td>
+						<input type="text" name="prodSubject" id="{prodSubject}" class='maxLength-10' title="产品所属科目"></span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						备注：
+					</td>
+					<td colspan=3>
+						<textarea rows="4" cols="50" name="remark"
+							id="{remark}" class="maxLength-128" title="备注" /></textarea>
+					</td>
+			    </tr>
+		</table>	
+	</div>
+</div>

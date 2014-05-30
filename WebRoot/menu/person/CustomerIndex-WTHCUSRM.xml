@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	功能描述：财富管理，客户经理菜单配置
+	角色名称：WTHCUSRM
+-->
+<config>
+	<!-- 导航栏去掉了 -->
+	<navigation>
+		<item> 
+				<id>wthFinancegoalwthRisk</id>
+				<text>理财目标与风险评估</text>
+				<children>
+				<id>wthFinancegoal</id>
+				<text>理财目标</text> 
+				<className>crm.pages.ocrm.person.wealthManage.customer.financePlan.financeGoal.FinanceGoalList</className>
+			 </children> 
+			 <children>
+				<id>wthRiskcapacityassessHist</id>
+				<text>家庭风险承受能力评估</text>
+				<className>crm.pages.ocrm.person.wealthManage.customer.financePlan.riskCapacityAssess.RiskCapacityAssessHistoryList</className>
+			</children> 
+			<children> 
+				<id>wthInvestfavorassessHist</id>
+				<text>投资偏好评估</text>
+				<className>crm.pages.ocrm.person.wealthManage.customer.financePlan.investFavorAssess.InvestFavorAssessHistoryList</className>
+			</children> 
+		</item>
+		
+		<item >
+				<id>wthFinancediagnosis</id>
+				<text>财务健康诊断</text>
+				<children>
+                     <id>wthFinanceInOut</id>
+                     <text>月收支信息录入</text> 
+                     <className>crm.pages.ocrm.person.wealthManage.customer.financePlan.financeDiagnosis.inout.AssetsInOutCreate</className>
+                 </children>
+		        <children>
+			         <id>wthFinanceoverview</id>
+			         <text>财务状况总览</text> 
+			         <className>crm.pages.ocrm.person.wealthManage.customer.financePlan.financeDiagnosis.financeOverview.FinanceOverview</className>
+			    </children> 
+				<children> 
+					<id>wthFinanceHist</id> 
+					<text>指标分析</text>
+					<className>crm.pages.ocrm.person.wealthManage.customer.financePlan.financeDiagnosis.financeItemAnalyse.FinanceItemAnalyseList</className>
+				</children>
+		</item>
+		
+		<item >
+			<id>wthGeneralLayout</id>
+			<text>综合理财规划</text>
+		    <children >
+				<id>wthFinancegoalAdvice</id>
+				<text>理财目标意见</text> 
+				<className>crm.pages.ocrm.person.wealthManage.customer.financePlan.financeGoal.FinanceGoalAdviceList</className>
+			</children>
+			<children>
+		         <id>wthInvestDeployAdvicList</id> 
+				 <text>投资配置意见</text>
+		         <className>crm.pages.ocrm.person.wealthManage.customer.financePlan.generalLayout.investDeploy.InvestDeployInfoList</className>
+		    </children> 
+			<children>
+		         <id>wthGeneralLayoutAdviceList</id>  
+				 <text>财务状况综合评论</text>
+		         <className>crm.pages.ocrm.person.wealthManage.customer.financePlan.generalLayout.generalLayoutAdvice.GeneralLayoutInfoList</className>
+		    </children> 
+		</item>
+		
+		<item>
+				<id>wthFinanceservice</id>
+				<text>理财服务</text>
+				<children> 
+			         <id>wthFinancedifference</id> 
+					 <text>客户财务分析差异</text>
+			         <className>crm.pages.ocrm.person.wealthManage.customer.financePlan.financeService.financeDifference.FinanceDifferenceInfoList</className>
+			   </children> 
+		</item>
+	</navigation>
+	<!-- 财富详细信息 -->
+	<mainMenu>
+		
+	</mainMenu>
+</config>

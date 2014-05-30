@@ -1,0 +1,43 @@
+<div id="{calendarDiv}">
+	<div id="{calendarDivContentDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td>
+					<input name="strScratchpadId" id="{strScratchpadId}" type="hidden" />
+					<input name="strScratchpadType" id="{strScratchpadType}"
+						type="hidden" />
+					便签主题:
+				</td>
+				<td colspan="3">
+					<input name="strScratchpadTitle" id="{strScratchpadTitle}"
+						class='required maxLength-30' title='便签主题' type='text' /><span class="inputSelect">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					开始日期:
+				</td>
+				<td class="empt">
+					<input name="strBeginDate" id="{strBeginDate}" class='required'
+						title='开始日期' /><span class="inputTime">*</span>
+				</td>
+				<td>
+					结束日期:
+				</td>
+				<td class="empt">
+					<input name="strEndDate" id="{strEndDate}" class='required'
+						title='结束日期' /><span class="inputTime">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					便签内容:
+				</td>
+				<td class="empt" colspan="3">
+					<textarea name="strDescription" id="{strDescription}"
+						class='required maxLength-128' title='便签内容' cols="50" rows="5"></textarea>
+				</td>
+			</tr>
+		</table>
+</div>
+</div>

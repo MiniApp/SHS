@@ -1,0 +1,42 @@
+<div id="{roleCreateDiv}">
+	<div id="{roleCreateContentDiv}">
+		<table class="DisplayTable">
+		<tr>
+		<td align="right">
+					角色ID：
+				</td>
+		<td colspan="3">
+					<input type="text" name="roleid"
+						id="{roleid}" class='required maxLength-13 digit' title="角色ID"/><span class="inputSelect">*</span>
+				</td>
+		</tr>
+			<tr>
+				<td align="right">
+					角色类别：
+				</td>
+				<td class="empt">
+					<select id="{upidEnum}" name="upidEnum" class="required" title="角色类别">
+						<option ></option>
+				    </select><span class="inputSelect">*</span>
+			    </td>
+				<td align="right">
+					角色中文名称：
+				</td>
+				<td>
+					<input type="text" name="rolename"
+						id="{rolename}" class='required maxLength-25' title="角色中文名称"/><span class="inputSelect">*</span>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					角色描述：
+				</td>
+				<td colspan="3">
+					<textarea name="descript" 
+						id="{descript}" class='maxLength-25' cols="37" rows="2" title="角色描述"></textarea>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

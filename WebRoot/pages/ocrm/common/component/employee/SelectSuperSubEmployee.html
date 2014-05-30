@@ -1,0 +1,39 @@
+<div id="{searchEmployeeDiv}">
+	<div id="{searchEmployeeContentDiv}">
+		<table class="SearchTable">
+			<tr>
+				<td class = "right">
+					名称:
+				</td>
+				<td>
+					<input type="text" id="{name}" name="name" class='maxLength-60' title="名称" />
+				</td>
+				<td class = "right">
+					登陆号:
+				</td>
+				<td>
+					<input type="text" id="{logonId}" name="logonId" class='maxLength-12' title="登陆号" />
+				</td>
+			</tr>
+			<tr id="{searchEmployeeOptionTr}" >
+				<td class = "right">
+					操作员级别:
+				</td>
+				<td class="empt">
+					<select id="{orgLevelCode}" name="orgLevelCode">
+						<option></option>
+					</select>
+				</td>
+				<td class = "right">
+					角色:
+				</td>
+				<td class="empt">
+					<select id="{authorityCode}" name="authorityCode">
+						<option></option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{selectEmployeeGridDiv}"></div>

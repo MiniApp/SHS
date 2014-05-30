@@ -1,0 +1,35 @@
+<div id="{productTypeUpdatePanleDiv}">
+	<div id="{productTypeUpdateContentDiv}">
+		<table width="100%" class="DisplayTable">
+			<tr>
+				<td align="right" width="40%">所属分类：</td>
+				<td width="60%">
+					<input type="hidden" name="prodTypeParentId" id="{prodTypeParentId}" /> 
+					<input type="text" name="prodTypeParentName" id="{prodTypeParentName}" disabled="disabled"/><span class="inputSelect">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">分类名称：</td>
+				<td>
+					<input type="text" name="prodTypeName" id="{prodTypeName}" class='required maxLength-25'
+						title="分类名称" /><span class="inputSelect">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">分类编码：</td>
+				<td>
+					<input type="text" name="prodTypeCode" id="{prodTypeCode}" class='required' readonly="readonly"
+						title="分类编码"/><span class="inputSelect">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">分类描述：</td>
+				<td>
+					<textarea name="prodTypeDesc" id="{prodTypeDesc}" cols="50" rows="2"
+						class='maxLength-200' title="分类描述">
+					</textarea>
+				</td>
+			</tr>
+		</table>	
+	</div>
+</div>

@@ -1,0 +1,169 @@
+<div id="{productRateInfoCreatePanelDiv}">
+	<div id="{productRateInfoCreateContentDiv}">
+		<input type="hidden" name="product_ID" id="{product_ID}" />
+		
+			<table width="100%" class="DisplayTable">
+				<tr>
+					<td align="right">
+						业务类型：
+					</td>
+					<td class="empt">
+						<select name="prodOperationTypeEnum" id="{prodOperationTypeEnum}" class="required" title="业务类型">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						收费类型：
+					</td>
+					<td class="empt">
+						<select name="prodChargeTypeEnum" id="{prodChargeTypeEnum}" class="required" title="收费类型">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>		
+				</tr>
+				<tr>
+				   <td align="right">
+						适用机构：
+					</td>
+					<td class="empt">
+						<select name="prodApplyOrgEnum" id="{prodApplyOrgEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						收费方式：
+					</td>
+					<td class="empt">
+						<select name="prodChargeModeEnum" id="{prodChargeModeEnum}" class="required" title="收费方式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						计算方法：
+					</td>
+					<td class="empt">
+						<select name="prodCounterModeEnum" id="{prodCounterModeEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						缺省费用：
+					</td>
+					<td>
+						<input type="text" name="prodDefaultCharge"
+							id="{prodDefaultCharge}" class='decimal-16-2' title="缺省费用"/>
+					</td>
+				</tr>
+				<tr>
+
+					<td align="right">
+						最高费用：
+					</td>
+					<td>
+						<input type="text" name="prodTopmostCharge"
+							id="{prodTopmostCharge}" class='decimal-16-2' title="最高费用"/>
+					</td>
+					<td align="right">
+						最低费用：
+					</td>
+					<td>
+						<input type="text" name="prodLowestCharge"
+							id="{prodLowestCharge}" class='decimal-16-2' title="最低费用"/>
+					</td>
+					
+				</tr>
+				<tr>
+				   <td align="right">
+						缺省费率：
+					</td>
+					<td>
+						<input type="text" name="prodDefaultRate"
+							id="{prodDefaultRate}" class='decimal-16-2' title="缺省费率"/>
+					</td>
+					<td align="right">
+						最高费率：
+					</td>
+					<td>
+						<input type="text" name="prodTopmostRate"
+							id="{prodTopmostRate}" class='decimal-16-2' title="最高费率"/>
+					</td>
+				</tr>
+				<tr>
+					
+					<td align="right">
+						最低费率：
+					</td>
+					<td>
+						<input type="text" name="prodLowestRate"
+							id="{prodLowestRate}" class='decimal-16-2' title="最低费率"/>
+					</td>
+					<td align="right">
+						费用模式：
+					</td>
+					<td class="empt">
+						<select name="prodRateModeEnum" id="{prodRateModeEnum}">
+							<option></option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						客户等级：
+					</td>
+					<td class="empt">
+						<select name="prodCustomerGradeEnum" id="{prodCustomerGradeEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						差别模式：
+					</td>
+					<td class="empt">
+						<select name="prodContrastModeEnum" id="{prodContrastModeEnum}">
+							<option></option>
+						</select>
+					</td>
+					
+
+				</tr>
+				<tr>
+				    <td align="right">
+						差别起始点：
+					</td>
+					<td>
+						<input type="text" name="prodContrastBeginPoint"
+							id="{prodContrastBeginPoint}" class='decimal-16-2' title="差别起始点"/>
+					</td>
+					<td align="right">
+						差别中止点：
+					</td>
+					<td>
+						<input type="text" name="prodContrastEndPoint"
+							id="{prodContrastEndPoint}" class='decimal-16-2' title="差别中止点"/>
+					</td>
+				</tr>
+				<tr>
+					
+					
+					<td align="right">
+						比例基准：
+					</td>
+					<td class="empt">
+						<select name="prodBaseScaleEnum" id="{prodBaseScaleEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						收费：
+					</td>
+					<td>
+						<input type="text" name="prodCharge"
+							id="{prodCharge}" class='decimal-16-2' title="收费"/>
+					</td>
+				</tr>
+			</table>	
+	</div>
+</div>

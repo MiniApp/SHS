@@ -1,0 +1,50 @@
+<div id="{messageModelUpdateDiv}">
+	<div id="{messageModelUpdateContentDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td>
+					参数替换规则：
+				</td>
+				<td colspan="3" style="font-family:宋体,楷体,仿宋">
+					&nbsp;&nbsp;XM&nbsp;&nbsp;&nbsp;&nbsp;------------------&nbsp;&nbsp;客户姓名<br>
+					&nbsp;&nbsp;CW&nbsp;&nbsp;&nbsp;&nbsp;------------------&nbsp;&nbsp;先生/女士<br>
+					&nbsp;&nbsp;NL&nbsp;&nbsp;&nbsp;&nbsp;------------------&nbsp;&nbsp;年龄<br>
+					&nbsp;&nbsp;JG&nbsp;&nbsp;&nbsp;&nbsp;------------------&nbsp;&nbsp;理财经理所属机构<br>
+					&nbsp;&nbsp;KHJL&nbsp;&nbsp;------------------&nbsp;&nbsp;理财经理姓名<br>
+					&nbsp;&nbsp;DQRQ&nbsp;&nbsp;------------------&nbsp;&nbsp;产品到期日期<br>
+					&nbsp;&nbsp;CPMC&nbsp;&nbsp;------------------&nbsp;&nbsp;先生/女士<br>
+					&nbsp;&nbsp;ZHYE&nbsp;&nbsp;------------------&nbsp;&nbsp;还款账户余额<br>
+					&nbsp;&nbsp;DQJE&nbsp;&nbsp;------------------&nbsp;&nbsp;到期余额<br>
+					&nbsp;&nbsp;YHKA&nbsp;&nbsp;------------------&nbsp;&nbsp;银行卡号/签约账号<br>
+					&nbsp;&nbsp;CQ&nbsp;&nbsp;&nbsp;&nbsp;------------------&nbsp;&nbsp;存期
+				</td>
+			</tr>
+			<tr>
+				<td style="width:20%">
+					标题:
+				</td>
+				<td style="width:30%">
+					<input name="title" id="{title}" class='required maxLength-60' style="width: 150px;height:20px;"
+						title='标题' /><span class="inputSelect">*</span>
+				</td>
+				<td style="width:20%">
+					短信模板类型:
+				</td>
+				<td style="width:30%" class="empt">
+					<select name="modeltypeEnum" id="{modeltypeEnum}" class="required" title="短信模板类型">
+					<option></option>
+					</select><span class="inputSelect">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					内容<span style="color:red;">*</span>:
+				</td>
+				<td colspan="3">
+					<textarea rows="13" cols="65" name="content"
+						id="{content}" class="required maxLength-512" title="内容" /></textarea>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

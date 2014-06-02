@@ -1,0 +1,86 @@
+<div id="{personParamterUpdateDiv}">
+	<div id="{personParamterUpdateContentDiv}">
+		<table class="DisplayTable">
+			<tr><td colspan="4"><span><B><font size="4" color="red">短信发送最大数量</font></B></span></td></tr>
+			<tr>
+				<td>
+					<input type="hidden" name="setky" id="{setky}"/>
+					系统发送短信最大数量:
+				</td>
+				<td>
+					<input name="mostsendnumber" id="{mostsendnumber}"
+						class='required +digit maxLength-9' style="width: 150px; height: 20px;"
+						title='系统发送短信最大数量' /><span class="inputSelect">*</span>
+				</td>
+				<td></td>
+				<td></td>
+				<!--<td>
+					服务端ip:
+				</td>
+				<td>
+					<input name="url" id="{url}"
+						class='required' maxlength="20"  style="width: 150px; height: 20px;"
+						title='服务端ip' /><span class="inputSelect">*</span>
+				</td>
+			-->
+			</tr>
+			<!--<tr>
+				<td>
+					服务端port:
+				</td>
+				<td>
+					<input name="port" id="{port}"
+						class='required +digit' maxlength="8"  style="width: 150px; height: 20px;"
+						title='服务端port' /><span class="inputSelect">*</span>
+				</td>
+				<td>
+					客户端连接超时时间:
+				</td>
+				<td>
+					<input name="defaulttimeout" id="{defaulttimeout}"
+						class='required +digit' maxlength="80" style="width: 150px; height: 20px;"
+						title='客户端连接超时时间' /><span class="inputSelect">*</span>
+				</td>
+			</tr>
+		-->
+		<tr><td colspan="4"><span><B><font size="4" color="red">总行短信发送最大限额</font></B></span></td></tr>
+		<tr>
+			<td>
+				总行发送短信最大限额:
+			</td>
+			<td>
+				<input name="headOrgancount" id="{headOrgancount}"
+					class='required money-14-2' style="width: 150px; height: 20px;"
+					title='总行发送短信最大限额' /><span class="inputSelect">*</span>
+			</td>
+			<td>
+				总行客户发送短信最大限额:
+			</td>
+			<td>
+				<input name="headCuspersoncount" id="{headCuspersoncount}"
+					class='required money-14-2' style="width: 150px; height: 20px;"
+					title='总行客户发送短信最大限额' /><span class="inputSelect">*</span>
+			</td>
+		</tr>
+		<tr><td colspan="4"><span><B><font size="4" color="red">支行短信发送最大限额</font></B></span></td></tr>
+		<tr>
+			<td>
+				支行发送短信最大限额:
+			</td>
+			<td>
+				<input name="branchOrgancount" id="{branchOrgancount}"
+					class='required money-14-2' style="width: 150px; height: 20px;"
+					title='支行发送短信最大限额' /><span class="inputSelect">*</span>
+			</td>
+			<td>
+				支行客户发送短信最大限额:
+			</td>
+			<td>
+				<input name="branchCuspersoncount" id="{branchCuspersoncount}"
+					class='required money-14-2' style="width: 150px; height: 20px;"
+					title='支行客户发送短信最大限额' /><span class="inputSelect">*</span>
+			</td>
+		</tr>
+		</table>
+	</div>
+</div>

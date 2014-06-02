@@ -1,0 +1,47 @@
+<div id="{productMealSalDetailPanelDiv}">
+	<div id="{productMealSalDetail}">
+		<table class="SearchTable">
+			<tr>
+				<td class="right">
+				<input type="hidden" name="productOne" id="productOne"/>
+				<input type="hidden" name="productTwo" id="productTwo"/>
+				<input type="hidden" name="productThree" id="productThree"/>
+				<input type="hidden" name="productFour" id="productFour"/>
+				<input type="hidden" name="productFive" id="productFive"/>
+				<input type="hidden" name="productOneName" id="productOneName"/>
+                <input type="hidden" name="productTwoName" id="productTwoName"/>
+                <input type="hidden" name="productThreeName" id="productThreeName"/>
+                <input type="hidden" name="productFourName" id="productFourName"/>
+                <input type="hidden" name="productFiveName" id="productFiveName"/>
+					客户姓名：
+				</td>
+				<td>
+					<input type="text" name="prdGropName" id="{prdGropName}"
+						title="产品套餐名称" />
+				</td>
+				<td class="right">
+					主办客户经理：
+				</td>
+				<td>
+					<input type="text" name="employeeName" readonly="readonly"
+						id="{employeeName}" title="主办客户经理" />
+					<input type="hidden" name="employeeky" id="{employeeky}" />
+					<a id="{selectEmployee}" href="#">请选择客户经理</a>&nbsp;&nbsp;
+					<a id="{clear}" href="#">清除</a>
+				</td>
+
+			</tr>
+			<tr>
+				<td class="right">
+					机构：
+				</td>
+				<td class="empt" colspan="3">
+					<input type="hidden" name="node" id="{node}" />
+					<input type="text" name="nodeTree" id="{nodeTree}" />
+				</td>
+			</tr>
+
+		</table>
+	</div>
+</div>
+<div id="{productMealSalDetailList}"></div>

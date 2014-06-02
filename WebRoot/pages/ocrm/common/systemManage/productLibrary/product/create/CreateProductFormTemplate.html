@@ -1,0 +1,37 @@
+<div id="{createProductFromTemplatePanelDiv}">
+	<div id="{createProductFromTemplateContentDiv}">
+		<input type="hidden" name="prodIsTemplate" id="{prodIsTemplate}" />
+		<table class="SearchTable">
+			<tr>
+				<td align="right">模板编号：</td>
+				<td>
+					<input type="text" name="productId" id="{productId}" style="width:200px"/>
+				</td>
+				<td align="right">模板名称：</td>
+				<td>
+					<input type="text" name="productName" id="{productName}" style="width:200px"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">创建起始日期：</td>
+				<td class="empt">
+					<input type="text" name="createBeginDate" id="{createBeginDate}" class='compareTo-createEndDate-lt=-date'
+						title='创建起始日期'/>
+				</td>
+				<td align="right">创建终止日期：</td>
+				<td class="empt">
+					<input type="text" name="createEndDate" id="{createEndDate}" class='compareWith-createBeginDate'
+						title='创建终止日期'/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">产品类型：</td>
+				<td class="empt">
+					<input type="hidden" name="productType" id="{productType}"/>
+					<input type="text" id="{productTypeTree}" />
+				</td>	
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{createProductFormTemplateListDiv}"></div>

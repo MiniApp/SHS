@@ -1,0 +1,63 @@
+<div id="{corpLevelMoneyDiv}">
+<div id="{corpLevelMoneyContentDiv}">
+    <table class="DisplayTable">
+        <tr>
+            <td style="width: 8%"><b>计算类型</b></td>
+            <td style="width: 16%"><b>一般客户</b></td>
+            <td style="width: 16%"><b>分支行重点客户</b></td>
+            <td style="width: 16%"><b>总行重点客户</b></td>
+            <td style="width: 12%"><b>总行战略客户</b></td>
+            <td style="width: 10%"><b>是否启用</b></td>
+        </tr>
+        <tr>
+            <td>存款余额</td>
+            <td>[<input id='{generalDepositMinValue}' name='generalDepositMinValue' class="money maxLenth-13" style="width: 90px"style="width: 90px" />-<span id="{generalDepositMaxValue}"  ></span>] <input type='hidden' name="depositky" /></td>
+            <td>[<input id='{cityMajorDepositMinValue}' name='cityMajorDepositMinValue' class="money maxLenth-13" style="width: 90px"style="width: 90px" />-<span id="{cityMajorDepositMaxValue}"  ></span>]</td>
+            <td>[<input id='{centerMajorDepositMinValue}' name='centerMajorDepositMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{centerMajorDepositMaxValue}"  ></span>]</td>
+            <td>[<input id='{centerSpeDepositMinValue}' name='centerSpeDepositMinValue' class="money maxLenth-13"style="width: 90px" />-无限]</td>
+            <td class="empt"><select id='{depositEnableEnum}' name='depositEnableEnum' class="requird" title="是否启用"></select></td>
+        </tr>
+         <tr>
+            <td>存款年日均</td>
+            <td>[<input id='{generalDepositDailyMinValue}' name='generalDepositDailyMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{generalDepositDailyMaxValue}" ></span>] <input type='hidden' name="depositDailyky" /></td>
+            <td>[<input id='{cityMajorDepositDailyMinValue}' name='cityMajorDepositDailyMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{cityMajorDepositDailyMaxValue}"  ></span>]</td>
+            <td>[<input id='{centerMajorDepositDailyMinValue}' name='centerMajorDepositDailyMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{centerMajorDepositDailyMaxValue}"  ></span>]</td>
+            <td>[<input id='{centerSpeDepositDailyMinValue}' name='centerSpeDepositDailyMinValue' class="money maxLenth-13"style="width: 90px" />-无限]</td>
+            <td class="empt"><select id='{depositDailyEnableEnum}' name='depositDailyEnableEnum' class="requird" title="是否启用"></select></td>
+        </tr>
+         <tr>
+            <td>贷款余额</td>
+            <td>[<input id='{generalLoanminValue}' name='generalLoanminValue' class="money maxLenth-13"style="width: 90px" />-<span id="{generalLoanmaxValue}" ></span>] <input type='hidden' name="loanky" /></td>
+            <td>[<input id='{cityMajorLoanminValue}' name='cityMajorLoanminValue' class="money maxLenth-13"style="width: 90px" />-<span id="{cityMajorLoanmaxValue}" ></span>]</td>
+            <td>[<input id='{centerMajorLoanminValue}' name='centerMajorLoanminValue' class="money maxLenth-13"style="width: 90px" />-<span id="{centerMajorLoanmaxValue}" ></span>]</td>
+            <td>[<input id='{centerSpeLoanminValue}' name='centerSpeLoanminValue' class="money maxLenth-13"style="width: 90px" />-无限]</td>
+            <td class="empt"><select id='{loanEnable}' name='loanEnableEnum' class="requird" title="是否启用"></select></td>
+        </tr>
+         <tr>
+            <td>表外敞口额度</td>
+            <td>[<input id='{generalOutMinValue}' name='generalOutMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{generalOutMaxValue}" ></span>] <input type='hidden' name="outky" /></td>
+            <td>[<input id='{cityMajorOutMinValue}' name='cityMajorOutMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{cityMajorOutMaxValue}" ></span>]</td>
+            <td>[<input id='{centerMajorOutMinValue}' name='centerMajorOutMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{centerMajorOutMaxValue}" ></span>]</td>
+            <td>[<input id='{centerSpeOutMinValue}' name='centerSpeOutMinValue' class="money maxLenth-13"style="width: 90px" />-无限]</td>
+            <td class="empt"><select id='{outEnable}' name='outEnableEnum' class="requird" title="是否启用"></select></td>
+        </tr>
+        <tr>
+            <td>银承敞口额度</td>
+            <td>[<input id='{generalSilverMinValue}' name='generalSilverMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{generalSilverMaxValue}" ></span>] <input type='hidden' name="silverky" /></td>
+            <td>[<input id='{cityMajorSilverMinValue}' name='cityMajorSilverMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{cityMajorSilverMaxValue}" ></span>]</td>
+            <td>[<input id='{centerMajorSilverMinValue}' name='centerMajorSilverMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{centerMajorSilverMaxValue}" ></span>]</td>
+            <td>[<input id='{centerSpeSilverMinValue}' name='centerSpeSilverMinValue' class="money maxLenth-13"style="width: 90px" />-无限]</td>
+            <td class="empt"><select id='{silverEnable}' name='silverEnableEnum' class="requird" title="是否启用"></select></td>
+        </tr>
+         <tr>
+            <td>贴现余额</td>
+            <td>[<input id='{generalDiscountMinValue}' name='generalDiscountMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{generalDiscountMaxValue}" ></span>] <input type='hidden' name="discountky" /></td>
+            <td>[<input id='{cityMajorDiscountMinValue}' name='cityMajorDiscountMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{cityMajorDiscountMaxValue}" ></span>]</td>
+            <td>[<input id='{centerMajorDiscountMinValue}' name='centerMajorDiscountMinValue' class="money maxLenth-13"style="width: 90px" />-<span id="{centerMajorDiscountMaxValue}" ></span>]</td>
+            <td>[<input id='{centerSpeDiscountMinValue}' name='centerSpeDiscountMinValue' class="money maxLenth-13"style="width: 90px" />-无限]</td>
+            <td class="empt"><select id='{discountEnable}' name='discountEnableEnum' class="requird" title="是否启用" ></select></td>
+        </tr>
+    
+    </table>
+</div>
+</div>

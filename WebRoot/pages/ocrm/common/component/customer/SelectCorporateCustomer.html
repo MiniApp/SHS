@@ -1,0 +1,74 @@
+<div id="{selectCustomerListDiv}">
+	<div id="{selectCustomerListSearchDiv}">
+		<table class="SearchTable">
+			<tr>
+				<td  class = "right">
+					客户名称:
+				</td>
+				<td>
+					<input name="name" type='text' id="{name}"
+						class='maxLength-800' title="客户名称" />
+				</td>
+
+				<td  class = "right">
+					客户号:
+				</td>
+				<td >
+				<input name="corportid" type='text' id="{corportid}"
+						class = "maxLength-32" title="客户号" />
+				</td>
+			</tr>
+			<tr>
+				<td  class = "right">
+					企业规模:
+				</td>
+				<td class="empt">
+					<select name="enterScope" id="{enterScope}">
+						<option></option>
+					</select>
+				</td>
+				<td  class = "right">
+					企业等级:
+				</td>
+				<td class="empt">
+					<select name="grade" id="{grade}">
+						<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td  class = "right">
+					存款年日均大于:
+				</td>
+				<td>
+					<input name="aumLargeThan" type='text'
+						id="mycustomerlistaumLargeThan" width="137" title="AUM大于" class="decimal-24-2"/>
+				</td>
+				<td  class = "right">
+					存款年日均小于:
+				</td>
+				<td>
+					<input name="aumLessThan" type='text'
+						id="mycustomerlistaumLessThan" width="137" title="AUM小于" class="decimal-24-2"/>
+				</td>
+				<tr>
+					<td  class = "right" id="{searchOrgTreeText}" style="display: none">
+						机构:
+					</td>
+					<td class="empt" colspan="5" id="{searchOrgTree}"
+						style="display: none">
+						<input type="hidden" id="{node}" name="node" />
+						<input type="text" id="{nodeTree}" />
+					</td>
+				</tr>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{selectCustomerListGridDiv}"></div>
+
+
+
+
+
+

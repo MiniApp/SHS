@@ -55,7 +55,7 @@ if (!Array.prototype.indexOf) {
 //};
 ObjectUtil
 		.define(
-				"crm.page.mainPage.MainPage",
+				"crm.pages.mainPage.MainPage",
 				"base.PageObject",
 				{
 					/*
@@ -78,7 +78,7 @@ ObjectUtil
 							autoScroll : false,
 							hasBackGroundColor : true,
 							pageObject : ObjectUtil.create(
-									"crm.page.mainPage.HeadPage", {
+									"crm.pages.mainPage.HeadPage", {
 										id : 'HeadPage',
 										user:owner.userInfo
 									})
@@ -107,7 +107,7 @@ ObjectUtil
 							heightPercent : 1,
 							autoScroll : true,
 							pageObject : ObjectUtil.create(
-									"crm.page.mainPage.LeftPage", {
+									"crm.pages.mainPage.LeftPage", {
 										id : 'LeftPage',
 										user:owner.userInfo
 									}),
@@ -143,7 +143,7 @@ ObjectUtil
 												modal : true,
 												pageObject : this
 														.create(
-																'crm.page.ocrm.common.systemManage.individuation.UnLockSystem',
+																'crm.pages.ocrm.common.systemManage.individuation.UnLockSystem',
 																{
 																	id : 'UnLockSystem'
 																})
@@ -155,15 +155,15 @@ ObjectUtil
 					 */
 					loadIndex : function() {
 						var owner = this;
-						var pageClassName = 'crm.page.mainPage.PersonHomePage';
+						var pageClassName = 'crm.pages.mainPage.PersonHomePage';
 						if(owner.userInfo.roleid==CodeStringDefinition.ROLE_TYPE_PERSON_BEST_CUST_MANAGER_CODE||
 								owner.userInfo.roleid==CodeStringDefinition.ROLE_TYPE_PERSON_CUST_BUSSINS_MANAGER_CODE||
 								owner.userInfo.roleid==CodeStringDefinition.ROLE_TYPE_PERSON_CUST_MANAGER_CODE){
-							pageClassName ='crm.page.mainPage.PersonHomePage';
+							pageClassName ='crm.pages.mainPage.PersonHomePage';
 						}else if(owner.userInfo.roleid==CodeStringDefinition.ROLE_TYPE_CORPORATE_BEST_CUST_MANAGER_CODE||
 								owner.userInfo.roleid==CodeStringDefinition.ROLE_TYPE_CORPORATE_CUST_BUSSINS_MANAGER_CODE||
 								owner.userInfo.roleid==CodeStringDefinition.ROLE_TYPE_CORPORATE_CUST_MANAGER_CODE){
-							pageClassName ='crm.page.mainPage.CorporateHomePage';
+							pageClassName ='crm.pages.mainPage.CorporateHomePage';
 						}
 						var pageObj = this.create(pageClassName, {
 							id : 'indexIndivduation',

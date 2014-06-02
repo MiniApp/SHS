@@ -1,0 +1,79 @@
+<div id="{createShorMsgDiv}">
+	<div id="{createShorMsgContentDiv}">
+		<table class="DisplayTable">
+			<tr id="{nameTr}">
+				<td class = "right" width="15%" >
+					客户名称:<span style="color: red">*</span>
+				</td>
+				<td width="75%">
+					<input type="text" name="name"
+						id="{name}" title="客户名称" />
+				</td>
+			</tr>
+			<tr id="{mainphoneTr}">
+				<td class = "right" width="15%">
+				客户手机号码:
+				</td>
+				<td width="75%">
+				<input type="text" name="mainphone"
+						id="{mainphone}" class="mobile" title="客户手机号码" />
+				</td>
+			</tr>
+			<tr id="{phonesTr}">
+				<td class = "right" width="15%">
+				客户经理电话:<span style="color: red">*</span>
+				</td>
+				<td width="75%">
+				<input type="text" name="required mobile" class="mobile"
+						id="{mobile}" title="客户经理电话" />
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" width="15%">
+					预约发送时间：
+				</td>
+				<td class="empt" width="75%">
+					<input type="text" readonly="readonly" name="sendTime"
+						id="{sendTime}" title="预约发送时间" />
+				</td>
+			</tr>
+			<tr id="{undertakerTr}" style="display: none">
+				<td class = "right" >审批人<span style="color: red" >*</span>:</td>
+				<td><input type="text" id="{undertakerName}" name="undertakerName"
+					readonly="readonly" /> <input type="hidden" id="{undertaker}" class="required" title="审核人"
+					name="undertaker" /> <img id="{selectUndertakerImg}" /> <a
+					id="{selectUndertakerLink}" href="#"><font size="2">请选择审批人</font>
+				</a>&nbsp; <a id="{clearUndertakerLink}" href="#"><font size="2">清除</font>
+				</a>
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" >短信模板:<span style="color:red">*</span>
+				</td>
+				<td><input type="text" id="{templateName}" name="templateName" class="required" title="短信模板" readonly="readonly" /> 
+				<img id="{selectUndertakerImg2}" /> <a id="{selectmsgmodle}" href="#"><font size="2">选择模板</font>
+				</a>&nbsp; <a id="{clearUndertakerLink2}" href="#"><font size="2">清除</font>
+				</a>
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" width="15%">
+					发送内容:
+					<span style="color: red">*</span>
+				</td>
+				<td width="75%">
+					<textarea rows="4" cols="60" name="content" id="{content}"
+						class="required maxLength-512" title="发送内容" disabled="disabled"/></textarea>
+					<input type="hidden" id="{descCont}" name="descCont">
+				</td>
+			</tr>
+			<tr>
+				<td class = "right">申请理由：</td>
+				<td width="75%" colspan="2">
+				<textarea rows="4" cols="60" name="applayReason" title="申请理由"
+						id="{applayReason}" /></textarea></td>
+
+			</tr>
+		</table>
+	</div>
+</div>

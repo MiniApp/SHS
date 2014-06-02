@@ -1,0 +1,51 @@
+<div id="{organAddPanel}">
+	<div id="{organAddInfo}">
+		<table class="DisplayTable">
+			<tr>
+				<td>机构名称:</td>
+				<td><input type="text" id="{organName}" name="organName" title="机构名称" class="require" maxlength="80"/><font color="red">*</font></td>
+				<td>机构编码:</td>
+				<td><input type="text" id="{organCode}" name="organCode" class="require" title="机构编码"  maxlength="12"/><font color="red">*</font></td>
+			</tr>
+			<tr>
+				<td>核心编码:</td>
+				<td colspan="3"><input type="text" id="{coreBrch}" name="coreBrch" title="核心机构编号"  maxlength="6"/></td>
+				
+			</tr>
+			<tr>
+				<td>归属部门:</td>
+				<td><input type="text" id="{deptbelong}" name="deptbelong" title="归属部门"  maxlength="80"/></td>
+				<td>邮政编码:</td>
+				<td><input type="text" id="{findPostCode}"  name="findPostCode"  maxlength="6"/></td>
+			</tr>
+				<tr>
+				<td>机构类别:</td>
+				<td><input type="text" id="{nodeType}" name="nodeType" title="机构类别"  maxlength="6"/></td>
+				<td>上级机构:</td>
+				<td class="empt"><input type="text" id="{organParentName}" name="organParentName" readonly="readonly" title="上级机构" class="require" /><font color="red">*</font>
+					<input type="hidden" id="{organParentNode}" name="organParentCode" class="require" title="上级机构" ><!-- 选择的机构号 -->
+				</td>
+			</tr>
+			<tr>
+				<td>组织类型:</td>
+				<td><input type="text" id="{orgType}" name="orgType" title="组织类型"  maxlength="6"/></td>
+				<td>机构属性：</td>
+				<td><input type="text" id="{orgproperty}" name="orgproperty" title="组织类型"  maxlength="6"/></td>
+			</tr>
+			<tr>
+				<td>办公电话：</td>
+				<td><input type="text" id="{findphone}" name="findphone" title="办公电话"  maxlength="12"/></td>
+				<td>传真号：</td>
+				<td><input type="text" id="{faxno}" name="faxno" title="传真号" maxlength="12"/></td>
+			</tr>
+			<tr>
+				<td>办公地址：</td>
+				<td colspan="3"><textarea id="{workaddress}" name="workaddress" title="办公地址"  maxlength="100" cols="56" rows="2"></textarea></td>
+			</tr>
+				<tr>
+				<td>英文地址：</td>
+				<td colspan="3"><textarea id="{engaddr}" name="engaddr" title="办公地址"  maxlength="100" cols="56" rows="2"></textarea></td>
+				</tr>
+		</table>
+	</div>
+</div>

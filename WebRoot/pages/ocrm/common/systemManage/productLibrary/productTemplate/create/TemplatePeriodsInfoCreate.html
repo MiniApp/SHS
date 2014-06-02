@@ -1,0 +1,112 @@
+<div id="{templatePeriodsInfoCreatePanelDiv}">
+	<div id="{templatePeriodsInfoCreateContentDiv}">
+		<input type="hidden" name="product_ID" id="{product_ID}" />
+
+			<table width="100%" class="DisplayTable">
+				<tr>
+					<td align="right">
+						周期类型：
+					</td>
+					<td class="empt">
+						<select name="prodPeriodsTypeEnum" id="{prodPeriodsTypeEnum}" class="required" title="周期类型">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						循环类型：
+					</td>
+					<td class="empt">
+						<select name="prodCycleTypeEnum" id="{prodCycleTypeEnum}">
+							<option></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						起始日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodBeginDateStr" id="{prodBeginDateStr}" class='required compareTo-prodEndDateStr-lt=-date'
+							title='起始日期'/><span class="inputTime">*</span>
+					</td>
+					<td align="right">
+						结束日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodEndDateStr" id="{prodEndDateStr}" class='required compareWith-prodBeginDateStr'
+							title='结束日期'/><span class="inputTime">*</span>
+					</td>		
+				</tr>
+				<!--  
+				<tr>
+					<td align="right">
+						起始时间：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodBeginTimeStr" id="{prodBeginTimeStr}" class='compareTo-prodEndTimeStr-lt=-date'
+							title='起始日期'/>
+					</td>
+					<td align="right">
+						结束时间：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodEndTimeStr" id="{prodEndTimeStr}" class='compareWith-prodBeginTimeStr'
+							title='结束日期'/>
+					</td>
+				</tr>
+				-->
+				<tr>
+					<td align="right">
+						循环单位：
+					</td>
+					<td class="empt">
+						<select name="prodCycleUnitEnum" id="{prodCycleUnitEnum}">
+							<option></option>
+						</select>	
+					</td>
+
+					<td align="right">
+						循环长度：
+					</td>
+					<td>
+						<input type="text" name="prodCycleLength"
+							id="{prodCycleLength}" class='maxLength-5 +digit' title="循环长度"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						执行次数：
+					</td>
+					<td>
+						<input type="text" name="prodCycleTimes"
+							id="{prodCycleTimes}" class='maxLength-5 +digit' title="执行次数"/>
+					</td>
+					<td align="right">
+						执行期循环单位：
+					</td>
+					<td class="empt">
+						<select name="prodDoingCycleUnitEnum" id="{prodDoingCycleUnitEnum}">
+							<option></option>
+						</select>					
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						执行期起始：
+					</td>
+					<td>
+						<input type="text" name="prodDoingBegine"
+							id="{prodDoingBegine}" class='maxLength-25' title="执行期起始"/>
+					</td>
+					<td align="right">
+						执行期终止：
+					</td>
+					<td>
+						<input type="text" name="prodDoingEnd"
+							id="{prodDoingEnd}" class='maxLength-25' title="执行期终止"/>
+					</td>
+				</tr>
+			</table>
+
+	</div>
+</div>

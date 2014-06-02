@@ -1,0 +1,54 @@
+<div id="{templateSellAreaInfoCreatePanelDiv}">
+	<div id="{templateSellAreaInfoCreateContectDiv}">
+			<input type="hidden" name="product_ID" id="{product_ID}" />
+
+			<table width="100%" class="DisplayTable">
+				<tr>
+					<td align="right" width="20%">
+						产品销售区域：
+					</td>
+					<td class="empt" width="30%">
+						<select name="prodSellAreaEnum" id="{prodSellAreaEnum}" class="required" title="产品销售区域">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						销售渠道：
+					</td>
+					<td class="empt">
+						<select name="prodSellChannelEnum" id="{prodSellChannelEnum}" class="required" title="销售渠道">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+			
+				<tr>
+				    <td align="right">
+                      	  产品发售对象：
+					</td>
+					<td class="empt">
+                       <select name="prodSellTargetEnum" id="{prodSellTargetEnum}" class="required" title="产品发售对象">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						专家指导选择：
+					</td>
+					<td class="empt">
+						<select name="prodSellGuideEnum" id="{prodSellGuideEnum}">
+							<option></option>
+						</select>
+					</td>		
+				</tr>
+				<tr>			
+					<td align="right">
+                    	适宜客户群体<span style="color:red;">*</span>：
+					</td>
+					<td colspan="3">
+                        <textarea name="suitcustomergroup"
+							id="{suitcustomergroup}" cols="50" rows="2" class='required maxLength-100' title="适宜客户群体"></textarea>
+					</td>
+				</tr>
+			</table>
+	</div>
+</div>

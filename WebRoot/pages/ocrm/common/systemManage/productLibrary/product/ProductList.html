@@ -1,0 +1,43 @@
+<div id="{productSearchPanelDiv}">
+	<div id="{productSearchContentDiv}">
+		<table class="SearchTable">
+			<tr>
+			    <td align="right">产品代码：</td>
+				<td>
+					<input type="text" name="productId" id="{productid}" class='maxLength-15'/>
+			    </td>
+				<td align="right">产品名称：</td>
+				<td>
+					<input type="text" name="productName" id="{productName}" class='maxLength-15'/>
+			    </td>
+				<td align="right">产品类型：</td>
+				<td class="empt">
+				    <select name="productType" id="{productType}">
+						<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">产品发布状态：</td>
+				<td class="empt">
+					<select name="prodIsPublish" id="{prodispublish}">
+						<option></option>
+					</select>
+				</td>
+				
+				<td align="right">创建起始日期：</td>
+				<td  class="empt" >
+					<input name="createBeginDate" id="{createBeginDate}" class='compareTo-createEndDate-lt=-date'
+						title='创建起始日期' />
+				</td>
+				<td align="right">创建终止日期：</td>
+				<td  class="empt" >
+					<input name="createEndDate" id="{createEndDate}" class='compareWith-createBeginDate'
+						title='创建终止日期' />
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{productListDiv}">
+</div>

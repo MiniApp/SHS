@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="SHS2">
+    <wb-module deploy-name="SHS">
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/base"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/service"/>
@@ -7,6 +7,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="SHS"/>
-        <property name="java-output-path" value="/SHS2/target/classes"/>
+        <property name="java-output-path" value="/SHS/target/classes"/>
     </wb-module>
 </project-modules>

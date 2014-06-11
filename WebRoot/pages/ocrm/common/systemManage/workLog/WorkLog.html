@@ -1,0 +1,25 @@
+<div id="{workLogPanelDiv}">
+   <div id="{workLogContentDiv}">
+   		<input type="hidden" name="objectId" id="{objectId}"/>
+		<table class="DisplayTable" width="100%">
+			<tr>
+				<td align="right">操作员姓名:</td>
+				<td colspan="3">
+					<input type="text" name="employeename" id="{employeename}" disabled="disabled"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">开始时间:</td>
+				<td class="empt">
+					<input type="text" name="begintime" id="{begintime}" class='required compareTo-endtime-lt=-date'
+						title='开始时间'/><span class="inputTime">*</span>
+				</td>
+				<td align="right">结束时间:</td>
+				<td class="empt">
+					<input type="text" name="endtime" id="{endtime}" class='required compareWith-begintime'
+						title='结束时间'/><span class="inputTime">*</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

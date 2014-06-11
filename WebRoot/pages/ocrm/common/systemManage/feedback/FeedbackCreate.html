@@ -1,0 +1,42 @@
+<div id="{feedbackDiv}">
+	<div id="{feedbackinnerDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td class = "right">
+					标题：
+				</td>
+				<td>
+					<input type="text" name="title"
+						id="{title}" class='required maxLength-40' title="标题"/><span class="inputGeneral">*</span>
+				</td>
+				<td class = "right">
+					类型：
+				</td>
+				<td class="empt">
+					<select name="typeEnum" id="{typeEnum}">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class = "right">
+					涉及功能模块：
+				</td>
+				<td>
+					<input type="text" name="funcmodel"
+						id="{funcmodel}" class='required maxLength-30' title="涉及功能模块"/><span class="inputGeneral">*</span>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					内容：
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<textarea name="content" rows="5" cols="150" title="内容"
+						id="{content}" class='maxLength-200'></textarea>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

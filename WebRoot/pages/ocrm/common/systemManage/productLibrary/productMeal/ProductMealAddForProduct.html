@@ -1,0 +1,27 @@
+<div id="{productMealAddPanelDiv}">
+	<div id="{productMealAdd}">
+		<table class="DisplayTable">
+			<tr>
+			    <td  class = "right" style="width:18%">产品套餐名称：</td>
+				<td style="width:32%">
+					<input type="text" name="prdGropName" id="{prdGropName}" title="产品套餐名称" />
+			    </td>
+			    <td style="width:18%"></td>
+			    <td style="width:32%"></td>
+			 </tr>
+			 <tr>
+				<td class = "right">产品名称：</td>
+				<td>
+					<input readonly="readonly" type="text" name="productName" id="{productName}" class='required maxLength-80' title='产品名称'/>
+					<span class="inputGeneral">*</span>
+					<a href="#" id="{selectProduct}">选择产品</a>
+					<input type="hidden" id="{productId}" name="productId" />
+			    </td>
+			    <td class = "right">金额大于等于：</td>
+			    <td>
+			    	<input type="text" name="limitmoney" id="{limitmoney}" class="decimal-16-2" title="金额大于等于" />
+			    </td>
+			 </tr>
+		</table>
+	</div>
+</div>

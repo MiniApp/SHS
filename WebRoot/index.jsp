@@ -3,10 +3,12 @@
 <html>
 <head>
 	<title>Hello EXT5.0</title>
-	<script type="text/javascript" src="resource/js/jsloader/jsloader.js"></script>
+	<!-- <script type="text/javascript" src="resource/js/jsloader/jsloader.js"></script>
 	<script type="text/javascript" src="resource/js/jsloader/base.js"></script>
 	<script type="text/javascript" src="resource/js/jsloader/ext.js"></script>
-	<script type="text/javascript" src="resource/js/jsloader/util.js"></script>
+	<script type="text/javascript" src="resource/js/jsloader/util.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="${base}/resource/js/extjs/4.2/resources/css/ext-all.css" />
+	<script type="text/javascript" src=""${base}/resource/js/extjs/4.2/bootstrap.js"></script>
 </head>
 <body>
 <script type="text/javascript">

@@ -1,0 +1,251 @@
+<div id="{productTradeLimitInfoCreatePanelDiv}">
+	<div id="{productTradeLimitInfoCreateContentDiv}">
+		<input type="hidden" name="product_ID" id="{product_ID}" />
+			<table width="100%" class="DisplayTable">
+				<tr>
+					<td align="right" width="20%">
+						产品发行额度：
+					</td>
+					<td width="30%">
+						<input type="text" name="prodPublishLimit"
+							id="{prodPublishLimit}" class='required decimal-20-2' title="产品发行额度"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right" width="20%">
+						额度管理模式：
+					</td>
+					<td class="empt" width="30%">
+						<select name="prodLimitManageModeEnum" id="{prodLimitManageModeEnum}" class="required" title="额度管理模式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					
+				</tr>
+				<tr>
+					<td align="right">
+						产品开放类型：
+					</td>
+					<td class="empt">
+						<select name="prodOpenTypeEnum" id="{prodOpenTypeEnum}" class="required" title="产品开放类型">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						是否允许超额度销售：
+					</td>
+					<td class="empt">
+						<select name="prodIfOverLimitSellEnum"id="{prodIfOverLimitSellEnum}" class="required" title="是否允许超额度销售">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						募集资金是否计息：
+					</td>
+					<td class="empt">
+						<select name="prodIfCollectMoneyAccrualEnum" id="{prodIfCollectMoneyAccrualEnum}" class="required" title="募集资金是否计息">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						募集计息利率：
+					</td>
+					<td>
+						<input type="text" name="prodIfCollecAccrualRate"
+							id="{prodIfCollecAccrualRate}" class='decimal-16-4' title="募集计息利率"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						个人认购最低额：
+					</td>
+					<td>
+						<input type="text" name="prodPersonTakeUpLowest"
+							id="{prodPersonTakeUpLowest}" class='required decimal-14-2' title="个人认购最低额"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						个人认购最高额：
+					</td>
+					<td>
+						<input type="text" name="prodPersonTakeUpTopmost"
+							id="{prodPersonTakeUpTopmost}" class='decimal-14-2' title="个人认购最高额"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						个人递增步长金额：
+					</td>
+					<td>
+						<input type="text" name="prodPersonAddStepMoney"
+							id="{prodPersonAddStepMoney}" class='required decimal-14-2' title="个人递增步长金额"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						个人预约总额度：
+					</td>
+					<td>
+						<input type="text" name="prodPersonBooingTotalMone"
+							id="{prodPersonBooingTotalMone}" class='decimal-14-2' title="个人预约总额度"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						法人认购最低额：
+					</td>
+					<td>
+						<input type="text" name="prodCorporationTakeUpLowest"
+							id="{prodCorporationTakeUpLowest}" class='required decimal-14-2' title="法人认购最低额"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						法人认购最高额：
+					</td>
+					<td>
+						<input type="text" name="prodCorporationTakeUpTopmost"
+							id="{prodCorporationTakeUpTopmost}" class='decimal-14-2' title="法人认购最高额"/>
+					</td>
+					
+				</tr>
+				<tr>
+					<td align="right">
+						法人递增步长金额：
+					</td>
+					<td>
+						<input type="text" name="prodCorporationAddStepMoney"
+							id="{prodCorporationAddStepMoney}" class='required decimal-14-2' title="法人递增步长金额"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						法人预约总额度：
+					</td>
+					<td>
+						<input type="text" name="prodCorporationBooingTotalMone"
+							id="{prodCorporationBooingTotalMone}" class='decimal-14-2' title="法人预约总额度"/>
+					</td>
+				</tr>
+			
+				<tr>	
+					<td align="right">
+						申购控制方式：
+					</td>
+					<td class="empt">
+						<select name="prodBuyControlModeEnum" id="{prodBuyControlModeEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						申购控制规模：
+					</td>
+					<td>
+						<input type="text" name="prodBuyControlScope"
+							id="{prodBuyControlScope}" class='maxLength-20 +digit' title="申购控制规模"/>
+					</td>
+				</tr>
+				<tr>
+				    
+					<td align="right">
+						个人单次申购最低额：
+					</td>
+					<td>
+						<input type="text" name="prodPersonSingleApplyBuyLowest"
+							id="{prodPersonSingleApplyBuyLowest}" class='required decimal-14-2' title="个人单次申购最低额"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						个人单次申购最高额：
+					</td>
+					<td>
+						<input type="text" name="prodPersonSingleApplBuyTopmost"
+							id="{prodPersonSingleApplBuyTopmost}" class='decimal-14-2' title="个人单次申购最高额"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						个人申购递增金额：
+					</td>
+					<td>
+						<input type="text" name="prodPersonApplyBuyAddMoney"
+							id="{prodPersonApplyBuyAddMoney}" class='required decimal-14-2' title="个人申购递增金额"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						法人单次申购最低额：
+					</td>
+					<td>
+						<input type="text" name="prodCorpSingleApplyBuyLowest"
+							id="{prodCorpSingleApplyBuyLowest}" class='required decimal-14-2' title="法人单次申购最低额"/><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						法人单次申购最高额：
+					</td>
+					<td>
+						<input type="text" name="prodCorpSingleApplyBuyTopmost"
+							id="{prodCorpSingleApplyBuyTopmost}" class='decimal-14-2' title="法人单次申购最高额"/>
+					</td>
+					<td align="right">
+						法人申购递增金额：
+					</td>
+					<td>
+						<input type="text" name="prodCorpApplyBuyAddMoney"
+							id="{prodCorpApplyBuyAddMoney}" class='required decimal-14-2' title="法人申购递增金额"/><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					 <td align="right">
+						最低定投定额金额：
+					</td>
+					<td>
+						<input type="text" name="prodFixupInvestLowest"
+							id="{prodFixupInvestLowest}" class='decimal-14-2' title="最低定投定额金额"/>
+					</td>
+					<td align="right">
+						产品最高赎回份数：
+					</td>
+					<td>
+						<input type="text" name="prodRedeemTopmost"
+							id="{prodRedeemTopmost}" class='maxLength-10 +digit' title="产品最高赎回份数"/>
+					</td>
+				</tr>
+		
+				<tr>
+					<td align="right">
+						产品最少赎回份数：
+					</td>
+					<td>
+						<input type="text" name="prodRedeemLowest"
+							id="{prodRedeemLowest}" class='maxLength-10 +digit' title="产品最少赎回份数"/>
+					</td>
+					<td align="right">
+						客户单日最高赎回份额：
+					</td>
+					<td>
+						<input type="text" name="prodSingleDayRedeemTopmost"
+							id="{prodSingleDayRedeemTopmost}" class='maxLength-10 +digit' title="客户单日最高赎回份额"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						巨额赎回比例：
+					</td>
+					<td>
+						<input type="text" name="prodMintRedeemScale"
+							id="{prodMintRedeemScale}" class='decimal-6-6' title="巨额赎回比例"/>
+					</td>
+					<td align="right">
+						预约金额：
+					</td>
+					<td>
+						<input type="text" name="reservationAmt"
+							id="{reservationAmt}" class='decimal-14-2' title="预约金额"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品功能限制：
+					</td>
+					<td class="empt">
+						<div id={prodFuncLimitDiv}> </div>
+					</td>
+				</tr>
+
+			</table>
+
+	</div>
+</div>

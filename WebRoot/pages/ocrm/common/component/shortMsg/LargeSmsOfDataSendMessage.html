@@ -1,0 +1,67 @@
+<div id="{createShorMsgDiv}">
+	<div id="{createShorMsgContentDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td class = "right" >
+					短信申请名称：
+				</td>
+				<td class="empt">
+					<input type="text" name="msgName" id="{msgName}" disabled="disabled"/>
+				</td>
+			</tr>
+			<tr id="{phonesTr}">
+				<td class = "right" width="15%">
+				客户经理电话:<span style="color: red">*</span>
+				</td>
+				<td width="75%">
+				<input type="text" name="mobile" class="required mobile"
+						id="{phones}" title="客户经理电话" />
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" >
+					发送时间：
+				</td>
+				<td class="empt">
+					<input type="text" name="sendTime" id="{sendTime}"  title="发送时间"/>
+				</td>
+			</tr>
+			<tr id="{undertakerTr}" style="display: none">
+				<td class = "right" >审批人<span style="color: red">*</span>:</td>
+				<td><input type="text" id="{undertakerName}" name="undertakerName"
+					readonly="readonly" /> <input type="hidden" id="{undertaker}" class="required" title="审核人"
+					name="undertaker" /> <img id="{selectUndertakerImg}" /> <a
+					id="{selectUndertakerLink}" href="#"><font size="2">请选择审批人</font>
+				</a>&nbsp; <a id="{clearUndertakerLink}" href="#"><font size="2">清除</font>
+				</a>
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" >短信模板:<span style="color:red">*</span>
+				</td>
+				<td><input type="text" id="{templateName}" name="templateName"	readonly="readonly" /> <img id="{selectUndertakerImg2}" /> <a
+					id="{selectUndertakerLink2}" href="#"><font size="2">选择模板</font>
+				</a>&nbsp; <a id="{clearUndertakerLink2}" href="#"><font size="2">清除</font>
+				</a>
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" >
+					短信内容：<span style="color:red">*</span>
+				</td>
+				<td width="75%">
+					<textarea rows="7" cols="60" name="content" id="{content}"
+						class="required maxLength-100" title="短信内容" readonly="readonly"/></textarea>
+					<input type="hidden" id="{contDesc}" name="contDesc">
+				</td>
+			</tr>
+			<tr>
+				<td class = "right">申请理由：<span style="color:red">*</span></td>
+				<td width="75%" colspan="2"><textarea rows="7" cols="60" name="applayReason"
+				class = "required maxLength-100" title="申请理由"
+						id="{applayReason}" /></textarea></td>
+
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,212 @@
+<div id="{templateIncomeInfoCreatePanelDiv}">
+	<div id="{templateIncomeInfoCreateContentDiv}">
+		<input type="hidden" name="product_ID" id="{product_ID}" />
+			<table width="100%" class="DisplayTable">
+				<tr>
+                     <td align="right">
+						分红序号：
+					</td>
+					<td colspan="3">
+						<input type="text" name="prodMelonCuttingNo"
+							id="{prodMelonCuttingNo}" disabled="disabled"/>
+					</td>
+                </tr>
+				<tr>
+					<td align="right">
+						权益登记日：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodRightsRegisterDateStr"
+							id="{prodRightsRegisterDateStr}" class="required" title="权益登记日"/><span class="inputTime">*</span>
+					</td>
+					<td align="right">
+						分红发放日：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodMelonCuttingGrantDateStr"
+							id="{prodMelonCuttingGrantDateStr}" class="required" title="分红发放日"/><span class="inputTime">*</span>
+					</td>
+					
+				</tr>
+				<tr>
+				   <td align="right">
+						收益分配方式：
+					</td>
+					<td class="empt">
+						<select name="prodIncomeAssignModeEnum"
+							id="{prodIncomeAssignModeEnum}" class="required" title="收益分配方式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				    <td align="right">
+						收益率计算基准：
+					</td>
+					<td class="empt">
+						<select name="prodIncomeRateBaseCounterEnum"
+							id="{prodIncomeRateBaseCounterEnum}" class="required" title="收益率计算基准">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					
+					<td align="right">
+						收益率或净值：
+					</td>
+					<td>
+						<input type="text" name="prodIncomeRate"
+							id="{prodIncomeRate}" class='maxLength-10' title="收益率或净值"/>
+					</td>
+					<td align="right">
+						待分配收益总值：
+					</td>
+					<td>
+						<input type="text" name="prodIncometotal"
+							id="{prodIncometotal}" class='maxLength-10' title="待分配收益总值"/>
+					</td>
+				</tr>
+				<tr>
+
+					<td align="right">
+						收益计算起始日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodIncomeCounterBeginDateStr"
+							id="{prodIncomeCounterBeginDateStr}" class='compareTo-prodIncomeCounterEndDateStr-lt=-date'
+							title='收益计算起始日期'/>
+					</td>
+					<td align="right">
+						收益计算中止日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodIncomeCounterEndDateStr"
+							id="{prodIncomeCounterEndDateStr}" class='compareWith-prodIncomeCounterBeginDateStr'
+							title='收益计算中止日期'/>
+					</td>
+					
+				</tr>
+				<tr>
+				    <td align="right">
+						收益率启用日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodIncomeRateStartDateStr"
+							id="{prodIncomeRateStartDateStr}" />
+					</td>
+				    <td align="right">
+						单位产品已分红额：
+					</td>
+					<td>
+						<input type="text" name="prodHasMelonCuttingMoney"
+							id="{prodHasMelonCuttingMoney}" class='maxLength-10' title="单位产品已分红额"/>
+					</td>
+				</tr>
+			
+				<tr>
+					<td align="right">
+						收益差别模式：
+					</td>
+					<td class="empt">
+						<select name="prodIncomeContrastModeEnum"
+							id="{prodIncomeContrastModeEnum}">
+							<option></option>
+						</select>
+					</td>
+					
+					<td align="right">
+						设置日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodSettingDateStr"
+							id="{prodSettingDateStr}" />
+					</td>
+				</tr>
+                <tr>
+                	<td align="right">
+						收益差别起始点：
+					</td>
+					<td>
+						<input type="text" name="prodIncomeContrastBegin"
+							id="{prodIncomeContrastBegin}" class='decimal-16-2' title="收益差别起始点"/>
+					</td>
+                   <td align="right">
+						收益差别中止点：
+					</td>
+					<td>
+						<input type="text" name="prodIncomeContrastEnd"
+							id="{prodIncomeContrastEnd}" class='decimal-16-2' title="收益差别中止点"/>
+					</td>
+                </tr>
+			
+
+				<tr>
+					<td align="right">
+						生效起始日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodInureBeginDateStr"
+							id="{prodInureBeginDateStr}" class='required compareTo-prodInureEndDateStr-lt=-date'
+							title='生效起始日期'/><span class="inputTime">*</span>
+					</td>
+					<td align="right">
+						生效终止日期：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodInureEndDateStr"
+							id="{prodInureEndDateStr}" class='compareWith-prodInureBeginDateStr'
+							title='生效终止日期'/>
+					</td>
+				</tr>
+				<tr> 
+				    <td align="right">
+						买入单位净值：
+					</td>
+					<td>
+						<input type="text" name="prodBuyUnitValue"
+							id="{prodBuyUnitValue}" class='decimal-12-4' title="买入单位净值"/>
+					</td>
+					<td align="right">
+						卖出单位净值：
+					</td>
+					<td>
+						<input type="text" name="prodSellUnitValue"
+							id="{prodSellUnitValue}" class='decimal-12-4' title="卖出单位净值"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						当期总收益：
+					</td>
+					<td>
+						<input type="text" name="prodCurrentlyIncome"
+							id="{prodCurrentlyIncome}" class='decimal-16-2' title="当期总收益"/>
+					</td>
+					<td align="right">
+						当期年化收益率：
+					</td>
+					<td>
+						<input type="text" name="prodCurrentlyIncomeRate"
+							id="{prodCurrentlyIncomeRate}" class='decimal-12-4' title="当期年化收益率"/>
+					</td>
+				</tr>
+				<tr>
+					
+					<td align="right">
+						累计收益：
+					</td>
+					<td>
+						<input type="text" name="prodAddUpIncome"
+							id="{prodAddUpIncome}" class='decimal-12-4' title="累计收益"/>
+					</td>
+					<td align="right">
+						累计净值：
+					</td>
+					<td>
+						<input type="text" name="prodAddUpValue"
+							id="{prodAddUpValue}" class='decimal-12-4' title="累计净值"/>
+					</td>
+				</tr>
+			</table>
+	
+	</div>
+</div>

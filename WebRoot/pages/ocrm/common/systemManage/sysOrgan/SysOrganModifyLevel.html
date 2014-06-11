@@ -1,0 +1,23 @@
+<div id="{organModifyLevelPanel}">
+	<div id="{organModifyLevelInfo}">
+		<table width="100%">			
+			<tr>
+				<td><font size="2">机构代码:</font></td>
+				<td><input type="text" id="{organCode}" name="organCode"  class="required" readonly="readonly"/></td>
+				<td><font size="2">机构名称:</font></td>
+				<td><input type="text" id="{organName}" name="organName" class="required"  readonly="readonly" /></td>
+			</tr>
+			<tr>
+				<td><font size="2">上级机构:</font></td>
+				<td><input type="text" id="{organParentName}" name="organParentName" readonly="true"/></td>			
+				<td>
+				<input type="hidden" id="{organParentNode}" name="organParentNode" ><!-- 选择的机构号 -->
+					<a href="#" id="{organNodetree}">
+					<img src="/ecif_essp/ecifweb/resources/images/icons/house_go.png" />
+					<font size="2">选择机构</font></a>
+				</td>
+			</tr>
+			
+		</table>
+	</div>
+</div>

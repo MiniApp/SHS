@@ -1,0 +1,40 @@
+<div id="{demotionUpdateDiv}">
+	<div id="{demotionUpdateContentDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td>
+					<input type="hidden" name="beforwatchky" id="{beforwatchky}" />
+					<span style="color: red;">1.</span>如果客户评级指标连续
+					<input name="beforwatch" id="{beforwatch}" class='required +digit maxLength-2'
+						style="width: 50px; height: 17px;" title='进入观察期的时间' />
+					<span class="inputGeneral">*</span>个月达不到原有客户等级标准时，则客户进入观察期。
+				</td>
+
+			</tr>
+			<tr>
+
+				<td>
+					<input type="hidden" name="watchky" id="{watchky}" />
+					<span style="color: red;">2.</span>如果客户连续
+					<input name="watchs" id="{watchs}" class='required +digit maxLength-2'
+						style="width: 50px; height: 17px;" title='处于关注期的时间' />
+					<span class="inputGeneral">*</span>个月处于观察状态，仍未达到原有客户等级标准，则客户进入关注期。
+				</td>
+			</tr>
+			<tr>
+
+				<td>
+					<input type="hidden" name="attentionky" id="{attentionky}" />
+					<span style="color: red;">3.</span>如果客户连续
+					<input name="attention" id="{attention}" class='required +digit maxLength-2'
+						style="width: 50px; height: 17px;" title='关注期的时间' />
+					<span class="inputGeneral">*</span>个月处于关注状态，仍未达到原有客户等级标准，则客户等级从第<span name="attention" id="{attention}" ></span>个月的下一月起降为
+					<br/>
+					最近<span name="attention" id="{attention}" ></span>个月内客户相应等级标准条件达到的最高等级。如果客户已经是CRM系统分级的最底层则无法再降级，也不能退出CRM。
+				</td>
+
+			</tr>
+
+		</table>
+	</div>
+</div>

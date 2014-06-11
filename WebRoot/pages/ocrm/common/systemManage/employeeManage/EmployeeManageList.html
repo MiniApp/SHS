@@ -1,0 +1,75 @@
+<!-- 
+/**
+ *  
+ * 用户管理列表 html页面
+ * 
+ * <p/> 功能描述：
+ * 
+ * <li>前台查询条件展示</li>
+ * 
+ * <li>前台列表展示</li>
+ *
+ * author:朱凯
+ * 
+ * date:2012-07-19
+ * */
+ -->
+<div id="{employeeManageListDiv}">
+	<div id="{employeeManageListSearchDiv}">
+		<table  class="SearchTable">
+			<tr >
+				<td class = "right">
+					用户姓名:
+				</td>
+
+				<td>
+					<input name="name" type='text' id="{name}" class='maxLength-60' 
+						title="用户姓名" />
+				</td>
+				<td class = "right">
+					用户编号:
+				</td>
+				<td>
+					<input name="id" type='text' id="{id}" class='maxLength-11' 
+						 title="用户编号" />
+				</td>
+			</tr>
+			<tr height="40" >
+				<td class = "right">
+					所属机构:
+				</td>
+				<td class="empt">
+				<input type="hidden" id="{node}" name="node"/>
+			    <input type="text" id="{nodeTree}"/>
+				</td>
+				<td class = "right">
+					是否激活:
+				</td>
+				<td class="empt">
+					<select name="statusenum" id="{statusenum}" />
+						<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr height="40">
+				<td class = "right">
+					 角色:
+				</td>
+
+				<td class="empt">
+					<select name="roleid" id="{roleid}" />
+						<option></option>
+					</select>
+				</td>
+				<td>
+					&nbsp;
+				</td>
+				<td >
+					&nbsp;
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{employeeManageListDisplayDiv}">
+</div>

@@ -1,0 +1,93 @@
+<div id="{productIdentifyPanelDiv}">
+	<div id="{productIdentifyContentDiv}">
+			<input type="hidden" name="prodIsTemplate" id="{prodIsTemplate}"/>
+			<table class="DisplayTable">
+				<tr>
+					<td align="right">
+						产品编号：
+					</td>
+					<td>
+						<input type="text" name="product_ID" id="{product_ID}" class='required maxLength-15' style="width:200px" title="产品编号"/><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品名称：
+					</td>
+					<td width="30%">
+						<input type="text" name="productName" id="{productName}" class='required maxLength-30' style="width:200px" title="产品名称"/><span class="inputSelect">*</span>
+					</td>
+					
+				</tr>
+				<tr>
+					<td align="right">
+						营销管理部门：
+					</td>
+					<td class="empt" colspan="3">
+						<div id="{productSalDeptDiv}" class="required" title="营销管理部门"></div><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品类型：
+					</td>
+					<td class="empt">
+						<input type="hidden" name="productType" id="{productType}" class="required" title="产品类型"/>
+						<input type="text" id="{productTypeTree}" /><span class="inputSelect">*</span>
+					</td>		
+				</tr>
+				<tr>
+					<td align="right">
+						主办行：
+					</td>
+					<td class="empt">
+						<input type="hidden" id="{master}" name="master" class="required" title="主办行"/>
+						<input type="text" id="{masterTree}"/><span class="inputSelect">*</span>
+					</td>	
+					<td align="right">
+						产品管理部门：
+					</td>
+					<td class="empt">
+						<select name="productMngDeptEnum" id="{productMngDeptEnum}" class="required" title="产品管理部门">
+							<option>
+							</option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+		
+				<tr>
+					<td align="right">
+						营运管理部门：
+					</td>
+					<td class="empt">
+						<select name="productRunDeptEnum" id="{productRunDeptEnum}" class="required" title="营运管理部门">
+							<option>
+							</option>
+						</select><span class="inputSelect">*</span>
+
+					</td>	
+					<td align="right">
+						特殊日期：
+					</td>
+					<td class="empt">
+						<input name="specialDateStr" id="{specialDateStr}" class='required'
+							title='特殊日期' /><span class="inputTime">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						特殊日期起始日：
+					</td>
+					<td  class="empt" >
+						<input name="specialStratDateStr" id="{specialStratDateStr}" class='required compareTo-specialEndDateStr-lt=-date'
+							title='特殊日期起始日' /><span class="inputTime">*</span>
+					</td>
+					<td align="right">
+						特殊日期终止日：
+					</td>
+					<td class="empt">
+						<input name="specialEndDateStr" id="{specialEndDateStr}" class='required compareWith-specialStratDateStr'
+							title='特殊日期终止日' /><span class="inputTime">*</span>
+					</td>
+				</tr>
+			</table>
+		
+		
+	</div>
+</div>

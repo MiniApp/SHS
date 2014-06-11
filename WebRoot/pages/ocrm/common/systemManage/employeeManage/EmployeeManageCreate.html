@@ -1,0 +1,259 @@
+<div id="{employeeManageCreateDiv}">
+	<div id="{employeeManageCreateContentDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td>
+					登陆ID<span style="color:red;">*</span>:
+				</td>
+				<td colspan="3">
+					<input name="loginId" id="{loginId}" class='required maxLength-11' style="width: 150px;height:20px;"
+						title='登陆ID' />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					姓名<span style="color:red;">*</span>:
+				</td>
+				<td>
+					<input name="name" id="{name}" class='required maxLength-60' style="width: 150px;height:20px;"
+						title='姓名' />
+				</td>
+				<td>
+					工号<span style="color:red;">*</span>:
+				</td>
+				<td>
+					<input name="emNo" id="{emNo}" class='required maxLength-11' style="width: 150px;height:20px;"
+						title='工号' />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					证件类型<span style="color:red;">*</span>:
+				</td>
+				<td class="empt">
+					<select name="idtypeenum" id="{idtypeenum}" class='required' title='证件类型'/>
+						<option></option>
+					</select>
+				</td>
+				<td>
+					证件号码<span style="color:red;">*</span>:
+				</td>
+				<td>
+					<input name="idnumber" id="{idnumber}" class='required maxLength-20' style="width: 150px;height:20px;"
+						title='证件号码' />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					性别:
+				</td>
+				<td class="empt">
+					<select name="genderenumenum" id="{genderenumenum}" />
+						<option></option>
+					</select>
+				</td>
+			<td>
+					民族:
+				</td>
+				<td class="empt">
+					<select name="raceenum" id="{raceenum}" />
+						<option></option>
+					</select>
+				</td>
+				
+			</tr>
+			<tr>
+				<td>
+					入行时间:
+				</td>
+				<td class="empt">
+					<input name="birthday" id="{birthday}" title='入行时间' />
+				</td>
+				<td>
+					政治面貌:
+				</td>
+				<td class="empt">
+					<select name="clanbelongtoenum" id="{clanbelongtoenum}" />
+						<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					所属机构<span style="color:red;">*</span>:
+				</td>
+				<td class="empt">
+					<input type="hidden" id="{node}" name="node" class='required' title='所属机构'/>
+					<input type="text" id="{nodeTree}" />
+				</td>
+				<td>
+					工作区域:
+				</td>
+				<td class="empt">
+					<select name="deptbelongenum" id="{deptbelongenum}" />
+						<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					是否专职客户经理:
+				</td>
+				<td class="empt">
+					<select name="isfulltimeenum" id="{isfulltimeenum}" />
+						<option></option>
+					</select>
+				</td>
+				<td>
+					从事客户经理时间:
+				</td>
+				<td class="empt">
+					<input name="employeetime" id="{employeetime}" title='从事客户经理时间' />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					最高学历:
+				</td>
+				<td class="empt">
+					<select name="educationenum" id="{educationenum}" />
+						<option></option>
+					</select>
+				</td>
+				<td>
+					毕业院校:
+				</td>
+				<td>
+					<input name="finishsch" id="{finishsch}"  class='maxLength-60' style="width: 150px;height:20px;" title='毕业院校'/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					职称:
+				</td>
+				<td class="empt">
+					<select name="technicaltitleenum" id="{technicaltitleenum}" />
+						<option></option>
+					</select>
+				</td>
+			
+				<td>
+					所学专业:
+				</td>
+				<td>
+					<input name="empfield" id="{empfield}"  class='maxLength-30' style="width: 150px;height:20px;" title='所学专业'/>
+				</td>
+			</tr>
+			<tr>			
+				<td>
+					专业技术职务类别:
+				</td>
+				<td class="empt">
+					<select name="skillpositionenum" id="{skillpositionenum}" />
+						<option></option>
+					</select>
+				</td>
+				<td>
+					专业技术职务等级:
+				</td>
+				<td class="empt">
+					<select name="bussnegopermenum" id="{bussnegopermenum}" />
+						<option></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					办公地址:
+				</td>
+				<td>
+					<input name="officeaddr" id="{officeaddr}"  class='maxLength-60' style="width: 150px;height:20px;" title='办公地址'/>
+				</td>
+				<td>
+					移动电话<span style="color:red;">*</span>:
+				</td>
+				<td>
+					<input name="mobile" id="{mobile}"  class='required mobile maxLength-11' style="width: 150px;height:20px;" title='移动电话'/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					办公电话1:
+				</td>
+				<td>
+					<input name="findphone" id="{findphone}"  class='maxLength-20' style="width: 150px;height:20px;" title='办公电话1'/>
+				</td>
+				<td>
+					办公电话2:
+				</td>
+				<td>
+					<input name="findphone2" id="{findphone2}"  class='maxLength-20' style="width: 150px;height:20px;" title='办公电话2'/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					合同情况:
+				</td>
+				<td class="empt">
+					<select name="contractenumenum" id="{contractenumenum}" />
+						<option></option>
+					</select>
+				</td>
+				<td>
+					电子邮件:
+				</td>
+				<td>
+					<input name="email" id="{email}"  class='email maxLength-60' style="width: 150px;height:20px;" title='电子邮件' />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					个贷操作员:
+				</td>
+				<td>
+					<input name="loanid" id="{loanid}"  class='maxLength-13' style="width: 150px;height:20px;" title='个贷操作员'/>
+				</td>
+				<td>
+					虚拟柜员号:
+				</td>
+				<td>
+					<input name="virtualid" id="{virtualid}"  class='maxLength-13' style="width: 150px;height:20px;" title='虚拟柜员号'/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					培训次数:
+				</td>
+				<td>
+					<input name="trainningtimes" id="{trainningtimes}"  class='+digit maxLength-5' style="width: 150px;height:20px;" title='培训次数'/>
+				</td>
+				<td>
+					培训记录:
+				</td>
+				<td>
+					<input name="trainingnote" id="{trainingnote}"  class='maxLength-255'style="width: 150px;height:20px;" title='培训记录'/>
+				</td>
+			</tr>
+			<tr>
+				<!-- 
+				<td>
+					社会关系:
+				</td>
+				<td class="empt">
+					<select name="socialrelationenum" id="{socialrelationenum}" />
+						<option></option>
+					</select>
+				</td>
+				 -->
+				 
+				<td>
+					备注:
+				</td>
+				<td colspan=3>
+					<textarea rows="4" cols="60" name="remark"
+						id="{remark}" class="maxLength-500" title="备注" /></textarea>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

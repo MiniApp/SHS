@@ -51,6 +51,16 @@
         <url-pattern>/*</url-pattern>  
     </filter-mapping>  
 	
+	<!-- 设置web环境上下文   -->  
+    <filter>  
+        <filter-name>SetContextPath</filter-name>  
+        <filter-class>im.shs.base.filter.ContextPathFilter</filter-class>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>SetContextPath</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+	
 	<servlet>  
 		<servlet-name>SpringMVC</servlet-name>  
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  

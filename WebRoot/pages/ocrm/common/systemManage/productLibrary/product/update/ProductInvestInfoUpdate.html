@@ -1,0 +1,197 @@
+<div id="{productIdentifyUpdatePanelDiv}">
+	<div id="{productIdentifyUpdateContentDiv}">
+			<table class="DisplayTable">
+				<tr>
+					<td align="right">
+						产品模式：
+					</td>
+					<td class="empt">
+						<select name="prdmodelEnum" id="{PRD_MODEL}" title="产品模式">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						产品最长期限：
+					</td>
+					<td>
+						<input type="text" name="prdlifetime" id="{PRD_LIFETIME}" class='maxLength-15' title="产品最长期限 "/>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						产品起始日：
+					</td>
+					<td class="empt">
+						<input name="startdateStr" id="{startdateStr}" class='compareTo-finishdateStr-lt=-date' title="产品起始日"></span>
+					</td>	
+					<td align="right">
+						产品终止日：
+					</td>
+					<td class="empt">
+						<input name="finishdateStr" id="{finishdateStr}" class='compareWith-startdateStr' title="产品终止日"></span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						起售日期：
+					</td>
+					<td class="empt">
+						<input name="stadateStr" id="{stadateStr}" class='compareTo-enddateStr-lt=-date' title="起售日期"></span>
+					</td>	
+					<td align="right">
+						销售截止日期：
+					</td>
+					<td class="empt">
+						<input name="enddateStr" id="{enddateStr}" class='compareWith-stadateStr' title="销售截止日期"></span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						起售金额：
+					</td>
+					<td>
+						<input type="text" name="money" id="{MONEY}" class='decimal-20-2' title="起售金额"></span>
+					</td>
+					<td align="right">
+						产品额度：
+					</td>
+					<td>
+						<input type="text" name="promit" id="{PROMIT}" class='decimal-20-2' title="产品额度"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品状态：
+					</td>
+					<td class="empt">
+						<select name="prdstatusEnum" id="{PRD_STATUS}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						产品币种：
+					</td>
+					<td class="empt">
+						<select name="prdcurryEnum" id="{prdcurryEnum}">
+							<option></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品风险等级：
+					</td>
+					<td class="empt">
+						<select name="prdrisklevelEnum" id="{prdrisklevelEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						产品收益兑付方式：
+					</td>
+					<td class="empt">
+						<select name="prdincomepaymothdEnum" id="{prdincomepaymothdEnum}">
+							<option></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品分红方式：
+					</td>
+					<td class="empt">
+						<select name="prdbonusmothdEnum" id="{prdbonusmothdEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						特殊条款：
+					</td>
+					<td>
+						<input type="text" name="speciallimit" id="{SPECIAL_LIMIT}" class='maxLength-50' title="特殊条款"></span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						所有者：
+					</td>
+					<td>
+						<input type="text" name="owner" id="{OWNER}" class='maxLength-50' title="所有者"></span>
+					</td>
+					<td align="right">
+						收益特点：
+					</td>
+					<td class="empt">
+						<select name="incometraitEnum" id="{incometraitEnum}">
+							<option></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						收益支付形式：
+					</td>
+					<td class="empt">
+					   <input type="text" name="incomepaymethod" id="{incomepaymethod}" class='maxLength-100' title="收益支付形式">
+					</td>
+					<td align="right">
+						收益计算公式：
+					</td>
+					<td>
+						<input type="text" name="incomedesignformulas" id="{INCOME_DESIGN_FORMULAS}" class='maxLength-50' title="收益计算公式"></span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						收益上限：
+					</td>
+					<td>
+						<input type="text" name="incomeratehigh" id="{INCOME_RATE_HIGH}" class='decimal-7-4' title="收益上限"></span>
+					</td>
+					<td align="right">
+						收益下限：
+					</td>
+					<td>
+						<input type="text" name="incomeratelow" id="{INCOME_RATE_LOW}" class='decimal-7-4' title="收益下限"></span>
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						收益说明：
+					</td>
+					<td>
+						<input type="text" name="incomeexplain" id="{INCOME_EXPLAIN}" class='maxLength-50' title="收益说明"></span>
+					</td>
+					<td align="right">
+						产品投资标的：
+					</td>
+					<td class="empt">
+					<input type="text" name="investtarget" id="{investtarget}" class='maxLength-100' title="产品投资标的">
+					</td>
+				</tr>
+				<tr>
+				    <td align="right">
+						资金投向说明：
+					</td>
+					<td>
+						<input type="text" name="investexplain" id="{INVEST_EXPLAIN}" class='maxLength-50' title="资金投向说明"></span>
+					</td>
+					<td align="right">
+						产品价格：
+					</td>
+					<td>
+						<input type="text" name="prdprice" id="{PRD_PRICE}" class='decimal-7-4' title="产品价格"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品描述：
+					</td>
+					<td>
+						<input type="text" name="prdexplain" id="{PRD_EXPLAIN}" class='maxLength-250' title="产品描述"></span>
+					</td>
+				</tr>
+				
+			</table>	
+	</div>
+</div>

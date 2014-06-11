@@ -1,0 +1,39 @@
+<div id="{productTemplateSearchPanelDiv}">
+	<div id="{productTemplateSearchContentDiv}">
+		<table class="SearchTable" height="100">
+			<tr>
+				<td align="right">模板编号：</td>
+				<td>
+					<input type="text" name="productId" id="{productId}" class='maxLength-17' style="width:200px"/>
+				</td>
+				<td align="right">模板名称：</td>
+				<td>
+					<input type="text" name="productName" id="{productName}" class='maxLength-30' style="width:200px"/>
+				</td>
+			</tr>		
+			
+			<tr>	
+				<td align="right">创建起始日期：</td>
+				<td  class="empt" >
+					<input name="createBeginDate" id="{createBeginDate}" class='compareTo-createEndDate-lt=-date'
+						title='创建起始日期' />
+				</td>
+				<td align="right">创建终止日期：</td>
+				<td  class="empt" >
+					<input name="createEndDate" id="{createEndDate}" class='compareWith-createBeginDate'
+						title='创建终止日期' />
+				</td>
+			</tr>
+			<tr>
+				<td align="right">产品类型：</td>
+				<td class="empt">
+					<input type="hidden" name="productType" id="{productType}"/>
+					<input type="text" id="{productTypeTree}" />
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{productTemplateListDiv}">
+</div>

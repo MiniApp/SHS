@@ -1,0 +1,345 @@
+<div id="{templateBaseInfoCreatePanelDiv}">
+	<div id="{templateBaseInfoCreateContentDiv}">
+			<input type="hidden" name="productId" id="{productId}" />
+			<table width="100%" class="DisplayTable">
+				<tr>
+					<td align="right">
+						产品模式：
+					</td>
+					<td class="empt">
+						<select name="prodmodeEnum" id="{prodmodeEnum}" class="required" title="产品模式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品期限：
+					</td>
+					<td class="empt">
+						<select name="prodlimitdateEnum" id="{prodlimitdateEnum}"  class="required" title="产品期限">
+							<option>
+							</option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品状态：
+					</td>
+					<td class="empt">
+						<select name="prodstateEnum" id="{prodstateEnum}" class="required" title="产品状态">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品投资起始日：
+					</td>
+					<td class="empt">
+						<input name="prodinvestbegindatestr" id="{prodinvestbegindatestr}" class='required compareTo-prodinvestenddatestr-lt=-date'
+							title='产品投资起始日'/><span class="inputTime">*</span>
+					</td>
+					<td align="right">
+						产品投资终止日：
+					</td>
+					<td class="empt">
+						<input type="text" name="prodinvestenddatestr" id="{prodinvestenddatestr}" class='required compareWith-prodinvestbegindatestr'
+							title='产品投资结束日期'/><span class="inputTime">*</span>
+					</td>
+					<td align="right">
+						产品募集币种：
+					</td>
+					<td class="empt">
+						<select name="prodcollectmoneytypeEnum" id="{prodcollectmoneytypeEnum}" class="required" title="产品募集币种">
+							<option>
+							</option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">
+						产品兑付币种：
+					</td>
+					<td class="empt">
+						<select name="prodcashmoneytypeEnum" id="{prodcashmoneytypeEnum}" class="required" title="产品兑付币种">
+							<option>
+							</option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品本金兑付方式：
+					</td>
+					<td class="empt">
+						<select name="prodcorpuscashmodeEnum" id="{prodcorpuscashmodeEnum}" class="required" title="产品本金兑付方式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品收益兑付方式：
+					</td>
+					<td class="empt">
+						<select name="prodincomecashmodeEnum" id="{prodincomecashmodeEnum}" class="required" title="产品收益兑付方式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品性质：
+					</td>
+					<td>
+						<input type="text" name="prodkind"
+							id="{prodkind}" class='required maxLength-30' title="产品性质"/>		<span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品风险等级：
+					</td>
+					<td class="empt">
+						<select name="prodriskgradeEnum" id="{prodriskgradeEnum}" class="required" title="产品风险等级">
+							<option>
+							</option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品分红方式：
+					</td>
+					<td class="empt">
+						<div id="{tmpProdmeloncuttingmodeDiv}" class='required' title="产品分红方式"></div><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">
+						产品流动性：
+					</td>
+					<td class="empt">
+						<select name="prodfluidityEnum" id="{prodfluidityEnum}" class="required" title="产品流动性">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品循环标志：
+					</td>
+					<td class="empt">
+						<select name="prodcycleflagEnum" id="{prodcycleflagEnum}" class="required" title="产品循环标志">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						收益计算模式：
+					</td>
+					<td class="empt">
+						<select name="prodincomecountermodeEnum" id="{prodincomecountermodeEnum}" class="required" title="收益计算模式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				
+			
+				<tr>
+					<td align="right">
+						净值：
+					</td>
+					<td>
+						<input type="text" name="productnetworth"
+							id="{productnetworth}" class='decimal-6-4' title="净值"/>		
+					</td>
+					
+					<td align="right">
+						收益币种：
+					</td>
+					<td class="empt">
+						<select name="prodincomemoneytypeEnum" id="{prodincomemoneytypeEnum}" class="required" title="收益币种">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						收益支付形式：
+					</td>
+					<td class="empt">
+						<select name="prodincomepaymodeEnum" id="{prodincomepaymodeEnum}" class="required" title="收益支付形式">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+				</tr>
+				<tr>
+					
+					<td align="right">
+						收益特点：
+					</td>
+					<td class="empt">
+						<select name="prodincomespecialtyEnum" id="{prodincomespecialtyEnum}" class="required" title="收益特点">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						收益率上限：
+					</td>
+					<td>
+						<input type="text" name="prodincomeupperlimit"
+							id="{prodincomeupperlimit}" class='decimal-6-4' title="收益率上限"/>		
+					</td>
+					<td align="right">
+						收益率下限：
+					</td>
+					<td>
+						<input type="text" name="prodincomelowerlimit"
+							id="{prodincomelowerlimit}" class='decimal-6-4' title="收益率下限"/>	
+					</td>
+				</tr>
+				<tr>
+					
+					<td align="right">
+						收益计算公式：
+					</td>
+					<td colspan="2">
+					     <textarea name="prodincomecounterexpressions"
+							id="{prodincomecounterexpressions}" cols="40" rows="2" class='maxLength-250' title="收益计算公式"></textarea>
+					
+					</td>
+					<td align="right">
+						收益说明：
+					</td>
+					<td colspan="2">
+					    <textarea name="prodincomedesc"
+							id="{prodincomedesc}" cols="40" rows="2" class='maxLength-250' title="收益说明"></textarea>
+						
+					</td>
+				</tr>
+		
+				<tr>
+					<td align="right">
+						产品是否计税：
+					</td>
+					<td class="empt">
+					    <select name="prodiftaxEnum" id="{prodiftaxEnum}" class="required" title="产品是否计税">
+							<option></option>
+						</select><span class="inputSelect">*</span>
+						
+					</td>
+					<td align="right">
+						税率方案：
+					</td>
+					<td class="empt">
+					       <select name="prodtaxrateprojectEnum" id="{prodtaxrateprojectEnum}">
+							<option></option>
+						    </select>
+							
+					</td>
+					<td align="right">
+						税率方案值：
+					</td>
+					<td>
+						<input type="text" name="prodtaxratevalue"
+							id="{prodtaxratevalue}" class='decimal-6-4' title="税率方案值"/>		
+					</td>
+					
+				</tr>
+			  
+				<tr>
+					<td align="right">
+						产品投资策略：
+					</td>
+					<td class="empt">
+						<select name="prodinvestpolicyEnum" id="{prodinvestpolicyEnum}">
+							<option></option>
+						</select>
+					</td>
+					<td align="right">
+						产品投资标的：
+					</td>
+					<td class="empt">
+						<select name="prodinvestsigntargetEnum" id="{prodinvestsigntargetEnum}">
+							<option></option>
+
+						</select>
+					</td>
+					<td align="right">
+						产品投资行业：
+					</td>
+					<td class="empt">
+						<select name="prodinvestindustryEnum" id="{prodinvestindustryEnum}">
+							<option></option>
+						</select>
+					</td>
+					
+				</tr>
+				<tr>
+					<td align="right">
+						产品投资区域：
+					</td>
+					<td class="empt">
+						<select name="prodinvestareaEnum" id="{prodinvestareaEnum}">
+							<option></option>
+							</select>
+					</td>
+					<td align="right">
+						托管银行：
+					</td>
+					<td class="empt">
+						<select name="prodownerEnum" id="{prodownerEnum}" class="required" title="托管银行"> 
+							<option></option>
+						</select><span class="inputSelect">*</span>
+					</td>
+					<td align="right">
+						产品提前中止方：
+					</td>
+					<td class="empt">
+						<div id="{tmpProdaheadpauseDiv}" class='required' title="产品提前中止方"></div><span class="inputSelect">*</span>
+					</td>
+					
+					
+				</tr>
+				<tr>
+					<td align="right">
+						产品中止条件<span style="color:red;">*</span>：
+					</td>
+					<td colspan="2">
+					    <textarea name="prodpausecondition"
+							id="{prodpausecondition}" cols="40" rows="2" class='required maxLength-250' title="产品中止条件"></textarea>
+						
+					</td>
+					<td align="right">
+						合作者<span style="color:red;">*</span>：
+					</td>
+					<td colspan="2">
+						<textarea name="prodcopartner"
+							id="{prodcopartner}" cols="40" rows="2" class='required maxLength-100' title="合作者"></textarea>
+					</td>
+				</tr>
+				 <tr>
+					<td align="right">
+						特殊条款<span style="color:red;">*</span>：
+					</td>
+					<td colspan="2">
+					    <textarea name="prodspecialitem"
+							id="{prodspecialitem}" cols="40" rows="2" class='required maxLength-512' title="特殊条款"></textarea>
+						
+					</td>
+					<td align="right">
+						资金投向说明<span style="color:red;">*</span>：
+					</td>
+					<td colspan="2">
+						<textarea name="prodinvestdesc"
+							id="{prodinvestdesc}" cols="40" rows="2" class='required maxLength-250' title="资金投向说明"></textarea>
+						
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						产品风险提示<span style="color:red;">*</span>：
+					</td>
+					<td colspan="2">
+						<textarea name="productrisksuggest" id="{productrisksuggest}"
+							cols="40" rows="2" class='required maxLength-500' title="产品风险提示"></textarea>
+					</td>
+					<td align="right">
+						产品描述<span style="color:red;">*</span>：
+					</td>
+					<td colspan="2">
+						<textarea name="proddesc" id="{proddesc}"
+							cols="40" rows="2" class='required maxLength-100' title="产品描述"></textarea>
+					</td>
+				</tr>
+				</table>
+	</div>
+</div>

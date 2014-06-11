@@ -1,0 +1,82 @@
+<table>
+	<tr>
+		<td valign="top">
+			<div id="{tree}"></div>
+		</td>
+		<td valign="top">
+			<div id="{baseInfoDiv}">
+				<div id="{baseInfoContentDiv}">
+					<table class="DisplayTable">
+						<tr>
+							<td>
+								状态:
+							</td>
+							<td>
+								<input type="text" name="eningeStatus" id="{eningeStatus}"
+									class='required maxLength-60' title='状态' value="设计中"
+									disabled="disabled" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								引擎名称:
+							</td>
+							<td>
+								<input type="text" name="eningeName" id="{eningeName}"
+									maxlength="25" title='引擎名称' maxlength="25"/>
+								<span class="inputGeneral">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								引擎描述:
+							</td>
+							<td>
+								<input type="text" name="eningeDesc" id="{eningeDesc}"
+									 title='引擎描述' maxlength="64"/>
+								<span class="inputGeneral">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								每月执行日期:
+							</td>
+							<td class="empt">
+								<input name="execyteDay" id="{execyteDay}" />
+							</td>
+
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="{condtionTreeDiv}">
+				<div id="{condtionTreeContentDiv}">
+					<table>
+						<tr>
+							<td valign="top">
+								<div id="{selectTreeDiv}"></div>
+							</td>
+							<!-- 
+							<td valign="top">
+								<div id="{aaa}">
+									<div id="{showConditonContent}"></div>
+								</div>
+							</td>
+							 -->
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div id="{conditionInputDiv}">
+				<div id="{conditionInputContentDiv}">
+					<div id="{conditionContent}"></div>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<input type="hidden" id="{treeId}"></input>
+<input type="hidden" id="{normId}"></input>
+<input type="hidden" id="{normType}"></input>

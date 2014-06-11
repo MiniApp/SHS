@@ -1,0 +1,39 @@
+<div id="{searchEmployeeDiv}" style="display: none;">
+	<div id="{searchEmployeeContentDiv}">
+		<table class="SearchTable">
+			<tr>
+				<td class = "right">
+					名称:
+				</td>
+				<td>
+					<input type="text" id="{name}" name="name" class='maxLength-60' title="名称" />
+				</td>
+				<td class = "right">
+					登陆号:
+				</td>
+				<td>
+					<input type="text" id="{logonId}" name="logonId" class='maxLength-12' title="登陆号" />
+				</td>
+			</tr>
+			<tr>
+				<td class = "right" id="{searchPositinTest}" style="display: none">
+					级别:
+				</td>
+				<td class="empt" id="{searchPositinSelect}" style="display: none">
+					<select id="{position}" name="position">
+						<option></option>
+					</select>
+				</td>
+				<td class = "right" id="{searchOrgTreeText}" style="display: none">
+					机构:
+				</td>
+				<td class="empt" colspan="5" id="{searchOrgTree}"
+					style="display: none">
+					 <input type="hidden" id="{node}" name="node" />
+					<input type="text" id="{nodeTree}" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="{selectEmployeeGridDiv}"></div>

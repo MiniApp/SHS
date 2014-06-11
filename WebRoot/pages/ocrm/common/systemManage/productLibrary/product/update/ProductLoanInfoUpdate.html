@@ -1,0 +1,100 @@
+<div id="{productIdentifyUpdatePanelDiv}">
+	<div id="{productIdentifyUpdateContentDiv}">
+			<table class="DisplayTable">
+				<tr>
+					<td align="right">
+						类型：
+					</td>
+					<td>
+						<input type="text" name="loantype" id="{LOAN_TYPE}" class='maxLength-50' title="类型"></input>
+					</td>
+					<td align="right">
+						最长期限：
+					</td>
+					<td>
+						<input type="text" name="termest" id="{TERMEST}" class='maxLength-50 ' title="最长期限"></input>
+					</td>
+					
+				</tr>
+				<tr>
+				    <td align="right">
+						成立时间：
+					</td>
+					<td class="empt">
+						<input name="startdateStr" id="{startdateStr}" class='compareTo-finishdateStr-lt=-date' title="成立时间"></input>
+					</td>	
+					<td align="right">
+						结束时间：
+					</td>
+					<td class="empt">
+						<input name="finishdateStr" id="{finishdateStr}" class='compareWith-startdateStr' title="结束时间"></input>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						担保方式：
+					</td>
+					<td>
+						<input type="text" name="guaranteemethod" id="{GUARANTEE_METHOD}" class='maxLength-100' title="担保方式"></input>
+					</td>
+					<td align="right">
+						还款方式：
+					</td>
+					<td>
+						<input type="text" name="returnmethod" id="{RETURN_METHOD}" class='maxLength-25' title="还款方式"></input>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						其他还款方式：
+					</td>
+					<td>
+						<input type="text" name="otherreturnmethod" id="{OTHER_RETURN_METHOD}" class='maxLength-25' title="其他还款方式"></input>
+					</td>
+					<td align="right">
+						抵押率：
+					</td>
+					<td>
+						<input type="text" name="guarantyrate" id="{GUARANTY_RATE}" class='maxLength-25' title="抵押率"></input>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						最低贷款利率：
+					</td>
+					<td>
+						<input type="text" name="lowrate" id="{LOW_RATE}" class='maxLength-25' title="最低贷款利率"></input>
+					</td>
+					<td align="right">
+						借款人年龄限制：
+					</td>
+					<td>
+						<input type="text" name="loaneragelimit" id="{LOANER_AGE_LIMIT}" class='maxLength-25' title="借款人年龄限制"></input>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						最高贷款金额：
+					</td>
+					<td>
+						<input type="text" name="hightloanmoney" id="{HIGHT_LOAN_MONEY}" class='maxLength-25' title="最高贷款金额"></input>
+					</td>
+					<td align="right">
+						支付管理方式：
+					</td>
+					<td>
+						<input type="text" name="paymethod" id="{PAY_METHOD}" class='maxLength-50' title="支付方式"></input>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						备注：
+					</td>
+					<td>
+						<input type="text" name="remark" id="{remark}" class='maxLength-250' title="备注"></input>
+					</td>
+				</tr>
+				
+			</table>	
+	</div>
+</div>

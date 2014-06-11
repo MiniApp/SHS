@@ -1,0 +1,59 @@
+<div id="{productIdentifyUpdatePanelDiv}">
+	<div id="{productIdentifyUpdateContentDiv}">
+			<table class="DisplayTable">
+				<tr>
+					<td align="right">
+						支付平台：
+					</td>
+					<td>
+						<input type="text" name="payway" id="{PAY_WAY}" class='maxLength-50' title="支付平台"></span>
+					</td>
+					<td align="right">
+						可实现的业务功能：
+					</td>
+					<td>
+						<input type="text" name="businessfunction" id="{BUSINESS_FUNCTION}" class='maxLength-50' title="可实现的业务功能"></span>
+					</td>
+					
+				</tr>
+				<tr>
+				    <td align="right">
+						成立时间：
+					</td>
+					<td class="empt">
+						<input name="startdateStr" id="{startdateStr}" class='required compareTo-finishdateStr-lt=-date' title="成立时间"></span>
+					</td>	
+					<td align="right">
+						结束时间：
+					</td>
+					<td class="empt">
+						<input name="finishdateStr" id="{finishdateStr}" class='required compareWith-startdateStr' title="结束时间"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						交易限制：
+					</td>
+					<td>
+						<input type="text" name="limittrade" id="{LIMIT_TRADE}" class='maxLength-50' title="交易限制"></span>
+					</td>
+					<td align="right">
+						资费：
+					</td>
+					<td>
+						<input type="text" name="cost" id="{COST}" class='maxLength-100' title="资费"></span>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						备注：
+					</td>
+					<td>
+						<input type="text" name="remark" id="{remark}" class='maxLength-250' title="备注"></span>
+					</td>
+				</tr>
+				
+			</table>	
+	</div>
+</div>
+

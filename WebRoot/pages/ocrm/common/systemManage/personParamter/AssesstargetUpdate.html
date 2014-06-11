@@ -1,0 +1,58 @@
+<div id="{assesstargetUpdateDiv}">
+	<div id="{assesstargetUpdateContentDiv}">
+		<table class="DisplayTable">
+			<tr>
+				<td class = "right">
+					客户经理类型:
+				</td>
+				<td class="empt">
+					<select name="employeetypeEnum" id="{employeetypeEnum}" class='required' title='客户经理类型'/>
+						<option></option>
+					</select><span class="inputSelect">*</span>
+			     </td>
+				<td class = "right">
+					考核指标:
+				</td>
+				<td>
+					<input name="target" id="{target}" class="required maxLength-30" style="width: 150px;height:20px;"
+						title='考核指标' /><span class="inputSelect">*</span>
+				</td>
+			</tr>	
+			<tr>
+				<td class = "right">
+					指标定义<span style="color:red;">*</span>:
+				</td>
+				<td >
+					
+						<textarea rows="4" cols="40" name="targetdefine" style="width: 150px"
+						id="{targetdefine}" class="required maxLength-512" title="指标定义" /></textarea>
+				</td>
+				
+				<td class = "right">
+					计分说明<span style="color:red;">*</span>:
+				</td>
+				<td >
+						<textarea rows="4" cols="40" name="description" style="width: 150px"
+						id="{description}" class="required maxLength-512" title="计分说明" /></textarea>
+				</td>
+				
+			</tr>
+			<tr>
+				<td class = "right">
+					分值:
+				</td>
+				<td >
+					<input name="point" id="{point}" class="required decimal-5-2 maxLength-10" style="width: 150px;height:20px;"
+						title='分值' /><span class="inputSelect">*</span>
+				</td>
+				<td class = "right">
+					单项权重:
+				</td>
+				<td >
+					<input name="weight" id="{weight}" class="required  decimal-2-2" style="width: 150px;height:20px;"
+						title='单项权重' /><span class="inputSelect">*</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

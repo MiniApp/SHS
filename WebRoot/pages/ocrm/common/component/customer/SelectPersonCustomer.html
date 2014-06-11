@@ -1,0 +1,52 @@
+<div id="{selectCustomerListDiv}">
+	<div id="{selectCustomerListSearchDiv}">
+		<table class="SearchTable">
+			<tr>
+				<td  class = "right">
+					客户姓名:
+				</td>
+				<td>
+					<input name="name" type='text' id="{name}" class='maxLength-70'
+						title="客户姓名" />
+				</td>
+				<td  class = "right">
+					客户等级:
+				</td>
+				<td class="empt">
+					<select name="customerLevel" id="{customerLevel}">
+						<option></option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td  class = "right">
+					AUM 大于:
+				</td>
+				<td>
+					<input name="aumLargeThan" type='text' id="{aumLargeThan}"
+						title="AUM大于" class="decimal-15-2"/>
+				</td>
+				<td  class = "right">
+					小于:
+				</td>
+				<td>
+					<input name="aumLessThan" type='text' id="{aumLessThan}"
+						title="AUM小于" class="decimal-15-2"/>
+				</td>
+			</tr>
+			<tr>
+				<td  class = "right" id="{searchOrgTreeText}" style="display: none">
+					机构:
+				</td>
+				<td class="empt" colspan="5" id="{searchOrgTree}"
+					style="display: none">
+					<input type="hidden" id="{node}" name="node" />
+					<input type="text" id="{nodeTree}" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div id="{selectCustomerListGridDiv}"></div>

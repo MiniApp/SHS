@@ -1,0 +1,65 @@
+<div id="{resourceUpdatePanleDiv}">
+<div id="{resourceUpdateContentDiv}">
+		<input type="hidden" name="parentId"
+			id="{resourceUpdateContentDiv_parentId}" />
+		<input type="hidden" name="resourceId"
+			id="{resourceUpdateContentDiv_resourceId}" />
+<table class="DisplayTable">
+	<tr>
+		<td align="right">
+			资源类型：
+		</td>
+		<td class="empt">
+			<select name="resourceTypeEnum"
+				id="{resourceUpdateContentDiv_resourceTypeEnum}" class="required" title="资源类型">
+				<option />
+			</select><span class="inputSelect">*</span></td>
+		<td align="right">
+			资源名称：
+		</td>
+		<td><input type="text" name="resourceName"
+				id="{resourceUpdateContentDiv_resourceName}" style="width: 155px;" class='required maxLength-50' title="资源名称"/><span class="inputSelect">*</span>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			命名空间：
+		</td>
+		<td><input type="text" name="nameSpace"
+				id="{resourceUpdateContentDiv_nameSpace}" style="width: 350px;" class='required maxLength-100' title="命名空间"/><span class="inputLongSelect">*</span></td>	
+		<td align="right">
+			类名称：
+		</td>
+		<td><input type="text" name="className"
+				id="{resourceUpdateContentDiv_className}" style="width: 155px;" class='required maxLength-50' title="类名称"/><span class="inputSelect">*</span></td>
+	</tr>
+	<tr>
+		<td align="right">
+			显示序号：
+		</td>
+		<td><input type="text" name="displayIndex"
+				id="{resourceUpdateContentDiv_displayIndex}" class='+digit maxLength-10' style="width: 155px;" title="显示序号"/><span class="inputSelect">*</span>
+		</td>
+		<td align="right">
+								样式：
+							</td>
+							<td><input type="text" name="iconcls"
+									id="{resourceUpdateContentDiv_iconcls}" class='maxLength-50' style="width: 155px;" title="样式"/>
+							</td>			
+	</tr>
+	<tr>
+		<td align="right">资源描述：</td>
+		<td><textarea name="descript"
+				id="{resourceUpdateContentDiv_descript}" style="width: 350px;" class='maxLength-100' title="资源描述" cols="53" rows="2"></textarea>
+		</td>
+		<td align="right">
+								资源类别：
+							</td>
+							<td class="empt">
+								<select name="resourceCategoryEnum"	id="{resourceUpdateContentDiv_resourceCategoryEnum}" title="资源类别">
+									<option />
+								</select></td>
+	</tr>
+</table>
+</div>
+</div>

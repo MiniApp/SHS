@@ -1,4 +1,9 @@
 package im.shs.action;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import im.shs.base.AbstractService;
@@ -10,8 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
   
 @Controller("index")
 public class IndexController extends AbstractService {  
@@ -29,6 +36,13 @@ public class IndexController extends AbstractService {
     	uy.setName("Suhao");
     	this.getPersist().merge(uy);
         return "/index"; // 设置返回页面，这里对应 /WEB-INF/view 目录下的 message.ftl 文件  
+    }
+    
+    @RequestMapping(value = "/index/test", method = RequestMethod.POST)  
+    public String test() {
+    	ModelMap model = new ModelMap();
+    	model.addAttribute("asd", "ksks");
+    	return "/test";
     }
     
     @RequestMapping(value = "/login", method = RequestMethod.GET)  

@@ -39,9 +39,14 @@ public class IndexController extends AbstractService {
     }
     
     @RequestMapping(value = "/index/test", method = RequestMethod.POST)  
-    public String test() {
-    	ModelMap model = new ModelMap();
-    	model.addAttribute("asd", "ksks");
+    public String test(ModelMap model) {
+        List list = new ArrayList();
+        for (int i = 0; i < 11; i++) {
+            Users p = new Users();
+            p.setName("rew" + new Random().nextInt());
+            list.add(p);
+        }
+    	model.addAttribute("list", list);
     	return "/test";
     }
     

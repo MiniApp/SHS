@@ -49,7 +49,7 @@ $(function(){
 	        type:"post",
 	        url:"${base}/index/test",
 	        success: function(data) {
-	        	$("#test").text(data);
+	        	$("#test").html(data);
 	        }
 	      });
 	    }

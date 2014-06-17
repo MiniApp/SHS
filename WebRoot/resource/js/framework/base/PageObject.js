@@ -12,7 +12,7 @@ Ext.define("base.PageObject", {
 				if (!DataUtil.isObject(config)) {
 					ExceptionUtil.throwFramworkException({
 								msg : 'PageObject的构造函数必须传入对象参数'
-							});
+					});
 					return;
 				}
 				if (DataUtil.isEmpty(config['id'])) {
@@ -35,11 +35,11 @@ Ext.define("base.PageObject", {
 									htmlContent = responseText;
 								},
 								failure : function(xhr) {
-									MsgUtil.error("错误提示", "加载页面失败")
+									MsgUtil.error("错误提示", "加载页面失败");
 								}
 							});
 				}
-				return HtmlUtil.compile(htmlContent, this)
+				return HtmlUtil.compile(htmlContent, this);
 			},
 			/*
 			 * 初始化页面数据
@@ -115,4 +115,4 @@ Ext.define("base.PageObject", {
 				}
 				ObjectUtil.apply(this,{'btnMap':btnMap});
 			}
-})
+});

@@ -14,7 +14,7 @@ package im.shs.base;
 public class Constants {
 	public static final int DEFAULT_PAGE_SIZE              =   5; // 默认分页大小
 	public static final String DEFAULT_PAGE_NAME           =   "page";
-	public static final String CONTEXT_PATH                =   "ctx";
+	public static final String CONTEXT_PATH                =   "base";
 	public static final String RESULT_NEED_TO_ADD          =   "resultNeedToAdd";
 	public static final String RESULT_NEED_TO_MERGE        =   "resultNeedToMerge";
 }

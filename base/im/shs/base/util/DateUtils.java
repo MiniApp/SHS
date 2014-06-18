@@ -22,7 +22,7 @@ import org.springframework.util.Assert;
  * @version	
  *     
  */
-public class DateUtil {
+public class DateUtils {
     /* 日期范围--日 */
     public static final int DAY = 1129 + 2;
 
@@ -45,7 +45,7 @@ public class DateUtil {
     public static final String END = "end";
 
     /* 日志记录器 */
-    protected static final Log logger = LogFactory.getLog(DateUtil.class);
+    protected static final Log logger = LogFactory.getLog(DateUtils.class);
 
     /**
      * 获取当前日期
@@ -357,7 +357,7 @@ public class DateUtil {
             return null;
         }
 
-        return (Date) range.get(DateUtil.BEGIN);
+        return (Date) range.get(DateUtils.BEGIN);
     }
 
     /**
@@ -374,19 +374,19 @@ public class DateUtil {
         if (range == null || range.isEmpty())
             return null;
 
-        return (Date) range.get(DateUtil.END);
+        return (Date) range.get(DateUtils.END);
     }
 
     public static void main(String[] args) {
-        Date date = DateUtil.getNow();
+        Date date = DateUtils.getNow();
         for (int i = 0; i < 3; i++) {
-            System.out.println(DateUtil.dateToStr(date, "yyyy-MM-dd HH:mm:ss.SSS"));
+            System.out.println(DateUtils.dateToStr(date, "yyyy-MM-dd HH:mm:ss.SSS"));
 
-            Date beginDate = DateUtil.getBeginOfRange(DateUtil.getDateRange(date, DateUtil.DAY));
-            Date endDate = DateUtil.getEndOfRange(DateUtil.getDateRange(date, DateUtil.DAY));
-            System.out.println(DateUtil.dateToStr(beginDate, "yyyy-MM-dd HH:mm:ss.SSS"));
+            Date beginDate = DateUtils.getBeginOfRange(DateUtils.getDateRange(date, DateUtils.DAY));
+            Date endDate = DateUtils.getEndOfRange(DateUtils.getDateRange(date, DateUtils.DAY));
+            System.out.println(DateUtils.dateToStr(beginDate, "yyyy-MM-dd HH:mm:ss.SSS"));
 
-            System.out.println(DateUtil.dateToStr(endDate, "yyyy-MM-dd HH:mm:ss.SSS"));
+            System.out.println(DateUtils.dateToStr(endDate, "yyyy-MM-dd HH:mm:ss.SSS"));
         }
     }
 

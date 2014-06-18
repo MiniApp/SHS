@@ -6,9 +6,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import org.apache.log4j.Logger;
 
-public class ReflectUtil
+public class ReflectUtils
 {
-    private static Logger log = Logger.getLogger(ReflectUtil.class);
+    private static Logger log = Logger.getLogger(ReflectUtils.class);
    
     private static Object operate(Object obj, String fieldName,
             Object fieldVal, String type)

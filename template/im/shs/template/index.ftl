@@ -45,9 +45,12 @@ $(function(){
 	      error.appendTo(element.parent());
 	    },
 		submitHandler:function(form){
+		  var cmd =  {club:[{name:"suhao", age:"27"}, {name:"suhao2", age:"28"}]};
 	      $(form).ajaxSubmit({
-	        type:"post",
-	        url:"${base}/index/test",
+	        url:"${base}/index/test2",
+	        type : "POST",  
+            datatype:"json",  
+            data : cmd,  
 	        success: function(data) {
 	        	$("#test").html(data);
 	        }

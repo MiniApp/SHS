@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.Random;
 
 import im.shs.base.AbstractService;
+import im.shs.base.util.DateUtils;
+import im.shs.bean.Club;
+import im.shs.bean.User;
 import im.shs.shiro.entity.Users;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,13 +42,28 @@ public class IndexController extends AbstractService {
     }
     
     @RequestMapping(value = "/index/test", method = RequestMethod.POST)  
-    public String test(ModelMap model) {
+    public String test(User user, ModelMap model) {
         List list = new ArrayList();
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 10; i++) {
             Users p = new Users();
-            p.setName("rew" + new Random().nextInt());
+            p.setName(DateUtils.getNowTime()+" : " + user.getName() + " " + user.getAge() + " " + new Random().nextInt());
             list.add(p);
         }
+    	model.addAttribute("list", list);
+    	return "/test";
+    }
+    
+    @RequestMapping(value = "/index/test2", method = RequestMethod.POST)  
+    public String test(Club club, ModelMap model) {
+        List list = new ArrayList();
+        System.out.println("list类型绑定=========");  
+        System.out.println("会员:");  
+        for (User user : club.getUsers())  
+        {  
+            System.out.println(user.getName()); 
+            list.add(user);
+        }  
+        System.out.println("========================");  
     	model.addAttribute("list", list);
     	return "/test";
     }

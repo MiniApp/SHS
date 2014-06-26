@@ -64,6 +64,7 @@
 		<property name="packagesToScan" value="im.shs" /><!--待扫描的实体类包，不再需要persistence.xml了 -->
 		<property name="jpaProperties">
 			<props>
+				<!-- 设置注释命名策略 -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
@@ -75,6 +76,10 @@
 	<bean id="hibernateJpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+		<!-- 是否显示SQL -->
+		<property name="showSql" value="true" />
+		<!-- 是否自动生成DDL（数据库定义语言） -->
+		<property name="generateDdl" value="true" />
 	</bean>
 
 	<!-- Jpa 事务配置 -->

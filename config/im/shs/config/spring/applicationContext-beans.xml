@@ -103,11 +103,8 @@
 		<!-- 如Hibernate中指定是否显示SQL的“hibernate.show_sql”属性，对于jpaProperties设置的属性自动会放进jpaPropertyMap中。 -->
 		<property name="jpaProperties">
 			<props>
-<<<<<<< HEAD
 				<!-- SQL方言 -->
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-=======
->>>>>>> 0a9931469bc6cad4dbd205b459d79ea2d34e33b6
 				<!-- 设置注释命名策略 -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
 
@@ -136,19 +133,6 @@
 		</property>
 	</bean>
 
-<<<<<<< HEAD
-=======
-	<!--指定实现JPA的适配器 -->
-	<bean id="hibernateJpaVendorAdapter"
-		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
-		<!-- 是否显示SQL -->
-		<property name="showSql" value="true" />
-		<!-- 是否自动生成DDL（数据库定义语言） -->
-		<property name="generateDdl" value="true" />
-	</bean>
-
->>>>>>> 0a9931469bc6cad4dbd205b459d79ea2d34e33b6
 	<!-- Jpa 事务配置 -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />

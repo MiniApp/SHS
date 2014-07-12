@@ -2,7 +2,6 @@ package im.shs.web.service.impl;
 
 import im.shs.base.BaseService;
 import im.shs.entity.Users;
-import im.shs.web.bean.User;
 import im.shs.web.service.IndexService;
 
 import org.springframework.stereotype.Service;
@@ -19,14 +18,8 @@ import org.springframework.stereotype.Service;
 public class IndexServiceImpl extends BaseService implements IndexService {
 
 	@Override
-	public void ex(Users users) {
+	public void save(Users users) {
 		this.getPersist().persist(users);
-		User u = new User();
-		u.setAge(123);
-		u.setName("apache");
-		this.getPersist().remove(users);
-		
-		//this.getPersist().findListBySqlMap("user.insertUser", u);
 	}
 
 	@Override
@@ -37,7 +30,7 @@ public class IndexServiceImpl extends BaseService implements IndexService {
 	@Override
 	public Users find(Integer id) {
 		
-		return this.getPersist().find(Users.class, 268);
+		return this.getPersist().find(Users.class, id);
 	}
 
 	@Override

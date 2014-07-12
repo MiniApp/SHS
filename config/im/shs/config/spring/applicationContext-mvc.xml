@@ -21,15 +21,7 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan> 
-	<!--注解说明   使Spring关注Annotation -->
-	<!--  <context:annotation-config /> -->
-	<!--开启AOP自动代理 -->
-	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 请求映射 -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-	
 	<mvc:resources location="/pages/" mapping="/resource/pages/**" />
 	<mvc:resources location="/resource/js/" mapping="/resource/js/**" />
 	

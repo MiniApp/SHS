@@ -1,0 +1,38 @@
+/*
+ * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Support: http://www.icl-network.com
+ *
+ * JavaScript - Area Edit
+ * Version: 3.0
+ */
+[#-- 索引URL --]
+[#assign indexUrl = base + "/admin/area" /]
+$().ready(function() {
+    
+	[#-- 表单验证 --]
+	var $inputForm = $("#inputForm");
+	$inputForm.find(":submit").prop("disabled", false);
+	$inputForm.validate({
+		rules: {
+			name: {
+				required: true,
+				remote: {
+					url: "${indexUrl}/check_name",
+					data: {
+						"parentId": typeof(parentId) == "undefined" ? "" : parentId,
+						"previousName": previousName
+					},
+					type: "post",
+					cache: false
+				}
+			},
+			order: "digits"
+		},
+		messages: {
+			name: {
+				remote: "已存在"
+			}
+		}
+	});
+	
+});

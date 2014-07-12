@@ -110,7 +110,7 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 */
 	@Override
 	public void remove(Object objectToRemove) throws DataAccessException {
-		em.remove(objectToRemove);
+		em.remove(em.merge(objectToRemove));
 	}
 
 	/**

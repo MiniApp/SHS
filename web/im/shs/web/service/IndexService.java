@@ -12,7 +12,7 @@ import im.shs.entity.Users;
  */
 public interface IndexService {
 	public Users find(Integer id);
-	public void ex(Users users);
+	public void save(Users users);
 	public void delete(Users users);
 	public void update(Users users);
 }

@@ -1,0 +1,8 @@
+[#-- 基URL --]
+[#assign baseUrl = base + "/admin" /]
+[#-- 主页URL --]
+[#assign homepageUrl = baseUrl + "/homepage" /]
+[#-- 瞬时消息 --]
+[#assign flashMessage]
+	[@flash_message /]
+[/#assign]

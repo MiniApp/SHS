@@ -40,8 +40,8 @@ public class IndexController {
 		uy.setName("update after:Suhao" + new Random().nextInt());
 		indexService.update(uy);
 		System.out.println("update after:" + uy.getName());
-		indexService.delete(uy);
-		return "/index"; // 设置返回页面，这里对应 /WEB-INF/view 目录下的 message.ftl 文件
+		indexService.delete(indexService.find(uy.getId()-1));
+		return "/index";
 	}
 
 	@RequestMapping(value = "/index/test", method = RequestMethod.POST)

@@ -22,9 +22,9 @@
     <insert id="add">
     	insert into user(name,age) values(#{name},#{age})
     </insert>
-    
-    <insert id="insertUser" parameterType="im.shs.model.User">
-        insert into user(name,age) values(#{name},#{age})
-    </insert> -->
+     -->
+    <insert id="insertUser" parameterType="im.shs.web.bean.User">
+        insert into user(name,age) values(#name#,#age#)
+    </insert>
 
 </mapper>

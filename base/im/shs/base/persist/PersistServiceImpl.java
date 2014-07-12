@@ -18,70 +18,85 @@ public class PersistServiceImpl implements PersistService {
 	@Resource(name = "jpaPersistence")
 	private JpaPersistService jpaPersistence;
 
+	@Override
 	public void batchMerge(List<?> objectsToMerge) {
 		jpaPersistence.batchMerge(objectsToMerge);
 	}
 
+	@Override
 	public void batchPersist(List<?> objectsToSave) {
 		jpaPersistence.batchPersist(objectsToSave);
 	}
 
+	@Override
 	public void batchRemove(List<?> objectsToRemove) {
 		jpaPersistence.batchRemove(objectsToRemove);
 	}
 
+	@Override
 	public int countByField(Class<?> entityClass, String field, Object value) {
 		return jpaPersistence.countByField(entityClass, field, value);
 	}
 
+	@Override
 	public int countByFields(Class<?> entityClass, Map<String, ?> params) {
 		return jpaPersistence.countByFields(entityClass, params);
 	}
 
+	@Override
 	public int deleteBySqlMap(String id, Object parameterObject) {
 		return mybatisPersistence.delete(id, parameterObject);
 	}
 
+	@Override
 	public <T> T find(Class<T> entityClass, Object id) {
 		return jpaPersistence.find(entityClass, id);
 	}
 
+	@Override
 	public <T> List<T> findListByField(Class<T> entityClass, String field,
 			Object value) {
 		return jpaPersistence.findListByField(entityClass, field, value);
 	}
 
+	@Override
 	public <T> List<T> findListByField(Class<T> entityClass, String field,
 			Object value, int start, int maxRows) {
 		return jpaPersistence.findListByField(entityClass, field, value, start,
 				maxRows);
 	}
 
+	@Override
 	public <T> List<T> findListByFields(Class<T> entityClass,
 			Map<String, ?> params, int start, int maxRows) {
 		return jpaPersistence.findListByFields(entityClass, params, start,
 				maxRows);
 	}
 
+	@Override
 	public <T> List<T> findListByFields(Class<T> entityClass,
 			Map<String, ?> params) {
 		return jpaPersistence.findListByFields(entityClass, params);
 	}
 
+	@Override
 	public List<?> findListBySqlMap(String id, Object parameterObject) {
 		return mybatisPersistence.findList(id, parameterObject);
 	}
 
+	@Override
 	public List<?> findListBySqlMap(String id, Object parameterObject,
 			int start, int maxRows) {
 		return mybatisPersistence.findList(id, parameterObject, start, maxRows);
 	}
 
+	@Override
 	public <T> T findObjectByField(Class<T> entityClass, String field,
 			Object value) {
 		return jpaPersistence.findObjectByField(entityClass, field, value);
 	}
 
+	@Override
 	public <T> T findObjectByFields(Class<T> entityClass, Map<String, ?> params) {
 		return jpaPersistence.findObjectByFields(entityClass, params);
 	}

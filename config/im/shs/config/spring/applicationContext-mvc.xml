@@ -11,8 +11,13 @@
 	http://www.springframework.org/schema/jdbc    
     http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	<!-- 属性占位符（读取Properties配置文件） -->
+	<!-- location：位置 -->
+	<!-- ignore-resource-not-found：是否忽略不存在的资源（资源：配置项，键值对中的值） -->
+	<!-- ignore-unresolvable：是否忽略无法解析的配置项 -->
+	<context:property-placeholder location="classpath:/im/shs/config/shs.properties" ignore-resource-not-found="true" ignore-unresolvable="true" />
 	<!-- 把标记了@Controller注解的类转换为bean -->
-	<context:component-scan base-package="im.shs">
+	<context:component-scan base-package="im.shs"  use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan> 
@@ -31,17 +36,37 @@
 	<!-- freemarker的配置 -->
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/WEB-INF/classes/im/shs/template" />
-		<property name="defaultEncoding" value="UTF-8" />
+		<property name="templateLoaderPath" value="${template.web_loader_path}" />
+		<property name="defaultEncoding" value="${template.encoding}" />
 		<property name="freemarkerSettings">
 			<props>
+				<prop key="defaultEncoding">${template.encoding}</prop>
+				<prop key="url_escaping_charset">${url_escaping_charset}</prop>
+				<prop key="locale">${locale}</prop>
+				<prop key="template_update_delay">#{T(im.shs.base.util.ConvertUtils).toTernary(${system.development}, 0, ${template.update_delay})}</prop>
 				<prop key="tag_syntax">auto_detect</prop>
-				<prop key="template_update_delay">10</prop>
-				<prop key="locale">zh_CN</prop>
-				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
-				<prop key="date_format">yyyy-MM-dd</prop>
-				<prop key="number_format">#.##</prop>
+				<prop key="whitespace_stripping">true</prop>
+				<prop key="classic_compatible">true</prop>
+				<prop key="number_format">${template.number_format}</prop>
+				<prop key="datetime_format">${template.datetime_format}</prop>
+				<prop key="date_format">${template.date_format}</prop>
+				<prop key="time_format">${template.time_format}</prop>
+				<prop key="object_wrapper">freemarker.ext.beans.BeansWrapper</prop>
 			</props>
+		</property>
+		<!-- Freemarker变量 -->
+		<property name="freemarkerVariables">
+			<map>
+				<!-- 系统信息 -->
+				<entry key="systemName" value="${system.name}" />
+				<entry key="systemVersion" value="${system.version}" />
+				<entry key="systemDescription" value="${system.description}" />
+
+				<!-- 基本变量 -->
+				<entry key="base" value="#{servletContext.contextPath}" />
+				<entry key="locale" value="${locale}" />
+
+			</map>
 		</property>
 	</bean>
 	<!-- FreeMarker视图解析 配置后缀名ftl和视图解析器  -->
@@ -71,5 +96,5 @@
     <!-- 控制器异常处理 -->
     <bean id="exceptionHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
     </bean>
-    <bean class="im.shs.shiro.web.exception.DefaultExceptionHandler"/>
+    <bean class="im.shs.base.shiro.web.exception.DefaultExceptionHandler"/>
 </beans>

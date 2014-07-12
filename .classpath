@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="base"/>
+	<classpathentry kind="src" path="entity"/>
 	<classpathentry kind="src" path="config"/>
-	<classpathentry kind="src" path="service"/>
+	<classpathentry kind="src" path="web"/>
 	<classpathentry kind="src" path="template"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">

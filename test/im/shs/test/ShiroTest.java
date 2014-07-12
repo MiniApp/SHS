@@ -1,13 +1,13 @@
 package im.shs.test;
 
-import im.shs.base.AbstractService;
-import im.shs.shiro.entity.Permission;
-import im.shs.shiro.entity.Role;
-import im.shs.shiro.entity.User;
-import im.shs.shiro.realm.UserRealm;
-import im.shs.shiro.service.PermissionService;
-import im.shs.shiro.service.RoleService;
-import im.shs.shiro.service.UserService;
+import im.shs.base.BaseService;
+import im.shs.base.shiro.entity.Permission;
+import im.shs.base.shiro.entity.Role;
+import im.shs.base.shiro.entity.User;
+import im.shs.base.shiro.realm.UserRealm;
+import im.shs.base.shiro.service.PermissionService;
+import im.shs.base.shiro.service.RoleService;
+import im.shs.base.shiro.service.UserService;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:im/shs/config/spring/test-beans.xml", "classpath:im/shs/config/spring/test-shiro.xml"})
-public class ShiroTest extends AbstractService {
+public class ShiroTest extends BaseService {
 
 	@Autowired
     protected PermissionService permissionService;

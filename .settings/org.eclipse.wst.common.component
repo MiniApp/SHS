@@ -2,10 +2,11 @@
     <wb-module deploy-name="SHS">
         <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/base"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/service"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/template"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/web"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/entity"/>
         <property name="context-root" value="SHS"/>
         <property name="java-output-path" value="/SHS/target/classes"/>
     </wb-module>

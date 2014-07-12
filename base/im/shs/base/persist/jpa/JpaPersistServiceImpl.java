@@ -20,7 +20,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -59,7 +58,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
-	//@Transactional(propagation=Propagation.REQUIRED)
 	public <T> T find(Class<T> entityClass, final Object id) {
 		return em.find(entityClass, id);
 	}
@@ -77,7 +75,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
-	@Transactional
 	public <T> T merge(final T entity) throws DataAccessException {
 		return em.merge(entity);
 	}
@@ -95,7 +92,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
-	@Transactional
 	public void persist(Object objectToSave) throws DataAccessException {
 		em.persist(objectToSave);
 	}
@@ -113,7 +109,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
-	@Transactional
 	public void remove(Object objectToRemove) throws DataAccessException {
 		em.remove(objectToRemove);
 	}
@@ -131,7 +126,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
-	@Transactional
 	public void batchPersist(final List<?> objectsToSave)
 			throws DataAccessException {
 		if (CollectionUtils.isEmpty(objectsToSave)) {
@@ -159,7 +153,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 * @since
 	 */
 	@Override
-	@Transactional
 	public void batchMerge(final List<?> objectsToMerge)
 			throws DataAccessException {
 		if (CollectionUtils.isEmpty(objectsToMerge)) {
@@ -195,7 +188,6 @@ public class JpaPersistServiceImpl implements JpaPersistService {
 	 *             当删除数据库中相应记录发生异常时抛出
 	 */
 	@Override
-	@Transactional
 	public void batchRemove(final List<?> objectsToRemove)
 			throws DataAccessException {
 		if (CollectionUtils.isEmpty(objectsToRemove)) {

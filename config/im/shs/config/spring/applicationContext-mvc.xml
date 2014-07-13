@@ -22,45 +22,13 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan> 
 
-	<mvc:resources location="/pages/" mapping="/resource/pages/**" />
-	<mvc:resources location="/resource/js/" mapping="/resource/js/**" />
+	<!-- 静态资源访问 -->
+	<mvc:resources location="/*.html" mapping="/*.html" />
+	<mvc:resources location="/favicon.ico" mapping="/favicon.ico" />
+	<mvc:resources location="/robots.txt" mapping="/robots.txt" />
+	<mvc:resources location="/resources/**" mapping="/resources/**" />
+	<mvc:resources location="/upload/**" mapping="/upload/**" />
 	
-	<!-- freemarker的配置 -->
-	<bean id="freemarkerConfigurer"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="${template.web_loader_path}" />
-		<property name="defaultEncoding" value="${template.encoding}" />
-		<property name="freemarkerSettings">
-			<props>
-				<prop key="defaultEncoding">${template.encoding}</prop>
-				<prop key="url_escaping_charset">${url_escaping_charset}</prop>
-				<prop key="locale">${locale}</prop>
-				<prop key="template_update_delay">#{T(im.shs.base.util.ConvertUtils).toTernary(${system.development}, 0, ${template.update_delay})}</prop>
-				<prop key="tag_syntax">auto_detect</prop>
-				<prop key="whitespace_stripping">true</prop>
-				<prop key="classic_compatible">true</prop>
-				<prop key="number_format">${template.number_format}</prop>
-				<prop key="datetime_format">${template.datetime_format}</prop>
-				<prop key="date_format">${template.date_format}</prop>
-				<prop key="time_format">${template.time_format}</prop>
-				<prop key="object_wrapper">freemarker.ext.beans.BeansWrapper</prop>
-			</props>
-		</property>
-		<!-- Freemarker变量 -->
-		<property name="freemarkerVariables">
-			<map>
-				<!-- 系统信息 -->
-				<entry key="systemName" value="${system.name}" />
-				<entry key="systemVersion" value="${system.version}" />
-				<entry key="systemDescription" value="${system.description}" />
-
-				<!-- 基本变量 -->
-				<entry key="base" value="#{servletContext.contextPath}" />
-				<entry key="locale" value="${locale}" />
-
-			</map>
-		</property>
-	</bean>
 	<!-- FreeMarker视图解析 配置后缀名ftl和视图解析器  -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
@@ -72,9 +40,16 @@
 		<property name="exposeSessionAttributes" value="true" />
 		<property name="exposeSpringMacroHelpers" value="true" />
 	</bean>
+	
+	<!-- 验证器 -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	<!-- 使用注解方式定义验证器 -->
+	<mvc:annotation-driven validator="validator" />
 
 	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
 		p:basename="i18n/messages" />
 		
     <aop:config proxy-target-class="true"></aop:config>

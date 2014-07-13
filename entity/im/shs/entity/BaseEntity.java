@@ -1,7 +1,3 @@
-/*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
- * Support: http://www.icl-network.com
- */
 package im.shs.entity;
 
 import java.io.Serializable;
@@ -19,10 +15,12 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Entity - 基类
- * 
- * @author ICLNetwork Team
- * @version 3.0
+ * @class : BaseEntity
+ * @description: 基类
+ *
+ * @author suhao
+ * @date 2014年7月13日 上午1:17:54
+ * @version 1.0
  */
 @JsonAutoDetect(fieldVisibility = Visibility.NONE, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
 @MappedSuperclass

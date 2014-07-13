@@ -1,0 +1,20 @@
+/*
+ * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Support: http://www.icl-network.com
+ * 
+ * Cascading Style Sheets - Bootstrap Switch Fix
+ * Version: 3.0
+ */
+
+.breadCrumb {
+	border-radius: 4px;
+    float: none;
+    height: auto;
+    margin: 0 0 20px;
+    padding: 3px 5px;
+    width: 100%;
+}
+
+.breadCrumb ul li {
+    cursor: default;
+}

@@ -44,6 +44,7 @@ public class IndexController {
 		return "/index";
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/index/test", method = RequestMethod.POST)
 	public String test(User user, ModelMap model) {
 		List list = new ArrayList();

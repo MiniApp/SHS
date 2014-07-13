@@ -139,8 +139,8 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<aop:config>
-		<aop:pointcut id="txWebServiceMethods" expression="execution(* im.shs.web.service..*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txWebServiceMethods" />
+		<aop:pointcut id="txServiceMethods" expression="execution(* im.shs.*.service..*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txServiceMethods" />
 	</aop:config>
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -179,4 +179,123 @@
 			<tx:method name="execute*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
+	
+	<!-- 配置缓存集成 -->
+	<cache:annotation-driven cache-manager="cacheManager" />
+
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="java.lang.System" />
+		<property name="targetMethod" value="setProperty" />
+		<property name="arguments">
+			<list>
+				<value>system.project_name</value>
+				<value>${system.project_name}</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置EhCache管理 -->
+	<bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<!-- 配置文件 -->
+		<property name="configLocation" value="classpath:/im/shs/config/spring/ehcache.xml" />
+		<!-- 是否共享 -->
+		<property name="shared" value="true" />
+	</bean>
+
+	<!-- 配置缓存管理 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<!-- EhCache管理 -->
+		<property name="cacheManager" ref="ehCacheManager" />
+	</bean>
+	
+	<!-- 配置Freemarker管理 -->
+	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<!-- 模板路径 -->
+		<property name="templateLoaderPaths" value="${template.web_loader_path}" />
+
+		<!-- Freemarker设置 -->
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="defaultEncoding">${template.encoding}</prop>
+				<prop key="url_escaping_charset">${url_escaping_charset}</prop>
+				<prop key="locale">${locale}</prop>
+				<prop key="template_update_delay">#{T(im.shs.util.ConvertUtils).toTernary(${system.development}, 0, ${template.update_delay})}</prop>
+				<prop key="tag_syntax">auto_detect</prop>
+				<prop key="whitespace_stripping">true</prop>
+				<prop key="classic_compatible">true</prop>
+				<prop key="number_format">${template.number_format}</prop>
+				<prop key="boolean_format">${template.boolean_format}</prop>
+				<prop key="datetime_format">${template.datetime_format}</prop>
+				<prop key="date_format">${template.date_format}</prop>
+				<prop key="time_format">${template.time_format}</prop>
+				<prop key="object_wrapper">freemarker.ext.beans.BeansWrapper</prop>
+			</props>
+		</property>
+
+		<!-- Freemarker变量 -->
+		<property name="freemarkerVariables">
+			<map>
+				<!-- 系统信息 -->
+				<entry key="systemName" value="${system.name}" />
+				<entry key="systemVersion" value="${system.version}" />
+				<entry key="systemDescription" value="${system.description}" />
+				<entry key="systemDevelopment" value="#{T(org.apache.commons.lang3.BooleanUtils).toBoolean(${system.development})}" />
+				<entry key="systemPowered" value="#{T(org.apache.commons.lang3.BooleanUtils).toBoolean(${system.powered})}" />
+
+				<!-- 基本变量 -->
+				<entry key="base" value="#{servletContext.contextPath}" />
+				<entry key="locale" value="${locale}" />
+				<entry key="setting" value="#{T(im.shs.util.SettingUtils).get()}" />
+
+				<!-- 自定义宏（指令、方法） -->
+				<entry key="abbreviate" value-ref="abbreviateMethod" />
+				<entry key="convert" value-ref="convertMethod" />
+				<entry key="currency" value-ref="currencyMethod" />
+				<entry key="dateUtil" value-ref="dateUtilMethod" />
+				<entry key="message" value-ref="messageMethod" />
+				<entry key="secrecy" value-ref="secrecyMethod" />
+
+				<entry key="article_category_children" value-ref="articleCategoryChildrenDirective" />
+				<entry key="article_category_root" value-ref="articleCategoryRootDirective" />
+				<entry key="flash_message" value-ref="flashMessageDirective" />
+				<entry key="pagination" value-ref="paginationDirective" />
+
+				<entry key="friend_link_list" value-ref="friendLinkListDirective" />
+
+			</map>
+		</property>
+	</bean>
+
+	<!-- 配置国际化 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<!-- 缓存有效秒数 -->
+		<property name="cacheSeconds" value="#{T(im.shs.util.ConvertUtils).toTernary(${system.development}, 0, ${message.cache_seconds})}" />
+		<!-- 使用代码作为默认消息 -->
+		<property name="useCodeAsDefaultMessage" value="true" />
+		<!-- 国际化资源文件 -->
+		<property name="basenames">
+			<list>
+				<value>${message.path}</value>
+				<value>${message.account_path}</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 配置国际化语言转换 -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+		<!-- 所在区域（语种） -->
+		<property name="defaultLocale" value="${locale}" />
+	</bean>
+
+	<!-- 配置SMTP邮件异步发送 -->
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<!-- 核心线程数 -->
+		<property name="corePoolSize" value="${task.core_pool_size}" />
+		<!-- 最大线程数 -->
+		<property name="maxPoolSize" value="${task.max_pool_size}" />
+		<!-- 最大队列数 -->
+		<property name="queueCapacity" value="${task.queue_capacity}" />
+		<!-- 线程池维护线程所允许的空闲时间 -->
+		<property name="keepAliveSeconds" value="${task.keep_alive_seconds}" />
+	</bean>
 </beans>

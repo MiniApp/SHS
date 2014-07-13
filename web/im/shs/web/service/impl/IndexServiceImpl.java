@@ -6,17 +6,16 @@ import im.shs.web.service.IndexService;
 
 import org.springframework.stereotype.Service;
 
-/**   
- * @ClassName  : IndexServiceImpl 
- * @Description:
- *          TODO
- * @Author	suhao
- * @Date	2014年7月12日 下午2:51:46    
- * @Version	1.0 
+/**
+ * @class : IndexServiceImpl
+ * @description: TODO
+ * 
+ * @author suhao
+ * @date 2014年7月12日 下午9:03:04
+ * @version 1.0
  */
 @Service
 public class IndexServiceImpl extends BaseService implements IndexService {
-
 	@Override
 	public void save(Users users) {
 		this.getPersist().persist(users);

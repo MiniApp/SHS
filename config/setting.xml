@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p2p>
+	
+	<basicSetting name="siteName" value="裕信创投" />
+	<basicSetting name="siteUrl" value="http://localhost:8080/P2P-2.0-YuXinChuangTou" />
+	<basicSetting name="siteLogo" value="/upload/image/logo.gif" />
+	<basicSetting name="address" value="成都市高新区天晖路360号" />
+	<basicSetting name="phone" value="028-8332709" />
+	<basicSetting name="zipCode" value="610000" />
+	<basicSetting name="email" value="admin@yuxinct.com" />
+	<basicSetting name="certtext" value="蜀ICP备14013065号" />
+	<basicSetting name="siteEnabled" value="true" />
+	<basicSetting name="siteVersion" value="140416" />
+	<basicSetting name="siteCloseMessage" value="&lt;dl&gt;&lt;dt&gt;网站维护中，暂时无法访问！&lt;/dt&gt;&lt;dd&gt;本网站正在进行系统维护和技术升级，网站暂时无法访问，敬请谅解！&lt;/dd&gt;&lt;/dl&gt;" />
+	<basicSetting name="cookiePath" value="/" />
+	<basicSetting name="cookieDomain" value="" />
+	<basicSetting name="cnzzEnabled" value="true" />
+	<basicSetting name="cnzzSiteId" value="" />
+	<basicSetting name="cnzzPassword" value="" />
+	
+	<securitySetting name="registEnabled" value="true" />
+	<securitySetting name="usernameMinLength" value="2" />
+	<securitySetting name="usernameMaxLength" value="20" />
+	<securitySetting name="passwordMinLength" value="4" />
+	<securitySetting name="passwordMaxLength" value="20" />
+	<securitySetting name="loginMethods" value="username,email,mobile" />
+	<securitySetting name="captchaScopes" value="adminLogin,login,regist,findPassword,resetPassword,applyBorrowing" />
+	<securitySetting name="accountLockScopes" value="admin,user" />
+	<securitySetting name="accountLockCount" value="5" />
+	<securitySetting name="accountLockTime" value="10" />
+	<securitySetting name="tokenType" value="numeric" />
+	<securitySetting name="tokenCodeLength" value="6" />
+	<securitySetting name="tokenExpiryTime" value="30" />
+	<securitySetting name="tokenRetryTime" value="60" />
+	<securitySetting name="currencySign" value="￥" />
+	<securitySetting name="currencyUnit" value="元" />
+	<securitySetting name="amountScale" value="2" />
+	<securitySetting name="amountRoundMethod" value="roundDown" />
+	<securitySetting name="uploadMaxSize" value="0" />
+	<securitySetting name="uploadImageExtension" value="jpg,jpeg,bmp,gif,png" />
+	<securitySetting name="uploadFlashExtension" value="swf,flv" />
+	<securitySetting name="uploadMediaExtension" value="swf,flv,mp3,wav,avi,rm,rmvb" />
+	<securitySetting name="uploadFileExtension" value="zip,rar,7z,doc,docx,xls,xlsx,ppt,pptx" />
+	<securitySetting name="imageUploadPath" value="/upload/image/${.now?string('yyyyMM')}/" />
+	<securitySetting name="flashUploadPath" value="/upload/flash/${.now?string('yyyyMM')}/" />
+	<securitySetting name="mediaUploadPath" value="/upload/media/${.now?string('yyyyMM')}/" />
+	<securitySetting name="fileUploadPath" value="/upload/file/${.now?string('yyyyMM')}/" />
+	
+	<displaySetting name="largeImageWidth" value="800" />
+	<displaySetting name="largeImageHeight" value="800" />
+	<displaySetting name="mediumImageWidth" value="300" />
+	<displaySetting name="mediumImageHeight" value="300" />
+	<displaySetting name="smallImageWidth" value="170" />
+	<displaySetting name="smallImageHeight" value="170" />
+	<displaySetting name="thumbnailImageWidth" value="80" />
+	<displaySetting name="thumbnailImageHeight" value="80" />
+	<displaySetting name="defaultLargeImage" value="/upload/image/default_large.jpg" />
+	<displaySetting name="defaultMediumImage" value="/upload/image/default_medium.jpg" />
+	<displaySetting name="defaultSmallImage" value="/upload/image/default_small.jpg" />
+	<displaySetting name="defaultThumbnailImage" value="/upload/image/default_thumbnail.jpg" />
+	<displaySetting name="watermarkImage" value="/upload/image/watermark.png" />
+	<displaySetting name="watermarkPosition" value="bottomRight" />
+	<displaySetting name="watermarkAlpha" value="50" />
+	
+	<commSetting name="smtpFromMail" value="admin@yuxinct.com" />
+	<commSetting name="smtpHost" value="smtp.exmail.qq.com" />
+	<commSetting name="smtpPort" value="25" />
+	<commSetting name="smtpUsername" value="admin@yuxinct.com" />
+	<commSetting name="smtpPassword" value="feleon1" />
+	<commSetting name="smsURL" value="http://sdk.entinfo.cn:8060/webservice.asmx" />
+	<commSetting name="smsUsername" value="SDK-SRF-010-00419" />
+	<commSetting name="smsPassword" value="2-[7d9-[" />
+	
+	<referralSetting name="enabled" value="false" />
+	<referralSetting name="feeRate" value="2" />
+	<referralSetting name="paymentTime" value="30" />
+	<referralSetting name="expiryTime" value="180" />
+	
+</p2p>

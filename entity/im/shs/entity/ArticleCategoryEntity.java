@@ -1,7 +1,3 @@
-/*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
- * Support: http://www.icl-network.com
- */
 package im.shs.entity;
 
 import java.util.HashSet;
@@ -23,10 +19,12 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * Entity - 文章分类
- * 
- * @author ICLNetwork Team
- * @version 3.0
+ * @class : ArticleCategoryEntity
+ * @description: 文章分类
+ *
+ * @author suhao
+ * @date 2014年7月13日 上午1:17:08
+ * @version 1.0
  */
 @Entity
 @Table(name = "shs_article_category")

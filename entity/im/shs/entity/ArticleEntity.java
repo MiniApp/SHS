@@ -1,7 +1,3 @@
-/*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
- * Support: http://www.icl-network.com
- */
 package im.shs.entity;
 
 import java.util.ArrayList;
@@ -30,14 +26,16 @@ import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 
 /**
- * Entity - 文章
- * 
- * @author ICLNetwork Team
- * @version 3.0
+ * @class : ArticleEntity
+ * @description: 文章
+ *
+ * @author suhao
+ * @date 2014年7月13日 上午1:17:30
+ * @version 1.0
  */
 @Entity
 @Table(name = "shs_article")
-@SequenceGenerator(name = "sequenceGenerator2", sequenceName = "shs_article_category_sequence")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_article_category_sequence")
 public class ArticleEntity extends OrderEntity {
 
     /** serialVersionUID */

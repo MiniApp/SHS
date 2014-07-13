@@ -1,0 +1,11 @@
+/*
+ * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Support: http://www.icl-network.com
+ * 
+ * Cascading Style Sheets - iCheck Fix
+ * Version: 3.0
+ */
+
+div.icheckbox_minimal-grey input[type="checkbox"] {
+	cursor: default;
+}

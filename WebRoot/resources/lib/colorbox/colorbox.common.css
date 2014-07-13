@@ -1,0 +1,26 @@
+/*
+ * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Support: http://www.icl-network.com
+ *
+ * JavaScript - jQuery Chosen Common
+ * Version: 3.0
+ */
+ 
+.colorbox-content {
+	margin: 5px 20px;
+    overflow: hidden;
+}
+
+.colorbox-content .colorbox-title {
+	
+}
+
+.colorbox-content .colorbox-message {
+	margin: 10px 0;
+    text-align: center;
+}
+
+.colorbox-content .colorbox-button {
+	margin: 10px 0;
+    text-align: center;
+}

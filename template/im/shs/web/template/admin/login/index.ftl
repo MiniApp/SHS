@@ -7,7 +7,7 @@
 <html lang="en" class="login">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/template/admin/include/meta.ftl" /]
+    	[#include "/admin/include/meta.ftl" /]
 		<title>管理中心[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Bootstrap Framework --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/bootstrap/css/bootstrap.min.css" />
@@ -89,10 +89,10 @@
 				
 			</form>
 		
-			[#-- 版权信息 --]
+			[#-- 版权信息
 			<div class="copyright clearfix">
 				<span class="linkform">Copyright 2010-${.now?string("yyyy")} icl-network.com. All rights reserved.</span>
-			</div>
+			</div> --]
 		
 		</div>
 		

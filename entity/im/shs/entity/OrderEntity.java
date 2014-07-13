@@ -1,7 +1,3 @@
-/*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
- * Support: http://www.icl-network.com
- */
 package im.shs.entity;
 
 import javax.persistence.Column;
@@ -13,10 +9,12 @@ import org.apache.commons.lang3.builder.CompareToBuilder;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Entity - 排序基类
- * 
- * @author ICLNetwork Team
- * @version 3.0
+ * @class : OrderEntity
+ * @description: 排序基类
+ *
+ * @author suhao
+ * @date 2014年7月13日 上午1:18:14
+ * @version 1.0
  */
 @MappedSuperclass
 public abstract class OrderEntity extends BaseEntity implements Comparable<OrderEntity> {

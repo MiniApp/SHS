@@ -1,0 +1,15 @@
+.plupload_wrapper {
+    font: 11px "Microsoft Yahei",sans-serif;
+}
+
+.plupload_header_title {
+    font: 18px "Microsoft Yahei",sans-serif;
+}
+
+.plupload_header_text {
+    font: 12px "Microsoft Yahei",sans-serif;
+}
+
+.plupload_file_action {
+    width: 30px;
+}

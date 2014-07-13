@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+<!-- 
+	<template id="adminLoginCss" type="css" name="后台登录" templatePath="/admin/login/css.ftl" staticPath="/resources/admin/css/login.min.css" />
+	<template id="adminLoginJs" type="js" name="后台登录" templatePath="/admin/login/js.ftl" staticPath="/resources/admin/js/login.min.js" />
+	<template id="adminMenuCss" type="css" name="后台菜单" templatePath="/admin/menu/css.ftl" staticPath="/resources/admin/css/menu.min.css" />
+	<template id="adminMenuJs" type="js" name="后台菜单" templatePath="/admin/menu/js.ftl" staticPath="/resources/admin/js/menu.min.js" />
+	<template id="adminCommonCss" type="css" name="后台公共" templatePath="/admin/common/css.ftl" staticPath="/resources/admin/css/common.min.css" />
+	<template id="adminCommonJs" type="js" name="后台公共" templatePath="/admin/common/js.ftl" staticPath="/resources/admin/js/common.min.js" />
+	<template id="adminProfileSettingJs" type="js" name="账户设置" templatePath="/admin/profile/setting_js.ftl" staticPath="/resources/admin/js/profile.setting.min.js" />
+	
+	<template id="adminBasicSettingJs" type="js" name="基本设置" templatePath="/im/shs/web/setting/basic/setting_js.ftl" staticPath="/resources/admin/js/basic.setting.min.js" />
+	<template id="adminSecuritySettingJs" type="js" name="安全设置" templatePath="/im/shs/web/setting/security/setting_js.ftl" staticPath="/resources/admin/js/security.setting.min.js" />
+	<template id="adminDisplaySettingJs" type="js" name="显示设置" templatePath="/im/shs/web/setting/display/setting_js.ftl" staticPath="/resources/admin/js/display.setting.min.js" />
+	<template id="adminCommSettingJs" type="js" name="通信设置" templatePath="/im/shs/web/setting/comm/setting_js.ftl" staticPath="/resources/admin/js/comm.setting.min.js" />
+	<template id="adminReferralSettingJs" type="js" name="推荐设置" templatePath="/im/shs/web/setting/referral/setting_js.ftl" staticPath="/resources/admin/js/referral.setting.min.js" />
+	<template id="adminEcpssSettingJs" type="js" name="汇潮支付设置" templatePath="/im/shs/web/plugin/ecpss/setting_js.ftl" staticPath="/resources/admin/js/ecpss.setting.min.js" />
+	<template id="adminRemittanceSettingJs" type="js" name="线下汇款支付设置" templatePath="/im/shs/web/plugin/remittance/setting_js.ftl" staticPath="/resources/admin/js/remittance.setting.min.js" />
+	<template id="adminFileSettingJs" type="js" name="本地文件存储设置" templatePath="/im/shs/web/plugin/file/setting_js.ftl" staticPath="/resources/admin/js/file.setting.min.js" />
+	<template id="adminFtpSettingJs" type="js" name="FTP存储设置" templatePath="/im/shs/web/plugin/ftp/setting_js.ftl" staticPath="/resources/admin/js/ftp.setting.min.js" />
+	<template id="adminOssSettingJs" type="js" name="阿里云存储设置" templatePath="/im/shs/web/plugin/oss/setting_js.ftl" staticPath="/resources/admin/js/oss.setting.min.js" />
+	<template id="adminAdminAddJs" type="js" name="管理员添加" templatePath="/admin/admin/add_js.ftl" staticPath="/resources/admin/js/admin.add.min.js" />
+	<template id="adminAdminEditJs" type="js" name="管理员编辑" templatePath="/admin/admin/edit_js.ftl" staticPath="/resources/admin/js/admin.edit.min.js" />
+	<template id="adminRoleAddJs" type="js" name="角色添加" templatePath="/admin/role/add_js.ftl" staticPath="/resources/admin/js/role.add.min.js" />
+	<template id="adminRoleEditJs" type="js" name="角色编辑" templatePath="/admin/role/edit_js.ftl" staticPath="/resources/admin/js/role.edit.min.js" />
+	<template id="adminAreaAddJs" type="js" name="地区添加" templatePath="/admin/area/add_js.ftl" staticPath="/resources/admin/js/area.add.min.js" />
+	<template id="adminAreaEditJs" type="js" name="地区编辑" templatePath="/admin/area/edit_js.ftl" staticPath="/resources/admin/js/area.edit.min.js" />
+	<template id="adminBankAddJs" type="js" name="银行添加" templatePath="/admin/bank/add_js.ftl" staticPath="/resources/admin/js/bank.add.min.js" />
+	<template id="adminBankEditJs" type="js" name="银行编辑" templatePath="/admin/bank/edit_js.ftl" staticPath="/resources/admin/js/bank.edit.min.js" />
+	<template id="adminBankBranchAddJs" type="js" name="银行支行添加" templatePath="/admin/bank_branch/add_js.ftl" staticPath="/resources/admin/js/bank.branch.add.min.js" />
+	<template id="adminBankBranchEditJs" type="js" name="银行支行编辑" templatePath="/admin/bank_branch/edit_js.ftl" staticPath="/resources/admin/js/bank.branch.edit.min.js" />
+	<template id="adminDictAddJs" type="js" name="词典添加" templatePath="/admin/dict/add_js.ftl" staticPath="/resources/admin/js/dict.add.min.js" />
+	<template id="adminDictEditJs" type="js" name="词典编辑" templatePath="/admin/dict/edit_js.ftl" staticPath="/resources/admin/js/dict.edit.min.js" />
+	<template id="adminDictWordAddJs" type="js" name="词典单词添加" templatePath="/admin/dict_word/add_js.ftl" staticPath="/resources/admin/js/dict.word.add.min.js" />
+	<template id="adminDictWordEditJs" type="js" name="词典单词编辑" templatePath="/admin/dict_word/edit_js.ftl" staticPath="/resources/admin/js/dict.word.edit.min.js" />
+	<template id="adminTemplateEditJs" type="js" name="模板编辑" templatePath="/admin/template/edit_js.ftl" staticPath="/resources/admin/js/template.edit.min.js" />
+	
+	<template id="adminMemberRegistJs" type="js" name="会员注册" templatePath="/admin/member_regist/regist_js.ftl" staticPath="/resources/admin/js/member.regist.min.js" />
+	<template id="adminMemberModifJs" type="js" name="会员修改" templatePath="/admin/member_modif/modif_js.ftl" staticPath="/resources/admin/js/member.modif.min.js" />
+	<template id="adminPersRegistJs" type="js" name="个人注册" templatePath="/admin/pers_regist/regist_js.ftl" staticPath="/resources/admin/js/pers.regist.min.js" />
+	
+	<template id="adminAccountRechargeJs" type="js" name="账户充值" templatePath="/admin/account_recharge/recharge_js.ftl" staticPath="/resources/admin/js/account.recharge.min.js" />
+	<template id="adminAccountChargeJs" type="js" name="账户扣费" templatePath="/admin/account_charge/charge_js.ftl" staticPath="/resources/admin/js/account.charge.min.js" />
+	<template id="adminRechargeModifJs" type="js" name="充值修改" templatePath="/admin/recharge_modif/modif_js.ftl" staticPath="/resources/admin/js/recharge.modif.min.js" />
+	<template id="adminRechargeAuditJs" type="js" name="充值审核" templatePath="/admin/recharge_audit/audit_js.ftl" staticPath="/resources/admin/js/recharge.audit.min.js" />
+	<template id="adminRechargeTransferJs" type="js" name="充值转账" templatePath="/admin/recharge_transfer/transfer_js.ftl" staticPath="/resources/admin/js/recharge.transfer.min.js" />
+	<template id="adminRechargeCancelJs" type="js" name="充值取消" templatePath="/admin/recharge_cancel/cancel_js.ftl" staticPath="/resources/admin/js/recharge.cancel.min.js" />
+	<template id="adminRechargeRemedyJs" type="js" name="充值补救" templatePath="/admin/recharge_remedy/remedy_js.ftl" staticPath="/resources/admin/js/recharge.remedy.min.js" />
+	<template id="adminWithdrawalModifJs" type="js" name="提现修改" templatePath="/admin/withdrawal_modif/modif_js.ftl" staticPath="/resources/admin/js/withdrawal.modif.min.js" />
+	<template id="adminWithdrawalAuditJs" type="js" name="提现审核" templatePath="/admin/withdrawal_audit/audit_js.ftl" staticPath="/resources/admin/js/withdrawal.audit.min.js" />
+	<template id="adminWithdrawalTransferJs" type="js" name="提现转账" templatePath="/admin/withdrawal_transfer/transfer_js.ftl" staticPath="/resources/admin/js/withdrawal.transfer.min.js" />
+	<template id="adminWithdrawalCancelJs" type="js" name="提现取消" templatePath="/admin/withdrawal_cancel/cancel_js.ftl" staticPath="/resources/admin/js/withdrawal.cancel.min.js" />
+	<template id="adminWithdrawalRemedyJs" type="js" name="提现补救" templatePath="/admin/withdrawal_remedy/remedy_js.ftl" staticPath="/resources/admin/js/withdrawal.remedy.min.js" />
+	<template id="adminBankCardModifJs" type="js" name="银行卡修改" templatePath="/admin/bank_card_modif/modif_js.ftl" staticPath="/resources/admin/js/bank.card.modif.min.js" />
+	<template id="adminBankCardAuditJs" type="js" name="银行卡审核" templatePath="/admin/bank_card_audit/audit_js.ftl" staticPath="/resources/admin/js/bank.card.audit.min.js" />
+	<template id="adminBankCardInvalidJs" type="js" name="银行卡作废" templatePath="/admin/bank_card_invalid/invalid_js.ftl" staticPath="/resources/admin/js/bank.card.invalid.min.js" />
+	<template id="adminBankCardRemedyJs" type="js" name="银行卡补救" templatePath="/admin/bank_card_remedy/remedy_js.ftl" staticPath="/resources/admin/js/bank.card.remedy.min.js" />
+	<template id="adminReferralFeePaymentJs" type="js" name="推荐费结算" templatePath="/admin/referral_fee/payment_js.ftl" staticPath="/resources/admin/js/referral_fee.payment.min.js" />
+	
+	<template id="adminArticleCategoryAddJs" type="js" name="文章分类添加" templatePath="/admin/article_category/add_js.ftl" staticPath="/resources/admin/js/article.category.add.min.js" />
+	<template id="adminArticleCategoryEditJs" type="js" name="文章分类编辑" templatePath="/admin/article_category/edit_js.ftl" staticPath="/resources/admin/js/article.category.edit.min.js" />
+	<template id="adminArticleAddJs" type="js" name="文章添加" templatePath="/admin/article/add_js.ftl" staticPath="/resources/admin/js/article.add.min.js" />
+	<template id="adminArticleEditJs" type="js" name="文章编辑" templatePath="/admin/article/edit_js.ftl" staticPath="/resources/admin/js/article.edit.min.js" />
+	<template id="adminAdPositionAddJs" type="js" name="广告位添加" templatePath="/admin/ad_position/add_js.ftl" staticPath="/resources/admin/js/ad.position.add.min.js" />
+	<template id="adminAdPositionEditJs" type="js" name="广告位编辑" templatePath="/admin/ad_position/edit_js.ftl" staticPath="/resources/admin/js/ad.position.edit.min.js" />
+	<template id="adminAdAddJs" type="js" name="广告添加" templatePath="/admin/ad/add_js.ftl" staticPath="/resources/admin/js/ad.add.min.js" />
+	<template id="adminAdEditJs" type="js" name="广告编辑" templatePath="/admin/ad/edit_js.ftl" staticPath="/resources/admin/js/ad.edit.min.js" />
+	<template id="adminFriendLinkAddJs" type="js" name="友情链接添加" templatePath="/admin/friend_link/add_js.ftl" staticPath="/resources/admin/js/friend.link.add.min.js" />
+	<template id="adminFriendLinkEditJs" type="js" name="友情链接编辑" templatePath="/admin/friend_link/edit_js.ftl" staticPath="/resources/admin/js/friend.link.edit.min.js" />
+	
+	<template id="adminBorrowingApplyJs" type="js" name="借款申请" templatePath="/admin/borrowing_apply/apply_js.ftl" staticPath="/resources/admin/js/borrowing.apply.min.js" />
+	<template id="adminBorrowingInquiryJs" type="js" name="借款调查" templatePath="/admin/borrowing_inquiry/inquiry_js.ftl" staticPath="/resources/admin/js/borrowing.inquiry.min.js" />
+	<template id="adminBorrowingInquiryRescindJs" type="js" name="借款调查撤销" templatePath="/admin/borrowing_inquiry_failure/rescind_js.ftl" staticPath="/resources/admin/js/borrowing.inquiry.rescind.min.js" />
+	<template id="adminBorrowingConfirmJs" type="js" name="借款确认" templatePath="/admin/borrowing_confirm/confirm_js.ftl" staticPath="/resources/admin/js/borrowing.confirm.min.js" />
+	<template id="adminBorrowingConfirmRescindJs" type="js" name="借款确认撤销" templatePath="/admin/borrowing_confirm_failure/rescind_js.ftl" staticPath="/resources/admin/js/borrowing.confirm.rescind.min.js" />
+	<template id="adminBorrowingInvestRescindJs" type="js" name="借款投资撤销" templatePath="/admin/borrowing_invest_expired/rescind_js.ftl" staticPath="/resources/admin/js/borrowing.invest.rescind.min.js" />
+	<template id="adminBorrowingLendJs" type="js" name="借款出借" templatePath="/admin/borrowing_lend/lend_js.ftl" staticPath="/resources/admin/js/borrowing.lend.min.js" />
+	<template id="adminBorrowingRepaymentRecordListJs" type="js" name="借款还款记录列表" templatePath="/admin/borrowing_repayment_record/list_js.ftl" staticPath="/resources/admin/js/borrowing.repayment_record.list.min.js" />
+	<template id="adminBorrowingRepayJs" type="js" name="借款还款" templatePath="/admin/borrowing_repayment_record/repay_js.ftl" staticPath="/resources/admin/js/borrowing.repay.min.js" />
+	
+	<template id="homepageJs" type="js" name="网站前台首页" templatePath="/homepage_js.ftl" staticPath="/resources/js/homepage.min.js" />
+	<template id="commonJs" type="js" name="网站前台公共" templatePath="/common/js.ftl" staticPath="/resources/js/common.min.js" />
+	<template id="loginJs" type="js" name="网站前台登录" templatePath="/login/js.ftl" staticPath="/resources/js/login.min.js" />
+	<template id="registJs" type="js" name="网站前台注册" templatePath="/regist/js.ftl" staticPath="/resources/js/regist.min.js" />
+	<template id="investmentListJs" type="js" name="投资列表" templatePath="/investment/list_js.ftl" staticPath="/resources/js/investments.min.js" />
+	<template id="investmentJs" type="js" name="投资详情" templatePath="/investment/investment_js.ftl" staticPath="/resources/js/investment.min.js" />
+	<template id="borrowingJs" type="js" name="借款申请" templatePath="/borrowing/borrowing_js.ftl" staticPath="/resources/js/borrowing.min.js" />
+	
+	<template id="memberIdentityJs" type="js" name="会员身份认证" templatePath="/member/identity/js.ftl" staticPath="/resources/member/js/identity.min.js" />
+	<template id="memberEmailJs" type="js" name="会员邮箱认证" templatePath="/member/email/js.ftl" staticPath="/resources/member/js/email.min.js" />
+	<template id="memberMobileJs" type="js" name="会员手机认证" templatePath="/member/mobile/js.ftl" staticPath="/resources/member/js/mobile.min.js" />
+	<template id="memberPayPasswordSettingJs" type="js" name="会员支付密码设置" templatePath="/member/pay_password/setting_js.ftl" staticPath="/resources/member/js/pay_password.setting.min.js" />
+	<template id="memberPayPasswordModifJs" type="js" name="会员支付密码修改" templatePath="/member/pay_password/modif_js.ftl" staticPath="/resources/member/js/pay_password.modif.min.js" />
+	<template id="memberPayPasswordFindJs" type="js" name="会员支付密码找回" templatePath="/member/pay_password/find_js.ftl" staticPath="/resources/member/js/pay_password.find.min.js" />
+	<template id="memberLoginPasswordModifJs" type="js" name="会员登录密码修改" templatePath="/member/login_password/modif_js.ftl" staticPath="/resources/member/js/login_password.modif.min.js" />
+	<template id="memberBankcardAddJs" type="js" name="会员银行卡添加" templatePath="/member/bank_card/add_js.ftl" staticPath="/resources/member/js/bank_card.add.min.js" />
+	<template id="memberBankcardModifyJs" type="js" name="会员银行卡修改" templatePath="/member/bank_card/modify_js.ftl" staticPath="/resources/member/js/bank_card.modify.min.js" />
+	<template id="memberRechargeJs" type="js" name="会员充值" templatePath="/member/recharge/js.ftl" staticPath="/resources/member/js/recharge.min.js" />
+	<template id="memberWithdrawalJs" type="js" name="会员提现" templatePath="/member/withdrawal/js.ftl" staticPath="/resources/member/js/withdrawal.min.js" />
+	<template id="memberPrivLetteSendJs" type="js" name="会员私信发送" templatePath="/member/priv_lette/send_js.ftl" staticPath="/resources/member/js/priv_lette.send.min.js" />
+	<template id="memberPrivLetteDetailJs" type="js" name="会员私信详情" templatePath="/member/priv_lette/detail_js.ftl" staticPath="/resources/member/js/priv_lette.detail.min.js" />
+	
+	<template id="registMail" type="mail" name="注册邮件" templatePath="/regist/mail.ftl" />
+	<template id="bindingMail" type="mail" name="绑定邮件" templatePath="/member/email/mail.ftl" />
+	<template id="findPasswordMail" type="mail" name="找回密码邮件" templatePath="/password/find_mail.ftl" />
+	
+	<template id="registTexting" type="texting" name="注册短信" templatePath="/regist/texting.ftl" />
+	<template id="bindingTexting" type="texting" name="绑定短信" templatePath="/member/mobile/texting.ftl" />
+	<template id="findPasswordTexting" type="texting" name="找回密码短信" templatePath="/password/find_texting.ftl" />
+	<template id="passwordUpdatePromptTexting" type="texting" name="登陆密码修改提示短信" templatePath="/password/update_prompt_texting.ftl" />
+	<template id="payPasswordUpdatePromptTexting" type="texting" name="支付密码修改提示短信" templatePath="/member/pay_password/update_prompt_texting.ftl" />
+	<template id="bankCardSettingTexting" type="texting" name="银行卡设置短信" templatePath="/member/bank_card/texting.ftl" />
+	
+	<template id="metaPage" type="page" name="网页关键词" templatePath="/include/meta.ftl" />
+	<template id="headerPage" type="page" name="网页顶部" templatePath="/include/header.ftl" />
+	<template id="footerPage" type="page" name="网页底部" templatePath="/include/footer.ftl" />
+	
+	<template id="homepagePage" type="page" name="主页" templatePath="/homepage.ftl" />
+	<template id="investmentPage" type="page" name="投资列表" templatePath="/investment/list.ftl" />
+	<template id="rechargePage" type="page" name="会员充值" templatePath="/member/recharge/index.ftl" />
+	<template id="withdrawalPage" type="page" name="会员提现" templatePath="/member/withdrawal/index.ftl" />
+	<template id="borrowingListPage" type="page" name="借款列表" templatePath="/borrowing/list.ftl" />
+	<template id="creditDetailPage" type="page" name="信用借款" templatePath="/borrowing/credit_detail.ftl" />
+	<template id="guaranteeDetailPage" type="page" name="担保借款" templatePath="/borrowing/guarantee_detail.ftl" />
+	<template id="mortgageDetailPage" type="page" name="抵押借款" templatePath="/borrowing/mortgage_detail.ftl" />
+	
+	<template id="registAgreementPage" type="page" name="注册协议" templatePath="/regist/agreement.ftl" />
+	<template id="borrowingAgreementPage" type="page" name="借款协议（范本）" templatePath="/borrowing/agreement.ftl" />
+	<template id="investmentAgreementPage" type="page" name="借款协议（模板）" templatePath="/investment/agreement.ftl" /> -->
+	<!--
+	<template id="guaranteeAgreementPage" type="page" name="担保协议" templatePath="/investment/guarantee_agreement.ftl" />
+	<template id="mortgageAgreementPage" type="page" name="抵押协议" templatePath="/investment/mortgage_agreement.ftl" />
+	<template id="transferAgreementPage" type="page" name="转让协议" templatePath="/investment/transfer_agreement.ftl" />
+	-->
+	
+</templates>

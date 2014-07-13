@@ -1,9 +1,9 @@
 /*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
- * Support: http://www.icl-network.com
+ * Copyright 2010-${.now?string("yyyy")} hodoz.com. All rights reserved.
+ * Support: http://www.hodoz.com.com
  *
  * JavaScript - Login
- * Version: 3.0
+ * Version: 1.0
  */
 [#-- 启用验证码 --]
 [#assign enabledCaptcha = (setting.security.captchaScopes?? && setting.security.captchaScopes?seq_contains("adminLogin")) /]

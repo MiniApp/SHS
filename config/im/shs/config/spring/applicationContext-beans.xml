@@ -286,6 +286,15 @@
 		<!-- 所在区域（语种） -->
 		<property name="defaultLocale" value="${locale}" />
 	</bean>
+	
+	<!-- 配置JCaptcha验证码功能 -->
+	<bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+		<property name="captchaEngine">
+			<bean class="im.shs.CaptchaEngine" />
+		</property>
+		<!-- 验证码过期时间 -->
+		<property name="minGuarantedStorageDelayInSeconds" value="3600" />
+	</bean>
 
 	<!-- 配置SMTP邮件异步发送 -->
 	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">

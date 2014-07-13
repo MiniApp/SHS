@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates>
-<!-- 
+
 	<template id="adminLoginCss" type="css" name="后台登录" templatePath="/admin/login/css.ftl" staticPath="/resources/admin/css/login.min.css" />
 	<template id="adminLoginJs" type="js" name="后台登录" templatePath="/admin/login/js.ftl" staticPath="/resources/admin/js/login.min.js" />
 	<template id="adminMenuCss" type="css" name="后台菜单" templatePath="/admin/menu/css.ftl" staticPath="/resources/admin/css/menu.min.css" />
@@ -126,7 +126,7 @@
 	
 	<template id="registAgreementPage" type="page" name="注册协议" templatePath="/regist/agreement.ftl" />
 	<template id="borrowingAgreementPage" type="page" name="借款协议（范本）" templatePath="/borrowing/agreement.ftl" />
-	<template id="investmentAgreementPage" type="page" name="借款协议（模板）" templatePath="/investment/agreement.ftl" /> -->
+	<template id="investmentAgreementPage" type="page" name="借款协议（模板）" templatePath="/investment/agreement.ftl" />
 	<!--
 	<template id="guaranteeAgreementPage" type="page" name="担保协议" templatePath="/investment/guarantee_agreement.ftl" />
 	<template id="mortgageAgreementPage" type="page" name="抵押协议" templatePath="/investment/mortgage_agreement.ftl" />

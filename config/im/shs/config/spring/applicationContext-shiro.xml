@@ -10,7 +10,7 @@
     <bean id="cacheManagerShiro" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:im/shs/config/spring/ehcache-shiro.xml"/>
     </bean>
-    
+	
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="im.shs.base.shiro.credentials.RetryLimitHashedCredentialsMatcher">
         <constructor-arg ref="cacheManagerShiro"/>

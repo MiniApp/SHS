@@ -218,8 +218,9 @@ public final class SettingUtils {
 
             // 插入设置到设置缓存中
             cache.put(new net.sf.ehcache.Element(Setting.CACHE_KEY, setting));
-        }*/
-        return null;//setting;
+        }
+        return setting;*/
+    	return null;
     }
 
     /**

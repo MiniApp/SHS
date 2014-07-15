@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+           http://www.springframework.org/schema/aop  
+           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+           http://www.springframework.org/schema/tx   
+           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+           http://www.springframework.org/schema/cache 
+		   http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+           http://www.springframework.org/schema/data/jpa
+           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+           http://www.springframework.org/schema/task  
+		   http://www.springframework.org/schema/task/spring-task-4.0.xsd  ">
+	<!-- 加载资源文件 -->
+	<context:property-placeholder location="classpath:im/shs/config/shs.properties" />
+
+	<!-- 启动组件扫描，排除@Controller组件，该组件由SpringMVC配置文件扫描 -->
+	<context:component-scan base-package="im.shs.*">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- 加载资源文件 -->
+	<context:property-placeholder location="classpath:im/shs/config/shs.properties" />
+
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 驱动Class -->
+		<property name="driverClass" value="${jdbc.driver}" />
+		<!-- URL -->
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<!-- 用户名 -->
+		<property name="user" value="${jdbc.username}" />
+		<!-- 密码 -->
+		<property name="password" value="${jdbc.password}" />
+		<!-- 初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default：3 -->
+		<property name="initialPoolSize" value="${connection_pools.initial_pool_size}" />
+		<!-- 连接池中保留的最小连接数。 -->
+		<property name="minPoolSize" value="${connection_pools.min_pool_size}" />
+		<!-- 连接池中保留的最大连接数。Default：15 -->
+		<property name="maxPoolSize" value="${connection_pools.max_pool_size}" />
+		<!-- 最大空闲时间，60秒内未使用则连接被丢弃，若为0则永不丢弃。Default：0 -->
+		<property name="maxIdleTime" value="${connection_pools.max_idle_time}" />
+		<!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default：3 -->
+		<property name="acquireIncrement" value="${connection_pools.acquire_increment}" />
+		<!-- 当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException，如设为0则无限期等待。单位毫秒，Default：0 -->
+		<property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />
+	</bean>
+
+	<!-- 配置mybitasSqlSessionFactoryBean -->
+	<bean name="paginationInterceptor" class="im.shs.base.interceptor.PaginationInterceptor"></bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="im.shs.bean" />
+		<property name="plugins">
+			<list>
+				<ref bean="paginationInterceptor" />
+			</list>
+		</property>
+		<property name="configLocation"
+			value="classpath:im/shs/config/mybatis/sql-map-config.xml"></property>
+	</bean>
+
+	<!-- 配置SqlSessionTemplate -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- JPA实体管理工厂的配置 -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 用于指定JPA配置文件，对于多JPA配置文件情况请选择设置persistenceUnitManager属性来解决。 -->
+		<property name="persistenceXmlLocation" value="classpath*:im/shs/config/persistence.xml" />
+		<!-- 用于指定持久化单元名称。 -->
+		<property name="persistenceUnitName" value="jpaPersistenceUnit" />
+		<!-- 用于设置JPA实现厂商的特定属性，如设置hibernate的是否自动生成DDL的属性generateDdl，这些属性是厂商特定的，因此最好在这里设置。 -->
+		<!-- 目前Spring提供HibernateJpaVendorAdapter，OpenJpaVendorAdapter，EclipseJpaVendorAdapter，TopLinkJpaVenderAdapter四个实现。 -->
+		<!-- 其中最主要的属性是“database”，用来指定使用的数据库类型。 -->
+		<!-- 从而根据数据库类型决定如何将数据库特定异常转换为Spring一致性异常。 -->
+		<!-- 目前支持以下数据库：DB2，DERBY，H2，HSQL，INFORMIX，MYSQL，ORACLE，POSTGRESQL，SQL_SERVER，SYBASE -->
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<!-- 是否显示SQL -->
+				<property name="showSql" value="true" />
+				<!-- 是否自动生成DDL（数据库定义语言） -->
+				<property name="generateDdl" value="true" />
+				<!-- 数据库类型
+				<property name="database" value="MYSQL"/>
+				-->
+			</bean>
+		</property>
+		<!--待扫描的实体类包，不再需要persistence.xml了 -->
+		<!-- <property name="packagesToScan" value="im.shs" /> -->
+		<!-- 指定JPA属性。 -->
+		<!-- 如Hibernate中指定是否显示SQL的“hibernate.show_sql”属性，对于jpaProperties设置的属性自动会放进jpaPropertyMap中。 -->
+		<property name="jpaProperties">
+			<props>
+				<!-- SQL方言 -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!-- 设置注释命名策略 -->
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+
+				<!-- Hibernate 二级缓存 -->
+				<!-- 是否启用二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+				<!-- 二级缓存区域 -->
+				<prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
+				<!-- 是否允许查询缓存 -->
+				<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+
+				<!-- 指定JDBC抓取数量的大小，非零值（调用Statement.setFetchSize()） -->
+				<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
+				<!-- 允许Hibernate使用JDBC2的批量更新，非零值，取值 建议取5到30之间的值 -->
+				<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+
+				<!-- 设置JDBC事务隔离级别。 -->
+				<!-- 查看java.sql.Connection来了解各个值的具体意义，但请注意多数数据库都不支持所有的隔离级别。 -->
+				<!-- 取值 1, 2, 4, 8 -->
+				<prop key="hibernate.connection.isolation">2</prop>
+
+				<!-- Error applying BeanValidation relational constraints。 -->
+				<!-- 解决办法：由于javax.persistence.validation.mode的属性值默认是auto，所以会出错。在hibernate.cfg.xml里将javax.persistence.validation.mode设置为none，就可以避免出错了。 -->
+				<prop key="javax.persistence.validation.mode">none</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Jpa 事务配置 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<aop:config>
+		<aop:pointcut id="txWebServiceMethods" expression="execution(* im.shs.web.service..*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txWebServiceMethods" />
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED"/>
+			<tx:method name="persist*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="upload*" propagation="REQUIRED" />
+			<tx:method name="assige*" propagation="REQUIRED" />
+			<tx:method name="associate*" propagation="REQUIRED" />
+			<tx:method name="submit*" propagation="REQUIRED" />
+			<tx:method name="cancel*" propagation="REQUIRED" />
+			<tx:method name="rollBack*" propagation="REQUIRED" />
+			<tx:method name="commit*" propagation="REQUIRED" />
+			<tx:method name="test*" propagation="REQUIRED" />
+			<tx:method name="publish*" propagation="REQUIRED" />
+			<tx:method name="invalidate*" propagation="REQUIRED" />
+			<tx:method name="record*" propagation="REQUIRED" />
+			<tx:method name="run*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="agree*" propagation="REQUIRED" />
+			<tx:method name="refuse*" propagation="REQUIRED" />
+			<tx:method name="forward*" propagation="REQUIRED" />
+			<tx:method name="set*" propagation="REQUIRED" />
+			<tx:method name="batch*" propagation="REQUIRED" />
+			<tx:method name="send*" propagation="REQUIRED" />
+			<tx:method name="customer*" propagation="REQUIRED" />
+			<tx:method name="apply*" propagation="REQUIRED" />
+			<tx:method name="execute*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+</beans>

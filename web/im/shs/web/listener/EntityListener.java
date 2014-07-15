@@ -1,6 +1,6 @@
 package im.shs.web.listener;
 
-import im.shs.entity.BaseEntity;
+import im.shs.web.entity.BaseEntity;
 
 import java.util.Date;
 

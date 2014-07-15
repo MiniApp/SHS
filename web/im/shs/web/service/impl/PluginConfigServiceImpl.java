@@ -1,7 +1,7 @@
 package im.shs.web.service.impl;
 
-import im.shs.entity.PluginConfigEntity;
 import im.shs.web.dao.PluginConfigDao;
+import im.shs.web.entity.PluginConfigEntity;
 import im.shs.web.service.PluginConfigService;
 
 import javax.annotation.Resource;

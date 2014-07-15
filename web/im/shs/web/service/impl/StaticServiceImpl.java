@@ -1,11 +1,11 @@
 package im.shs.web.service.impl;
 
-import im.shs.Template;
-import im.shs.enums.TemplateTypeEnum;
-import im.shs.util.CompressorUtils;
+import im.shs.web.Template;
+import im.shs.web.enums.TemplateTypeEnum;
 import im.shs.web.service.FileService;
 import im.shs.web.service.StaticService;
 import im.shs.web.service.TemplateService;
+import im.shs.web.util.CompressorUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;

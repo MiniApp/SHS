@@ -1,7 +1,7 @@
 package im.shs.web.service.impl;
 
-import im.shs.util.RSAUtils;
 import im.shs.web.service.RSAService;
+import im.shs.web.util.RSAUtils;
 
 import java.security.KeyPair;
 import java.security.interfaces.RSAPrivateKey;

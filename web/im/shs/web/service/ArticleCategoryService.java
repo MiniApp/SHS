@@ -1,6 +1,6 @@
 package im.shs.web.service;
 
-import im.shs.entity.ArticleCategoryEntity;
+import im.shs.web.entity.ArticleCategoryEntity;
 
 import java.util.List;
 

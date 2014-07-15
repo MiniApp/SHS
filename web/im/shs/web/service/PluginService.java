@@ -1,6 +1,6 @@
 package im.shs.web.service;
 
-import im.shs.web.plugin.StoragePlugin;
+import im.shs.web.plugin.storage.StoragePlugin;
 
 import java.util.List;
 

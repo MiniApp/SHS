@@ -1,7 +1,7 @@
 package im.shs.web.service.impl;
 
-import im.shs.Template;
-import im.shs.enums.TemplateTypeEnum;
+import im.shs.web.Template;
+import im.shs.web.enums.TemplateTypeEnum;
 import im.shs.web.service.TemplateService;
 
 import java.io.File;

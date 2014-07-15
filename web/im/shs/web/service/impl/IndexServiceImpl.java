@@ -1,7 +1,6 @@
 package im.shs.web.service.impl;
 
 import im.shs.base.BaseService;
-import im.shs.entity.Users;
 import im.shs.web.service.IndexService;
 
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IndexServiceImpl extends BaseService implements IndexService {
-	@Override
+	/*@Override
 	public void save(Users users) {
 		this.getPersist().persist(users);
 	}
@@ -24,9 +23,9 @@ public class IndexServiceImpl extends BaseService implements IndexService {
 	@Override
 	public void delete(Users users) {
 		this.getPersist().remove(users);
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public Users find(Integer id) {
 		
 		return this.getPersist().find(Users.class, id);
@@ -35,6 +34,6 @@ public class IndexServiceImpl extends BaseService implements IndexService {
 	@Override
 	public void update(Users users) {
 		this.getPersist().merge(users);
-	}
+	}*/
 
 }

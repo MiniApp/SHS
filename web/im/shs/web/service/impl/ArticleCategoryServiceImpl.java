@@ -1,8 +1,8 @@
 package im.shs.web.service.impl;
 
-import im.shs.Filter;
-import im.shs.entity.ArticleCategoryEntity;
+import im.shs.web.Filter;
 import im.shs.web.dao.ArticleCategoryDao;
+import im.shs.web.entity.ArticleCategoryEntity;
 import im.shs.web.service.ArticleCategoryService;
 
 import java.util.List;
@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,28 +76,28 @@ public class ArticleCategoryServiceImpl extends BaseServiceImpl<ArticleCategoryE
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable("articleCategory")
+    // @Cacheable("articleCategory")
     public ArticleCategoryEntity findByAlias(Long parentId, String alias) {
         return articleCategoryDao.findByAlias(parentId, alias);
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable("articleCategory")
+    // @Cacheable("articleCategory")
     public List<ArticleCategoryEntity> findRoots() {
         return findList(Filter.isNull("parent"));
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable("articleCategory")
+    // @Cacheable("articleCategory")
     public List<ArticleCategoryEntity> findChildren(Long parentId) {
         return findChildren(null, parentId);
     }
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable("articleCategory")
+    // @Cacheable("articleCategory")
     public List<ArticleCategoryEntity> findChildren(Integer count, Long parentId) {
         return findList(count, Filter.eq("parent", parentId));
     }
@@ -106,8 +105,8 @@ public class ArticleCategoryServiceImpl extends BaseServiceImpl<ArticleCategoryE
     @Override
     @Transactional
     @CacheEvict(value = { "article", "articleCategory" }, allEntries = true)
-    public void save(ArticleCategoryEntity articleCategory) {
-        super.save(articleCategory);
+    public ArticleCategoryEntity save(ArticleCategoryEntity articleCategory) {
+        return super.save(articleCategory);
     }
 
     @Override
@@ -141,8 +140,15 @@ public class ArticleCategoryServiceImpl extends BaseServiceImpl<ArticleCategoryE
     @Override
     @Transactional
     @CacheEvict(value = { "article", "articleCategory" }, allEntries = true)
-    public void delete(Long... ids) {
-        super.delete(ids);
+    public void deleteList(Long... ids) {
+        super.deleteList(ids);
+    }
+
+    @Override
+    @Transactional
+    @CacheEvict(value = { "article", "articleCategory" }, allEntries = true)
+    public void deleteList(List<ArticleCategoryEntity> articleCategories) {
+        super.deleteList(articleCategories);
     }
 
 }

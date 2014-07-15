@@ -1,15 +1,15 @@
 package im.shs.web.setting.security;
 
-import im.shs.Setting;
-import im.shs.enums.AccountLockTypeEnum;
-import im.shs.enums.CaptchaTypeEnum;
-import im.shs.enums.LoginTypeEnum;
-import im.shs.enums.RandomStringTypeEnum;
-import im.shs.enums.RoundingModeEnum;
-import im.shs.util.SettingUtils;
+import im.shs.web.Setting;
 import im.shs.web.action.admin.BaseAdminController;
+import im.shs.web.enums.AccountLockTypeEnum;
+import im.shs.web.enums.CaptchaTypeEnum;
+import im.shs.web.enums.LoginTypeEnum;
+import im.shs.web.enums.RandomStringTypeEnum;
+import im.shs.web.enums.RoundingModeEnum;
 import im.shs.web.service.CacheService;
 import im.shs.web.service.StaticService;
+import im.shs.web.util.SettingUtils;
 
 import javax.annotation.Resource;
 

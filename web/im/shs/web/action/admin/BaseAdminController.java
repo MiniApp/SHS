@@ -1,8 +1,8 @@
 package im.shs.web.action.admin;
 
-import im.shs.entity.LogEntity;
-import im.shs.enums.RedirectTypeEnum;
 import im.shs.web.action.BaseController;
+import im.shs.web.entity.LogEntity;
+import im.shs.web.enums.RedirectTypeEnum;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;

@@ -1,6 +1,6 @@
 package im.shs.web.service;
 
-import im.shs.entity.PluginConfigEntity;
+import im.shs.web.entity.PluginConfigEntity;
 
 /**
  * @class : PluginConfigService

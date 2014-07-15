@@ -1,6 +1,6 @@
 package im.shs.web.setting.display;
 
-import im.shs.enums.WatermarkPositionEnum;
+import im.shs.web.enums.WatermarkPositionEnum;
 
 import java.io.Serializable;
 

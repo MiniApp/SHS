@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p2p>
+
 	
 	<basicSetting name="siteName" value="裕信创投" />
-	<basicSetting name="siteUrl" value="http://localhost:8080/P2P-2.0-YuXinChuangTou" />
+	<basicSetting name="siteUrl" value="http://localhost:8080/P2P-2.1-YuXinChuangTou" />
 	<basicSetting name="siteLogo" value="/upload/image/logo.gif" />
 	<basicSetting name="address" value="成都市高新区天晖路360号" />
 	<basicSetting name="phone" value="028-8332709" />
@@ -10,7 +11,7 @@
 	<basicSetting name="email" value="admin@yuxinct.com" />
 	<basicSetting name="certtext" value="蜀ICP备14013065号" />
 	<basicSetting name="siteEnabled" value="true" />
-	<basicSetting name="siteVersion" value="140416" />
+	<basicSetting name="siteVersion" value="140707" />
 	<basicSetting name="siteCloseMessage" value="&lt;dl&gt;&lt;dt&gt;网站维护中，暂时无法访问！&lt;/dt&gt;&lt;dd&gt;本网站正在进行系统维护和技术升级，网站暂时无法访问，敬请谅解！&lt;/dd&gt;&lt;/dl&gt;" />
 	<basicSetting name="cookiePath" value="/" />
 	<basicSetting name="cookieDomain" value="" />
@@ -24,8 +25,8 @@
 	<securitySetting name="passwordMinLength" value="4" />
 	<securitySetting name="passwordMaxLength" value="20" />
 	<securitySetting name="loginMethods" value="username,email,mobile" />
-	<securitySetting name="captchaScopes" value="adminLogin,login,regist,findPassword,resetPassword,applyBorrowing" />
-	<securitySetting name="accountLockScopes" value="admin,user" />
+	<securitySetting name="captchaScopes" value="adminLogin,login,regist" />
+	<securitySetting name="accountLockScopes" value="admin,member" />
 	<securitySetting name="accountLockCount" value="5" />
 	<securitySetting name="accountLockTime" value="10" />
 	<securitySetting name="tokenType" value="numeric" />
@@ -67,9 +68,6 @@
 	<commSetting name="smtpPort" value="25" />
 	<commSetting name="smtpUsername" value="admin@yuxinct.com" />
 	<commSetting name="smtpPassword" value="feleon1" />
-	<commSetting name="smsURL" value="http://sdk.entinfo.cn:8060/webservice.asmx" />
-	<commSetting name="smsUsername" value="SDK-SRF-010-00419" />
-	<commSetting name="smsPassword" value="2-[7d9-[" />
 	
 	<referralSetting name="enabled" value="false" />
 	<referralSetting name="feeRate" value="2" />

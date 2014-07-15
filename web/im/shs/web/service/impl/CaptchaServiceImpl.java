@@ -1,8 +1,8 @@
 package im.shs.web.service.impl;
 
-import im.shs.enums.CaptchaTypeEnum;
-import im.shs.util.SettingUtils;
+import im.shs.web.enums.CaptchaTypeEnum;
 import im.shs.web.service.CaptchaService;
+import im.shs.web.util.SettingUtils;
 
 import java.awt.image.BufferedImage;
 

@@ -1,7 +1,7 @@
 package im.shs.web.dao.impl;
 
-import im.shs.entity.ArticleEntity;
 import im.shs.web.dao.ArticleDao;
+import im.shs.web.entity.ArticleEntity;
 
 import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;

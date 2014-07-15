@@ -1,8 +1,8 @@
 package im.shs.web.dao.impl;
 
-import im.shs.entity.FriendLinkEntity;
-import im.shs.enums.FriendLinkTypeEnum;
 import im.shs.web.dao.FriendLinkDao;
+import im.shs.web.entity.FriendLinkEntity;
+import im.shs.web.enums.FriendLinkTypeEnum;
 
 import javax.persistence.FlushModeType;
 

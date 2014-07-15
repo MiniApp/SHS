@@ -1,6 +1,6 @@
 package im.shs.web.service;
 
-import im.shs.enums.TemplateTypeEnum;
+import im.shs.web.enums.TemplateTypeEnum;
 
 import java.util.Map;
 

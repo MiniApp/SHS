@@ -1,8 +1,12 @@
 package im.shs.web.template.directive;
 
-import im.shs.Filter;
-import im.shs.Order;
-import im.shs.entity.FriendLinkEntity;
+import freemarker.core.Environment;
+import freemarker.template.TemplateDirectiveBody;
+import freemarker.template.TemplateException;
+import freemarker.template.TemplateModel;
+import im.shs.web.Filter;
+import im.shs.web.Sequencer;
+import im.shs.web.entity.FriendLinkEntity;
 import im.shs.web.service.FriendLinkService;
 
 import java.io.IOException;
@@ -12,11 +16,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
-
-import freemarker.core.Environment;
-import freemarker.template.TemplateDirectiveBody;
-import freemarker.template.TemplateException;
-import freemarker.template.TemplateModel;
 
 /**
  * @class : FriendLinkListDirective
@@ -39,20 +38,20 @@ public class FriendLinkListDirective extends BaseDirective {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
             throws TemplateException, IOException {
-       
+
         boolean useCache = useCache(env, params);
         String cacheRegion = getCacheRegion(env, params);
         Integer count = getCount(params);
         List<Filter> filters = getFilters(params, FriendLinkEntity.class);
-        List<Order> orders = getOrders(params);
-        
+        List<Sequencer> sequencers = getSequencers(params);
+
         List<FriendLinkEntity> friendLinks;
         if (useCache) {
-            friendLinks = friendLinkService.findList(count, filters, orders, cacheRegion);
+            friendLinks = friendLinkService.findList(count, filters, sequencers, cacheRegion);
         } else {
-            friendLinks = friendLinkService.findList(count, filters, orders);
+            friendLinks = friendLinkService.findList(count, filters, sequencers);
         }
-        
+
         setLocalVariable(VARIABLE_NAME, friendLinks, env, body);
     }
 

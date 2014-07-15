@@ -4,111 +4,162 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+       default-lazy-init="true">
 
-    <!-- 缓存管理器 使用ehcache实现 -->
-    <bean id="cacheManagerShiro" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <property name="cacheManagerConfigFile" value="classpath:im/shs/config/spring/ehcache-shiro.xml"/>
-    </bean>
+    	<!-- Shiro 过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 	
-    <!-- 凭证匹配器 -->
-    <bean id="credentialsMatcher" class="im.shs.base.shiro.credentials.RetryLimitHashedCredentialsMatcher">
-        <constructor-arg ref="cacheManagerShiro"/>
-        <property name="hashAlgorithmName" value="md5"/>
-        <property name="hashIterations" value="2"/>
-        <property name="storedCredentialsHexEncoded" value="true"/>
-    </bean>
+		<property name="securityManager" ref="securityManager" />
+		<!-- 登录URL -->
+		<property name="loginUrl" value="/admin/login" />
+		<!-- 登录成功URL -->
+		<property name="successUrl" value="/admin" />
+		<!-- 无权访问URL -->
+		<property name="unauthorizedUrl" value="/admin/unauthorized" />
+		
+		<!-- 过滤器定义 -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- anon 没有参数，表示可以匿名使用 -->
+				<!-- authc 表示需要认证才能使用，没有参数 -->
+				<!-- perms 参数可以写多个，多个时必须加上引号，并且参数之间用逗号分割 -->
+				/admin/captcha = anon
+				/admin/login = authc
+				/admin/logout = logout
+				
+				/admin/area/jsons = authc
+				/admin/article_category/jsons = authc
+				/admin/bank_branch/jsons = authc
 
-    <!-- Realm实现 -->
-    <bean id="userRealm" class="im.shs.base.shiro.realm.UserRealm">
-        <property name="credentialsMatcher" ref="credentialsMatcher"/>
-        <property name="cachingEnabled" value="true"/>
-        <property name="authenticationCachingEnabled" value="true"/>
-        <property name="authenticationCacheName" value="authenticationCache"/>
-        <property name="authorizationCachingEnabled" value="true"/>
-        <property name="authorizationCacheName" value="authorizationCache"/>
-    </bean>
+				/admin/basic_setting/** = perms["admin:basic_setting"]
+				/admin/security_setting/** = perms["admin:security_setting"]
+				/admin/display_setting/** = perms["admin:display_setting"]
+				/admin/comm_setting/** = perms["admin:comm_setting"]
+				/admin/referral_setting/** = perms["admin:referral_setting"]
+				/admin/payment_plugin/** = perms["admin:payment_plugin"]
+				/admin/storage_plugin/** = perms["admin:storage_plugin"]
+				/admin/texting_plugin/** = perms["admin:texting_plugin"]
+				/admin/admin/** = perms["admin:admin"]
+				/admin/role/** = perms["admin:role"]
+				/admin/area/** = perms["admin:area"]
+				/admin/bank/** = perms["admin:bank"]
+				/admin/bank_branch/** = perms["admin:bank"]
+				/admin/dict/** = perms["admin:dict"]
+				/admin/dict_word/** = perms["admin:dict"]
+				/admin/template/page/** = perms["admin:template_page"]
+				/admin/template/mail/** = perms["admin:template_mail"]
+				/admin/template/texting/** = perms["admin:template_texting"]
+				/admin/template/print/** = perms["admin:template_print"]
+				/admin/template/js/** = perms["admin:template_js"]
+				/admin/template/css/** = perms["admin:template_css"]
+				/admin/cache/** = perms["admin:cache"]
+				/admin/log/** = perms["admin:log"]
+				/admin/token/** = perms["admin:token"]
+				/admin/database/** = perms["admin:database"]
+				
+				/admin/article_category/** = perms["admin:article_category"]
+				/admin/article/** = perms["admin:article"]
+				/admin/ad_position/** = perms["admin:ad_position"]
+				/admin/ad/** = perms["admin:ad"]
+				/admin/friend_link/text/** = perms["admin:friend_link_text"]
+				/admin/friend_link/image/** = perms["admin:friend_link_image"]
+				
+				/admin/capital/** = perms["admin:capital"]
+				/admin/account/** = perms["admin:account"]
+				/admin/account_charge/** = perms["admin:account_charge"]
+				/admin/account_recharge/** = perms["admin:account_recharge"]
+				/admin/recharge/** = perms["admin:recharge"]
+				/admin/recharge_modif/** = perms["admin:recharge_modif"]
+				/admin/recharge_audit/** = perms["admin:recharge_audit"]
+				/admin/recharge_transfer/** = perms["admin:recharge_transfer"]
+				/admin/recharge_cancel/** = perms["admin:recharge_cancel"]
+				/admin/recharge_remedy/** = perms["admin:recharge_remedy"]
+				/admin/withdrawal/** = perms["admin:withdrawal"]
+				/admin/withdrawal_modif/** = perms["admin:withdrawal_modif"]
+				/admin/withdrawal_audit/** = perms["admin:withdrawal_audit"]
+				/admin/withdrawal_transfer/** = perms["admin:withdrawal_transfer"]
+				/admin/withdrawal_cancel/** = perms["admin:withdrawal_cancel"]
+				/admin/withdrawal_remedy/** = perms["admin:withdrawal_remedy"]
+				/admin/bank_card/** = perms["admin:bank_card"]
+				/admin/bank_card_modif/** = perms["admin:bank_card_modif"]
+				/admin/bank_card_audit/** = perms["admin:bank_card_audit"]
+				/admin/bank_card_invalid/** = perms["admin:bank_card_invalid"]
+				/admin/bank_card_remedy/** = perms["admin:bank_card_remedy"]
+				/admin/referral_fee/** = perms["admin:referral_fee"]
+				
+				/admin/member/** = perms["admin:member"]
+				/admin/member_regist/** = perms["admin:member_regist"]
+				/admin/member_modif/** = perms["admin:member_modif"]
+				/admin/pers/** = perms["admin:pers"]
+				/admin/pers_regist/** = perms["admin:pers_regist"]
+				/admin/pers_modif/** = perms["admin:pers_modif"]
+				/admin/corp/** = perms["admin:corp"]
+				/admin/corp_modif/** = perms["admin:corp_modif"]
+				
+				/admin/assignment_apply/** = perms["admin:assignment_apply"]
+				/admin/assignment_inquiry/** = perms["admin:assignment_inquiry"]
+				/admin/assignment_confirm/** = perms["admin:assignment_confirm"]
+				/admin/assignment_investing/** = perms["admin:assignment_investing"]
+				/admin/assignment_invest_expired/** = perms["admin:assignment_invest_expired"]
+				/admin/assignment_buybacking/** = perms["admin:assignment_buybacking"]
+				/admin/assignment_buyback/** = perms["admin:assignment_buyback"]
+				/admin/buyback/** = perms["admin:assignment_buyback"]
+				/admin/buyback_plan/** = perms["admin:assignment_buyback"]
+				/admin/assignment_finished/** = perms["admin:assignment_finished"]
+				/admin/assignment_inquiry_failure/** = perms["admin:assignment_inquiry_failure"]
+				/admin/assignment_confirm_failure/** = perms["admin:assignment_confirm_failure"]
+				/admin/assignment_invest_failure/** = perms["admin:assignment_invest_failure"]
+				
+				/admin/borrowing_apply/** = perms["admin:borrowing_apply"]
+				/admin/borrowing_inquiry/** = perms["admin:borrowing_inquiry"]
+				/admin/borrowing_confirm/** = perms["admin:borrowing_confirm"]
+				/admin/borrowing_investing/** = perms["admin:borrowing_investing"]
+				/admin/borrowing_invest_expired/** = perms["admin:borrowing_invest_expired"]
+				/admin/borrowing_lend/** = perms["admin:borrowing_lend"]
+				/admin/borrowing_repaying/** = perms["admin:borrowing_repaying"]
+				/admin/borrowing_repay/** = perms["admin:borrowing_repay"]
+				/admin/repayment/** = perms["admin:borrowing_repay"]
+				/admin/repayment_plan/** = perms["admin:borrowing_repay"]
+				/admin/borrowing_finished/** = perms["admin:borrowing_finished"]
+				/admin/borrowing_inquiry_failure/** = perms["admin:borrowing_inquiry_failure"]
+				/admin/borrowing_confirm_failure/** = perms["admin:borrowing_confirm_failure"]
+				/admin/borrowing_invest_failure/** = perms["admin:borrowing_invest_failure"]
+				/admin/borrowing_lend_failure/** = perms["admin:borrowing_lend_failure"]
 
-    <!-- 会话ID生成器 -->
-    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+				/admin/** = authc
+			</value>
+		</property>
+		<property name="filters">
+			<map>
+				<entry key="authc" value-ref="authenticationFilter" />
+			</map>
+		</property>
+	</bean>
 
-    <!-- 会话Cookie模板 -->
-    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="sid"/>
-        <property name="httpOnly" value="true"/>
-        <property name="maxAge" value="180000"/>
-    </bean>
+	<!-- WEB安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="authenticationRealm" />
+		<property name="cacheManager" ref="shiroCacheManager" />
+	</bean>
 
-    <!-- 会话DAO -->
-    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
-        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
-        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
-    </bean>
+	<!-- 权限认证 -->
+	<bean id="authenticationRealm" class="im.shs.web.AuthenticationRealm">
+		<property name="authorizationCacheName" value="authorization" />
+	</bean>
 
-    <!-- 会话验证调度器 -->
-    <bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
-        <property name="sessionValidationInterval" value="1800000"/>
-        <property name="sessionManager" ref="sessionManager"/>
-    </bean>
+	<!-- 缓存管理 -->
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="ehCacheManager" />
+	</bean>
 
-    <!-- 会话管理器 -->
-    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <property name="globalSessionTimeout" value="1800000"/>
-        <property name="deleteInvalidSessions" value="true"/>
-        <property name="sessionValidationSchedulerEnabled" value="true"/>
-        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
-        <property name="sessionDAO" ref="sessionDAO"/>
-        <property name="sessionIdCookieEnabled" value="true"/>
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>
-    </bean>
+	<!-- 权限认证过滤器 -->
+	<bean id="authenticationFilter" class="im.shs.web.filter.AuthenticationFilter" />
 
-    <!-- 安全管理器 -->
-    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="userRealm"/>
-        <property name="sessionManager" ref="sessionManager"/>
-        <property name="cacheManager" ref="cacheManagerShiro"/>
-    </bean>
-
-    <!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->
-    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
-        <property name="arguments" ref="securityManager"/>
-    </bean>
-
-    <!-- 基于Form表单的身份验证过滤器 -->
-    <bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
-        <property name="usernameParam" value="username"/>
-        <property name="passwordParam" value="password"/>
-        <property name="loginUrl" value="/login"/>
-    </bean>
-
-    <!-- Shiro的Web过滤器 -->
-    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login"/>
-        <property name="unauthorizedUrl" value="/unauthorized"/>
-        <property name="filters">
-            <util:map>
-                <entry key="authc" value-ref="formAuthenticationFilter"/>
-            </util:map>
-        </property>
-        <property name="filterChainDefinitions">
-            <value>
-            	/pages/** = anon
-            	/resource/pages/** = anon
-            	/resource/js/** = anon
-                /index.jsp = anon
-                /index = anon
-                /unauthorized = anon
-                /login = authc
-                /logout = logout
-                /** = user
-                /** = anon
-            </value>
-        </property>
-    </bean>
-
-    <!-- Shiro生命周期处理器-->
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+	<!-- 函数调用工厂 -->
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager" />
+		<property name="arguments" ref="securityManager" />
+	</bean>
 
 </beans>

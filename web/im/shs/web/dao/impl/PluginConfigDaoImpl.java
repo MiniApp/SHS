@@ -1,7 +1,7 @@
 package im.shs.web.dao.impl;
 
-import im.shs.entity.PluginConfigEntity;
 import im.shs.web.dao.PluginConfigDao;
+import im.shs.web.entity.PluginConfigEntity;
 
 import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;

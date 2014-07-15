@@ -1,11 +1,11 @@
 package im.shs.web.setting.security;
 
-import im.shs.enums.AccountLockTypeEnum;
-import im.shs.enums.CaptchaTypeEnum;
-import im.shs.enums.LoginTypeEnum;
-import im.shs.enums.RandomStringTypeEnum;
-import im.shs.enums.RoundingModeEnum;
-import im.shs.util.ConvertUtils;
+import im.shs.web.enums.AccountLockTypeEnum;
+import im.shs.web.enums.CaptchaTypeEnum;
+import im.shs.web.enums.LoginTypeEnum;
+import im.shs.web.enums.RandomStringTypeEnum;
+import im.shs.web.enums.RoundingModeEnum;
+import im.shs.web.util.ConvertUtils;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

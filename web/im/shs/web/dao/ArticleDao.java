@@ -1,6 +1,6 @@
 package im.shs.web.dao;
 
-import im.shs.entity.ArticleEntity;
+import im.shs.web.entity.ArticleEntity;
 
 /**
  * @class : ArticleDao

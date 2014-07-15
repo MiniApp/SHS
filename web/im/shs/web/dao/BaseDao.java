@@ -1,9 +1,9 @@
 package im.shs.web.dao;
 
-import im.shs.Filter;
-import im.shs.Order;
-import im.shs.Page;
-import im.shs.Pageable;
+import im.shs.web.Filter;
+import im.shs.web.Page;
+import im.shs.web.Pageable;
+import im.shs.web.Sequencer;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,107 +21,64 @@ import javax.persistence.LockModeType;
 public interface BaseDao<T, ID extends Serializable> {
 
     /**
-     * 查找实体对象
+     * 查找实体
      * 
      * @param id
      *            ID
-     * @return 实体对象，不存在时返回NULL
+     * @return 实体
      */
     T find(ID id);
 
     /**
-     * 查找实体对象
+     * 查找实体
      * 
      * @param id
      *            ID
      * @param lockModeType
      *            锁定方式
-     * @return 实体对象，不存在时返回NULL
+     * @return 实体
      */
     T find(ID id, LockModeType lockModeType);
 
     /**
-     * 查找实体对象集合
+     * 查找实体集合
      * 
      * @param first
      *            起始记录
      * @param count
-     *            数量
+     *            查询数量
      * @param filters
-     *            筛选
-     * @param orders
-     *            排序
-     * @return 实体对象集合
+     *            过滤器
+     * @param sequencers
+     *            定序器
+     * @return 实体集合
      */
-    List<T> findList(Integer first, Integer count, List<Filter> filters, List<Order> orders);
+    List<T> findList(Integer first, Integer count, List<Filter> filters, List<Sequencer> sequencers);
 
     /**
-     * 查找实体对象分页
+     * 查找实体分页
      * 
      * @param pageable
      *            分页信息
-     * @return 实体对象分页
+     * @return 实体分页
      */
     Page<T> findPage(Pageable pageable);
 
     /**
-     * 查询实体对象数量
+     * 查询实体数量
      * 
      * @param filters
      *            筛选
-     * @return 实体对象数量
+     * @return 实体数量
      */
-    long count(List<Filter> filters);
+    Long count(List<Filter> filters);
 
     /**
-     * 持久化实体对象
+     * 获取ID
      * 
      * @param entity
-     *            实体对象
-     */
-    void persist(T entity);
-
-    /**
-     * 合并实体对象
-     * 
-     * @param entity
-     *            实体对象
-     * @return 实体对象
-     */
-    T merge(T entity);
-
-    /**
-     * 移除实体对象
-     * 
-     * @param entity
-     *            实体对象
-     */
-    void remove(T entity);
-
-    /**
-     * 刷新实体对象
-     * 
-     * @param entity
-     *            实体对象
-     */
-    void refresh(T entity);
-
-    /**
-     * 刷新实体对象
-     * 
-     * @param entity
-     *            实体对象
-     * @param lockModeType
-     *            锁定方式
-     */
-    void refresh(T entity, LockModeType lockModeType);
-
-    /**
-     * 获取实体对象ID
-     * 
-     * @param entity
-     *            实体对象
-     * @return 实体对象ID
+     *            实体
+     * @return ID
      */
     ID getIdentifier(T entity);
 
@@ -129,28 +86,63 @@ public interface BaseDao<T, ID extends Serializable> {
      * 判断是否为托管状态
      * 
      * @param entity
-     *            实体对象
+     *            实体
      * @return 是否为托管状态
      */
-    boolean managed(T entity);
+    boolean contains(T entity);
 
     /**
-     * 设置为游离状态
+     * 持久化实体
      * 
      * @param entity
-     *            实体对象
+     *            实体
+     */
+    void persist(T entity);
+
+    /**
+     * 合并实体
+     * 
+     * @param entity
+     *            实体
+     * @return 实体
+     */
+    T merge(T entity);
+
+    /**
+     * 游离实体
+     * 
+     * @param entity
+     *            实体
      */
     void detach(T entity);
 
     /**
-     * 锁定实体对象
+     * 移除实体
      * 
      * @param entity
-     *            实体对象
+     *            实体
+     */
+    void remove(T entity);
+
+    /**
+     * 锁定实体
+     * 
+     * @param entity
+     *            实体
      * @param lockModeType
      *            锁定方式
      */
     void lock(T entity, LockModeType lockModeType);
+
+    /**
+     * 刷新实体
+     * 
+     * @param entity
+     *            实体
+     * @param lockModeType
+     *            锁定方式
+     */
+    void refresh(T entity, LockModeType lockModeType);
 
     /**
      * 清除缓存
@@ -158,8 +150,9 @@ public interface BaseDao<T, ID extends Serializable> {
     void clear();
 
     /**
-     * 同步数据
+     * 刷新数据
      */
     void flush();
+
 
 }

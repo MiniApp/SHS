@@ -1,10 +1,10 @@
 package im.shs.web.service.impl;
 
-import im.shs.Filter;
-import im.shs.Order;
-import im.shs.entity.FriendLinkEntity;
-import im.shs.enums.FriendLinkTypeEnum;
+import im.shs.web.Filter;
+import im.shs.web.Sequencer;
 import im.shs.web.dao.FriendLinkDao;
+import im.shs.web.entity.FriendLinkEntity;
+import im.shs.web.enums.FriendLinkTypeEnum;
 import im.shs.web.service.FileService;
 import im.shs.web.service.FriendLinkService;
 
@@ -71,8 +71,9 @@ public class FriendLinkServiceImpl extends BaseServiceImpl<FriendLinkEntity, Lon
     @Override
     @Transactional(readOnly = true)
     @Cacheable("friendLink")
-    public List<FriendLinkEntity> findList(Integer count, List<Filter> filters, List<Order> orders, String cacheRegion) {
-        return findList(null, count, filters, orders);
+    public List<FriendLinkEntity> findList(Integer count, List<Filter> filters, List<Sequencer> sequencers,
+            String cacheRegion) {
+        return findList(count, filters, sequencers);
     }
 
     @Override
@@ -92,8 +93,8 @@ public class FriendLinkServiceImpl extends BaseServiceImpl<FriendLinkEntity, Lon
     @Override
     @Transactional
     @CacheEvict(value = "friendLink", allEntries = true)
-    public void save(FriendLinkEntity friendLink) {
-        super.save(friendLink);
+    public FriendLinkEntity save(FriendLinkEntity friendLink) {
+        return super.save(friendLink);
     }
 
     @Override
@@ -133,8 +134,15 @@ public class FriendLinkServiceImpl extends BaseServiceImpl<FriendLinkEntity, Lon
     @Override
     @Transactional
     @CacheEvict(value = "friendLink", allEntries = true)
-    public void delete(Long... ids) {
-        super.delete(ids);
+    public void deleteList(Long... ids) {
+        super.deleteList(ids);
+    }
+
+    @Override
+    @Transactional
+    @CacheEvict(value = "friendLink", allEntries = true)
+    public void deleteList(List<FriendLinkEntity> friendLinks) {
+        super.deleteList(friendLinks);
     }
 
 }

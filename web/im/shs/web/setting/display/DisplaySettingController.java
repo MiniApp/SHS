@@ -1,13 +1,13 @@
 package im.shs.web.setting.display;
 
-import im.shs.Setting;
-import im.shs.enums.FileTypeEnum;
-import im.shs.enums.WatermarkPositionEnum;
-import im.shs.util.SettingUtils;
+import im.shs.web.Setting;
 import im.shs.web.action.admin.BaseAdminController;
+import im.shs.web.enums.FileTypeEnum;
+import im.shs.web.enums.WatermarkPositionEnum;
 import im.shs.web.service.CacheService;
 import im.shs.web.service.FileService;
 import im.shs.web.service.StaticService;
+import im.shs.web.util.SettingUtils;
 
 import javax.annotation.Resource;
 

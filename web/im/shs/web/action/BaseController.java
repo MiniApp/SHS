@@ -1,11 +1,11 @@
 package im.shs.web.action;
 
-import im.shs.DateEditor;
-import im.shs.Message;
-import im.shs.util.SettingUtils;
-import im.shs.util.SpringUtils;
+import im.shs.web.DateEditor;
+import im.shs.web.Message;
 import im.shs.web.setting.security.SecuritySetting;
 import im.shs.web.template.directive.FlashMessageDirective;
+import im.shs.web.util.SettingUtils;
+import im.shs.web.util.SpringUtils;
 
 import java.math.BigDecimal;
 import java.util.Date;

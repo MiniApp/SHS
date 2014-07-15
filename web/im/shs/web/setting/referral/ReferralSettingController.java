@@ -1,8 +1,8 @@
 package im.shs.web.setting.referral;
 
-import im.shs.Setting;
-import im.shs.util.SettingUtils;
+import im.shs.web.Setting;
 import im.shs.web.action.admin.BaseAdminController;
+import im.shs.web.util.SettingUtils;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

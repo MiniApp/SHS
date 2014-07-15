@@ -1,8 +1,8 @@
 package im.shs.web.service;
 
-import im.shs.Principal;
-import im.shs.entity.AdminEntity;
+import im.shs.web.Principal;
 import im.shs.web.bean.admin.ProfileSettingBean;
+import im.shs.web.entity.AdminEntity;
 
 import java.util.List;
 

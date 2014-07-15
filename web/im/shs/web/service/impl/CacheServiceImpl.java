@@ -1,7 +1,7 @@
 package im.shs.web.service.impl;
 
-import im.shs.util.SettingUtils;
 import im.shs.web.service.CacheService;
+import im.shs.web.util.SettingUtils;
 
 import javax.annotation.Resource;
 

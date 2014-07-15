@@ -1,7 +1,7 @@
 package im.shs.web.template.method;
 
-import im.shs.util.SettingUtils;
 import im.shs.web.setting.security.SecuritySetting;
+import im.shs.web.util.SettingUtils;
 
 import java.math.BigDecimal;
 import java.util.List;

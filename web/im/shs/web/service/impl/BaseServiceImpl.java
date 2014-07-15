@@ -1,11 +1,11 @@
 package im.shs.web.service.impl;
 
-import im.shs.Filter;
-import im.shs.Order;
-import im.shs.Page;
-import im.shs.Pageable;
-import im.shs.entity.BaseEntity;
+import im.shs.web.Filter;
+import im.shs.web.Page;
+import im.shs.web.Pageable;
+import im.shs.web.Sequencer;
 import im.shs.web.dao.BaseDao;
+import im.shs.web.entity.BaseEntity;
 import im.shs.web.service.BaseService;
 
 import java.beans.PropertyDescriptor;
@@ -15,6 +15,8 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
@@ -23,7 +25,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 /**
  * @class : BaseServiceImpl
@@ -34,11 +35,11 @@ import org.springframework.util.Assert;
  * @version 1.0
  */
 @Transactional
-public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<T, ID> {
+public class BaseServiceImpl<T extends BaseEntity, ID extends Serializable> implements BaseService<T, ID> {
 
     /** 更新忽略属性 */
-    private static final String[] UPDATE_IGNORE_PROPERTIES = new String[] { BaseEntity.ID_PROPERTY_NAME,
-            BaseEntity.CREATE_DATE_PROPERTY_NAME, BaseEntity.MODIFY_DATE_PROPERTY_NAME };
+    private static final String[] UPDATE_IGNORE_PROPS = new String[] { BaseEntity.ID_PROP, BaseEntity.CREATE_DATE_PROP,
+            BaseEntity.UPDATE_DATE_PROP };
 
     /** 基类DAO */
     private BaseDao<T, ID> baseDao;
@@ -50,40 +51,52 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
     @Override
     @Transactional(readOnly = true)
     public T find(ID id) {
+        if (id == null) {
+            return null;
+        }
         return baseDao.find(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public T find(Filter... filters) {
-        List<T> list = findList(null, null, filters != null ? Arrays.asList(filters) : null, null);
-        return list.size() > 0 ? list.get(0) : null;
+        if (filters == null) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        return find(Arrays.asList(filters));
     }
 
     @Override
     @Transactional(readOnly = true)
     public T find(List<Filter> filters) {
-        List<T> list = findList(null, null, filters, null);
-        return list.size() > 0 ? list.get(0) : null;
+        if (filters == null || filters.isEmpty()) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        List<T> results = baseDao.findList(null, null, filters, null);
+        if (results.size() > 1) {
+            throw new IllegalArgumentException("Result must be single");
+        }
+        return results.isEmpty() ? null : results.get(0);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<T> findAll() {
-        return findList(null, null, null, null);
+        return baseDao.findList(null, null, null, null);
     }
 
     @Override
     @Transactional(readOnly = true)
     @SuppressWarnings("unchecked")
     public List<T> findList(ID... ids) {
+        if (ids == null) {
+            throw new IllegalArgumentException("Ids must not be empty");
+        }
         List<T> result = new ArrayList<T>();
-        if (ids != null) {
-            for (ID id : ids) {
-                T entity = find(id);
-                if (entity != null) {
-                    result.add(entity);
-                }
+        for (ID id : ids) {
+            T entity = find(id);
+            if (entity != null) {
+                result.add(entity);
             }
         }
         return result;
@@ -92,60 +105,180 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
     @Override
     @Transactional(readOnly = true)
     public List<T> findList(Filter... filters) {
-        return findList(null, null, filters != null ? Arrays.asList(filters) : null, null);
+        if (filters == null) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        return baseDao.findList(null, null, Arrays.asList(filters), null);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<T> findList(List<Filter> filters) {
-        return findList(null, null, filters, null);
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        return baseDao.findList(null, null, filters, null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<T> findList(List<Filter> filters, Sequencer... sequencers) {
+        if (sequencers == null) {
+            throw new IllegalArgumentException("Sequencers must not be empty");
+        }
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        return baseDao.findList(null, null, filters, Arrays.asList(sequencers));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<T> findList(List<Filter> filters, List<Sequencer> sequencers) {
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        if (sequencers != null && sequencers.isEmpty()) {
+            sequencers = null;
+        }
+        return baseDao.findList(null, null, filters, sequencers);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<T> findList(Integer count) {
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        return baseDao.findList(null, count, null, null);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<T> findList(Integer count, Filter... filters) {
-        return findList(null, count, filters != null ? Arrays.asList(filters) : null, null);
+        if (filters == null) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        return baseDao.findList(null, count, Arrays.asList(filters), null);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<T> findList(Integer count, List<Filter> filters) {
-        return findList(null, count, filters, null);
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        return baseDao.findList(null, count, filters, null);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<T> findList(List<Filter> filters, List<Order> orders) {
-        return findList(null, null, filters, orders);
+    public List<T> findList(Integer count, List<Filter> filters, Sequencer... sequencers) {
+        if (sequencers == null) {
+            throw new IllegalArgumentException("Sequencers must not be empty");
+        }
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        return baseDao.findList(null, count, filters, Arrays.asList(sequencers));
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<T> findList(Integer count, List<Filter> filters, List<Order> orders) {
-        return findList(null, count, filters, orders);
+    public List<T> findList(Integer count, List<Filter> filters, List<Sequencer> sequencers) {
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        if (sequencers != null && sequencers.isEmpty()) {
+            sequencers = null;
+        }
+        return baseDao.findList(null, count, filters, sequencers);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<T> findList(Integer first, Integer count, List<Filter> filters, List<Order> orders) {
+    public List<T> findList(Integer first, Integer count, Filter... filters) {
+        if (filters == null) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
         if (first != null && first < 0) {
             first = null;
         }
-        if (count != null && count < 0) {
-            count = null;
+        return baseDao.findList(first, count, Arrays.asList(filters), null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<T> findList(Integer first, Integer count, List<Filter> filters) {
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
         }
-        if (filters != null && filters.size() == 0) {
+        if (first != null && first < 0) {
+            first = null;
+        }
+        if (filters != null && filters.isEmpty()) {
             filters = null;
         }
-        if (orders != null && orders.size() == 0) {
-            orders = null;
+        return baseDao.findList(first, count, filters, null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<T> findList(Integer first, Integer count, List<Filter> filters, Sequencer... sequencers) {
+        if (sequencers == null) {
+            throw new IllegalArgumentException("Sequencers must not be empty");
         }
-        return baseDao.findList(first, count, filters, orders);
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        if (first != null && first < 0) {
+            first = null;
+        }
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        return baseDao.findList(first, count, filters, Arrays.asList(sequencers));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<T> findList(Integer first, Integer count, List<Filter> filters, List<Sequencer> sequencers) {
+        if (count != null && count < 1) {
+            return Collections.<T> emptyList();
+        }
+        if (first != null && first < 0) {
+            first = null;
+        }
+        if (filters != null && filters.isEmpty()) {
+            filters = null;
+        }
+        if (sequencers != null && sequencers.isEmpty()) {
+            sequencers = null;
+        }
+        return baseDao.findList(first, count, filters, sequencers);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Page<T> findPage(Pageable pageable) {
+        if (pageable == null || pageable.isEmpty()) {
+            pageable = new Pageable();
+        }
         return baseDao.findPage(pageable);
     }
 
@@ -158,7 +291,10 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
     @Override
     @Transactional(readOnly = true)
     public long count(Filter... filters) {
-        return count(filters != null ? Arrays.asList(filters) : null);
+        if (filters == null) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        return count(Arrays.asList(filters));
     }
 
     @Override
@@ -170,94 +306,143 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
     @Override
     @Transactional(readOnly = true)
     public boolean exists(ID id) {
-        return baseDao.find(id) != null;
+        return find(id) != null;
     }
 
     @Override
     @Transactional(readOnly = true)
     public boolean exists(Filter... filters) {
-        return baseDao.count(filters != null ? Arrays.asList(filters) : null) > 0;
+        if (filters == null) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        return exists(Arrays.asList(filters));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean exists(List<Filter> filters) {
+        if (filters == null || filters.isEmpty()) {
+            throw new IllegalArgumentException("Filters must not be empty");
+        }
+        return count(filters) > 0;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean exists(String property, String value) {
+        if (StringUtils.isBlank(property) || StringUtils.isBlank(value)) {
+            return false;
+        }
+        return exists(property, value, false);
     }
 
     @Override
     @Transactional(readOnly = true)
     public boolean exists(String property, String value, boolean ignoreCase) {
-        if (StringUtils.isNotBlank(property) && StringUtils.isNotBlank(value)) {
-            return count(Filter.eq(property, value, ignoreCase)) > 0;
-        } else {
-            return count() > 0;
+        if (StringUtils.isBlank(property) || StringUtils.isBlank(value)) {
+            return false;
         }
+        return count(Filter.eq(property, value, ignoreCase)) > 0;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean unique(String property, String previousValue, String currentValue) {
+        return StringUtils.isBlank(property) || StringUtils.isBlank(previousValue) || StringUtils.isBlank(currentValue)
+                || unique(property, previousValue, currentValue, false);
     }
 
     @Override
     @Transactional(readOnly = true)
     public boolean unique(String property, String previousValue, String currentValue, boolean ignoreCase) {
-
-        // 忽略大小写判断
-        if (ignoreCase && StringUtils.equalsIgnoreCase(previousValue, currentValue)) {
+        if (StringUtils.isBlank(property) || StringUtils.isBlank(previousValue) || StringUtils.isBlank(currentValue)) {
             return true;
         }
-        // 非忽略大小写判断
-        else if (!ignoreCase && StringUtils.equals(previousValue, currentValue)) {
-            return true;
-        }
-        // 统计数判断
-        else {
-            return count(Filter.eq(property, currentValue, ignoreCase)) == 0;
+        if (ignoreCase) {
+            return StringUtils.equalsIgnoreCase(previousValue, currentValue)
+                    || count(Filter.eq(property, currentValue, true)) == 0;
+        } else {
+            return StringUtils.equals(previousValue, currentValue)
+                    || count(Filter.eq(property, currentValue, false)) == 0;
         }
     }
 
     @Override
     @Transactional
-    public void save(T entity) {
+    public T save(T entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity must not be null");
+        }
         baseDao.persist(entity);
+        return entity;
+    }
+
+    @Override
+    @Transactional
+    public T update(T entityBean, String... ignoreProps) {
+        if (ignoreProps == null) {
+            throw new IllegalArgumentException("IgnoreProps must not be empty");
+        }
+        if (entityBean == null || entityBean.isEmpty()) {
+            throw new IllegalArgumentException("EntityBean must not be empty");
+        }
+        T pEntity = baseDao.find(baseDao.getIdentifier(entityBean));
+        copyProperties(entityBean, pEntity, ArrayUtils.addAll(ignoreProps, UPDATE_IGNORE_PROPS));
+        return update(pEntity);
     }
 
     @Override
     @Transactional
     public T update(T entity) {
+        if (entity == null || entity.isEmpty()) {
+            throw new IllegalArgumentException("Entity must not be empty");
+        }
         return baseDao.merge(entity);
     }
-
-    @Override
-    @Transactional
-    public T update(T entity, String... ignoreProperties) {
-        Assert.notNull(entity);
-        if (baseDao.managed(entity)) {
-            throw new IllegalArgumentException("Entity must not be managed");
-        }
-        T persistant = baseDao.find(baseDao.getIdentifier(entity));
-        if (persistant != null) {
-            copyProperties(entity, persistant, (String[]) ArrayUtils.addAll(ignoreProperties, UPDATE_IGNORE_PROPERTIES));
-            return update(persistant);
-        } else {
-            return update(entity);
-        }
-    }
+    
+    
+    
+    
 
     @Override
     @Transactional
     public void delete(ID id) {
-        delete(baseDao.find(id));
+        if (id == null) {
+            throw new IllegalArgumentException("Id must not be null");
+        }
+        delete(find(id));
     }
 
     @Override
     @Transactional
     public void delete(T entity) {
+        if (entity == null || entity.isEmpty()) {
+            throw new IllegalArgumentException("Entity must not be empty");
+        }
         baseDao.remove(entity);
     }
 
     @Override
     @Transactional
     @SuppressWarnings("unchecked")
-    public void delete(ID... ids) {
-        if (ids != null) {
-            for (ID id : ids) {
-                T entity = baseDao.find(id);
-                if (entity != null) {
-                    delete(entity);
-                }
-            }
+    public void deleteList(ID... ids) {
+        if (ids == null) {
+            throw new IllegalArgumentException("Ids must not be empty");
+        }
+        for (ID id : ids) {
+            delete(id);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void deleteList(List<T> entities) {
+        if (entities == null || entities.isEmpty()) {
+            throw new IllegalArgumentException("Entities must not be empty");
+        }
+        for (Iterator<T> iterator = entities.iterator(); iterator.hasNext();) {
+            T entity = iterator.next();
+            delete(entity);
         }
     }
 
@@ -265,9 +450,9 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
      * 复制属性值
      * 
      * @param source
-     *            来源
+     *            来源类
      * @param target
-     *            目标
+     *            目标类
      * @param ignoreProperties
      *            忽略属性
      * @throws BeansException
@@ -275,68 +460,46 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
      */
     @SuppressWarnings({ "unchecked" })
     private void copyProperties(Object source, Object target, String[] ignoreProperties) throws BeansException {
-        Assert.notNull(source, "Source must not be null");
-        Assert.notNull(target, "Target must not be null");
+        // 忽略属性集合
+        List<String> ignorePropertyList = Arrays.asList(ignoreProperties);
 
-        // 获取目标（类）属性数组
-        PropertyDescriptor[] targetPropertyDescriptors = BeanUtils.getPropertyDescriptors(target.getClass());
-        // 转换忽略属性为集合
-        List<String> ignorePropertieList = (ignoreProperties != null) ? Arrays.asList(ignoreProperties) : null;
+        // 遍历目标类属性数组
+        PropertyDescriptor[] targetProperties = BeanUtils.getPropertyDescriptors(target.getClass());
+        for (PropertyDescriptor targetProperty : targetProperties) {
 
-        // 遍历目标（类）属性数组
-        for (PropertyDescriptor targetPropertyDescriptor : targetPropertyDescriptors) {
+            // 判断是否目标类属性包含Set方法、忽略属性集合是否未包含该类属性
+            if (targetProperty.getWriteMethod() != null && !ignorePropertyList.contains(targetProperty.getName())) {
 
-            // 判断目标（类）属性是否包含Set方法、忽略属性集合是否包含该类属性
-            if (targetPropertyDescriptor.getWriteMethod() != null
-                    && (ignoreProperties == null || (!ignorePropertieList.contains(targetPropertyDescriptor.getName())))) {
-
-                // 获取来源（类）属性
-                PropertyDescriptor sourcePropertyDescriptor = BeanUtils.getPropertyDescriptor(source.getClass(),
-                        targetPropertyDescriptor.getName());
-
-                // 判断来源（类）属性是否包含Get方法
-                if (sourcePropertyDescriptor != null && sourcePropertyDescriptor.getReadMethod() != null) {
+                // 判断来源类属性是否包含Get方法
+                PropertyDescriptor sourceProperty = BeanUtils.getPropertyDescriptor(source.getClass(),
+                        targetProperty.getName());
+                if (sourceProperty != null && sourceProperty.getReadMethod() != null) {
                     try {
-
-                        // 获取来源（类）属性Get方法
-                        Method readMethod = sourcePropertyDescriptor.getReadMethod();
-                        // 强制设置来源（类）属性Get方法修饰符为Public
+                        // 设置来源类属性Get方法修饰符为Public
+                        Method readMethod = sourceProperty.getReadMethod();
                         if (!Modifier.isPublic(readMethod.getDeclaringClass().getModifiers())) {
                             readMethod.setAccessible(true);
                         }
 
-                        // 获取来源（类）属性值
-                        Object sourceValue = readMethod.invoke(source);
-                        // 获取目标（类）属性值
-                        Object targetValue = readMethod.invoke(target);
+                        // 来源类属性值、目标类属性值
+                        Object sourceValue = readMethod.invoke(source), targetValue = readMethod.invoke(target);
 
-                        // 当来源（类）属性值、目标（类）属性值不为空，并且目标（类）属性值为集合时
+                        // 判断是否目标类属性值为集合
                         if (sourceValue != null && targetValue != null && targetValue instanceof Collection) {
-
-                            // 来源（类）属性值（集合）
-                            Collection<Object> sourceValueCollection = (Collection<Object>) sourceValue;
-                            // 目标（类）属性值（集合）
+                            // 目标类属性值（集合）
                             Collection<Object> targetValueCollection = (Collection<Object>) targetValue;
-
-                            // 清空来源（类）属性值（集合）并添加（设置）为目标（类）属性值（集合）
+                            // 目标类属性值（集合）重新赋值
                             targetValueCollection.clear();
-                            targetValueCollection.addAll(sourceValueCollection);
-
-                        }
-                        // 属性值类型为一般数据类型时
-                        else {
-
-                            // 获取目标（类）属性Set方法
-                            Method writeMethod = targetPropertyDescriptor.getWriteMethod();
-                            // 强制设置目标（类）属性Get方法修饰符为Public
+                            targetValueCollection.addAll((Collection<Object>) sourceValue);
+                        } else {
+                            // 设置目标类属性Get方法修饰符为Public
+                            Method writeMethod = targetProperty.getWriteMethod();
                             if (!Modifier.isPublic(writeMethod.getDeclaringClass().getModifiers())) {
                                 writeMethod.setAccessible(true);
                             }
-
-                            // 调用目标（类）属性Set方法，并传递来源（类）属性值
+                            // 设置目标类属性值
                             writeMethod.invoke(target, sourceValue);
                         }
-
                     } catch (Throwable e) {
                         throw new FatalBeanException("Could not copy properties from source to target", e);
                     }

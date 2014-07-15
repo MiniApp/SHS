@@ -1,6 +1,6 @@
 package im.shs.web.template.directive;
 
-import im.shs.Message;
+import im.shs.web.Message;
 
 import java.io.IOException;
 import java.io.Writer;

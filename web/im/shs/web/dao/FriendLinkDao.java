@@ -1,7 +1,7 @@
 package im.shs.web.dao;
 
-import im.shs.entity.FriendLinkEntity;
-import im.shs.enums.FriendLinkTypeEnum;
+import im.shs.web.entity.FriendLinkEntity;
+import im.shs.web.enums.FriendLinkTypeEnum;
 
 /**
  * @class : FriendLinkDao

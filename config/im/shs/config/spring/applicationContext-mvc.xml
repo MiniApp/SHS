@@ -10,17 +10,24 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 	http://www.springframework.org/schema/jdbc    
     http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
-    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
+    default-lazy-init="true">
 	<!-- 属性占位符（读取Properties配置文件） -->
 	<!-- location：位置 -->
 	<!-- ignore-resource-not-found：是否忽略不存在的资源（资源：配置项，键值对中的值） -->
 	<!-- ignore-unresolvable：是否忽略无法解析的配置项 -->
-	<context:property-placeholder location="classpath:/im/shs/config/shs.properties" ignore-resource-not-found="true" ignore-unresolvable="true" />
-	<!-- 把标记了@Controller注解的类转换为bean -->
-	<context:component-scan base-package="im.shs"  use-default-filters="false">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan> 
+	<context:property-placeholder location="classpath*:/im/shs/config/shs.properties" ignore-resource-not-found="true" ignore-unresolvable="true" />
+
+	<!-- 扫描组件（扫描所有需要注入的组件） -->
+	<context:component-scan base-package="im.shs" use-default-filters="false">
+		<!-- 例外 -->
+		<!-- type：类型 -->
+		<!-- expression：表达式 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 使用注解方式定义验证器 -->
+	<mvc:annotation-driven validator="validator" />
 
 	<!-- 静态资源访问 -->
 	<mvc:resources location="/*.html" mapping="/*.html" />
@@ -28,40 +35,51 @@
 	<mvc:resources location="/robots.txt" mapping="/robots.txt" />
 	<mvc:resources location="/resources/**" mapping="/resources/**" />
 	<mvc:resources location="/upload/**" mapping="/upload/**" />
-	
-	<!-- FreeMarker视图解析 配置后缀名ftl和视图解析器  -->
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
-		<property name="suffix" value=".ftl" />
-		<property name="contentType" value="text/html;charset=UTF-8" />
-		<property name="exposeRequestAttributes" value="true" />
-		<property name="exposeSessionAttributes" value="true" />
-		<property name="exposeSpringMacroHelpers" value="true" />
-	</bean>
-	
+
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/account/**" />
+			<mvc:mapping path="/borrowing/product/*/apply" />
+			<mvc:mapping path="/investment/*/invest" />
+			<bean id="userInterceptor" class="im.shs.web.interceptor.MemberInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/payment/**" />
+			<bean id="tokenInterceptor" class="im.shs.web.interceptor.TokenInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<bean id="logInterceptor" class="im.shs.web.interceptor.LogInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+				<property name="cacheSeconds" value="0" />
+			</bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean id="openSessionInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
+				<property name="entityManagerFactory" ref="entityManagerFactory" />
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 	<!-- 验证器 -->
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 		<property name="validationMessageSource" ref="messageSource" />
 	</bean>
-	<!-- 使用注解方式定义验证器 -->
-	<mvc:annotation-driven validator="validator" />
 
-	<bean id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		p:basename="i18n/messages" />
-		
-    <aop:config proxy-target-class="true"></aop:config>
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
-    </bean>
+	<!-- 视图解析器 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="contentType" value="text/html; charset=UTF-8" />
+		<property name="suffix" value="${template.suffix}" />
+	</bean>
 
-    <mvc:annotation-driven/>
-    <mvc:view-controller path="/" view-name="index"/>
-
-    <!-- 控制器异常处理 -->
-    <bean id="exceptionHandlerExceptionResolver" class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
-    </bean>
-    <bean class="im.shs.base.shiro.web.exception.DefaultExceptionHandler"/>
+	<!-- 多部件解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
 </beans>

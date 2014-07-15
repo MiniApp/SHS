@@ -1,6 +1,6 @@
 package im.shs.web.template.method;
 
-import im.shs.util.SecrecyUtils;
+import im.shs.web.util.SecrecyUtils;
 
 import java.util.List;
 

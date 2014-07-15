@@ -1,8 +1,8 @@
 package im.shs.web.service.impl;
 
-import im.shs.Filter;
-import im.shs.entity.ArticleEntity;
+import im.shs.web.Filter;
 import im.shs.web.dao.ArticleDao;
+import im.shs.web.entity.ArticleEntity;
 import im.shs.web.service.ArticleService;
 
 import java.util.List;
@@ -71,8 +71,8 @@ public class ArticleServiceImpl extends BaseServiceImpl<ArticleEntity, Long> imp
     @Override
     @Transactional
     @CacheEvict(value = { "article", "articleCategory" }, allEntries = true)
-    public void save(ArticleEntity article) {
-        super.save(article);
+    public ArticleEntity save(ArticleEntity article) {
+        return super.save(article);
     }
 
     @Override
@@ -106,8 +106,15 @@ public class ArticleServiceImpl extends BaseServiceImpl<ArticleEntity, Long> imp
     @Override
     @Transactional
     @CacheEvict(value = { "article", "articleCategory" }, allEntries = true)
-    public void delete(Long... ids) {
-        super.delete(ids);
+    public void deleteList(Long... ids) {
+        super.deleteList(ids);
+    }
+
+    @Override
+    @Transactional
+    @CacheEvict(value = { "article", "articleCategory" }, allEntries = true)
+    public void deleteList(List<ArticleEntity> articles) {
+        super.deleteList(articles);
     }
 
 }

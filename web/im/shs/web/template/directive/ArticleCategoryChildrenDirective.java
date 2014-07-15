@@ -1,6 +1,6 @@
 package im.shs.web.template.directive;
 
-import im.shs.entity.ArticleCategoryEntity;
+import im.shs.web.entity.ArticleCategoryEntity;
 import im.shs.web.service.ArticleCategoryService;
 
 import java.io.IOException;

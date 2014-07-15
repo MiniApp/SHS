@@ -1,15 +1,15 @@
 package im.shs.web.service.impl;
 
-import im.shs.FileInfo;
-import im.shs.enums.FileOrderMethodEnum;
-import im.shs.enums.FileTypeEnum;
-import im.shs.util.FreemarkerUtils;
-import im.shs.util.SettingUtils;
-import im.shs.web.plugin.StoragePlugin;
-import im.shs.web.plugin.oss.OssPlugin;
+import im.shs.web.FileInfo;
+import im.shs.web.enums.FileOrderMethodEnum;
+import im.shs.web.enums.FileTypeEnum;
+import im.shs.web.plugin.storage.StoragePlugin;
+import im.shs.web.plugin.storage.oss.OssStoragePlugin;
 import im.shs.web.service.FileService;
 import im.shs.web.service.PluginService;
 import im.shs.web.setting.security.SecuritySetting;
+import im.shs.web.util.FreemarkerUtils;
+import im.shs.web.util.SettingUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -55,8 +55,8 @@ public class FileServiceImpl implements FileService, ServletContextAware {
     @Resource(name = "pluginServiceImpl")
     private PluginService pluginService;
 
-    @Resource(name = "ossPlugin")
-    private OssPlugin ossPlugin;
+    @Resource(name = "ossStoragePlugin")
+    private OssStoragePlugin ossStoragePlugin;
 
     public void setServletContext(ServletContext servletContext) {
         this.servletContext = servletContext;
@@ -172,8 +172,8 @@ public class FileServiceImpl implements FileService, ServletContextAware {
             multipartFile.transferTo(destFile);
             
             // OSS
-            if(ossPlugin.getEnabled()) {
-                ossPlugin.upload(destPath, destFile, multipartFile.getContentType());
+            if(ossStoragePlugin.getEnabled()) {
+                ossStoragePlugin.upload(destPath, destFile, multipartFile.getContentType());
             }
             
             return destPath;

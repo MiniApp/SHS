@@ -1,14 +1,10 @@
 package im.shs.web.action;
 
-import im.shs.base.util.DateUtils;
-import im.shs.entity.Users;
 import im.shs.web.bean.User;
 import im.shs.web.service.IndexService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +27,7 @@ public class IndexController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String showMessage(HttpServletRequest request,
 			HttpServletResponse response) {
-		System.out.println("hello world");
+		/*System.out.println("hello world");
 		Users p = new Users();
 		p.setName("update before:" + new Random().nextInt());
 		indexService.save(p);
@@ -40,21 +36,21 @@ public class IndexController {
 		uy.setName("update after:Suhao" + new Random().nextInt());
 		indexService.update(uy);
 		System.out.println("update after:" + uy.getName());
-		indexService.delete(indexService.find(uy.getId()-1));
+		indexService.delete(indexService.find(uy.getId()-1));*/
 		return "/index";
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/index/test", method = RequestMethod.POST)
 	public String test(User user, ModelMap model) {
-		List list = new ArrayList();
+		/*List list = new ArrayList();
 		for (int i = 0; i < 10; i++) {
 			Users p = new Users();
 			p.setName(DateUtils.getNowTime() + " : " + user.getName() + " "
 					+ user.getAge() + " " + new Random().nextInt());
 			list.add(p);
 		}
-		model.addAttribute("list", list);
+		model.addAttribute("list", list);*/
 		return "/test";
 	}
 

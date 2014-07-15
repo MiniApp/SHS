@@ -1,6 +1,6 @@
 package im.shs.web.template.directive;
 
-import im.shs.util.FreemarkerUtils;
+import im.shs.web.util.FreemarkerUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

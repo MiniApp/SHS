@@ -1,6 +1,6 @@
 package im.shs.web.template.method;
 
-import im.shs.util.ConvertUtils;
+import im.shs.web.util.ConvertUtils;
 
 import java.util.List;
 

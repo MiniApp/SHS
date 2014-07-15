@@ -1,6 +1,6 @@
 package im.shs.web.template.method;
 
-import im.shs.util.SpringUtils;
+import im.shs.web.util.SpringUtils;
 
 import java.util.List;
 

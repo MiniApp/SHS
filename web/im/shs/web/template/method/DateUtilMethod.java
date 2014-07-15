@@ -1,6 +1,6 @@
 package im.shs.web.template.method;
 
-import im.shs.util.DateTimeUtil;
+import im.shs.web.util.DateTimeUtil;
 
 import java.util.Calendar;
 import java.util.Date;

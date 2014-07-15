@@ -1,8 +1,8 @@
 package im.shs.web.service;
 
-import im.shs.FileInfo;
-import im.shs.enums.FileOrderMethodEnum;
-import im.shs.enums.FileTypeEnum;
+import im.shs.web.FileInfo;
+import im.shs.web.enums.FileOrderMethodEnum;
+import im.shs.web.enums.FileTypeEnum;
 
 import java.util.List;
 

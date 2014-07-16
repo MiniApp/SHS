@@ -33,8 +33,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_repayment")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_repayment_sequence")
+@Table(name = "shs_repayment")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_repayment_sequence")
 public class RepaymentEntity extends BaseEntity {
 
     /** serialVersionUID */

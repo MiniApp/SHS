@@ -39,8 +39,8 @@ import org.jsoup.nodes.TextNode;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_article")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_article_sequence")
+@Table(name = "shs_article")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_article_sequence")
 public class ArticleEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

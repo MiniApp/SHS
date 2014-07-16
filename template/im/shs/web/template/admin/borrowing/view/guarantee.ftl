@@ -11,14 +11,20 @@
 </div>
 
 [#--
-[#-- 担保金（元） --\]
+[#-- 担保金 --\]
 <div class="form-group">
-	<label for="guaranteeCapital" class="col-sm-2 control-label">
-		担保金（元）
+	<label class="col-sm-2 control-label">
+		担保金
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">
-			<strong>${(borrowing.guaranteeCapital?string("currency"))!"-"}</strong>
+			<strong>
+				[#if borrowing.guaranteeCapital??]
+					${borrowing.guaranteeCapital?string("currency")}
+				[#else]
+					-
+				[/#if]
+			</strong>
 		</p>
 	</div>
 </div>

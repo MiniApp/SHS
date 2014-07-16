@@ -214,5 +214,4 @@ public class StaticServiceImpl implements StaticService, ServletContextAware {
     public int delete(String staticPath) {
         return fileService.deleteLocal(staticPath) ? 1 : 0;
     }
-
 }

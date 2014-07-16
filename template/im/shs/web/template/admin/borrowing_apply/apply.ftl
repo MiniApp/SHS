@@ -24,8 +24,6 @@
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/breadCrumb/jBreadCrumb.fix.min.css" />
 		[#-- hint 提示 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/hint/hint.min.css" />
-		[#-- Bootstrap DatetimePicker 日期选择器 --]
-		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/datepicker/bootstrap.datetimepicker.min.css" />
 		[#-- 有瞬时消息时 --]
 		[#if flashMessage != null]
 			[#-- HubSpot Messenger 弹框（Alert）组件库 --]
@@ -175,11 +173,8 @@
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.common.min.js"></script>
     [#-- validate For Hint 验证器提示 --]
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.validate.min.js"></script>
-    [#-- Bootstrap DatetimePicker 日期选择器 --]
-    <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.min.js"></script>
-    <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.zh-CN.min.js"></script>
-    <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.common.min.js"></script>
-	<script type="text/javascript" src="${base}/resources/admin/js/borrowing.apply.min.js"></script>
+    [#-- borrowing.apply 借款申请 --]
+    <script type="text/javascript" src="${base}/resources/admin/js/borrowing.apply.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

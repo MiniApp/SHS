@@ -34,8 +34,8 @@ import org.apache.commons.lang3.time.DateUtils;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_repayment_plan")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_repayment_plan_sequence")
+@Table(name = "shs_repayment_plan")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_repayment_plan_sequence")
 public class RepaymentPlanEntity extends BaseEntity implements Comparable<RepaymentPlanEntity> {
 
     /** serialVersionUID */

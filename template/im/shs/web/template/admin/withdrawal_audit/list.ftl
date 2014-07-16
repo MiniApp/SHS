@@ -162,7 +162,7 @@
     <script type="text/javascript">
     	var dataTableSettings = {
 	    	"aaSorting": [
-	        	[9, "asc"]
+	        	[9, "desc"]
 			],
     		"aoColumns": [
 				null,

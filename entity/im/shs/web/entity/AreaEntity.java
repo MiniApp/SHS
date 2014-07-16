@@ -30,8 +30,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_area")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_area_sequence")
+@Table(name = "shs_area")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_area_sequence")
 public class AreaEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

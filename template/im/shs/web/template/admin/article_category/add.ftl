@@ -174,13 +174,13 @@
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.common.min.js"></script>
     [#-- validate For Hint 验证器提示 --]
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.validate.min.js"></script>
-	[#-- article.category.add 文章分类添加 --]
+	[#-- article_category.add 文章分类添加 --]
 	[#if parent??]
 		<script type="text/javascript">
 			var parentId = "${parent.id}";
 		</script>
 	[/#if]
-	<script type="text/javascript" src="${base}/resources/admin/js/article.category.add.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/article_category.add.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

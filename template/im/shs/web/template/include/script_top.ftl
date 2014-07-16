@@ -1,0 +1,1 @@
+<script type="text/javascript" src="${base}/resources/js/jquery-1.8.3.min.js?version=${setting.basic.siteVersion}"></script>

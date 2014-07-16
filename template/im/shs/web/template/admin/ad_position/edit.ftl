@@ -48,7 +48,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${adPosition.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 			
 			[#-- 名称 --]
 			<div class="form-group">
@@ -130,11 +129,11 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- ad.position.edit 广告位编辑 --]
+	[#-- ad_position.edit 广告位编辑 --]
 	<script type="text/javascript">
 		var previousName = "${adPosition.name}", previousIdent = "${adPosition.ident}";
 	</script>
-	<script type="text/javascript" src="${base}/resources/admin/js/ad.position.edit.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/ad_position.edit.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

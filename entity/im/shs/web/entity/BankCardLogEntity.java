@@ -25,8 +25,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_bank_card_log")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_bank_card_log_sequence")
+@Table(name = "shs_bank_card_log")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_bank_card_log_sequence")
 public class BankCardLogEntity extends BaseEntity {
 
     /** serialVersionUID */

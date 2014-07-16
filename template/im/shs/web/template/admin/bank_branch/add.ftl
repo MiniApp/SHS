@@ -134,13 +134,13 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- bank.branch.add 银行支行添加 --]
+	[#-- bank_branch.add 银行支行添加 --]
 	[#if bank??]
 		<script type="text/javascript">
 			var bankId = "${bank.id}";
 		</script>
 	[/#if]
-	<script type="text/javascript" src="${base}/resources/admin/js/bank.branch.add.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/bank_branch.add.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

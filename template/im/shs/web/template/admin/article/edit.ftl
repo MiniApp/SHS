@@ -53,7 +53,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${article.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 			[#if articleCategoryId??]
 				<input type="hidden" name="articleCategoryId" value="${articleCategoryId}" />
 			[/#if]

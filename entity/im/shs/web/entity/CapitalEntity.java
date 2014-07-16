@@ -31,8 +31,8 @@ import org.hibernate.validator.constraints.Length;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_capital")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_capital_sequence")
+@Table(name = "shs_capital")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_capital_sequence")
 public class CapitalEntity extends BaseEntity {
 
     /** serialVersionUID */

@@ -20,7 +20,7 @@ import org.springframework.web.context.ServletContextAware;
  * @description: 初始化
  *
  * @author suhao
- * @date 2014年7月13日 上午10:46:03
+ * @date 2014年7月16日 下午10:09:02
  * @version 1.0
  */
 @Component("initListener")
@@ -57,9 +57,9 @@ public class InitListener implements ServletContextAware, ApplicationListener<Co
             logger.info("Initializing " + systemName + " " + systemVersion);
             File installInitConfigFile = new File(servletContext.getRealPath(INSTALL_INIT_CONFIG_FILE_PATH));
             if (installInitConfigFile.exists()) {
-                //cacheService.clear();
-                //staticService.buildAll();
-                //installInitConfigFile.delete();
+                cacheService.clear();
+                staticService.buildAll();
+                installInitConfigFile.delete();
             }
         }
     }

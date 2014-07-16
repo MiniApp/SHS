@@ -10,11 +10,11 @@
 	</div>
 </div>
 
-[#-- 手续费 --]
+[#-- 服务费 --]
 <div class="form-group">
 	<label for="fee" class="col-sm-2 control-label">
 		<span class="required">*</span>
-		手续费
+		服务费
 	</label>
 	<div class="input-group col-sm-4">
 		<label class="input-group-addon">￥</label>

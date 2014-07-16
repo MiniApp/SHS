@@ -48,7 +48,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${dictWord.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 					
 			[#-- 词典 --]
 			[#if dict??]
@@ -116,11 +115,11 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- dict.word.edit 词典单词编辑 --]
+	[#-- dict_word.edit 词典单词编辑 --]
 	<script type="text/javascript">
 		var previousName = "${dictWord.name}"[#if dict??], dictId = "${dict.id}"[/#if];
 	</script>
-	<script type="text/javascript" src="${base}/resources/admin/js/dict.word.edit.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/dict_word.edit.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

@@ -28,8 +28,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_role")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_role_sequence")
+@Table(name = "shs_role")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_role_sequence")
 public class RoleEntity extends BaseEntity {
 
     /** serialVersionUID */
@@ -80,7 +80,7 @@ public class RoleEntity extends BaseEntity {
     }
 
     @ElementCollection
-    @CollectionTable(name = "p2p_roles_auths")
+    @CollectionTable(name = "shs_roles_auths")
     public List<String> getAuths() {
         return auths;
     }

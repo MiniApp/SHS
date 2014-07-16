@@ -131,11 +131,11 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- bank.branch.edit 银行支行编辑 --]
+	[#-- bank_branch.edit 银行支行编辑 --]
 	<script type="text/javascript">
 		var previousName = "${bankBranch.name}"[#if bank??], bankId = "${bank.id}"[/#if];
 	</script>
-	<script type="text/javascript" src="${base}/resources/admin/js/bank.branch.edit.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/bank_branch.edit.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

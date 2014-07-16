@@ -6,6 +6,9 @@
 		
 			[#-- 边导航 - 借款管理 --]
 	    	[#include "/template/admin/include/sidebar_borrowing.ftl" /]
+		
+			[#-- 边导航 - 转让管理 --]
+	    	[#include "/template/admin/include/sidebar_assignment.ftl" /]
 	    	
 			[#-- 边导航 - 会员管理 --]
 	    	[#include "/template/admin/include/sidebar_member.ftl" /]

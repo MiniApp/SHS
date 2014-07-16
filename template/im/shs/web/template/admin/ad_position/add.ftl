@@ -129,8 +129,8 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- ad.position.add 广告位添加 --]
-	<script type="text/javascript" src="${base}/resources/admin/js/ad.position.add.min.js"></script>
+	[#-- ad_position.add 广告位添加 --]
+	<script type="text/javascript" src="${base}/resources/admin/js/ad_position.add.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

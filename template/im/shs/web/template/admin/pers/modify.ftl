@@ -91,7 +91,7 @@
 					</div>
 			
 					[#-- 非法人代表时 --]
-					[#if !pers.corporator !corporator]
+					[#if !pers.corporator && !corporator]
 						[#-- 工作信息 --]
 						<div id="work" class="tab-pane" tab-id="work_tab">
 					    	[#include "/template/admin/pers/modify/work.ftl" /]
@@ -140,15 +140,9 @@
     <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.zh-CN.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.common.min.js"></script>
-    [#-- 修改个人 --]
-	<script type="text/javascript">
-	$().ready(function() {
-		$("input.selectSascade").selectSascade({
-			url: "${base}/admin/area/jsons",
-			choose: "-"
-		});
-	});
-	</script>
+    [#-- pers.modif 个人修改 --]
+    <script type="text/javascript">var previousIdNo="${pers.idNo}", previousEmail = "${pers.email}", previousMobile = "${pers.mobile}";</script>
+    <script type="text/javascript" src="${base}/resources/admin/js/pers.modif.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

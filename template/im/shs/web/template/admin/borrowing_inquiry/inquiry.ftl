@@ -24,8 +24,6 @@
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/breadCrumb/jBreadCrumb.fix.min.css" />
 		[#-- hint 提示 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/hint/hint.min.css" />
-		[#-- Bootstrap DatetimePicker 日期选择器 --]
-		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/datepicker/bootstrap.datetimepicker.min.css" />
 		[#-- 有瞬时消息时 --]
 		[#if flashMessage != null]
 			[#-- HubSpot Messenger 弹框（Alert）组件库 --]
@@ -78,6 +76,12 @@
 					<li>
 						<a id="borrowing_material_tab" href="#borrowing_material" data-toggle="tab">材料信息</a>
 					</li>
+					[#-- 存在借款意见时 --]
+					[#if borrowing.opinions?size gt 0]
+						<li>
+							<a id="borrowing_opinions_tab" href="#borrowing_opinions" data-toggle="tab">日志信息</a>
+						</li>
+					[/#if]
 					<li>
 						<a id="borrower_tab" href="#borrower" data-toggle="tab">借款人信息</a>
 					</li>
@@ -97,16 +101,10 @@
 				
 				[#-- 选项卡内容 --]
 				<div class="tab-content">
-				
+					
 					[#-- 基本信息 --]
 					<div id="borrowing_basic" class="tab-pane active" tab-id="borrowing_basic_tab">
 				    	[#include "/template/admin/borrowing_inquiry/inquiry/basic.ftl" /]
-					</div>
-					
-					[#-- 申请人信息 --]
-					<div id="borrower" class="tab-pane" tab-id="borrower_tab">
-						[#assign pers = borrowing.borrower /]
-						[#include "/template/admin/pers/view_tab.ftl" /]
 					</div>
 					
 					[#-- 借款调查 --]
@@ -129,6 +127,15 @@
 				    	[#include "/template/admin/borrowing_inquiry/inquiry/material.ftl" /]
 					</div>
 					
+					[#-- 存在借款意见时 --]
+					[#if borrowing.opinions?size gt 0]
+						[#-- 日志信息 --]
+						<div id="borrowing_opinions" class="tab-pane" tab-id="borrowing_opinions_tab">
+							[#assign opinions = borrowing.opinions /]
+					    	[#include "/template/admin/borrowing_opinion/view_list.ftl" /]
+						</div>
+					[/#if]
+				
 					[#-- 借款人信息 --]
 					<div id="borrower" class="tab-pane" tab-id="borrower_tab">
 						[#assign pers = borrower /]
@@ -195,10 +202,6 @@
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.common.min.js"></script>
     [#-- validate For Hint 验证器提示 --]
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.validate.min.js"></script>
-    [#-- Bootstrap DatetimePicker 日期选择器 --]
-    <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.min.js"></script>
-    <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.zh-CN.min.js"></script>
-    <script type="text/javascript" src="${base}/resources/lib/datepicker/bootstrap.datetimepicker.common.min.js"></script>
 	[#-- borrowing.inquiry 借款调查 --]
     <script type="text/javascript">
     	var materialIndex = ${(borrowing.materials?size)!"0"};

@@ -22,8 +22,8 @@ import javax.persistence.Table;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_auto_investment")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_auto_investment_sequence")
+@Table(name = "shs_auto_investment")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_auto_investment_sequence")
 public class AutoInvestmentEntity extends BaseEntity {
 
     /** serialVersionUID */

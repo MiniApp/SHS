@@ -9,7 +9,7 @@
 		[#-- meta 标签 --]
     	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
-		<title>待还款的借款[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
+		<title>待还款的借款列表[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
     	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- jQuery DataTables For Bootstrap 数据表格 --]
@@ -43,7 +43,7 @@
 					借款维护管理
 				</li>
 				<li>
-					待还款的借款
+					待还款的借款列表
 				</li>
 			</ul>
 		</div>
@@ -68,14 +68,14 @@
 								查看借款
 							</a>
 							<br/>
-				        	<a href="${baseUrl}/borrowing_repayment?borrowing=${borrowing.id}">
+				        	<a href="${baseUrl}/repayment?borrowing=${borrowing.id}">
 								<i class="icon-eye-open"></i>
 								查看还款
 							</a>
 							<br/>
-				        	<a href="${baseUrl}/borrowing_repayment_record?borrowing=${borrowing.id}">
+				        	<a href="${baseUrl}/repayment_plan?borrowing=${borrowing.id}">
 								<i class="icon-eye-open"></i>
-								查看还款记录
+								查看还款计划
 							</a>
 				        </td>
 				    </tr>

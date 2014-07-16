@@ -25,8 +25,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_borrowing_opinion")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_borrowing_opinion_sequence")
+@Table(name = "shs_borrowing_opinion")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_borrowing_opinion_sequence")
 public class BorrowingOpinionEntity extends BaseEntity {
 
     /** serialVersionUID */

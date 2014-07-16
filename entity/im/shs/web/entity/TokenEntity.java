@@ -27,8 +27,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_token")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_token_sequence")
+@Table(name = "shs_token")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_token_sequence")
 public class TokenEntity extends BaseEntity {
 
     /** serialVersionUID */

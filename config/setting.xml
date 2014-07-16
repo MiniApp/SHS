@@ -3,7 +3,7 @@
 
 	
 	<basicSetting name="siteName" value="裕信创投" />
-	<basicSetting name="siteUrl" value="http://localhost:8080/P2P-2.1-YuXinChuangTou" />
+	<basicSetting name="siteUrl" value="http://localhost:8080/SHS" />
 	<basicSetting name="siteLogo" value="/upload/image/logo.gif" />
 	<basicSetting name="address" value="成都市高新区天晖路360号" />
 	<basicSetting name="phone" value="028-8332709" />

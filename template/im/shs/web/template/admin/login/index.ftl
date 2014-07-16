@@ -89,10 +89,10 @@
 				
 			</form>
 		
-			[#-- 版权信息
+			[#-- 版权信息 --]
 			<div class="copyright clearfix">
 				<span class="linkform">Copyright 2010-${.now?string("yyyy")} icl-network.com. All rights reserved.</span>
-			</div> --]
+			</div>
 		
 		</div>
 		

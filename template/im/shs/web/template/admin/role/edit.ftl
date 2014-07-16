@@ -17,6 +17,9 @@
 		[#-- chosen 选择器 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/chosen/chosen.min.css" />
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/chosen/chosen.fix.min.css" />
+		[#-- multiSelect 选择器 --]
+		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/multiselect/multiSelect.min.css" />
+		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/multiselect/multiSelect.fix.min.css" />
 		[#-- jBreadcrumbs 面包屑 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/breadCrumb/jBreadCrumb.min.css" />
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/breadCrumb/jBreadCrumb.fix.min.css" />
@@ -53,7 +56,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${role.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 			
 			[#-- 标签 --]
 			<div class="tabbable">
@@ -105,16 +107,20 @@
 								系统管理模块
 							</label>
 							<div class="col-sm-4">
-								<select id="syst_module" class="form-control chosen-select" name="auths" multiple="true" data-placeholder="&nbsp;">
+								<select id="syst_module" class="form-control multi-select" name="auths" multiple="true">
 									<optgroup label="系统设置">
 										<option value="admin:basic_setting"[#if role.auths?seq_contains("admin:basic_setting")] selected="selected"[/#if]>基本设置</option>
 										<option value="admin:security_setting"[#if role.auths?seq_contains("admin:security_setting")] selected="selected"[/#if]>安全设置</option>
 										<option value="admin:display_setting"[#if role.auths?seq_contains("admin:display_setting")] selected="selected"[/#if]>显示设置</option>
 										<option value="admin:comm_setting"[#if role.auths?seq_contains("admin:comm_setting")] selected="selected"[/#if]>通信设置</option>
+										[#--
+										<option value="admin:referral_setting"[#if role.auths?seq_contains("admin:referral_setting")] selected="selected"[/#if]>推荐设置</option>
+										--]
 									</optgroup>
 									<optgroup label="插件管理">
 										<option value="admin:payment_plugin"[#if role.auths?seq_contains("admin:payment_plugin")] selected="selected"[/#if]>支付插件</option>
 										<option value="admin:storage_plugin"[#if role.auths?seq_contains("admin:storage_plugin")] selected="selected"[/#if]>存储插件</option>
+										<option value="admin:texting_plugin"[#if role.auths?seq_contains("admin:texting_plugin")] selected="selected"[/#if]>短信插件</option>
 									</optgroup>
 									<optgroup label="权限管理">
 										<option value="admin:admin"[#if role.auths?seq_contains("admin:admin")] selected="selected"[/#if]>管理员管理</option>
@@ -123,9 +129,7 @@
 									<optgroup label="内容管理">
 										<option value="admin:area"[#if role.auths?seq_contains("admin:area")] selected="selected"[/#if]>地区管理</option>
 										<option value="admin:bank"[#if role.auths?seq_contains("admin:bank")] selected="selected"[/#if]>银行管理</option>
-										<option value="admin:bank_branch"[#if role.auths?seq_contains("admin:bank_branch")] selected="selected"[/#if]>银行管理-支行列表</option>
 										<option value="admin:dict"[#if role.auths?seq_contains("admin:dict")] selected="selected"[/#if]>词典管理</option>
-										<option value="admin:dict_word"[#if role.auths?seq_contains("admin:dict_word")] selected="selected"[/#if]>词典管理-单词列表</option>
 									</optgroup>
 									<optgroup label="模板管理">
 										<option value="admin:template_page"[#if role.auths?seq_contains("admin:template_page")] selected="selected"[/#if]>页面模版</option>
@@ -137,6 +141,10 @@
 									</optgroup>
 									<option value="admin:cache"[#if role.auths?seq_contains("admin:cache")] selected="selected"[/#if]>缓存管理</option>
 									<option value="admin:log"[#if role.auths?seq_contains("admin:log")] selected="selected"[/#if]>日志管理</option>
+									<option value="admin:token"[#if role.auths?seq_contains("admin:token")] selected="selected"[/#if]>令牌管理</option>
+									[#--
+									<option value="admin:database"[#if role.auths?seq_contains("admin:database")] selected="selected"[/#if]>数据库管理</option>
+									--]
 								</select>
 							</div>
 						</div>
@@ -147,7 +155,7 @@
 								内容管理模块
 							</label>
 							<div class="col-sm-4">
-								<select id="cont_module" class="form-control chosen-select" name="auths" multiple="true" data-placeholder="&nbsp;">
+								<select id="cont_module" class="form-control multi-select" name="auths" multiple="true">
 									<optgroup label="文章管理">
 										<option value="admin:article_category"[#if role.auths?seq_contains("admin:article_category")] selected="selected"[/#if]>文章分类管理</option>
 										<option value="admin:article"[#if role.auths?seq_contains("admin:article")] selected="selected"[/#if]>文章列表</option>
@@ -170,7 +178,7 @@
 								资金管理模块
 							</label>
 							<div class="col-sm-4">
-								<select id="capital_module" class="form-control chosen-select" name="auths" multiple="true" data-placeholder="&nbsp;">
+								<select id="capital_module" class="form-control multi-select" name="auths" multiple="true">
 									<option value="admin:capital"[#if role.auths?seq_contains("admin:capital")] selected="selected"[/#if]>资金管理</option>
 									<optgroup label="账户管理">
 										<option value="admin:account"[#if role.auths?seq_contains("admin:account")] selected="selected"[/#if]>账户列表</option>
@@ -200,27 +208,71 @@
 										<option value="admin:bank_card_invalid"[#if role.auths?seq_contains("admin:bank_card_invalid")] selected="selected"[/#if]>银行卡作废</option>
 										<option value="admin:bank_card_remedy"[#if role.auths?seq_contains("admin:bank_card_remedy")] selected="selected"[/#if]>银行卡补救</option>
 									</optgroup>
+									[#--
+									<option value="admin:referral_fee"[#if role.auths?seq_contains("admin:referral_fee")] selected="selected"[/#if]>推荐管理</option>
+									--]
 								</select>
 							</div>
 						</div>
 					
 						[#-- 会员管理 --]
 						<div class="form-group">
-							<label for="capital_module" class="col-sm-2 control-label">
+							<label for="member_module" class="col-sm-2 control-label">
 								会员管理模块
 							</label>
 							<div class="col-sm-4">
-								<select id="capital_module" class="form-control chosen-select" name="auths" multiple="true" data-placeholder="&nbsp;">
+								<select id="member_module" class="form-control multi-select" name="auths" multiple="true">
 									<optgroup label="会员管理">
 										<option value="admin:member"[#if role.auths?seq_contains("admin:member")] selected="selected"[/#if]>会员列表</option>
 										<option value="admin:member_regist"[#if role.auths?seq_contains("admin:member_regist")] selected="selected"[/#if]>会员注册</option>
 										<option value="admin:member_modif"[#if role.auths?seq_contains("admin:member_modif")] selected="selected"[/#if]>会员修改</option>
 									</optgroup>
-									<option value="admin:pers"[#if role.auths?seq_contains("admin:pers")] selected="selected"[/#if]>个人列表/修改</option>
-									<option value="admin:corp"[#if role.auths?seq_contains("admin:corp")] selected="selected"[/#if]>公司列表/登记/修改</option>
+									<optgroup label="个人管理">
+										<option value="admin:pers"[#if role.auths?seq_contains("admin:pers")] selected="selected"[/#if]>个人列表</option>
+										<option value="admin:pers_regist"[#if role.auths?seq_contains("admin:pers_regist")] selected="selected"[/#if]>个人登记</option>
+										[#--
+										<option value="admin:pers_modif"[#if role.auths?seq_contains("admin:pers_modif")] selected="selected"[/#if]>个人修改</option>
+										--]
+									</optgroup>
+									<optgroup label="公司管理">
+										<option value="admin:corp"[#if role.auths?seq_contains("admin:corp")] selected="selected"[/#if]>公司列表</option>
+										[#--
+										<option value="admin:corp_modif"[#if role.auths?seq_contains("admin:corp_modif")] selected="selected"[/#if]>公司修改</option>
+										--]
+									</optgroup>
 								</select>
 							</div>
 						</div>
+					
+						[#--
+						[#-- 转让管理 --\]
+						<div class="form-group">
+							<label for="assignment_module" class="col-sm-2 control-label">
+								转让管理模块
+							</label>
+							<div class="col-sm-4">
+								<select id="assignment_module" class="form-control multi-select" name="auths" multiple="true">
+									<optgroup label="转让筹备管理">
+										<option value="admin:assignment_apply"[#if role.auths?seq_contains("admin:assignment_apply")] selected="selected"[/#if]>转让申请</option>
+										<option value="admin:assignment_inquiry"[#if role.auths?seq_contains("admin:assignment_inquiry")] selected="selected"[/#if]>转让调查</option>
+										<option value="admin:assignment_confirm"[#if role.auths?seq_contains("admin:assignment_confirm")] selected="selected"[/#if]>转让确认</option>
+										<option value="admin:assignment_investing"[#if role.auths?seq_contains("admin:assignment_investing")] selected="selected"[/#if]>转让投资中</option>
+										<option value="admin:assignment_invest_expired"[#if role.auths?seq_contains("admin:assignment_invest_expired")] selected="selected"[/#if]>转让投资已过期</option>
+									</optgroup>
+									<optgroup label="转让维护管理">
+										<option value="admin:assignment_buybacking"[#if role.auths?seq_contains("admin:assignment_buybacking")] selected="selected"[/#if]>转让回购中</option>
+										<option value="admin:assignment_buyback"[#if role.auths?seq_contains("admin:assignment_buyback")] selected="selected"[/#if]>转让回购</option>
+										<option value="admin:assignment_finished"[#if role.auths?seq_contains("admin:assignment_finished")] selected="selected"[/#if]>转让已完成</option>
+									</optgroup>
+									<optgroup label="转让失败管理">
+										<option value="admin:assignment_inquiry_failure"[#if role.auths?seq_contains("admin:assignment_inquiry_failure")] selected="selected"[/#if]>转让调查已失败</option>
+										<option value="admin:assignment_confirm_failure"[#if role.auths?seq_contains("admin:assignment_confirm_failure")] selected="selected"[/#if]>转让确认已失败</option>
+										<option value="admin:assignment_invest_failure"[#if role.auths?seq_contains("admin:assignment_invest_failure")] selected="selected"[/#if]>转让投资已失败</option>
+									</optgroup>
+								</select>
+							</div>
+						</div>
+						--]
 					
 						[#-- 借款管理 --]
 						<div class="form-group">
@@ -228,15 +280,26 @@
 								借款管理模块
 							</label>
 							<div class="col-sm-4">
-								<select id="borrowing_module" class="form-control chosen-select" name="auths" multiple="true" data-placeholder="&nbsp;">
-									<option value="admin:borrowing_audit_unaudited"[#if role.auths?seq_contains("admin:borrowing_audit_unaudited")] selected="selected"[/#if]>借款审核/修改</option>
-									<option value="admin:borrowing_audit_audited"[#if role.auths?seq_contains("admin:borrowing_audit_audited")] selected="selected"[/#if]>借款确认</option>
-									<option value="admin:borrowing_audit_unapproved"[#if role.auths?seq_contains("admin:borrowing_audit_unapproved")] selected="selected"[/#if]>借款重新审核/修改</option>
-									<option value="admin:borrowing_investment_investing"[#if role.auths?seq_contains("admin:borrowing_investment_investing")] selected="selected"[/#if]>投资中借款</option>
-									<option value="admin:borrowing_investment_success"[#if role.auths?seq_contains("admin:borrowing_investment_success")] selected="selected"[/#if]>投资出借</option>
-									<option value="admin:borrowing_investment_failure"[#if role.auths?seq_contains("admin:borrowing_investment_failure")] selected="selected"[/#if]>借款投资失败</option>
-									<option value="admin:borrowing_repayment_repaying"[#if role.auths?seq_contains("admin:borrowing_repayment_repaying")] selected="selected"[/#if]>借款还款中</option>
-									<option value="admin:borrowing_repayment_repaid"[#if role.auths?seq_contains("admin:borrowing_repayment_repaid")] selected="selected"[/#if]>借款已还款</option>
+								<select id="borrowing_module" class="form-control multi-select" name="auths" multiple="true">
+									<optgroup label="借款筹备管理">
+										<option value="admin:borrowing_apply"[#if role.auths?seq_contains("admin:borrowing_apply")] selected="selected"[/#if]>借款申请</option>
+										<option value="admin:borrowing_inquiry"[#if role.auths?seq_contains("admin:borrowing_inquiry")] selected="selected"[/#if]>借款调查</option>
+										<option value="admin:borrowing_confirm"[#if role.auths?seq_contains("admin:borrowing_confirm")] selected="selected"[/#if]>借款确认</option>
+										<option value="admin:borrowing_investing"[#if role.auths?seq_contains("admin:borrowing_investing")] selected="selected"[/#if]>借款投资中</option>
+										<option value="admin:borrowing_invest_expired"[#if role.auths?seq_contains("admin:borrowing_invest_expired")] selected="selected"[/#if]>借款投资已过期</option>
+										<option value="admin:borrowing_lend"[#if role.auths?seq_contains("admin:borrowing_lend")] selected="selected"[/#if]>借款出借</option>
+									</optgroup>
+									<optgroup label="借款维护管理">
+										<option value="admin:borrowing_repaying"[#if role.auths?seq_contains("admin:borrowing_repaying")] selected="selected"[/#if]>借款还款中</option>
+										<option value="admin:borrowing_repay"[#if role.auths?seq_contains("admin:borrowing_repay")] selected="selected"[/#if]>借款还款</option>
+										<option value="admin:borrowing_finished"[#if role.auths?seq_contains("admin:borrowing_finished")] selected="selected"[/#if]>借款已完成</option>
+									</optgroup>
+									<optgroup label="借款失败管理">
+										<option value="admin:borrowing_inquiry_failure"[#if role.auths?seq_contains("admin:borrowing_inquiry_failure")] selected="selected"[/#if]>借款调查已失败</option>
+										<option value="admin:borrowing_confirm_failure"[#if role.auths?seq_contains("admin:borrowing_confirm_failure")] selected="selected"[/#if]>借款确认已失败</option>
+										<option value="admin:borrowing_invest_failure"[#if role.auths?seq_contains("admin:borrowing_invest_failure")] selected="selected"[/#if]>借款投资已失败</option>
+										<option value="admin:borrowing_lend_failure"[#if role.auths?seq_contains("admin:borrowing_lend_failure")] selected="selected"[/#if]>借款出借已失败</option>
+									</optgroup>
 								</select>
 							</div>
 						</div>
@@ -270,6 +333,9 @@
 	[#-- chosen 选择器 --]
 	<script type="text/javascript" src="${base}/resources/lib/chosen/jquery.chosen.min.js"></script>
 	<script type="text/javascript" src="${base}/resources/lib/chosen/jquery.chosen.common.min.js"></script>
+	[#-- multiSelect 选择器 --]
+	<script type="text/javascript" src="${base}/resources/lib/multiselect/jquery.multiSelect.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/lib/multiselect/jquery.multiSelect.common.min.js"></script>
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>

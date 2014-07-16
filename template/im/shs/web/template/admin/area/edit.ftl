@@ -48,7 +48,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${area.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 
 			[#-- 上级地区 --]
 			[#if parent??]

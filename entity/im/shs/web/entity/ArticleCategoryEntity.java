@@ -32,8 +32,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_article_category")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_article_category_sequence")
+@Table(name = "shs_article_category")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_article_category_sequence")
 public class ArticleCategoryEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

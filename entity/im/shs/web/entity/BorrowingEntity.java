@@ -48,8 +48,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_borrowing")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_borrowing_sequence")
+@Table(name = "shs_borrowing")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_borrowing_sequence")
 public class BorrowingEntity extends BaseEntity {
 
     /** serialVersionUID */
@@ -642,7 +642,7 @@ public class BorrowingEntity extends BaseEntity {
     }
 
     @ElementCollection
-    @CollectionTable(name = "p2p_borrowing_material", joinColumns = @JoinColumn(name = "borrowing"))
+    @CollectionTable(name = "shs_borrowing_material", joinColumns = @JoinColumn(name = "borrowing"))
     public List<ImageElem> getMaterials() {
         return materials;
     }

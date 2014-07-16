@@ -25,8 +25,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_member_log")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_member_log_sequence")
+@Table(name = "shs_member_log")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_member_log_sequence")
 public class MemberLogEntity extends BaseEntity {
 
     /** serialVersionUID */

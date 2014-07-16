@@ -22,8 +22,8 @@ import javax.persistence.Table;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_member_info")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_member_info_sequence")
+@Table(name = "shs_member_info")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_member_info_sequence")
 public class MemberInfoEntity extends BaseEntity {
 
     /** serialVersionUID */

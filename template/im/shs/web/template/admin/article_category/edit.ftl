@@ -50,7 +50,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${articleCategory.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 			
 			[#-- 标签 --]
 			<div class="tabbable">
@@ -177,11 +176,11 @@
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.common.min.js"></script>
     [#-- validate For Hint 验证器提示 --]
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.validate.min.js"></script>
-	[#-- article.category.edit 文章分类编辑 --]
+	[#-- article_category.edit 文章分类编辑 --]
 	<script type="text/javascript">
 		var [#if parent??]parentId = "${parent.id}", [/#if]previousName = "${articleCategory.name}" ,previousAlias = "${articleCategory.alias}";
 	</script>
-	<script type="text/javascript" src="${base}/resources/admin/js/article.category.edit.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/article_category.edit.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

@@ -25,8 +25,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_notice")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_notice_sequence")
+@Table(name = "shs_notice")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_notice_sequence")
 public class NoticeEntity extends BaseEntity {
 
     /** serialVersionUID */

@@ -11,8 +11,8 @@ import javax.persistence.Table;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_Dcjl")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_adtest_sequence")
+@Table(name = "shs_Dcjl")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_adtest_sequence")
 public class DcjlEntity extends BaseEntity {
 
 	/** serialVersionUID */

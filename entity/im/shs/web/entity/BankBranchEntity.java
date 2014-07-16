@@ -31,8 +31,8 @@ import org.hibernate.validator.constraints.Length;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_bank_branch")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_bank_branch_sequence")
+@Table(name = "shs_bank_branch")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_bank_branch_sequence")
 public class BankBranchEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

@@ -9,7 +9,7 @@
 		[#-- meta 标签 --]
     	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
-		<title>查看借款[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
+		<title>查看出借已失败的借款[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
     	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- Font Awesome Icon 图标 --]
@@ -41,7 +41,7 @@
 					借款失败管理
 				</li>
 				<li>
-					查看借款
+					查看出借已失败的借款
 				</li>
 			</ul>
 		</div>

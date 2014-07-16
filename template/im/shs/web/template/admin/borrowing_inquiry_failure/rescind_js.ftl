@@ -2,7 +2,7 @@
  * Copyright 2010-2013 icl-network.com. All rights reserved.
  * Support: http://www.icl-network.com
  *
- * JavaScript - Borrowing Rescind Inquiry
+ * JavaScript - Borrowing Inquiry Rescind
  * Version: 3.0
  */
 $().ready(function() {

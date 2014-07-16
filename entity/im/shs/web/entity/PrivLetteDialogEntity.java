@@ -26,8 +26,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_priv_lette_dialog")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_priv_lette_dialog_sequence")
+@Table(name = "shs_priv_lette_dialog")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_priv_lette_dialog_sequence")
 public class PrivLetteDialogEntity extends BaseEntity {
 
     /** serialVersionUID */

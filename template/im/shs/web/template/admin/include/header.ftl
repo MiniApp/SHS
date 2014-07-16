@@ -9,6 +9,7 @@
 					<span class="version">${systemVersion}</span>
 				</a>
 				
+				[#--
 				<ul class="nav navbar-nav">
 					
 					<li class="divider-vertical hidden-sm"></li>
@@ -46,6 +47,7 @@
 					<li class="divider-vertical hidden-sm"></li>
 					
 				</ul>
+				--]
 				
 				[#--
 				<ul class="nav navbar-nav">

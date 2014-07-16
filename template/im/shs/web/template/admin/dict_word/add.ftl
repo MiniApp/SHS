@@ -118,13 +118,13 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- dict.word.add 词典单词添加 --]
+	[#-- dict_word.add 词典单词添加 --]
 	[#if dict??]
 		<script type="text/javascript">
 			var dictId = "${dict.id}";
 		</script>
 	[/#if]
-	<script type="text/javascript" src="${base}/resources/admin/js/dict.word.add.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/dict_word.add.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

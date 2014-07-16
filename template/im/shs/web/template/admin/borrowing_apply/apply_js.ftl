@@ -145,6 +145,6 @@ $().ready(function() {
 	});
 	
 	[#-- 借款材料 --]
-	[#include "/template/admin/borrowing_apply/apply/material_js.ftl" /]
+	[#include "/admin/borrowing_apply/apply/material_js.ftl" /]
 	
 });

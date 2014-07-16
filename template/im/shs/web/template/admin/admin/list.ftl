@@ -1,17 +1,17 @@
 [@compress single_line = !systemDevelopment]
 [#-- 公共参数 --]
-[#include "/template/admin/include/param_common.ftl" /]
+[#include "/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
 [#assign indexUrl = baseUrl + "/admin" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/template/admin/include/meta.ftl" /]
+    	[#include "/admin/include/meta.ftl" /]
 		[#-- 标题 --]
 		<title>管理员列表[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
-    	[#include "/template/admin/include/link_top.ftl" /]
+    	[#include "/admin/include/link_top.ftl" /]
 		[#-- jQuery DataTables For Bootstrap 数据表格 --]
 	    <link type="text/css" rel="stylesheet" href="${base}/resources/lib/datatables/dataTables.bootstrap.min.css">
 		[#-- chosen 选择器 --]
@@ -32,7 +32,7 @@
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.min.css" />
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.theme.future.min.css" />	
 		[#-- Link 底部 --]
-    	[#include "/template/admin/include/link_bottom.ftl" /]
+    	[#include "/admin/include/link_bottom.ftl" /]
     </head>
     <body class="contentwrapper">
 
@@ -106,11 +106,11 @@
 		</table>
 		
 		[#-- hide elements 列表页公共隐藏元素 --]
-		[#include "/template/admin/include/list_hide_common.ftl" /]
+		[#include "/admin/include/list_hide_common.ftl" /]
     </body>
 		
 	[#-- Script 顶部 --]
-	[#include "/template/admin/include/script_top.ftl" /]
+	[#include "/admin/include/script_top.ftl" /]
     [#-- jQuery DataTables 数据表格 --]
 	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.fix.min.js"></script>
 	[#-- jQuery DataTables For Bootstrap 数据表格 --]
@@ -158,6 +158,6 @@
 		</script>
 	[/#if]
 	[#-- Script 底部 --]
-	[#include "/template/admin/include/script_bottom.ftl" /]
+	[#include "/admin/include/script_bottom.ftl" /]
 </html>
 [/@compress]

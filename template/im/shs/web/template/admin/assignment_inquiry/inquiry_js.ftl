@@ -152,6 +152,6 @@ $().ready(function() {
 	});
 	
 	[#-- 借款材料 --]
-	[#include "/template/admin/borrowing_inquiry/inquiry/material_js.ftl" /]
+	[#include "/admin/borrowing_inquiry/inquiry/material_js.ftl" /]
 	
 });

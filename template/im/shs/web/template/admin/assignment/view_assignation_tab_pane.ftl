@@ -3,6 +3,6 @@
 	[#-- 受让资金 --]
 	<div id="assignment_assignation_capitals" class="tab-pane" tab-id="assignment_assignation_capitals_tab">
 		[#assign capitals = assignationCapitals /]
-    	[#include "/template/admin/capital/view_assignation_list.ftl" /]
+    	[#include "/admin/capital/view_assignation_list.ftl" /]
 	</div>
 [/#if]

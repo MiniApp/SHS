@@ -36,19 +36,19 @@
 				[#if assignment.repayments?size gt 1]
 					<div id="assignment_buybacks" class="tab-pane active" tab-id="assignment_buybacks_tab">
 						[#assign buybacks = assignment.repayments /]
-				    	[#include "/template/admin/buyback/view_list.ftl" /]
+				    	[#include "/admin/buyback/view_list.ftl" /]
 					</div>
 				[/#if]
 				--]
 				<div id="assignment_buybacks" class="tab-pane active" tab-id="assignment_buybacks_tab">
 					[#assign buybacks = assignment.repayments /]
-			    	[#include "/template/admin/buyback/view_list.ftl" /]
+			    	[#include "/admin/buyback/view_list.ftl" /]
 				</div>
 				
 				[#-- 回购计划 --]
 				<div id="assignment_buyback_plans" class="tab-pane" tab-id="assignment_buyback_plans_tab">
 					[#assign buybackPlans = assignment.repaymentPlans /]
-			    	[#include "/template/admin/buyback_plan/view_list.ftl" /]
+			    	[#include "/admin/buyback_plan/view_list.ftl" /]
 				</div>
 				
 				[#-- 存在回购资金时 --]
@@ -56,7 +56,7 @@
 					[#-- 回购资金 --]
 					<div id="assignment_buyback_capitals" class="tab-pane" tab-id="assignment_buyback_capitals_tab">
 						[#assign capitals = buybackCapitals /]
-				    	[#include "/template/admin/capital/view_buyback_list.ftl" /]
+				    	[#include "/admin/capital/view_buyback_list.ftl" /]
 					</div>
 				[/#if]
 		

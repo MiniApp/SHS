@@ -5,22 +5,22 @@
 		<div id="side_accordion" class="panel-group">
 		
 			[#-- 边导航 - 借款管理 --]
-	    	[#include "/template/admin/include/sidebar_borrowing.ftl" /]
+	    	[#include "/admin/include/sidebar_borrowing.ftl" /]
 		
 			[#-- 边导航 - 转让管理 --]
-	    	[#include "/template/admin/include/sidebar_assignment.ftl" /]
+	    	[#include "/admin/include/sidebar_assignment.ftl" /]
 	    	
 			[#-- 边导航 - 会员管理 --]
-	    	[#include "/template/admin/include/sidebar_member.ftl" /]
+	    	[#include "/admin/include/sidebar_member.ftl" /]
 		
 			[#-- 边导航 - 资金管理 --]
-	    	[#include "/template/admin/include/sidebar_capital.ftl" /]
+	    	[#include "/admin/include/sidebar_capital.ftl" /]
 		
 			[#-- 边导航 - 内容管理 --]
-	    	[#include "/template/admin/include/sidebar_cont.ftl" /]
+	    	[#include "/admin/include/sidebar_cont.ftl" /]
 		
 			[#-- 边导航 - 系统管理 --]
-	    	[#include "/template/admin/include/sidebar_syst.ftl" /]
+	    	[#include "/admin/include/sidebar_syst.ftl" /]
 			
 			[#-- 
 			<div class="panel panel-default">

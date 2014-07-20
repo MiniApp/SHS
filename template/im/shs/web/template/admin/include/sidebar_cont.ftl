@@ -1,4 +1,4 @@
-[#list ["admin:article_category", "admin:article", "admin:ad_position", "admin:ad", "admin:friend_link_text", "admin:friend_link_image"] as permission]
+[#list ["admin:article_category", "admin:article", "admin:article_static", "admin:ad_position", "admin:ad", "admin:friend_link_text", "admin:friend_link_image"] as permission]
 [@shiro.hasPermission name = permission]
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -12,7 +12,7 @@
 				<ul class="nav nav-pills nav-stacked">
 				
 					[#-- 文章管理 --]
-					[#list ["admin:article_category", "admin:article"] as permission]
+					[#list ["admin:article_category", "admin:article", "admin:article_static"] as permission]
 					[@shiro.hasPermission name = permission]
 						<li class="nav-header">文章管理</li>
 						[@shiro.hasPermission name="admin:article_category"]
@@ -20,6 +20,9 @@
 						[/@shiro.hasPermission]
 						[@shiro.hasPermission name="admin:article"]
 							<li><a href="${baseUrl}/article" target="iframe">文章列表</a></li>
+						[/@shiro.hasPermission]
+						[@shiro.hasPermission name="admin:article_static"]
+							<li><a href="${baseUrl}/article_static" target="iframe">文章静态化处理</a></li>
 						[/@shiro.hasPermission]
 						[#break /]
 					[/@shiro.hasPermission]

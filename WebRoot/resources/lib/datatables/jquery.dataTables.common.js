@@ -239,7 +239,7 @@ delete_rows = {
 					$.ajax({
 						url: galery.deleteRowsButton.prop("href"),
 						type: "post",
-						data: "_method=delete&" + $selectedRows.serialize(),
+						data: $selectedRows.serialize(),
 						dataType: "json",
 						cache: false,
 						success: function(message) {
@@ -270,7 +270,7 @@ delete_rows = {
 					$.ajax({
 						url: galery.deleteRow_selected.prop("href"),
 						type: "post",
-						data: "_method=delete&id=" + galery.deleteRow_selected.attr("deleteId"),
+						data: "id=" + galery.deleteRow_selected.attr("deleteId"),
 						dataType: "json",
 						cache: false,
 						success: function(message) {
@@ -359,7 +359,6 @@ clear_rows = {
 				$.ajax({
 					url: $clearRows.prop("href"),
 					type: "post",
-					data: "_method=delete",
 					dataType: "json",
 					cache: false,
 					success: function(message) {

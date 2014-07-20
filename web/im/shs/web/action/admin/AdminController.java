@@ -91,12 +91,12 @@ public class AdminController extends BaseAdminController {
         }
         // 验证用户名是否存在
         if (adminService.exists("username", admin.getUsername(), true)) {
-            addFlashMessage(redirectAttributes, ERROR_MESSAGE);
+            addFlashMessage(redirectAttributes, Message.error("用户名已经存在"));
             return INDEX_REDIRECT_URL + "/new";
         }
         // 验证邮箱地址是否存在
         if (adminService.exists("email", admin.getEmail(), true)) {
-            addFlashMessage(redirectAttributes, ERROR_MESSAGE);
+            addFlashMessage(redirectAttributes, Message.error("邮箱地址已经存在"));
             return INDEX_REDIRECT_URL + "/new";
         }
 

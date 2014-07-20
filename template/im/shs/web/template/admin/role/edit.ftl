@@ -1,17 +1,17 @@
 [@compress single_line = !systemDevelopment]
 [#-- 公共参数 --]
-[#include "/template/admin/include/param_common.ftl" /]
+[#include "/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
 [#assign indexUrl = baseUrl + "/role" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/template/admin/include/meta.ftl" /]
+    	[#include "/admin/include/meta.ftl" /]
 		[#-- 标题 --]
 		<title>编辑角色[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
-    	[#include "/template/admin/include/link_top.ftl" /]
+    	[#include "/admin/include/link_top.ftl" /]
 		[#-- validate 验证器 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/validate/validate.min.css" />
 		[#-- chosen 选择器 --]
@@ -32,7 +32,7 @@
 			<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.theme.future.min.css" />
 		[/#if]
 		[#-- Link 底部 --]
-    	[#include "/template/admin/include/link_bottom.ftl" /]
+    	[#include "/admin/include/link_bottom.ftl" /]
     </head>
     <body class="contentwrapper">
 
@@ -159,6 +159,7 @@
 									<optgroup label="文章管理">
 										<option value="admin:article_category"[#if role.auths?seq_contains("admin:article_category")] selected="selected"[/#if]>文章分类管理</option>
 										<option value="admin:article"[#if role.auths?seq_contains("admin:article")] selected="selected"[/#if]>文章列表</option>
+										<option value="admin:article_static"[#if role.auths?seq_contains("admin:article_static")] selected="selected"[/#if]>文章静态处理</option>
 									</optgroup>
 									<optgroup label="广告管理">
 										<option value="admin:ad_position"[#if role.auths?seq_contains("admin:ad_position")] selected="selected"[/#if]>广告位管理</option>
@@ -325,7 +326,7 @@
     </body>
 		
 	[#-- Script 顶部 --]
-	[#include "/template/admin/include/script_top.ftl" /]
+	[#include "/admin/include/script_top.ftl" /]
 	[#-- validate 验证器 --]
     <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.method.min.js"></script>
@@ -362,6 +363,6 @@
 		</script>
 	[/#if]
 	[#-- Script 底部 --]
-	[#include "/template/admin/include/script_bottom.ftl" /]
+	[#include "/admin/include/script_bottom.ftl" /]
 </html>
 [/@compress]

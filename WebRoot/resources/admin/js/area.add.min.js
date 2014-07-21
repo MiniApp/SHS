@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Copyright 2010-2014 icl-network.com. All rights reserved.
  * Support: http://www.icl-network.com
  *
  * JavaScript - Area Add

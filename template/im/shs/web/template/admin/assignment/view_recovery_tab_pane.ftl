@@ -36,19 +36,19 @@
 				[#if assignment.recoveries?size gt 1]
 					<div id="assignment_recoveries" class="tab-pane active" tab-id="assignment_recoveries_tab">
 						[#assign recoveries = assignment.recoveries /]
-				    	[#include "/admin/recovery/view_list.ftl" /]
+				    	[#include "/template/admin/recovery/view_list.ftl" /]
 					</div>
 				[/#if]
 				--]
 				<div id="assignment_recoveries" class="tab-pane active" tab-id="assignment_recoveries_tab">
 					[#assign recoveries = assignment.recoveries /]
-			    	[#include "/admin/recovery/view_list.ftl" /]
+			    	[#include "/template/admin/recovery/view_list.ftl" /]
 				</div>
 				
 				[#-- 回收计划 --]
 				<div id="assignment_recovery_plans" class="tab-pane" tab-id="assignment_recovery_plans_tab">
 					[#assign recoveryPlans = assignment.recoveryPlans /]
-			    	[#include "/admin/recovery_plan/view_list.ftl" /]
+			    	[#include "/template/admin/recovery_plan/view_list.ftl" /]
 				</div>
 				
 				[#-- 存在回收资金时 --]
@@ -56,7 +56,7 @@
 					[#-- 回收资金 --]
 					<div id="assignment_recovery_capitals" class="tab-pane" tab-id="assignment_recovery_capitals_tab">
 						[#assign capitals = recoveryCapitals /]
-				    	[#include "/admin/capital/view_recovery_list.ftl" /]
+				    	[#include "/template/admin/capital/view_recovery_list.ftl" /]
 					</div>
 				[/#if]
 		

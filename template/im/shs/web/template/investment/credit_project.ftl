@@ -89,16 +89,58 @@
                             <div class="li-content">0.00%</div>
                         </li>
                         --]
-                        [#if project.investmentEndDate??]
-	                        <li>
-	                            <div class="li-title">投资结束日期</div>
-	                            <div class="li-content">${project.investmentEndDate?string("yyyy年MM月dd日 HH时mm分")}</div>
-	                        </li>
-                        [/#if]
                         <li>
-                            <div class="li-title">投资进度</div>
-                            <div class="li-content">${project.investmentProgress?string("percent")}</div>
+                            <div class="li-title">普通逾期利率</div>
+                            <div class="li-content">${project.overdueInterestRate}%/天</div>
                         </li>
+                        <li>
+                            <div class="li-title">严重逾期利率</div>
+                            <div class="li-content">${project.seriousOverdueInterestRate}%/天（发生逾期${project.seriousOverdueStartPeriod}天后）</div>
+                        </li>
+                        <li>
+                            <div class="li-title">回收服务费率</div>
+                            <div class="li-content">${project.recoveryFeeRate}%/期</div>
+                        </li>
+                        [#if project.isFailure]
+	                        [#if project.investmentEndDate??]
+		                        <li>
+		                            <div class="li-title">流标日期</div>
+		                            <div class="li-content">${project.investmentEndDate?string("yyyy年MM月dd日 HH时mm分")}</div>
+		                        </li>
+	                        [/#if]
+			            [#else]
+			                [#if project.progress == "investing"]
+		                        [#if project.investmentEndDate??]
+			                        <li>
+			                            <div class="li-title">投资结束日期</div>
+			                            <div class="li-content">${project.investmentEndDate?string("yyyy年MM月dd日 HH时mm分")}</div>
+			                        </li>
+		                        [/#if]
+		                        <li>
+		                            <div class="li-title">投资进度</div>
+		                            <div class="li-content">${project.investmentProgress?string("percent")}</div>
+		                        </li>
+							[#elseif project.progress == "lending"]
+		                        <li>
+		                            <div class="li-title">满标时间</div>
+		                            <div class="li-content">${project.investmentFinishDate?string("yyyy年MM月dd日")}</div>
+		                        </li>
+							[#elseif project.progress == "repaying"]
+								[#list project.repayments as repayment]
+			                        <li>
+			                            <div class="li-title">还款结束日期</div>
+			                            <div class="li-content">${repayment.endDate?string("yyyy年MM月dd日")}</div>
+			                        </li>
+								[/#list]
+							[#elseif project.progress == null && project.state == "success"]
+								[#list project.repayments as repayment]
+			                        <li>
+			                            <div class="li-title">完成时间</div>
+			                            <div class="li-content">${repayment.finishDate?string("yyyy年MM月dd日")}</div>
+			                        </li>
+								[/#list]
+							[/#if]
+			            [/#if]
                     </ul>
                 </div>
 			
@@ -111,7 +153,7 @@
 	                            <div class="full-content">${project.investedAmount?string("currency")}</div>
 	                        </li>
 	                        <li>
-	                        	<div class="full-title">流标时间：</div>
+	                        	<div class="full-title">流标日期：</div>
 	                            <div class="full-content">${project.investmentEndDate?string("yyyy年MM月dd日")}</div>
 	                        </li>
 	                    </ul>
@@ -144,10 +186,12 @@
 		                        	<div class="full-title">满标时间：</div>
 		                            <div class="full-content">${project.investmentFinishDate?string("yyyy年MM月dd日")}</div>
 		                        </li>
-		                        <li>
-		                        	<div class="full-title">加入人次：</div>
-		                            <div class="full-content">${project.investments?size}人</div>
-		                        </li>
+		                        [#if project.investmentEndDate??]
+			                        <li>
+			                        	<div class="full-title">加入人次：</div>
+			                            <div class="full-content">${project.investments?size}人</div>
+			                        </li>
+		                        [/#if]
 		                    </ul>
 		                </div>
 					[#elseif project.progress == "repaying"]

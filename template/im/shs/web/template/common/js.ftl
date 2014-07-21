@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Copyright 2010-2014 icl-network.com. All rights reserved.
  * Support: http://www.icl-network.com
  * 
  * JavaScript - Common
@@ -10,10 +10,10 @@
 var setting = {
 	base: "${base}",
 	locale: "${locale}",
-	currencyScale: "${setting.currencyScale}",
-	currencyRoundType: "${setting.currencyRoundType}",
-	currencySign: "${setting.currencySign}",
-	currencyUnit: "${setting.currencyUnit}",
+	currencyScale: "${setting.security.amountScale}",
+	currencyRoundType: "${setting.security.amountRoundMethod}",
+	currencySign: "${setting.security.currencySign}",
+	currencyUnit: "${setting.security.currencyUnit}",
 	uploadImageExtension: "${setting.security.uploadImageExtension}",
 	uploadFlashExtension: "${setting.security.uploadFlashExtension}",
 	uploadMediaExtension: "${setting.security.uploadMediaExtension}",
@@ -38,6 +38,113 @@ function currency(value, showSign, showUnit) {
 			currency += setting.currencyUnit;
 		}
 		return currency;
+	}
+}
+
+[#-- 添加收藏夹 --]
+function addFavorite(url, title) {
+	if (document.all) {
+		window.external.addFavorite(url, title);
+	} else if (window.sidebar) {
+		window.sidebar.addPanel(title, url, "");
+	}
+}
+
+[#-- html字符串转义 --]
+function htmlEscape(htmlString) {
+    htmlString = htmlString.replace(/&/g, '&amp;');
+    htmlString = htmlString.replace(/'/g, '&acute;');
+    htmlString = htmlString.replace(/"/g, '&quot;');
+    htmlString = htmlString.replace(/\|/g, '&brvbar;');
+    htmlString = htmlString.replace(/</g, '&lt;');
+    htmlString = htmlString.replace('script', '&#x73;cript');
+    htmlString = htmlString.replace(/>/g, '&gt;');
+    return htmlString;
+}
+
+[#-- 设置Cookie --]
+function setCookie(name, value) {
+	var expires = (arguments.length > 2) ? arguments[2] : null;
+	document.cookie = name + "=" + encodeURIComponent(value) + ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + ";path=" + setting.base;
+}
+
+[#-- 获取Cookie --]
+function getCookie(name) {
+	var value = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+	if (value != null) {
+		return decodeURIComponent(value[2]);
+ 	} else {
+		return null;
+	}
+}
+
+[#-- 删除cookie --]
+function removeCookie(name) {
+	var expires = new Date();
+	expires.setTime(expires.getTime() - 1000 * 60);
+	setCookie(name, "", expires);
+}
+
+[#-- 浮点数加法运算 --]
+function floatAdd(arg1, arg2) {
+	var r1, r2, m;
+	try{
+		r1 = arg1.toString().split(".")[1].length;
+	} catch(e) {
+		r1 = 0;
+	}
+	try {
+		r2 = arg2.toString().split(".")[1].length;
+	} catch(e) {
+		r2 = 0;
+	}
+	m = Math.pow(10, Math.max(r1, r2));
+	return (arg1 * m + arg2 * m) / m;
+}
+
+[#-- 浮点数减法运算 --]
+function floatSub(arg1, arg2) {
+	var r1, r2, m, n;
+	try {
+		r1 = arg1.toString().split(".")[1].length;
+	} catch(e) {
+		r1 = 0;
+	}
+	try {
+		r2 = arg2.toString().split(".")[1].length;
+	} catch(e) {
+		r2 = 0;
+	}
+	m = Math.pow(10, Math.max(r1, r2));
+	n = (r1 >= r2) ? r1 : r2;
+	return ((arg1 * m - arg2 * m) / m).toFixed(n);
+}
+
+[#-- 浮点数乘法运算 --]
+function floatMul(arg1, arg2) {    
+	var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+	try {
+		m += s1.split(".")[1].length;
+	} catch(e) {}
+	try {
+		m += s2.split(".")[1].length;
+	} catch(e) {}
+	return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+}
+
+[#-- 浮点数除法运算 --]
+function floatDiv(arg1, arg2) {
+	var t1 = 0, t2 = 0, r1, r2;    
+	try {
+		t1 = arg1.toString().split(".")[1].length;
+	} catch(e) {}
+	try {
+		t2 = arg2.toString().split(".")[1].length;
+	} catch(e) {}
+	with(Math) {
+		r1 = Number(arg1.toString().replace(".", ""));
+		r2 = Number(arg2.toString().replace(".", ""));
+		return (r1 / r2) * pow(10, t2 - t1);
 	}
 }
 

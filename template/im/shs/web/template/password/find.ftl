@@ -93,7 +93,7 @@
 	                    </table>
 					</form>
 				</div>
-                <p class="prompt_p">若您无法使用上述方法找回密码，请联系我们客服${setting.basic.phone}</p>
+                <p class="prompt_p">若您无法使用上述方法找回密码，请联系我们&nbsp;${setting.basic.phone}</p>
             </div>
             
         </div>

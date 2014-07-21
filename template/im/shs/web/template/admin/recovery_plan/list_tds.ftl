@@ -20,7 +20,7 @@
 	<small>已付服务费：${recoveryPlan.paidFee?string("currency")}</small>
 </td>
 <td class="center-left">
-	<small>计划金额：${recoveryPlan.countAmount?string("currency")}</small>
+	<small>计算金额：${recoveryPlan.countAmount?string("currency")}</small>
 	<hr/>
 	<small>已收金额：${recoveryPlan.recoveredAmount?string("currency")}</small>
 </td>
@@ -33,5 +33,19 @@
 	<small>计划日期：${(recoveryPlan.date?string("yyyy-MM-dd"))!"-"}</small>
 	<hr/>
 	<small>实际日期：${(recoveryPlan.recoveredDate?string("yyyy-MM-dd HH:mm:ss"))!"-"}</small>
+</td>
+<td class="center-left">
+	<small>计算期限：${recoveryPlan.overduePeriod}天</small>
+	<br/>
+	<small>计算利息：${recoveryPlan.overdueInterest?string("currency")}</small>
+	<hr/>
+	<small>已收利息：${recoveryPlan.recoveredOverdueInterest?string("currency")}</small>
+</td>
+<td class="center-left">
+	<small>计算期限：${recoveryPlan.seriousOverduePeriod}天</small>
+	<br/>
+	<small>计算利息：${recoveryPlan.seriousOverdueInterest?string("currency")}</small>
+	<hr/>
+	<small>已收利息：${recoveryPlan.recoveredSeriousOverdueInterest?string("currency")}</small>
 </td>
 <td class="center-left">${message("RecoveryState." + recoveryPlan.state)}</td>

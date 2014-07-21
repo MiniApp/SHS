@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2013 icl-network.com. All rights reserved.
+ * Copyright 2010-2014 icl-network.com. All rights reserved.
  * Support: http://www.icl-network.com
  * 
  * JavaScript - jQuery DataTables For Bootstrap Integration
@@ -9,10 +9,7 @@
 /* Set the defaults for DataTables initialisation */
 $.extend(true, $.fn.dataTable.defaults, {
 	"sDom": "<'row header'<'col-sm-7'<'actions pull-left'>l><'col-sm-5'f>r>t<'row footer'<'col-sm-5'i><'col-sm-7'p>>",
-	"sPaginationType": "bootstrap_normal",
-	"aaSorting": [
-		[1, "asc"]
-	],
+	"sPaginationType": "bootstrap_full",
 	"oLanguage": {
 		"oPaginate": {
 			"sFirst": "首页",
@@ -24,12 +21,21 @@ $.extend(true, $.fn.dataTable.defaults, {
 		"sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
 		"sInfoEmpty": "共 0 条记录",
 		"sInfoFiltered": "（从 _MAX_ 条记录中搜索）",
-		"sLengthMenu": "每页显示 _MENU_ 条记录",
+		"sLengthMenu": "<label class='control-label pull-left'>每页显示</label> <div class='pull-left'>_MENU_</div> <label class='control-label pull-left'>条记录</label>",
 		"sLoadingRecords": "加载中...",
 		"sProcessing": "处理中...",
-		"sSearch": "搜索",
+		"sSearch": "<label class='control-label pull-left'>搜索</label> <div class='pull-left'>_INPUT_</div>",
 		"sZeroRecords": "没有找到匹配的记录"
-	}
+	},
+	"oClasses": {
+		"sLengthSelect": "form-control chosen-select",
+		"sFilterInput": "form-control"
+	},
+    "scrollY": $(window).height() - 215,
+	"scrollX": true,
+	"aaSorting": [
+		[1, "desc"]
+	]
 });
 
 /* Default class modification */

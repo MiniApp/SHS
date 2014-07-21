@@ -152,7 +152,7 @@
 	[#-- Script 顶部 --]
 	[#include "/template/admin/include/script_top.ftl" /]
     [#-- jQuery DataTables 数据表格 --]
-	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.fix.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.min.js"></script>
 	[#-- jQuery DataTables For Bootstrap 数据表格 --]
 	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.bootstrap.min.js"></script>
 	[#-- jQuery DataTables Common Settings 数据表格 - 公共 - 设置 --]

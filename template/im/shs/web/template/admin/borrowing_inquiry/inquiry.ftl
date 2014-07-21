@@ -1,17 +1,17 @@
 [@compress single_line = !systemDevelopment]
 [#-- 公共参数 --]
-[#include "/admin/include/param_common.ftl" /]
+[#include "/template/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
 [#assign indexUrl = baseUrl + "/borrowing_inquiry" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/admin/include/meta.ftl" /]
+    	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
 		<title>调查借款[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
-    	[#include "/admin/include/link_top.ftl" /]
+    	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- validate 验证器 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/validate/validate.min.css" />
 		[#-- chosen 选择器 --]
@@ -31,7 +31,7 @@
 			<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.theme.future.min.css" />
 		[/#if]
 		[#-- Link 底部 --]
-    	[#include "/admin/include/link_bottom.ftl" /]
+    	[#include "/template/admin/include/link_bottom.ftl" /]
     </head>
     <body class="contentwrapper">
 
@@ -104,27 +104,27 @@
 					
 					[#-- 基本信息 --]
 					<div id="borrowing_basic" class="tab-pane active" tab-id="borrowing_basic_tab">
-				    	[#include "/admin/borrowing_inquiry/inquiry/basic.ftl" /]
+				    	[#include "/template/admin/borrowing_inquiry/inquiry/basic.ftl" /]
 					</div>
 					
 					[#-- 借款调查 --]
 					<div id="borrowing_inquiry" class="tab-pane" tab-id="borrowing_inquiry_tab">
-				    	[#include "/admin/borrowing_inquiry/inquiry/inquiry.ftl" /]
+				    	[#include "/template/admin/borrowing_inquiry/inquiry/inquiry.ftl" /]
 					</div>
 					
 					[#-- 借款担保 --]
 					<div id="borrowing_guarantee" class="tab-pane" tab-id="borrowing_guarantee_tab">
-				    	[#include "/admin/borrowing_inquiry/inquiry/guarantee.ftl" /]
+				    	[#include "/template/admin/borrowing_inquiry/inquiry/guarantee.ftl" /]
 					</div>
 					
 					[#-- 借款风控 --]
 					<div id="borrowing_risk_control" class="tab-pane" tab-id="borrowing_risk_control_tab">
-				    	[#include "/admin/borrowing_inquiry/inquiry/risk_control.ftl" /]
+				    	[#include "/template/admin/borrowing_inquiry/inquiry/risk_control.ftl" /]
 					</div>
 					
 					[#-- 借款材料 --]
 					<div id="borrowing_material" class="tab-pane" tab-id="borrowing_material_tab">
-				    	[#include "/admin/borrowing_inquiry/inquiry/material.ftl" /]
+				    	[#include "/template/admin/borrowing_inquiry/inquiry/material.ftl" /]
 					</div>
 					
 					[#-- 存在借款意见时 --]
@@ -132,14 +132,14 @@
 						[#-- 日志信息 --]
 						<div id="borrowing_opinions" class="tab-pane" tab-id="borrowing_opinions_tab">
 							[#assign opinions = borrowing.opinions /]
-					    	[#include "/admin/borrowing_opinion/view_list.ftl" /]
+					    	[#include "/template/admin/borrowing_opinion/view_list.ftl" /]
 						</div>
 					[/#if]
 				
 					[#-- 借款人信息 --]
 					<div id="borrower" class="tab-pane" tab-id="borrower_tab">
 						[#assign pers = borrower /]
-						[#include "/admin/pers/view_tab.ftl" /]
+						[#include "/template/admin/pers/view_tab.ftl" /]
 					</div>
 					
 					[#-- 调查意见 --]
@@ -187,7 +187,7 @@
     </body>
 		
 	[#-- Script 顶部 --]
-	[#include "/admin/include/script_top.ftl" /]
+	[#include "/template/admin/include/script_top.ftl" /]
 	[#-- validate 验证器 --]
     <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.method.min.js"></script>
@@ -221,6 +221,6 @@
 		</script>
 	[/#if]
 	[#-- Script 底部 --]
-	[#include "/admin/include/script_bottom.ftl" /]
+	[#include "/template/admin/include/script_bottom.ftl" /]
 </html>
 [/@compress]

@@ -5,16 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 [#-- meta 标签 --]
-[#include "/template/include/meta.ftl" /]
+[#include "/include/meta.ftl" /]
 <title>${setting.basic.siteName}-登录</title>
 [#-- Link 顶部 --]
-[#include "/template/include/link_top.ftl" /]
+[#include "/include/link_top.ftl" /]
 [#-- Link 底部 --]
-[#include "/template/include/link_bottom.ftl" /]
+[#include "/include/link_bottom.ftl" /]
 </head>
 <body class="loginpage">
 [#-- 页眉 --]
-[#include "/template/include/header.ftl" /]
+[#include "/include/header.ftl" /]
 <div class="content content-signin">
 	<div class="rows">
 		<div class="sig-form pull-right">
@@ -53,7 +53,7 @@
 	</div>
 </div>
 [#-- Footer 页脚 --]
-[#include "/template/include/footer.ftl" /]
+[#include "/include/footer.ftl" /]
 [#-- RSA加密 --]
 <script type="text/javascript" src="${base}/resources/lib/tools/rsa/jsbn.min.js?version=${setting.basic.siteVersion}"></script>
 <script type="text/javascript" src="${base}/resources/lib/tools/rsa/prng4.min.js?version=${setting.basic.siteVersion}"></script>
@@ -61,7 +61,7 @@
 <script type="text/javascript" src="${base}/resources/lib/tools/rsa/rsa.min.js?version=${setting.basic.siteVersion}"></script>
 <script type="text/javascript" src="${base}/resources/lib/tools/base/base64.min.js?version=${setting.basic.siteVersion}"></script>
 [#-- Script 顶部 --]
-[#include "/template/include/script_top.ftl" /]
+[#include "/include/script_top.ftl" /]
 [#-- validate 验证器 --]
 <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.min.js?version=${setting.basic.siteVersion}"></script>
 <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.method.min.js?version=${setting.basic.siteVersion}"></script>
@@ -74,7 +74,7 @@
 <script type="text/javascript" src="${base}/resources/js/login.min.js?version=${setting.basic.siteVersion}"></script>
 <script type="text/javascript" src="${base}/resources/js/YuXinChuangTou.js?version=${setting.basic.siteVersion}"></script>
 [#-- Script 底部 --]
-[#include "/template/include/script_bottom.ftl" /] 
+[#include "/include/script_bottom.ftl" /] 
 </body>
 </html>
 [/@compress]

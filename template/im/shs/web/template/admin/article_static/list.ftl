@@ -2,7 +2,7 @@
 [#-- 公共参数 --]
 [#include "/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
-[#assign indexUrl = baseUrl + "/article_category" /]
+[#assign indexUrl = baseUrl + "/article_static" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -89,19 +89,9 @@
 				        <td>${articleCategory.order}</td>
 				        <td>${articleCategory.createDate?string("yyyy-MM-dd HH:mm:ss")}</td>
 				        <td class="center-left">
-							<a href="${indexUrl}/${articleCategory.id}/edit">
-								<i class="icon-pencil"></i>
-								编辑
-							</a>
-							<br/>
-							<a href="${indexUrl}/delete" class="deleteRow" deleteId="${articleCategory.id}">
-								<i class="icon-remove"></i>
-								删除
-							</a>
-							<br/>
-							<a href="${baseUrl}/article?articleCategoryId=${articleCategory.id}">
-								<i class="icon-eye-open"></i>
-								查看文章
+							<a href="${indexUrl}/${articleCategory.id}/process">
+								<i class="icon-save"></i>
+								静态化HTML
 							</a>
 				        </td>
 				    </tr>

@@ -180,6 +180,7 @@
 							<div class="col-sm-4">
 								<select id="capital_module" class="form-control multi-select" name="auths" multiple="true">
 									<option value="admin:capital">资金管理</option>
+									<option value="admin:platform_capital">平台资金管理</option>
 									<optgroup label="账户管理">
 										<option value="admin:account">账户列表</option>
 										<option value="admin:account_charge">账户扣费</option>
@@ -187,7 +188,9 @@
 									</optgroup>
 									<optgroup label="充值管理">
 										<option value="admin:recharge">充值列表</option>
+										[#--
 										<option value="admin:recharge_modif">充值修改</option>
+										--]
 										<option value="admin:recharge_audit">充值审核</option>
 										<option value="admin:recharge_transfer">充值转账</option>
 										<option value="admin:recharge_cancel">充值取消</option>
@@ -195,7 +198,9 @@
 									</optgroup>
 									<optgroup label="提现管理">
 										<option value="admin:withdrawal">提现列表</option>
+										[#--
 										<option value="admin:withdrawal_modif">提现修改</option>
+										--]
 										<option value="admin:withdrawal_audit">提现审核</option>
 										<option value="admin:withdrawal_transfer">提现转账</option>
 										<option value="admin:withdrawal_cancel">提现取消</option>
@@ -203,7 +208,9 @@
 									</optgroup>
 									<optgroup label="银行卡管理">
 										<option value="admin:bank_card">银行卡列表</option>
+										[#--
 										<option value="admin:bank_card_modif">银行卡修改</option>
+										--]
 										<option value="admin:bank_card_audit">银行卡审核</option>
 										<option value="admin:bank_card_invalid">银行卡作废</option>
 										<option value="admin:bank_card_remedy">银行卡补救</option>

@@ -1,17 +1,17 @@
 [@compress single_line = !systemDevelopment]
 [#-- 公共参数 --]
-[#include "/admin/include/param_common.ftl" /]
+[#include "/template/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
 [#assign indexUrl = baseUrl + "/account" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/admin/include/meta.ftl" /]
+    	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
 		<title>查看账户[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
-    	[#include "/admin/include/link_top.ftl" /]
+    	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- jBreadcrumbs 面包屑 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/breadCrumb/jBreadCrumb.min.css" />
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/breadCrumb/jBreadCrumb.fix.min.css" />
@@ -22,7 +22,7 @@
 			<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.theme.future.min.css" />
 		[/#if]
 		[#-- Link 底部 --]
-    	[#include "/admin/include/link_bottom.ftl" /]
+    	[#include "/template/admin/include/link_bottom.ftl" /]
     </head>
     <body class="contentwrapper">
 
@@ -79,13 +79,13 @@
 			
 					[#-- 基本信息 --]
 					<div id="view_account_basic" class="tab-pane active" tab-id="view_account_basic_tab">
-				    	[#include "/admin/account/view/basic.ftl" /]
+				    	[#include "/template/admin/account/view/basic.ftl" /]
 					</div>
 			
 					[#-- 账户人信息 --]
 					<div id="view_account" class="tab-pane" tab-id="view_account_tab">
 				    	[#assign pers = account /]
-				    	[#include "/admin/pers/view_tab.ftl" /]
+				    	[#include "/template/admin/pers/view_tab.ftl" /]
 					</div>
 			
 				</div>
@@ -103,7 +103,7 @@
     </body>
 		
 	[#-- Script 顶部 --]
-	[#include "/admin/include/script_top.ftl" /]
+	[#include "/template/admin/include/script_top.ftl" /]
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
@@ -121,6 +121,6 @@
 		</script>
 	[/#if]
 	[#-- Script 底部 --]
-	[#include "/admin/include/script_bottom.ftl" /]
+	[#include "/template/admin/include/script_bottom.ftl" /]
 </html>
 [/@compress]

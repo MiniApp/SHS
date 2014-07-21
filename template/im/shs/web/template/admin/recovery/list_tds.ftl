@@ -24,7 +24,7 @@
 	<small>已付服务费：${recovery.paidFee?string("currency")}</small>
 </td>
 <td class="center-left">
-	<small>计划金额：${recovery.countAmount?string("currency")}</small>
+	<small>计算金额：${recovery.countAmount?string("currency")}</small>
 	<hr/>
 	<small>已收金额：${recovery.recoveredAmount?string("currency")}</small>
 </td>
@@ -44,5 +44,19 @@
 	[/#if]
 	<hr/>
 	<small>实际完成日期：${(recovery.finishDate?string("yyyy-MM-dd HH:mm:ss"))!"-"}</small>
+</td>
+<td class="center-left">
+	<small>计算期限：${recovery.overduePeriod}天</small>
+	<br/>
+	<small>计算利息：${recovery.overdueInterest?string("currency")}</small>
+	<hr/>
+	<small>已收利息：${recovery.recoveredOverdueInterest?string("currency")}</small>
+</td>
+<td class="center-left">
+	<small>计算期限：${recovery.seriousOverduePeriod}天</small>
+	<br/>
+	<small>计算利息：${recovery.seriousOverdueInterest?string("currency")}</small>
+	<hr/>
+	<small>已收利息：${recovery.recoveredSeriousOverdueInterest?string("currency")}</small>
 </td>
 <td class="center-left">${message("RecoveryState." + recovery.state)}</td>

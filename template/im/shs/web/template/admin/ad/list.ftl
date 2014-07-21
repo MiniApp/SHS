@@ -1,17 +1,17 @@
 [@compress single_line = !systemDevelopment]
 [#-- 公共参数 --]
-[#include "/admin/include/param_common.ftl" /]
+[#include "/template/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
 [#assign indexUrl = baseUrl + "/ad" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/admin/include/meta.ftl" /]
+    	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
 		<title>广告列表[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
-    	[#include "/admin/include/link_top.ftl" /]
+    	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- jQuery DataTables For Bootstrap 数据表格 --]
 	    <link type="text/css" rel="stylesheet" href="${base}/resources/lib/datatables/dataTables.bootstrap.min.css">
 		[#-- chosen 选择器 --]
@@ -32,7 +32,7 @@
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.min.css" />
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.theme.future.min.css" />	
 		[#-- Link 底部 --]
-    	[#include "/admin/include/link_bottom.ftl" /]
+    	[#include "/template/admin/include/link_bottom.ftl" /]
     </head>
     <body class="contentwrapper">
 
@@ -145,9 +145,9 @@
     </body>
 		
 	[#-- Script 顶部 --]
-	[#include "/admin/include/script_top.ftl" /]
+	[#include "/template/admin/include/script_top.ftl" /]
     [#-- jQuery DataTables 数据表格 --]
-	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.fix.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.min.js"></script>
 	[#-- jQuery DataTables For Bootstrap 数据表格 --]
 	<script type="text/javascript" src="${base}/resources/lib/datatables/jquery.dataTables.bootstrap.min.js"></script>
 	[#-- jQuery DataTables Common Settings 数据表格 - 公共 - 设置 --]
@@ -198,6 +198,6 @@
 		</script>
 	[/#if]
 	[#-- Script 底部 --]
-	[#include "/admin/include/script_bottom.ftl" /]
+	[#include "/template/admin/include/script_bottom.ftl" /]
 </html>
 [/@compress]

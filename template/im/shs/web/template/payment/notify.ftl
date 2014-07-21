@@ -20,7 +20,7 @@
 <div class="content">
 	<div class="rows">
     	<div class="Recharge-success-content">
-			[#if payment.status == "success"]
+			[#if payment.state == "success"]
 				<div class="div-a">
 					<span><img src="${base}/resources/images/Recharge-success.png?version=${setting.basic.siteVersion}" /></span>
 					<label>成功充值<strong>${payment.effectiveAmount?string("currency")}</strong>，资金已到达您的账户。</label>
@@ -28,7 +28,7 @@
 			[#else]
 				<div class="div-a">
 					<span><img src="${base}/resources/images/Recharge-success-no.png?version=${setting.basic.siteVersion}" /></span>
-					<label>充值失败，请您及时联系我们进行处理！</label>
+					<label>充值失败！请及时联系我们&nbsp;${setting.basic.phone}</label>
 				</div>
 			[/#if]
 			<div class="div-c">

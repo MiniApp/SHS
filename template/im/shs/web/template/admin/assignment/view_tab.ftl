@@ -34,29 +34,29 @@
 			
 		[#-- 基本信息 --]
 		<div id="assignment_basic" class="tab-pane active" tab-id="assignment_basic_tab">
-	    	[#include "/admin/assignment/view/basic.ftl" /]
+	    	[#include "/template/admin/assignment/view/basic.ftl" /]
 		</div>
 		
 		[#-- 调查信息 --]
 		<div id="assignment_inquiry" class="tab-pane" tab-id="assignment_inquiry_tab">
-	    	[#include "/admin/assignment/view/inquiry.ftl" /]
+	    	[#include "/template/admin/assignment/view/inquiry.ftl" /]
 		</div>
 		
 		[#-- 担保信息 --]
 		<div id="assignment_guarantee" class="tab-pane" tab-id="assignment_guarantee_tab">
-	    	[#include "/admin/assignment/view/guarantee.ftl" /]
+	    	[#include "/template/admin/assignment/view/guarantee.ftl" /]
 		</div>
 		
 		[#-- 风控信息 --]
 		<div id="assignment_risk_control" class="tab-pane" tab-id="assignment_risk_control_tab">
-	    	[#include "/admin/assignment/view/risk_control.ftl" /]
+	    	[#include "/template/admin/assignment/view/risk_control.ftl" /]
 		</div>
 		
 		[#-- 存在转让材料时 --]
 		[#if assignment.materials]
 			[#-- 材料信息 --]
 			<div id="assignment_materials" class="tab-pane" tab-id="assignment_materials_tab">
-		    	[#include "/admin/assignment/view/material.ftl" /]
+		    	[#include "/template/admin/assignment/view/material.ftl" /]
 			</div>
 		[/#if]
 					
@@ -65,7 +65,7 @@
 			[#-- 意见信息 --]
 			<div id="assignment_opinions" class="tab-pane" tab-id="assignment_opinions_tab">
 				[#assign opinions = assignment.opinions /]
-		    	[#include "/admin/assignment_opinion/view_list.ftl" /]
+		    	[#include "/template/admin/assignment_opinion/view_list.ftl" /]
 			</div>
 		[/#if]
 

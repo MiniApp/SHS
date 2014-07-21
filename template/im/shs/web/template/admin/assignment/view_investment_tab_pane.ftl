@@ -33,25 +33,25 @@
 				[#if assignment.investments?size gt 1]
 					<div id="assignment_investments" class="tab-pane active" tab-id="assignment_investments_tab">
 						[#assign investments = assignment.investments /]
-				    	[#include "/admin/investment/view_list.ftl" /]
+				    	[#include "/template/admin/investment/view_list.ftl" /]
 					</div>
 				[/#if]
 				--]
 				<div id="assignment_investments" class="tab-pane active" tab-id="assignment_investments_tab">
 					[#assign investments = assignment.investments /]
-			    	[#include "/admin/investment/view_list.ftl" /]
+			    	[#include "/template/admin/investment/view_list.ftl" /]
 				</div>
 				
 				[#-- 投资记录 --]
 				<div id="assignment_investment_records" class="tab-pane" tab-id="assignment_investment_records_tab">
 					[#assign investmentRecords = assignment.investmentRecords /]
-			    	[#include "/admin/investment_record/view_list.ftl" /]
+			    	[#include "/template/admin/investment_record/view_list.ftl" /]
 				</div>
 				
 				[#-- 投资资金 --]
 				<div id="assignment_investment_capitals" class="tab-pane" tab-id="assignment_investment_capitals_tab">
 					[#assign capitals = investmentCapitals /]
-			    	[#include "/admin/capital/view_investment_list.ftl" /]
+			    	[#include "/template/admin/capital/view_investment_list.ftl" /]
 				</div>
 		
 			</div>

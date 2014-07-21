@@ -5,6 +5,7 @@
 			[#include "/template/admin/recovery/list_ths.ftl" /]
 		</tr>
 		[#list recoveries as recovery]
+			${recovery.countOverdue()}
 			<tr>
 				[#-- 回收 List TD --]
 				[#include "/template/admin/recovery/list_tds.ftl" /]

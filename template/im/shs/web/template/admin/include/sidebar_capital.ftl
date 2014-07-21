@@ -1,4 +1,4 @@
-[#list ["admin:capital", "admin:account", "admin:account_recharge", "admin:account_charge", "admin:recharge", "admin:recharge_modif", "admin:recharge_audit", "admin:recharge_transfer", "admin:recharge_cancel", "admin:recharge_remedy", "admin:withdrawal", "admin:withdrawal_modif", "admin:withdrawal_audit", "admin:withdrawal_transfer", "admin:withdrawal_cancel", "admin:withdrawal_remedy", "admin:bank_card", "admin:bank_card_modif", "admin:bank_card_audit", "admin:bank_card_invalid", "admin:bank_card_remedy", "admin:referral_fee"] as permission]
+[#list ["admin:capital", "admin:platform_capital", "admin:account", "admin:account_recharge", "admin:account_charge", "admin:recharge", "admin:recharge_modif", "admin:recharge_audit", "admin:recharge_transfer", "admin:recharge_cancel", "admin:recharge_remedy", "admin:withdrawal", "admin:withdrawal_modif", "admin:withdrawal_audit", "admin:withdrawal_transfer", "admin:withdrawal_cancel", "admin:withdrawal_remedy", "admin:bank_card", "admin:bank_card_modif", "admin:bank_card_audit", "admin:bank_card_invalid", "admin:bank_card_remedy", "admin:referral_fee"] as permission]
 [@shiro.hasPermission name = permission]
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -11,14 +11,22 @@
 			<div class="panel-body">
 				<ul class="nav nav-pills nav-stacked">
 				
-					[#-- 资金管理 --]
+					[#-- 用户资金管理 --]
 					[@shiro.hasPermission name="admin:capital"]
-						<li class="nav-header">资金管理</li>
+						<li class="nav-header">用户资金管理</li>
 						<li><a href="${baseUrl}/capital" target="iframe">资金列表</a></li>
 						<li><a href="${baseUrl}/capital/credit" target="iframe">资金收入</a></li>
 						<li><a href="${baseUrl}/capital/debit" target="iframe">资金支出</a></li>
 						<li><a href="${baseUrl}/capital/frozen" target="iframe">资金冻结</a></li>
 						<li><a href="${baseUrl}/capital/unfrozen" target="iframe">资金解冻</a></li>
+					[/@shiro.hasPermission]
+				
+					[#-- 平台资金管理 --]
+					[@shiro.hasPermission name="admin:platform_capital"]
+						<li class="nav-header">平台资金管理</li>
+						<li><a href="${baseUrl}/platform_capital" target="iframe">资金列表</a></li>
+						<li><a href="${baseUrl}/platform_capital?type=credit" target="iframe">资金收入</a></li>
+						<li><a href="${baseUrl}/platform_capital?type=debit" target="iframe">资金支出</a></li>
 					[/@shiro.hasPermission]
 					
 					[#-- 账户管理 --]

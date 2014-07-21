@@ -64,7 +64,7 @@
     	<div class="container">
         	<div class="mark-title">
             	<span class="pull-left">搜索结果</span>
-                <span class="pull-right"><a href="#">收益计算</a></span>
+                <span class="pull-right"><a href="${base}/investment/calculator" target="_blank">收益计算</a></span>
             </div>
             <div class="mark-list">
                 <ul>

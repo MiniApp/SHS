@@ -315,7 +315,7 @@
 	<!-- 配置JCaptcha验证码功能 -->
 	<bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
 		<property name="captchaEngine">
-			<bean class="im.shs.web.captcha.CaptchaEngine" />
+			<bean class="im.shs.web.captcha.GooggleCaptchaEngine" />
 		</property>
 		<!-- 验证码过期时间 -->
 		<property name="minGuarantedStorageDelayInSeconds" value="3600" />

@@ -2,13 +2,13 @@
 <p2p>
 
 	
-	<basicSetting name="siteName" value="裕信创投" />
+	<basicSetting name="siteName" value="好豆子" />
 	<basicSetting name="siteUrl" value="http://localhost:8080/SHS" />
 	<basicSetting name="siteLogo" value="/upload/image/logo.gif" />
 	<basicSetting name="address" value="成都市高新区天晖路360号" />
 	<basicSetting name="phone" value="028-8332709" />
 	<basicSetting name="zipCode" value="610000" />
-	<basicSetting name="email" value="admin@yuxinct.com" />
+	<basicSetting name="email" value="im@shs.im" />
 	<basicSetting name="certtext" value="蜀ICP备14013065号" />
 	<basicSetting name="siteEnabled" value="true" />
 	<basicSetting name="siteVersion" value="140707" />

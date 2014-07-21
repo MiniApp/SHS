@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @description: 基本设置
  *
  * @author suhao
- * @date 2014年7月12日 下午10:39:17
+ * @date 2014年7月19日 下午10:36:50
  * @version 1.0
  */
 public class BasicSetting implements Serializable {

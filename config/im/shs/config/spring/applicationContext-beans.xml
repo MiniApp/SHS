@@ -36,28 +36,37 @@
 
 	<!-- c3p0 数据源 -->
 	<!-- destroy-method：销毁时调用方法 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-		<!-- 驱动Class -->
-		<property name="driverClass" value="${jdbc.driver}" />
-		<!-- URL -->
-		<property name="jdbcUrl" value="${jdbc.url}" />
-		<!-- 用户名 -->
-		<property name="user" value="${jdbc.username}" />
-		<!-- 密码 -->
-		<property name="password" value="${jdbc.password}" />
-		<!-- 初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default：3 -->
-		<property name="initialPoolSize" value="${connection_pools.initial_pool_size}" />
-		<!-- 连接池中保留的最小连接数。 -->
-		<property name="minPoolSize" value="${connection_pools.min_pool_size}" />
-		<!-- 连接池中保留的最大连接数。Default：15 -->
-		<property name="maxPoolSize" value="${connection_pools.max_pool_size}" />
-		<!-- 最大空闲时间，60秒内未使用则连接被丢弃，若为0则永不丢弃。Default：0 -->
-		<property name="maxIdleTime" value="${connection_pools.max_idle_time}" />
-		<!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default：3 -->
-		<property name="acquireIncrement" value="${connection_pools.acquire_increment}" />
-		<!-- 当连接池用完时客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException，如设为0则无限期等待。单位毫秒，Default：0 -->
-		<property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />
-	</bean>
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 基本属性 url、username、password -->
+        <property name="url" value="${connection.url}"/>
+        <property name="username" value="${connection.username}"/>
+        <property name="password" value="${connection.password}"/>
+
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${druid.initialSize}"/>
+        <property name="minIdle" value="${druid.minIdle}"/>
+        <property name="maxActive" value="${druid.maxActive}"/>
+
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${druid.maxWait}"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}" />
+
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}" />
+
+        <property name="validationQuery" value="${druid.validationQuery}" />
+        <property name="testWhileIdle" value="${druid.testWhileIdle}" />
+        <property name="testOnBorrow" value="${druid.testOnBorrow}" />
+        <property name="testOnReturn" value="${druid.testOnReturn}" />
+
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。-->
+        <property name="poolPreparedStatements" value="${druid.poolPreparedStatements}" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${druid.maxPoolPreparedStatementPerConnectionSize}" />
+
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="${druid.filters}" />
+    </bean>
 
 	<!-- 配置 JPA 实体管理器工厂 -->
 	<!-- 用于创建会话/实体管理器的工厂类 -->
@@ -120,15 +129,80 @@
 			</props>
 		</property>
 	</bean>
-
-	<!-- 配置事务管理器 -->
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<!-- JPA 实体管理器工厂（转交事务管理给Spring） -->
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	
+	<!-- 配置mybitasSqlSessionFactoryBean -->
+	<bean name="paginationInterceptor" class="im.shs.base.interceptor.PaginationInterceptor"></bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="im.shs.bean" />
+		<property name="plugins">
+			<list>
+				<ref bean="paginationInterceptor" />
+			</list>
+		</property>
+		<property name="configLocation"
+			value="classpath:im/shs/config/mybatis/sql-map-config.xml"></property>
 	</bean>
 
+	<!-- 配置SqlSessionTemplate -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<!-- <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> -->
+		<!-- JPA 实体管理器工厂（转交事务管理给Spring） -->
+		<!-- <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
+	<!-- </bean> -->
+
 	<!-- 使用注解方式定义事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<aop:config>
+		<aop:pointcut id="txWebServiceMethods" expression="execution(* im.shs.web.service..*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txWebServiceMethods" />
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="merge*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED"/>
+			<tx:method name="persist*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="upload*" propagation="REQUIRED" />
+			<tx:method name="assige*" propagation="REQUIRED" />
+			<tx:method name="associate*" propagation="REQUIRED" />
+			<tx:method name="submit*" propagation="REQUIRED" />
+			<tx:method name="cancel*" propagation="REQUIRED" />
+			<tx:method name="rollBack*" propagation="REQUIRED" />
+			<tx:method name="commit*" propagation="REQUIRED" />
+			<tx:method name="test*" propagation="REQUIRED" />
+			<tx:method name="publish*" propagation="REQUIRED" />
+			<tx:method name="invalidate*" propagation="REQUIRED" />
+			<tx:method name="record*" propagation="REQUIRED" />
+			<tx:method name="run*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="agree*" propagation="REQUIRED" />
+			<tx:method name="refuse*" propagation="REQUIRED" />
+			<tx:method name="forward*" propagation="REQUIRED" />
+			<tx:method name="set*" propagation="REQUIRED" />
+			<tx:method name="batch*" propagation="REQUIRED" />
+			<tx:method name="send*" propagation="REQUIRED" />
+			<tx:method name="customer*" propagation="REQUIRED" />
+			<tx:method name="apply*" propagation="REQUIRED" />
+			<tx:method name="execute*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
 
 	<!-- 配置缓存集成 -->
 	<cache:annotation-driven cache-manager="cacheManager" />

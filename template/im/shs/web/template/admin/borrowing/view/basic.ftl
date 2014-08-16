@@ -1,15 +1,3 @@
-[#-- 借款进度 --]
-<div class="form-group">
-	<label class="col-sm-2 control-label">
-		借款进度
-	</label>
-	<div class="col-sm-4">
-		<p class="form-control-static">
-			<strong>${message("BorrowingProgress." + borrowing.progress)}</strong>
-		</p>
-	</div>
-</div>
-
 [#-- 借款状态 --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
@@ -17,7 +5,7 @@
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">
-			<strong>${message("BorrowingState." + borrowing.state)}</strong>
+			<strong>${message("BorrowingProgressState." + borrowing.progress + "." + borrowing.state)}</strong>
 		</p>
 	</div>
 </div>
@@ -46,14 +34,20 @@
 	</div>
 </div>
 
-[#-- 借款金额（元） --]
+[#-- 借款金额 --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
-		借款金额（元）
+		借款金额
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">
-			<strong>${(borrowing.amount?string("currency"))!"-"}</strong>
+			<strong>
+				[#if borrowing.amount??]
+					${borrowing.amount?string("currency")}
+				[#else]
+					-
+				[/#if]
+			</strong>
 		</p>
 	</div>
 </div>
@@ -70,14 +64,20 @@
 	</div>
 </div>
 
-[#-- 借款期限（月） --]
+[#-- 借款期限 --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
-		借款期限（月）
+		借款期限
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">
-			<strong>${borrowing.period!"-"}</strong>
+			<strong>
+				[#if borrowing.period??]
+					${borrowing.period}个月
+				[#else]
+					-
+				[/#if]
+			</strong>
 		</p>
 	</div>
 </div>
@@ -94,14 +94,20 @@
 	</div>
 </div>
 
-[#-- 借款利率（%/年） --]
+[#-- 借款利率 --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
-		借款利率（%/年）
+		借款利率
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">
-			<strong>${borrowing.interestRate!"-"}</strong>
+			<strong>
+				[#if borrowing.interestRate??]
+					${borrowing.interestRate}%/年
+				[#else]
+					-
+				[/#if]
+			</strong>
 		</p>
 	</div>
 </div>
@@ -130,10 +136,10 @@
 	</div>
 </div>
 
-[#-- 申请日期 --]
+[#-- 创建日期 --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
-		申请日期
+		创建日期
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">
@@ -142,10 +148,10 @@
 	</div>
 </div>
 
-[#-- 申请IP --]
+[#-- 创建IP --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
-		申请IP
+		创建IP
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">

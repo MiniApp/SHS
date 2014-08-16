@@ -33,8 +33,8 @@ import javax.validation.constraints.Min;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_investment")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_investment_sequence")
+@Table(name = "shs_investment")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_investment_sequence")
 public class InvestmentEntity extends BaseEntity {
 
     /** serialVersionUID */

@@ -30,8 +30,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_recovery_plan")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_recovery_plan_sequence")
+@Table(name = "shs_recovery_plan")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_recovery_plan_sequence")
 public class RecoveryPlanEntity extends BaseEntity {
 
     /** serialVersionUID */

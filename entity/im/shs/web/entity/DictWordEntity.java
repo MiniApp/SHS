@@ -23,8 +23,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_dict_word")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_dict_word_sequence")
+@Table(name = "shs_dict_word")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_dict_word_sequence")
 public class DictWordEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

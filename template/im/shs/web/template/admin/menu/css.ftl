@@ -158,7 +158,7 @@ html.menu div.sidebar .nav-header {
 	color: #999999;
 	display: block;
 	font-size: 13px;
-	letter-spacing: 1px
+	letter-spacing: 1px;
 	line-height: 20px;
 	padding: 3px 20px 3px 3px;
 	text-transform: uppercase;

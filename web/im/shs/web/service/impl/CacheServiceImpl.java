@@ -58,7 +58,7 @@ public class CacheServiceImpl implements CacheService {
 
     @Override
     @CacheEvict(value = { "setting", "authorization", "logConfig", "area", "bank", "bankBranch", "dict", "dictWord",
-            "template", "adPosition", "ad", "friendLink", "articleCategory", "article" }, allEntries = true)
+            "template", /*"adPosition", "ad",*/ "friendLink", "articleCategory", "article" }, allEntries = true)
     public void clear() {
         reloadableResourceBundleMessageSource.clearCache();
         try {

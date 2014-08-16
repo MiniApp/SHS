@@ -1,17 +1,17 @@
 [@compress single_line = !systemDevelopment]
 [#-- 公共参数 --]
-[#include "/template/admin/include/param_common.ftl" /]
+[#include "/admin/include/param_common.ftl" /]
 [#-- 索引URL --]
 [#assign indexUrl = baseUrl + "/article_category" /]
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		[#-- meta 标签 --]
-    	[#include "/template/admin/include/meta.ftl" /]
+    	[#include "/admin/include/meta.ftl" /]
 		[#-- 标题 --]
 		<title>添加文章分类[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
-    	[#include "/template/admin/include/link_top.ftl" /]
+    	[#include "/admin/include/link_top.ftl" /]
 		[#-- validate 验证器 --]
 		<link type="text/css" rel="stylesheet" href="${base}/resources/lib/validate/validate.min.css" />
 		[#-- jBreadcrumbs 面包屑 --]
@@ -26,7 +26,7 @@
 			<link type="text/css" rel="stylesheet" href="${base}/resources/lib/messenger/messenger.theme.future.min.css" />
 		[/#if]
 		[#-- Link 底部 --]
-    	[#include "/template/admin/include/link_bottom.ftl" /]
+    	[#include "/admin/include/link_bottom.ftl" /]
     </head>
     <body class="contentwrapper">
 
@@ -144,7 +144,7 @@
 					
 					[#-- 页面信息 --]
 					<div id="seo" class="tab-pane" tab-id="seo_tab">
-						[#include "/template/admin/seo/add.ftl" /]
+						[#include "/admin/seo/add.ftl" /]
 					</div>
 					
 				</div>
@@ -162,7 +162,7 @@
     </body>
 		
 	[#-- Script 顶部 --]
-	[#include "/template/admin/include/script_top.ftl" /]
+	[#include "/admin/include/script_top.ftl" /]
 	[#-- validate 验证器 --]
     <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/validate/jquery.validate.method.min.js"></script>
@@ -174,13 +174,13 @@
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.common.min.js"></script>
     [#-- validate For Hint 验证器提示 --]
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.validate.min.js"></script>
-	[#-- article.category.add 文章分类添加 --]
+	[#-- article_category.add 文章分类添加 --]
 	[#if parent??]
 		<script type="text/javascript">
 			var parentId = "${parent.id}";
 		</script>
 	[/#if]
-	<script type="text/javascript" src="${base}/resources/admin/js/article.category.add.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/article_category.add.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]
@@ -195,6 +195,6 @@
 		</script>
 	[/#if]
 	[#-- Script 底部 --]
-	[#include "/template/admin/include/script_bottom.ftl" /]
+	[#include "/admin/include/script_bottom.ftl" /]
 </html>
 [/@compress]

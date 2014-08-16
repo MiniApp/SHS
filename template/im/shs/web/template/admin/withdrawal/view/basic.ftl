@@ -58,10 +58,10 @@
 	</div>
 </div>
 
-[#-- 手续费 --]
+[#-- 服务费 --]
 <div class="form-group">
 	<label class="col-sm-2 control-label">
-		手续费
+		服务费
 	</label>
 	<div class="col-sm-4">
 		<p class="form-control-static">

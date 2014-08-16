@@ -29,8 +29,8 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_admin")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_admin_sequence")
+@Table(name = "shs_admin")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_admin_sequence")
 public class AdminEntity extends BaseEntity {
 
     /** serialVersionUID */
@@ -180,7 +180,7 @@ public class AdminEntity extends BaseEntity {
 
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "p2p_admins_roles")
+    @JoinTable(name = "shs_admins_roles")
     public Set<RoleEntity> getRoles() {
         return roles;
     }

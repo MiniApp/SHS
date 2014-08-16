@@ -22,8 +22,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_friend_link")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_friend_link_sequence")
+@Table(name = "shs_friend_link")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_friend_link_sequence")
 public class FriendLinkEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

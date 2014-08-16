@@ -18,8 +18,8 @@ import javax.persistence.Table;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_sn")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_sn_sequence")
+@Table(name = "shs_sn")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_sn_sequence")
 public class SnEntity extends BaseEntity {
 
     /** serialVersionUID */

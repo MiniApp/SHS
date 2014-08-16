@@ -43,8 +43,8 @@ import org.hibernate.validator.constraints.Length;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_member")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_member_sequence")
+@Table(name = "shs_member")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_member_sequence")
 public class MemberEntity extends BaseEntity {
 
     /** serialVersionUID */

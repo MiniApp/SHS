@@ -48,7 +48,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${dict.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 			
 			[#-- 名称 --]
 			<div class="form-group">

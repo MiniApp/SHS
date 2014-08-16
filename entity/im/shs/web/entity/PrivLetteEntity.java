@@ -25,8 +25,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_priv_lette")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_priv_lette_sequence")
+@Table(name = "shs_priv_lette")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_priv_lette_sequence")
 public class PrivLetteEntity extends BaseEntity {
 
     /** serialVersionUID */

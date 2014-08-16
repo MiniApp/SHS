@@ -25,8 +25,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_plugin_config")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_plugin_config_sequence")
+@Table(name = "shs_plugin_config")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_plugin_config_sequence")
 public class PluginConfigEntity extends BaseOrderEntity {
 
     /** serialVersionUID */
@@ -60,7 +60,7 @@ public class PluginConfigEntity extends BaseOrderEntity {
     }
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "p2p_plugin_config_attribute", joinColumns = @JoinColumn(name = "plugin_config"))
+    @CollectionTable(name = "shs_plugin_config_attribute", joinColumns = @JoinColumn(name = "plugin_config"))
     @MapKeyColumn(name = "name")
     @Column(columnDefinition="varchar(1000)")
     public Map<String, String> getAttributes() {

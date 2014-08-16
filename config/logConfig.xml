@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logConfigs>
+	
+	<!-- 系统设置日志 -->
+	<logConfig operation="系统设置" urlPattern="/admin/setting" methodPattern="POST" />
+	
+	<!-- 日志 -->
+	<logConfig operation="添加管理员" urlPattern="/admin/admin/create" methodPattern="POST" />
+	<logConfig operation="编辑管理员" urlPattern="/admin/admin/*" methodPattern="PUT" />
+	<logConfig operation="删除管理员" urlPattern="/admin/admin/batch_delete" methodPattern="DELETE" />
+	
+	<!-- 会员日志 -->
+	<logConfig operation="添加会员" urlPattern="/admin/member/create" methodPattern="POST" />
+	<logConfig operation="编辑会员" urlPattern="/admin/member/*" methodPattern="PUT" />
+	<logConfig operation="删除会员" urlPattern="/admin/member/batch_delete" methodPattern="DELETE" />
+	
+</logConfigs>

@@ -12,7 +12,7 @@ import javax.persistence.PreUpdate;
  * @description: 创建日期、修改日期处理
  *
  * @author suhao
- * @date 2014年7月13日 上午10:45:28
+ * @date 2014年7月16日 下午10:08:31
  * @version 1.0
  */
 public class EntityListener {

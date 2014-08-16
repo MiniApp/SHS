@@ -166,11 +166,11 @@
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.common.min.js"></script>
     [#-- validate For Hint 验证器提示 --]
     <script type="text/javascript" src="${base}/resources/lib/hint/hint.validate.min.js"></script>
-	[#-- bank.card.modif 银行卡修改 --]
+	[#-- bank_card.modif 银行卡修改 --]
 	<script type="text/javascript">
 		var previousCard = "${bankCard.card}";
 	</script>
-	<script type="text/javascript" src="${base}/resources/admin/js/bank.card.modif.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/bank_card.modif.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

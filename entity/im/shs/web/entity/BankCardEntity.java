@@ -31,8 +31,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_bank_card")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_bank_card_sequence")
+@Table(name = "shs_bank_card")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_bank_card_sequence")
 public class BankCardEntity extends BaseEntity {
 
     /** serialVersionUID */

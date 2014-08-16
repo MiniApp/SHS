@@ -21,10 +21,10 @@
 				<a id="borrowing_materials_tab" href="#borrowing_materials" data-toggle="tab">材料信息</a>
 			</li>
 		[/#if]
-		[#-- 存在借款日志时 --]
-		[#if borrowing.logs?size gt 0]
+		[#-- 存在借款意见时 --]
+		[#if borrowing.opinions?size gt 0]
 			<li>
-				<a id="borrowing_logs_tab" href="#borrowing_logs" data-toggle="tab">日志信息</a>
+				<a id="borrowing_opinions_tab" href="#borrowing_opinions" data-toggle="tab">意见信息</a>
 			</li>
 		[/#if]
 	</ul>
@@ -60,12 +60,12 @@
 			</div>
 		[/#if]
 					
-		[#-- 存在借款日志时 --]
-		[#if borrowing.logs?size gt 0]
-			[#-- 日志信息 --]
-			<div id="borrowing_logs" class="tab-pane" tab-id="borrowing_logs_tab">
-				[#assign logs = borrowing.logs /]
-		    	[#include "/template/admin/borrowing_log/view_list.ftl" /]
+		[#-- 存在借款意见时 --]
+		[#if borrowing.opinions?size gt 0]
+			[#-- 意见信息 --]
+			<div id="borrowing_opinions" class="tab-pane" tab-id="borrowing_opinions_tab">
+				[#assign opinions = borrowing.opinions /]
+		    	[#include "/template/admin/borrowing_opinion/view_list.ftl" /]
 			</div>
 		[/#if]
 

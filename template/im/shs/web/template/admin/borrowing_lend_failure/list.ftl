@@ -9,7 +9,7 @@
 		[#-- meta 标签 --]
     	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
-		<title>出借失败的借款[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
+		<title>出借已失败的借款列表[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
     	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- jQuery DataTables For Bootstrap 数据表格 --]
@@ -43,7 +43,7 @@
 					借款失败管理
 				</li>
 				<li>
-					出借失败的借款
+					出借已失败的借款列表
 				</li>
 			</ul>
 		</div>

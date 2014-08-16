@@ -9,7 +9,7 @@
 		[#-- meta 标签 --]
     	[#include "/template/admin/include/meta.ftl" /]
 		[#-- 标题 --]
-		<title>待出借的借款[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
+		<title>待出借的借款列表[#if systemPowered] - Powered By ICLNetwork[/#if]</title>
 		[#-- Link 顶部 --]
     	[#include "/template/admin/include/link_top.ftl" /]
 		[#-- jQuery DataTables For Bootstrap 数据表格 --]
@@ -43,7 +43,7 @@
 					借款筹备管理
 				</li>
 				<li>
-					待出借的借款
+					待出借的借款列表
 				</li>
 			</ul>
 		</div>

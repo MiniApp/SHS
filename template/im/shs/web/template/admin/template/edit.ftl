@@ -51,7 +51,6 @@
 					
 		[#-- 表单 --]
 		<form id="inputForm" class="form-horizontal" action="${indexUrl}/${template.id}" method="post">
-			<input type="hidden" name="_method" value="put" />
 			
 			[#-- 类型 --]
 			<div class="form-group">

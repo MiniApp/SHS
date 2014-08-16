@@ -215,9 +215,9 @@
     	var dataTableSettings = {
 	    	"aaSorting": [
 	    		[#if !state??]
-	    			[10, "asc"]
+	    			[10, "desc"]
 	    		[#else]
-	    			[9, "asc"]
+	    			[9, "desc"]
 	    		[/#if]
 			],
     		"aoColumns": [

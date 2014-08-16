@@ -1,0 +1,2 @@
+<link rel="stylesheet" type="text/css" href="${base}/resources/css/style.css?version=${setting.basic.siteVersion}"/>
+<link rel="stylesheet" type="text/css" href="${base}/resources/css/common.css?version=${setting.basic.siteVersion}"/>

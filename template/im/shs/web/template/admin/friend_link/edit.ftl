@@ -140,11 +140,11 @@
 	[#-- jBreadcrumbs 面包屑 --]
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.min.js"></script>
     <script type="text/javascript" src="${base}/resources/lib/breadCrumb/jquery.jBreadCrumb.common.min.js"></script>
-	[#-- friend.link.edit 友情链接编辑 --]
+	[#-- friend_link.edit 友情链接编辑 --]
 	<script type="text/javascript">
 		var friendLinkType = "${friendLinkType}", previousName = "${friendLink.name}";
 	</script>
-	<script type="text/javascript" src="${base}/resources/admin/js/friend.link.edit.min.js"></script>
+	<script type="text/javascript" src="${base}/resources/admin/js/friend_link.edit.min.js"></script>
     [#-- 有瞬时消息时 --]
 	[#if flashMessage != null]
 	    [#-- HubSpot Messenger 弹框（Alert）组件库 --]

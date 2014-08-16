@@ -9,14 +9,12 @@
 		<li>
 			<a id="pers_family_tab" href="#pers_family" data-toggle="tab">家庭信息</a>
 		</li>
-		
 		[#-- 非法人代表时 --]
 		[#if !pers.corporator && !corporator]
 			<li>
 				<a id="pers_work_tab" href="#pers_work" data-toggle="tab">工作信息</a>
 			</li>
 		[/#if]
-		
 		<li>
 			<a id="pers_asset_tab" href="#pers_asset" data-toggle="tab">资产信息</a>
 		</li>

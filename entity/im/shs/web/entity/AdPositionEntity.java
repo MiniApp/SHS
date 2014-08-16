@@ -29,8 +29,8 @@ import org.hibernate.validator.constraints.NotBlank;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_ad_position")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_ad_position_sequence")
+@Table(name = "shs_ad_position")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_ad_position_sequence")
 public class AdPositionEntity extends BaseEntity {
 
     /** serialVersionUID */

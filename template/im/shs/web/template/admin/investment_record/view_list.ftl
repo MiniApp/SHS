@@ -6,7 +6,7 @@
 				<th>投资人</th>
 				<th>金额</th>
 				<th>方式</th>
-				<th>日期/IP</th>
+				<th>创建</th>
 			</tr>
 			[#list investmentRecords as investmentRecord]
 				<tr>
@@ -15,9 +15,17 @@
 					<td>${investmentRecord.amount?string("currency")}</td>
 					<td>${message("OperationMethod." + investmentRecord.operationMethod)}</td>
 					<td>
-						${investmentRecord.createDate?string("yyyy-MM-dd HH:mm:ss")}
-						<br/>
-						${investmentRecord.ip!"-"}
+						[#if investmentRecord.createDate?? || investmentRecord.ip??]
+							[#if investmentRecord.createDate??]
+								<small>日期：${investmentRecord.createDate?string("yyyy-MM-dd HH:mm:ss")}</small>
+							[/#if]
+							[#if investmentRecord.ip??]
+								<br/>
+								<small>IP：${investmentRecord.ip}</small>
+							[/#if]
+						[#else]
+							-
+						[/#if]
 					</td>
 				</tr>
 			[/#list]

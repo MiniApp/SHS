@@ -8,13 +8,19 @@ import im.shs.web.AuthenticationMessage;
 import im.shs.web.Message;
 import im.shs.web.enums.AccountLockTypeEnum;
 import im.shs.web.filter.AuthenticationFilter;
+import im.shs.web.service.AdminService;
+import im.shs.web.service.CaptchaService;
 import im.shs.web.service.RSAService;
 import im.shs.web.setting.security.SecuritySetting;
 import im.shs.web.util.SettingUtils;
 
+import java.security.interfaces.RSAPublicKey;
+import java.util.UUID;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
@@ -34,22 +40,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/admin/login")
 public class LoginController {
 
+	@Resource(name = "adminServiceImpl")
+    private AdminService adminService;
 
     @Resource(name = "rsaServiceImpl")
     private RSAService rsaService;
 
-	/**
-	 * @description: 登录
-	 * 
-	 * @author suhao
-	 * @since 2014年7月12日下午9:08:26
-	 */
+    @Resource(name = "captchaServiceImpl")
+    private CaptchaService captchaService;
+
+    /**
+     * 登录
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String login(HttpServletRequest request, ModelMap model) {
 
+        // 管理员已登录时，跳转值管理中心
+        if (adminService.authorized()) {
+            return "redirect:/admin";
+        }
+
+        // 密钥
+        RSAPublicKey publicKey = rsaService.generateKey(request);
+
+        model.addAttribute("captchaId", UUID.randomUUID().toString());
+        model.addAttribute("modulus", Base64.encodeBase64String(publicKey.getModulus().toByteArray()));
+        model.addAttribute("exponent", Base64.encodeBase64String(publicKey.getPublicExponent().toByteArray()));
+
         return "/admin/login/index";
     }
-    
+
     /**
      * 登录
      */
@@ -89,5 +109,4 @@ public class LoginController {
         }
         return AuthenticationMessage.error("登录失败", rsaService.generateKey(request));
     }
-
 }

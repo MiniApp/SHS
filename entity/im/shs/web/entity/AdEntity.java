@@ -31,8 +31,8 @@ import org.hibernate.validator.constraints.URL;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_ad")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_ad_sequence")
+@Table(name = "shs_ad")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_ad_sequence")
 public class AdEntity extends BaseOrderEntity {
 
     /** serialVersionUID */

@@ -30,8 +30,8 @@ import javax.persistence.Transient;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_escrow")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_escrow_sequence")
+@Table(name = "shs_escrow")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_escrow_sequence")
 public class EscrowEntity extends BaseEntity {
 
     /** serialVersionUID */

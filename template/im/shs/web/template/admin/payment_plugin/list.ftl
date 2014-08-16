@@ -63,17 +63,17 @@
 			<tbody>
 				[#list list as plugin]
 				    <tr>
-				        <td>
+				        <td class="center-left">
 							[#if plugin.siteUrl??]
 								<a href="${plugin.siteUrl}" target="_blank">${plugin.name}</a>
 							[#else]
 								${plugin.name}
 							[/#if]
 				        </td>
-				        <td>${plugin.version!"-"}</td>
-				        <td>${plugin.author!"-"}</td>
-				        <td>${plugin.enabled?string("是", "否")}</td>
-				        <td>${plugin.order!"-"}</td>
+				        <td class="center-left">${plugin.version!"-"}</td>
+				        <td class="center-left">${plugin.author!"-"}</td>
+				        <td class="center-left">${plugin.enabled?string("是", "否")}</td>
+				        <td class="center-left">${plugin.order!"-"}</td>
 				        <td class="center-left">
 							[#if plugin.installed]
 								[#if plugin.settingUrl??]

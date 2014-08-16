@@ -25,41 +25,38 @@ $().ready(function() {
 			},
 			period: {
 				required: true,
-				integer: true,
-				min: 1
+				positiveInteger: true
 			},
 			interestRate: {
 				required: true,
 				positive: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			description: "required",
 			[#--
-			borrowingDate: "required",
-			borrowingCorp: "required",
-			--]
 			purpose: "required",
 			repaymentInquiry: "required",
+			--]
 			guaranteeCapital: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 12,
 					fraction: ${setting.security.amountScale}
 				}
 			},
+			[#--
 			riskAnalysis: "required",
+			--]
 			riskDegree: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			creditRating: "required",
@@ -73,96 +70,67 @@ $().ready(function() {
 				}
 			},
 			investmentMaximum: {
-				number: true,
-				min: 0,
+				positive: true,
 				decimal: {
 					integer: 12,
 					fraction: ${setting.security.amountScale}
 				}
 			},
 			investmentPeriod: {
-				digits: true
+				positiveInteger: true
 			},
 			lendingTime: "required",
 			repaymentMethod: "required",
-			prepaymentDefaultPeriod: {
-				required: true,
-				digits: true
-			},
 			prepaymentFeeRate: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			feeRate: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			repaymentFeeRate: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			recoveryFeeRate: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			overdueInterestRate: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
-				}
-			},
-			overdueFeeRate: {
-				required: true,
-				number: true,
-				min: 0,
-				decimal: {
-					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			seriousOverdueStartPeriod: {
 				required: true,
-				digits: true
+				positiveInteger: true
 			},
 			seriousOverdueInterestRate: {
 				required: true,
-				number: true,
-				min: 0,
+				nonnegativeNumber: true,
 				decimal: {
 					integer: 2,
-					fraction: 2
-				}
-			},
-			seriousOverdueFeeRate: {
-				required: true,
-				number: true,
-				min: 0,
-				decimal: {
-					integer: 2,
-					fraction: 2
+					fraction: 3
 				}
 			},
 			inquired: "required",
@@ -176,13 +144,7 @@ $().ready(function() {
 		$validate.element(this);
 	});
 	
-	[#-- datetimepicker 日期选择器 - 修复验证 --]
-	var $datetimepicker = $(".datetimepicker");
-	$datetimepicker.change(function() {
-		$validate.element(this);
-	});
-	
 	[#-- 借款材料 --]
-	[#include "/template/admin/borrowing_apply/apply/material_js.ftl" /]
+	[#include "/admin/borrowing_apply/apply/material_js.ftl" /]
 	
 });

@@ -1,31 +1,9 @@
-[#--
-[#-- 借款日期 --\]
-<div class="form-group">
-	<label for="borrowingDate" class="col-sm-2 control-label">
-		<span class="required">*</span>
-		借款日期
-	</label>
-	<div class="col-sm-4">
-		<input id="borrowingDate" class="form-control datetimepicker datetimepicker-yyyy-MM-dd" type="text" name="borrowingDate" />
-	</div>
-</div>
-
-[#-- 借款公司 --\]
-<div class="form-group">
-	<label for="borrowingCorp" class="col-sm-2 control-label">
-		<span class="required">*</span>
-		借款公司
-	</label>
-	<div class="col-sm-4">
-		<input id="borrowingCorp" class="form-control" type="text" name="borrowingCorp" maxlength="200" autocomplete="off" />
-	</div>
-</div>
---]
-
 [#-- 借款用途 --]
 <div class="form-group">
 	<label for="purpose" class="col-sm-2 control-label">
+		[#--
 		<span class="required">*</span>
+		--]
 		借款用途
 	</label>
 	<div class="col-sm-4">
@@ -56,7 +34,9 @@
 [#-- 还款调查 --]
 <div class="form-group">
 	<label for="repaymentInquiry" class="col-sm-2 control-label">
+		[#--
 		<span class="required">*</span>
+		--]
 		还款调查
 	</label>
 	<div class="col-sm-4">

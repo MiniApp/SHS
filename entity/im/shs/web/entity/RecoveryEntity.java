@@ -35,8 +35,8 @@ import javax.validation.constraints.Min;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_recovery")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_recovery_sequence")
+@Table(name = "shs_recovery")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_recovery_sequence")
 public class RecoveryEntity extends BaseEntity {
 
     /** serialVersionUID */

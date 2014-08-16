@@ -1,7 +1,9 @@
 [#-- 风险分析 --]
 <div class="form-group">
 	<label for="riskAnalysis" class="col-sm-2 control-label">
+		[#--
 		<span class="required">*</span>
+		--]
 		风险分析
 	</label>
 	<div class="col-sm-4">
@@ -112,7 +114,7 @@
 			[/#list]
 			--]
 			[#assign lendingTime = borrowing.lendingTime!"after_audit" /]
-			<option value="${lendingTime}">${message("LendingTime." + lendingTime)}</option>
+			<option value="${lendingTime}"[#if borrowing.lendingTime == lendingTime] selected="selected"[/#if]>${message("LendingTime." + lendingTime)}</option>
 		</select>
 	</div>
 </div>
@@ -134,21 +136,8 @@
 	</div>
 </div>
 
-<input type="hidden" name="prepaymentDefaultPeriod" value="0" />
 <input type="hidden" name="prepaymentFeeRate" value="0" />
 [#--
-[#-- 提前还款违约期数 --\]
-<div class="form-group">
-	<label for="prepaymentDefaultPeriod" class="col-sm-2 control-label">
-		<span class="required">*</span>
-		提前还款违约期数
-	</label>
-	<div class="input-group col-sm-4">
-		<input id="prepaymentDefaultPeriod" class="form-control" type="text" name="prepaymentDefaultPeriod" value="${borrowing.prepaymentDefaultPeriod}" maxlength="20" autocomplete="off" />
-		<label class="input-group-addon">期</label>
-	</div>
-</div>
-
 [#-- 提前还款费率 --\]
 <div class="form-group">
 	<label for="prepaymentFeeRate" class="col-sm-2 control-label">
@@ -205,19 +194,7 @@
 		逾期利率
 	</label>
 	<div class="input-group col-sm-4">
-		<input id="overdueInterestRate" class="form-control" type="text" name="overdueInterestRate" value="${borrowing.repaymentOverdueInterestRate}" maxlength="20" autocomplete="off" />
-		<label class="input-group-addon">%/天</label>
-	</div>
-</div>
-
-[#-- 逾期服务费率 --]
-<div class="form-group">
-	<label for="overdueFeeRate" class="col-sm-2 control-label">
-		<span class="required">*</span>
-		逾期服务费率
-	</label>
-	<div class="input-group col-sm-4">
-		<input id="overdueFeeRate" class="form-control" type="text" name="overdueFeeRate" value="${borrowing.repaymentOverdueFeeRate}" maxlength="20" autocomplete="off" />
+		<input id="overdueInterestRate" class="form-control" type="text" name="overdueInterestRate" value="${borrowing.overdueInterestRate}" maxlength="20" autocomplete="off" />
 		<label class="input-group-addon">%/天</label>
 	</div>
 </div>
@@ -229,7 +206,7 @@
 		严重逾期开始期限
 	</label>
 	<div class="input-group col-sm-4">
-		<input id="seriousOverdueStartPeriod" class="form-control" type="text" name="seriousOverdueStartPeriod" value="${borrowing.repaymentSeriousOverdueStartPeriod}" maxlength="20" autocomplete="off" />
+		<input id="seriousOverdueStartPeriod" class="form-control" type="text" name="seriousOverdueStartPeriod" value="${borrowing.seriousOverdueStartPeriod}" maxlength="20" autocomplete="off" />
 		<label class="input-group-addon">天</label>
 	</div>
 </div>
@@ -241,19 +218,7 @@
 		严重逾期利率
 	</label>
 	<div class="input-group col-sm-4">
-		<input id="seriousOverdueInterestRate" class="form-control" type="text" name="seriousOverdueInterestRate" value="${borrowing.repaymentSeriousOverdueInterestRate}" maxlength="20" autocomplete="off" />
-		<label class="input-group-addon">%/天</label>
-	</div>
-</div>
-
-[#-- 严重逾期服务费率 --]
-<div class="form-group">
-	<label for="seriousOverdueFeeRate" class="col-sm-2 control-label">
-		<span class="required">*</span>
-		严重逾期服务费率
-	</label>
-	<div class="input-group col-sm-4">
-		<input id="seriousOverdueFeeRate" class="form-control" type="text" name="seriousOverdueFeeRate" value="${borrowing.repaymentSeriousOverdueFeeRate}" maxlength="20" autocomplete="off" />
+		<input id="seriousOverdueInterestRate" class="form-control" type="text" name="seriousOverdueInterestRate" value="${borrowing.seriousOverdueInterestRate}" maxlength="20" autocomplete="off" />
 		<label class="input-group-addon">%/天</label>
 	</div>
 </div>

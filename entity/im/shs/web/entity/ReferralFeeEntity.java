@@ -26,8 +26,8 @@ import javax.persistence.Table;
  * @version 3.0
  */
 @Entity
-@Table(name = "p2p_referral_fee")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "p2p_referral_fee_sequence")
+@Table(name = "shs_referral_fee")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "shs_referral_fee_sequence")
 public class ReferralFeeEntity extends BaseEntity {
 
     /** serialVersionUID */
